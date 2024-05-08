@@ -38,7 +38,7 @@ footer {
 
 /* Custom CSS styles */
 #hero {
-    background-image: url('hero-background.jpg');
+    background-image: url('img/background.jpg');
     background-size: cover;
     background-position: center;
     color: #fff;
@@ -64,4 +64,3 @@ footer {
 .social-icons a:hover {
     color: #ffd700;
 }
-
