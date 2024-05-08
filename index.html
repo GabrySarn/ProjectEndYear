@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pippo - Il tuo nuovo brand</title>
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-5O7JwBYkloKw0brflaqjKkhTIK8ptIyPtF5r0rxO6BhtB3q91Kqy4m7OJv0tViC8A3tSe1Zy/l1TqZ9LgZ4Y1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
@@ -12,10 +13,10 @@
         <div class="container">
             <h1>Pippo</h1>
             <nav>
-                <ul>
-                    <li><a href="#auto">Auto</a></li>
-                    <li><a href="#abbigliamento">Abbigliamento</a></li>
-                    <li><a href="#sistema_operativo">Sistema Operativo</a></li>
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link" href="#auto">Auto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#abbigliamento">Abbigliamento</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#sistema_operativo">Sistema Operativo</a></li>
                 </ul>
             </nav>
         </div>
@@ -23,37 +24,122 @@
 
     <section id="auto">
         <div class="container">
-            <h2>Auto</h2>
-            <p>Scopri la nostra linea di auto innovative e sostenibili.</p>
-            <!-- Aggiungi immagini e descrizioni delle auto -->
+            <h2 class="text-center">Auto</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="auto1.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Modello 1</h5>
+                            <p class="card-text">Descrizione breve dell'auto.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="auto2.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Modello 2</h5>
+                            <p class="card-text">Descrizione breve dell'auto.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="auto3.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Modello 3</h5>
+                            <p class="card-text">Descrizione breve dell'auto.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <section id="abbigliamento">
         <div class="container">
-            <h2>Abbigliamento</h2>
-            <p>Esprimi il tuo stile con la nostra collezione di abbigliamento alla moda e sostenibile.</p>
-            <!-- Aggiungi immagini e descrizioni dell'abbigliamento -->
+            <h2 class="text-center">Abbigliamento</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="abbigliamento1.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Articolo 1</h5>
+                            <p class="card-text">Descrizione breve dell'articolo.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="abbigliamento2.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Articolo 2</h5>
+                            <p class="card-text">Descrizione breve dell'articolo.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="abbigliamento3.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Articolo 3</h5>
+                            <p class="card-text">Descrizione breve dell'articolo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
-
+    
     <section id="sistema_operativo">
         <div class="container">
-            <h2>Sistema Operativo</h2>
-            <p>Esperienza informatica all'avanguardia con il nostro sistema operativo.</p>
-            <!-- Aggiungi immagini e descrizioni del sistema operativo -->
+            <h2 class="text-center">Sistema Operativo</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="sistema_operativo1.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Versione 1</h5>
+                            <p class="card-text">Descrizione breve della versione.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="sistema_operativo2.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Versione 2</h5>
+                            <p class="card-text">Descrizione breve della versione.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="sistema_operativo3.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Versione 3</h5>
+                            <p class="card-text">Descrizione breve della versione.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </section>
+    </section>    
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Pippo. Tutti i diritti riservati.</p>
-            <div class="social-icons">
+            <p class="text-center">&copy; 2024 Pippo. Tutti i diritti riservati.</p>
+            <div class="social-icons text-center">
                 <a href="#" class="fab fa-facebook-f"></a>
                 <a href="#" class="fab fa-twitter"></a>
                 <a href="#" class="fab fa-instagram"></a>
             </div>
         </div>
     </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
