@@ -9,22 +9,47 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-5O7JwBYkloKw0brflaqjKkhTIK8ptIyPtF5r0rxO6BhtB3q91Kqy4m7OJv0tViC8A3tSe1Zy/l1TqZ9LgZ4Y1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Pippo</h1>
-            <nav>
-                <ul class="nav">
-                    <li class="nav-item"><a class="nav-link" href="#auto">Auto</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#abbigliamento">Abbigliamento</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#sistema_operativo">Sistema Operativo</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
-    <section id="auto">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <h2 class="text-center">Auto</h2>
+            <a class="navbar-brand" href="#">Pippo</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#auto">Auto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#abbigliamento">Abbigliamento</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sistema_operativo">Sistema Operativo</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h1>Esplora il nuovo mondo di Pippo</h1>
+                    <p class="lead">Scopri le nostre auto, l'abbigliamento alla moda e il rivoluzionario sistema operativo.</p>
+                    <a href="#auto" class="btn btn-primary">Scopri di più</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezione Auto -->
+    <section id="auto" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Auto</h2>
             <div class="row">
                 <div class="col-md-4 mb-4">
                     <div class="card">
@@ -57,9 +82,10 @@
         </div>
     </section>
 
-    <section id="abbigliamento">
+    <!-- Sezione Abbigliamento -->
+    <section id="abbigliamento" class="py-5 bg-light">
         <div class="container">
-            <h2 class="text-center">Abbigliamento</h2>
+            <h2 class="text-center mb-5">Abbigliamento</h2>
             <div class="row">
                 <div class="col-md-4 mb-4">
                     <div class="card">
@@ -91,10 +117,11 @@
             </div>
         </div>
     </section>
-    
-    <section id="sistema_operativo">
+
+    <!-- Sezione Sistema Operativo -->
+    <section id="sistema_operativo" class="py-5">
         <div class="container">
-            <h2 class="text-center">Sistema Operativo</h2>
+            <h2 class="text-center mb-5">Sistema Operativo</h2>
             <div class="row">
                 <div class="col-md-4 mb-4">
                     <div class="card">
@@ -125,21 +152,28 @@
                 </div>
             </div>
         </div>
-    </section>    
+    </section>
 
-    <footer>
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
         <div class="container">
-            <p class="text-center">&copy; 2024 Pippo. Tutti i diritti riservati.</p>
-            <div class="social-icons text-center">
-                <a href="#" class="fab fa-facebook-f"></a>
-                <a href="#" class="fab fa-twitter"></a>
-                <a href="#" class="fab fa-instagram"></a>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2024 Pippo. Tutti i diritti riservati.</p>
+                </div>
+                <div class="col-md-6 text-md-right">
+                    <div class="social-icons">
+                        <a href="#" class="fab fa-facebook-f"></a>
+                        <a href="#" class="fab fa-twitter"></a>
+                        <a href="#" class="fab fa-instagram"></a>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
