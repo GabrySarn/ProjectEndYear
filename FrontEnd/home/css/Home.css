@@ -1,5 +1,5 @@
  .u-section-1 {
-  background-image: url("../images/7d49b53f35a91fd08931b8dfa9ae7ac9.png");
+  background-image: url("../images/7d49b53f35a91fd08931b8dfa9ae7ac9.png"); /*imm iniziale*/
   background-position: 50% 100%;
 }
 
@@ -102,7 +102,7 @@
 
 .u-section-2 .u-image-1 {
   min-height: 403px;
-  background-image: url("../images/717db336de0fc087cdf0586a02d25594.png");
+  background-image: url("../images/photo1.jpg");
   background-position: 50% 50%;
 }
 
@@ -488,7 +488,7 @@
 
 .u-section-4 .u-image-1 {
   min-height: 568px;
-  background-image: url("../images/pexelsphoto3874342.jpeg");
+  background-image: url("../images/pexelsphoto3874342.jpeg"); /*imm Supra */
   background-position: 50% 50%;
 }
 
@@ -808,7 +808,7 @@
 }
 
 .u-section-6 .u-image-1 {
-  background-image: url("images/dsfdfmin.jpg");
+  background-image: url("images/photo1.jpg");
   min-height: 567px;
   background-position: 50% 50%;
 }
