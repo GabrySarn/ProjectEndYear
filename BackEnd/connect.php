@@ -3,7 +3,7 @@
 $dbhost = "localhost";
 $dbuser = "root";
 $dbpass = "";
-$dbname = "prova";
+$dbname = "blazerdb";
 $dbport = 3306;
 
 $conn = new mysqli($dbhost,$dbuser,$dbpass,$dbname,$dbport);

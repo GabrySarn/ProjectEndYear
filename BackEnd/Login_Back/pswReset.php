@@ -1,32 +1,34 @@
 <?php
-require 'connect.php';
+require '../connect.php';
 
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-if (!(
-    isset($_POST['email']) &&
-    isset($_POST['password'])
-)) {
+if (
+    !(
+        isset($_POST['email']) &&
+        isset($_POST['password'])
+    )
+) {
     echo '<script>alert("Campo Mancante");</script>';
 } else {
     $email = $_POST['email'];
     $passwordN = md5($_POST['password']);
 
 
-    $sql = "SELECT password FROM users WHERE email = '$email'";
+    $sql = "SELECT Password FROM utente WHERE Email = '$email'";
     $res = $conn->query($sql);
 
     if ($res !== false && $res->num_rows > 0) {
         $row = $res->fetch_assoc();
-        $passworddb = $row['password'];
+        $passworddb = $row['Password'];
 
-        $updateSql = "UPDATE users SET password = '$passwordN' where email = '$email'";
+        $updateSql = "UPDATE utente SET Password = '$passwordN' where Email = '$email'";
         $updateRes = $conn->query($sql);
 
         if ($conn->query($updateSql) === TRUE) {
-            $sql = "SELECT id, email FROM users WHERE email = ?";
+            $sql = "SELECT ID_utente, Email FROM utente WHERE Email = ?";
             $stmt = $conn->prepare($sql);
             $stmt->bind_param("s", $email);
             $stmt->execute();
@@ -39,18 +41,24 @@ if (!(
 
                 if (!(isset($_SESSION['email']) && (!isset($_SESSION['idUtente'])))) {
                     $_SESSION['email'] = $email;
-                    $_SESSION['idUtente'] = $row['id'];
+                    $_SESSION['idUtente'] = $row['ID_utente'];
                 } else {
                     echo 'errore';
                 }
 
                 $stmt->close();
-                //include 'Home.php';
+                header("Location: ../../FrontEnd/Home/index.html");
             } else {
                 echo '<script>alert("Utente non trovato, Registrati");</script>';
+                header("Location: ../../FrontEnd/Login/Login.html");
             }
-        } else    echo '<script>alert("Errore durante l\'inserimento!");</script>';
-    }else{
-            echo '<script>alert("Utente non esiste, Registrati!");</script>';
+        } else {
+            echo '<script>alert("Errore durante l\'inserimento!");</script>';
+            header("Location: ../../FrontEnd/Login/Login.html");
+        }
+    } else {
+        echo '<script>alert("Utente non esiste, Registrati!");</script>';
+        header("Location: ../../FrontEnd/Login/Login.html");
+
     }
 }

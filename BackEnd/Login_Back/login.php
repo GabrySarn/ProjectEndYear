@@ -1,18 +1,16 @@
 <?php
-require 'connect.php';
+require '../connect.php';
 
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
-} else
-    header("refresh:5;url= ../../FrontEnd/Login/Login.html");
-
+}
 
 if (isset($_POST['email']) && isset($_POST['password'])) {
     $email = $_POST['email'];
     $password = md5($_POST['password']);
 
 
-    $sql = "SELECT id, email FROM users WHERE email = ? AND password = ?";
+    $sql = "SELECT id, email FROM utente WHERE Email = ? AND Password = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ss", $email, $password);
     $stmt->execute();
@@ -22,13 +20,14 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
         $row = $res->fetch_assoc();
 
         $_SESSION['email'] = $email;
-        $_SESSION['idUtente'] = $row['id'];
+        $_SESSION['idUtente'] = $row['ID_utente'];
 
         $stmt->close();
-        include "noteHome.php";
+        header("Location: ../../FrontEnd/Home/index.html");
     } else {
         echo '<script>alert("Utente non trovato!");</script>';
+        header("Location: ../../FrontEnd/Login/Login.html");
     }
 } else {
-    //include "Home.php";
+    header("Location: ../../FrontEnd/Login/Login.html");
 }

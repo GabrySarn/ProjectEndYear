@@ -31,7 +31,7 @@ form {
 input[type="text"],
 input[type="email"],
 input[type="password"],
-input[type="number"] {
+input[type="date"] {
     width: 100%;
     padding: 12px;
     margin: 8px 0;
@@ -44,7 +44,7 @@ input[type="number"] {
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus,
-input[type="number"]:focus {
+input[type="date"]:focus {
     border-color: #007bff;
 }
 
@@ -92,3 +92,4 @@ a:hover {
 .container form input[type="submit"]:hover {
     background-color: #009dff; /* Cambio del colore al passaggio del mouse */
 }
+
