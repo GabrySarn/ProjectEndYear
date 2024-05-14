@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" type="text/css" href="styles/RegStyle.css">
+    <style>
+        .warning {
+            color: red;
+            font-size: 12px;
+            margin-left: 5px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Registrazione</h1>
+        <form action="php/register.php" method="post" class="registration-form" onsubmit="return validateForm()">
+            <input type="text" placeholder="Nome" name="nome" maxlength="20" required><br>
+            <input type="text" placeholder="Cognome" name="cognome" maxlength="30" required><br>
+            <input type="text" id="email" placeholder="Email" name="email" maxlength="50">
+            <span id="emailWarning" class="warning">Email errata!!</span><br>
+            <input type="password" id="password" placeholder="Password (min. 6 caratteri)" name="password">
+            <span id="passwordWarning" class="warning">
+                - La password dovrebbe essere di almeno 6 caratteri.<br>
+                - Deve contenere almeno una lettera maiuscola e una minuscola.<br>
+                - Deve contenere almeno un numero.<br>
+                - Deve contenere almeno un carattere speciale (!, @, #, $, %, ecc.).
+            </span><br>
+            <input type="number" name="yob" placeholder="Anno di nascità" maxlength="4" minlength="4"><br>
+            <input type="submit" value="Registrati">
+        </form>
+    </div>
+    <script src="js/check.js"></script>
+</body>
+
+</html>

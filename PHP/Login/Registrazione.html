@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" type="text/css" href="styles/RegStyle.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Registrazione</h1>
+        <form action="php/register.php" method="post" class="registration-form">
+            <input type="text" placeholder="Nome" name="nome" maxlength="20" required><br>
+            <input type="text" placeholder="Cognome" name="cognome" maxlength="30" required><br>
+            <input type="email" placeholder="Email" name="email" maxlength="50" required><br>
+            <input type="password" placeholder="Password" name="password" maxlength="20" required><br>
+            <input type="number" name="yob" placeholder="Anno di nascità" maxlength="4" required><br>
+
+            <p>Qual'è il tuo hobby?</p>
+            <label><input type="radio" name="radio" value="1"> Calcio</label>
+            <label><input type="radio" name="radio" value="2"> Basket</label>
+            <label><input type="radio" name="radio" value="3"> Tennis</label><br>
+
+            <input type="submit" value="Registrati">
+        </form>
+    </div>
+</body>
+
+</html>

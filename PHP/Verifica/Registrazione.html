@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" type="text/css" href="styles/RegStyle.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Registrazione</h1>
+        <form action="register.php" method="post">
+            <input type="text" placeholder="Nome" name="nome" maxlength="20" required><br>
+            <input type="text" placeholder="Cognome" name="cognome" maxlength="30" required><br>
+            <input type="email" placeholder="Email" name="email" maxlength="50" required><br>
+            <input type="password" id="password" placeholder="Password (min. 8 caratteri)" name="password" required>
+            <input type="submit" value="Registrati">
+        </form>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</html>

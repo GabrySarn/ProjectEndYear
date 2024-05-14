@@ -1,0 +1,27 @@
+th{
+    color: #ff0000;
+    font-family:"";
+    font-size: medium;
+}
+#greetings{
+    color: green;
+}
+
+.impact{
+    color: rgb(0, 85, 255);
+    font-family: "Andale Mono";
+    font-size: x-large;
+}
+
+.Josefin{
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.Pacifico{ 
+    font-family:'Pacifico', cursive;
+    padding-left: 20px;
+}
+
+.margine{
+    margin-top: 20px;
+}

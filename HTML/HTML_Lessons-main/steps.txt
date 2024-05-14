@@ -1,0 +1,9 @@
+- creare una cartella
+- rinominarla WebSite
+- con un editor
+(Visual Studio Code,
+Scite, Atom, Brackets, Notepad++,
+Blocco Note)
+create un file e lo chiamate
+index.html
+- per visualizzare: aprire il file con il browser

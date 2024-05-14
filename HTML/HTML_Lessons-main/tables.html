@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tabelle</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h2>Struttura base</h2>
+    <table>
+        <tr>
+            <td>Riga 1</td>
+            <td>Dato 1</td>
+            <td>Dato 2</td>
+            <td>Dato 3</td>
+        </tr>
+        <tr>
+            <td>Riga 2</td>
+            <td>Dato 1</td>
+            <td>Dato 2</td>
+            <td>Dato 3</td>
+        </tr>
+    </table>
+    <h2>Intestazioni nelle tabelle </h2>
+    <table border="solid"> 
+        <tr>
+            <th></th> 
+            <th>09:00</th> 
+            <th>10:00</th> 
+            <th>11:00</th> 
+            <th>12:00</th>
+        </tr> 
+        <tr>
+            <th>Lunedì</th>
+            <td colspan="2">Sistemi e Reti</td> 
+            <td>Informatica</td>
+            <td>TPSI</td>
+        </tr>
+    </table> 
+    <table border="solid">
+        <tr>
+            <th>16:00 - 17:00</th>
+            <td rowspan="2">Palestra</td> 
+        </tr>
+        <tr>
+            <th>17:00 - 18:00</th>
+        </tr>
+    </table> 
+    <table border="solid">
+        <thead>
+            <tr>
+                <th>Header della tabella</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Contenuto della tabella</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>Footer della tabella</td>
+            </tr>
+        </tfoot>
+    </table> 
+</body>
+</html>

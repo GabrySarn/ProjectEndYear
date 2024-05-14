@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modulo</title>
+</head>
+
+<body>
+
+    <div>
+        <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/modulo.html">Modulo</a></li>
+            <li><a href="/tabella.html">Tabella</a></li>
+        </ul>
+    </div>
+
+    <h1>Modulo</h1>
+
+    <form action="" method="post">
+        <div class="form-field">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" placeholder="inserisci nome" required>
+        </div>
+
+        <br>
+
+        <div class="form-field">
+            <label for="cognome">Cognome</label>
+            <input type="text" id="cognome" name="cognome" placeholder="inserisci cognome" required>
+        </div>
+
+        <br>
+
+        <div class="form-field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="inserisci email" required>
+        </div>
+
+        <br>
+
+        <div class="form-field">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="inserisci password" required>
+        </div>
+
+        <div class="form-field">
+            <label for="note">Note</label>
+            <textarea id="note" name="note"></textarea>
+        </div>
+
+        <br>
+
+        <div class="form-field">
+            <span>Genere</span>
+            <div>
+                <input type="radio" id="maschio" name="genere" value="maschio">
+                <label for="maschio">Maschio</label>
+
+            </div>
+
+            <div>
+                <input type="radio" id="femmina" name="genere" value="femmina">
+                <label for="femmina">Femmina</label>
+
+            </div>
+
+            <div>
+                <input type="radio" id="non binario" name="genere" value="non binario">
+                <label for="non binario">non binario</label>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="form-field">
+            <label for="data-nascita">Data di nascita</label>
+            <input type="date" id="data-nascita" name="data-nascita">
+        </div>
+
+        <br>
+
+        <div class="form-field">
+            <label for="macchine">Macchina preferita</label>
+            <select name="macchine" id="macchine">
+                <option value="tesla">Tesla</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option>
+            </select>
+        </div>
+
+        <br>
+
+        <div class="form-field">
+            <input type="checkbox" id="newsletter" name="newsletter">
+            <label for="newsletter">Iscriviti alla news letter</label>
+        </div>
+
+        <br>
+
+        <input type="submit" value="invio">
+        <input type="reset" value="cancella">
+
+    </form>
+
+</body>
+</html>

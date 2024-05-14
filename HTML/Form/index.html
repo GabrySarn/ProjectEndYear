@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <title>Form</title>
+</head>
+
+<body>
+    <form action="percorsoDelloScriptLatoServer/script.php" method="POST">
+        <p>Qui inseriremo i tag per l'input</p>
+        <!--Raccoglimento dati input-->
+
+        <form action="" method="POST">
+            <!--inserimento-->
+            Nome utente:
+            <input type="text" name="username" maxlength="20" placeholder="Nome utente" />
+            <br><br>
+            Password
+            <input type="password" name="password" maxlength="20" placeholder="Password" />
+
+            <p>Inserisci qui il tuo commento</p>
+            <textarea name="comments" cols="30" rows="10">
+                    Scrivi qui...
+                </textarea>
+            <!--inserimento scelta singola-->
+            <p>Il tuo genere?</p>
+            <input type="radio" name="gender" value="M" />M<br>
+            <input type="radio" name="gender" value="F" />F<br>
+            <input type="radio" name="gender" value="NB" />NB<br>
+            <input type="radio" name="gender" value="Faffo" />FAFFO<br>
+
+            <!--inserimento scelta multipla-->
+
+            <p>Il tuo linguaggio/i di programmazione preferito</p>
+            <input type="checkbox" name="cod_lang" value="Java" />Java
+            <input type="checkbox" name="cod_lang" value="Python" checked="checked" />Python
+            <input type="checkbox" name="cod_lang" value="C" />C
+            <input type="checkbox" name="cod_lang" value="PHP" />PHP
+            <input type="checkbox" name="cod_lang" value="C++" />C++<br><br>
+
+            <!--inserimento opzioni-->
+
+            <select name="devices">
+                <option value="tablet">Tablet</option>
+                <option value="pc">pc</option>
+                <option value="smartphone">Smartphone</option>
+            </select><br><br>
+
+            <input type="file" name="user-song" /><br> <br>
+            <input type="submit" value="Upload" />
+
+            <input type="image" src="strada.jpg"   width="300" height="200" />
+        </form>
+    </form>
+    </form>
+</body>
+
+</html>
