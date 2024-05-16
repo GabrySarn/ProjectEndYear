@@ -178,119 +178,36 @@
                 </div>
               </div>
             </div>';
+
+            while($row = $res->fetch_assoc()){
+
+              echo '<div class="u-list-item u-repeater-item">
+                <div class="u-container-layout u-similar-container u-container-layout-3">
+                  <img alt="" class="u-image u-image-contain u-image-default u-image-2" data-image-width="986"
+                    data-image-height="403" src="' . $row['ImgLink'] . '" data-animation-name="customAnimationIn"
+                    data-animation-duration="1500" title="">
+                  <div class="custom-expanded u-container-align-left u-container-style u-group u-shape-rectangle u-group-2"
+                    data-animation-name="customAnimationIn" data-animation-duration="1250" data-animation-delay="250">
+                    <div class="u-container-layout u-container-layout-4">
+                      <h4 class="u-align-left u-text u-text-6">' . $row['Modello'] . '</h4>
+                      <p class="u-align-left u-text u-text-7"> &nbsp;<span class="u-file-icon u-icon"><img
+                            src="' . $row['ImgLink'] . '" alt=""></span>&nbsp;Seats: ' . $row['Posti'] . '&nbsp;&nbsp;&nbsp;
+                      </p>
+                      <p class="u-align-left u-text u-text-8">' . $row['Descrizione'] . '</p>
+                      <a href="../configure/index.html?carId=2"
+                        class="u-active-palette-1-dark-2 u-align-left u-border-none u-btn u-btn-round u-button-style u-hover-palette-1-dark-2 u-palette-1-base u-radius-50 u-btn-2"
+                        data-animation-name="customAnimationIn" data-animation-duration="1500"
+                        data-animation-delay="750">Book now</a>
+                    </div>
+                  </div>
+                </div>
+              </div>';
+
+            }
         }else{
           echo "<h1>Nessun modello trovato<h1>";
         }
-
-
-
-
-
-
       ?>
-          
-          <div class="u-list-item u-repeater-item">
-            <div class="u-container-layout u-similar-container u-container-layout-3">
-              <img alt="" class="u-image u-image-contain u-image-default u-image-2" data-image-width="986"
-                data-image-height="403" src="images/jetx.png" data-animation-name="customAnimationIn"
-                data-animation-duration="1500" title="">
-              <div class="custom-expanded u-container-align-left u-container-style u-group u-shape-rectangle u-group-2"
-                data-animation-name="customAnimationIn" data-animation-duration="1250" data-animation-delay="250">
-                <div class="u-container-layout u-container-layout-4">
-                  <h4 class="u-align-left u-text u-text-6">Blazer JETX</h4>
-                  <p class="u-align-left u-text u-text-7"> &nbsp;<span class="u-file-icon u-icon"><img
-                        src="images/jetx.png" alt=""></span>&nbsp;Seats: 2&nbsp;&nbsp;&nbsp;<span
-                      class="u-file-icon u-icon"><img src="images/903530.png" alt=""></span>&nbsp; ​Suitcase: 1
-                  </p>
-                  <p class="u-align-left u-text u-text-8">
-                    Imagine a sleek sports car with bold design and exceptional performance. With its sharp lines and
-                    powerful engine, it embodies the thrill of speed and the passion for driving. Every curve is an
-                    opportunity for pure adrenaline, while cutting-edge technology ensures uncompromising control.</p>
-                  <a href="../configure/index.html?carId=2"
-                    class="u-active-palette-1-dark-2 u-align-left u-border-none u-btn u-btn-round u-button-style u-hover-palette-1-dark-2 u-palette-1-base u-radius-50 u-btn-2"
-                    data-animation-name="customAnimationIn" data-animation-duration="1500"
-                    data-animation-delay="750">Book now</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="u-list-item u-repeater-item">
-            <div class="u-container-layout u-similar-container u-container-layout-5">
-              <img alt="" class="u-image u-image-contain u-image-default u-image-3" data-image-width="986"
-                data-image-height="403" src="images/FF18.png" data-animation-name="customAnimationIn"
-                data-animation-duration="1500" title="">
-              <div class="custom-expanded u-container-align-left u-container-style u-group u-shape-rectangle u-group-3"
-                data-animation-name="customAnimationIn" data-animation-duration="1250" data-animation-delay="250">
-                <div class="u-container-layout u-container-layout-6">
-                  <h4 class="u-align-left u-text u-text-9">Blazer FF18</h4>
-                  <p class="u-align-left u-text u-text-10"> &nbsp;<span class="u-file-icon u-icon"><img
-                        src="images/FF18.png" alt=""></span>&nbsp;Seats: 4&nbsp;&nbsp;&nbsp;<span
-                      class="u-file-icon u-icon"><img src="images/903530.png" alt=""></span>&nbsp; ​Suitcase: 2
-                  </p>
-                  <p class="u-align-left u-text u-text-11">Imagine an elegant cabriolet, designed to captivate wherever
-                    it roams. With sleek lines and a sense of freedom, it's more than just a car—it's an icon of style
-                    and liberation.</p>
-                  <a href="../configure/index.html?carId=3"
-                    class="u-active-palette-1-dark-2 u-align-left u-border-none u-btn u-btn-round u-button-style u-hover-palette-1-dark-2 u-palette-1-base u-radius-50 u-btn-3"
-                    data-animation-name="customAnimationIn" data-animation-duration="1500"
-                    data-animation-delay="750">Book now</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="u-list-item u-repeater-item">
-            <div class="u-container-layout u-similar-container u-container-layout-7">
-              <img alt="" class="u-image u-image-contain u-image-default u-image-4" data-image-width="986"
-                data-image-height="403" src="images/mood.png" data-animation-name="customAnimationIn"
-                data-animation-duration="1500" title="">
-              <div class="custom-expanded u-container-align-left u-container-style u-group u-shape-rectangle u-group-4"
-                data-animation-name="customAnimationIn" data-animation-duration="1250" data-animation-delay="250">
-                <div class="u-container-layout u-container-layout-8">
-                  <h4 class="u-align-left u-text u-text-12">Blazer MOOD</h4>
-                  <p class="u-align-left u-text u-text-13"> &nbsp;<span class="u-file-icon u-icon"><img
-                        src="images/mood.png" alt=""></span>&nbsp;Seats: 4&nbsp;&nbsp;&nbsp;<span
-                      class="u-file-icon u-icon"><img src="images/903530.png" alt=""></span>&nbsp; ​Suitcase: 4
-                  </p>
-                  <p class="u-align-left u-text u-text-14">
-                    Imagine a versatile SUV, combining rugged capability with refined elegance. With advanced technology
-                    and superior performance, it offers a seamless driving experience, whether you're navigating city
-                    streets or exploring off-road trails. Comfortable, capable, and stylish, it's the perfect companion
-                    for all your adventures.</p>
-                  <a href="../configure/index.html?carId=4"
-                    class="u-active-palette-1-dark-2 u-align-left u-border-none u-btn u-btn-round u-button-style u-hover-palette-1-dark-2 u-palette-1-base u-radius-50 u-btn-4"
-                    data-animation-name="customAnimationIn" data-animation-duration="1500"
-                    data-animation-delay="750">Book now</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="u-list-item u-repeater-item">
-            <div class="u-container-layout u-similar-container u-container-layout-9">
-              <img alt="" class="u-image u-image-contain u-image-default u-image-5" data-image-width="986"
-                data-image-height="403" src="images/G-Wagon.png" data-animation-name="customAnimationIn"
-                data-animation-duration="1500">
-              <div class="custom-expanded u-container-align-left u-container-style u-group u-shape-rectangle u-group-5"
-                data-animation-name="customAnimationIn" data-animation-duration="1250" data-animation-delay="250">
-                <div class="u-container-layout u-container-layout-10">
-                  <h4 class="u-align-left u-text u-text-15">Blazer G-Wagon</h4>
-                  <p class="u-align-left u-text u-text-16"> &nbsp;<span class="u-file-icon u-icon"><img
-                        src="images/G-Wagon.png" alt=""></span>&nbsp;Seats: 7&nbsp; &nbsp;<span
-                      class="u-file-icon u-icon"><img src="images/903530.png" alt=""></span>&nbsp; ​Suitcase: 4
-                  </p>
-                  <p class="u-align-left u-text u-text-17">Imagine a versatile 7-seater station wagon, perfect for
-                    modern families. With its spacious interior and flexible seating, it effortlessly accommodates both
-                    passengers and cargo. Whether it's daily commutes or weekend getaways, this vehicle ensures comfort
-                    and convenience for every adventure.</p>
-                  <a href="../configure/index.html?carId=5"
-                    class="u-active-palette-1-dark-2 u-align-left u-border-none u-btn u-btn-round u-button-style u-hover-palette-1-dark-2 u-palette-1-base u-radius-50 u-btn-5"
-                    data-animation-name="customAnimationIn" data-animation-duration="1500"
-                    data-animation-delay="750">Book now</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
