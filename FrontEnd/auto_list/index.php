@@ -144,38 +144,51 @@
   <section class="u-align-center u-clearfix u-container-align-center u-section-1" id="sec-9718">
     <div class="u-clearfix u-sheet u-sheet-1">
       <h2 class="u-align-center u-text u-text-default u-text-1" data-animation-name="customAnimationIn"
-        data-animation-duration="1500"> Auto, SUV e Supercar</h2>
+        data-animation-duration="1500"> Auto, SUV and Supercar</h2>
       <p class="u-align-center u-text u-text-2" data-animation-name="customAnimationIn" data-animation-duration="1250"
         data-animation-delay="250"> Choose the vehicle you prefer, all you have to do is configure it to your liking.
       </p>
-      <div class="u-list u-list-1">
-        <div class="u-repeater u-repeater-1">
-          <div class="u-list-item u-repeater-item">
-            <div class="u-container-layout u-similar-container u-container-layout-1">
-              <img alt="" class="u-image u-image-contain u-image-default u-image-1" data-image-width="986"
-                data-image-height="403" src="images/x6.png" data-animation-name="customAnimationIn"
-                data-animation-duration="1500" title="">
-              <div class="custom-expanded u-container-style u-group u-shape-rectangle u-group-1"
-                data-animation-name="customAnimationIn" data-animation-duration="1250" data-animation-delay="250">
-                <div class="u-container-layout u-container-layout-2">
-                  <h4 class="u-align-left u-text u-text-3">Blazer X6</h4>
-                  <p class="u-align-left u-text u-text-4"> &nbsp;<span class="u-file-icon u-icon"><img
-                        src="images/x6.png" alt="" title=""></span>&nbsp;Seats: 4&nbsp;&nbsp;&nbsp;<span
-                      class="u-file-icon u-icon"><img src="images/903530.png" alt="" title=""></span>&nbsp;
-                    ​Suitcase: 2
-                  </p>
-                  <p class="u-align-left u-text u-text-5">Picture an affordable car designed for practicality and
-                    efficiency. With its compact size and fuel-efficient engine, it's perfect for navigating city
-                    streets and commuting with ease. Despite its affordability, it doesn't compromise on safety or
-                    comfort, making it an ideal choice for budget-conscious drivers. </p>
-                  <a href="#"
-                    class="u-active-palette-1-dark-2 u-align-left u-border-none u-btn u-btn-round u-button-style u-hover-palette-1-dark-2 u-palette-1-base u-radius-50 u-btn-1"
-                    data-animation-name="customAnimationIn" data-animation-duration="1500"
-                    data-animation-delay="750">Book now</a>
+
+      <?php
+        require_once '../../BackEnd/connect.php';
+        $sql="SELECT * FROM veicolo";
+        $res = $conn->query($sql);
+        if($res->num_rows>0){
+          $row = $res -> fetch_assoc();
+          echo '<div class="u-list u-list-1">
+          <div class="u-repeater u-repeater-1">
+            <div class="u-list-item u-repeater-item">
+              <div class="u-container-layout u-similar-container u-container-layout-1">
+                <img alt="" class="u-image u-image-contain u-image-default u-image-1" data-image-width="986"
+                  data-image-height="403" src="' . $row['ImgLink'] . '" data-animation-name="customAnimationIn"
+                  data-animation-duration="1500" title="">
+                <div class="custom-expanded u-container-style u-group u-shape-rectangle u-group-1"
+                  data-animation-name="customAnimationIn" data-animation-duration="1250" data-animation-delay="250">
+                  <div class="u-container-layout u-container-layout-2">
+                    <h4 class="u-align-left u-text u-text-3">' . $row['Modello'] . '</h4>
+                    <p class="u-align-left u-text u-text-4"> &nbsp;<span class="u-file-icon u-icon"><img
+                          src="' . $row['ImgLink'] . '" alt="" title=""></span>&nbsp;Seats: ' . $row['Posti'] . '&nbsp;&nbsp;&nbsp;
+                    </p>
+                    <p class="u-align-left u-text u-text-5">' . $row['Descrizione'] . '</p>
+                    <a href="../configure/index.html?carId=1"
+                      class="u-active-palette-1-dark-2 u-align-left u-border-none u-btn u-btn-round u-button-style u-hover-palette-1-dark-2 u-palette-1-base u-radius-50 u-btn-1"
+                      data-animation-name="customAnimationIn" data-animation-duration="1500"
+                      data-animation-delay="750">Book now</a>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
+            </div>';
+        }else{
+          echo "<h1>Nessun modello trovato<h1>";
+        }
+
+
+
+
+
+
+      ?>
+          
           <div class="u-list-item u-repeater-item">
             <div class="u-container-layout u-similar-container u-container-layout-3">
               <img alt="" class="u-image u-image-contain u-image-default u-image-2" data-image-width="986"
@@ -193,7 +206,7 @@
                     Imagine a sleek sports car with bold design and exceptional performance. With its sharp lines and
                     powerful engine, it embodies the thrill of speed and the passion for driving. Every curve is an
                     opportunity for pure adrenaline, while cutting-edge technology ensures uncompromising control.</p>
-                  <a href="#"
+                  <a href="../configure/index.html?carId=2"
                     class="u-active-palette-1-dark-2 u-align-left u-border-none u-btn u-btn-round u-button-style u-hover-palette-1-dark-2 u-palette-1-base u-radius-50 u-btn-2"
                     data-animation-name="customAnimationIn" data-animation-duration="1500"
                     data-animation-delay="750">Book now</a>
@@ -217,7 +230,7 @@
                   <p class="u-align-left u-text u-text-11">Imagine an elegant cabriolet, designed to captivate wherever
                     it roams. With sleek lines and a sense of freedom, it's more than just a car—it's an icon of style
                     and liberation.</p>
-                  <a href="#"
+                  <a href="../configure/index.html?carId=3"
                     class="u-active-palette-1-dark-2 u-align-left u-border-none u-btn u-btn-round u-button-style u-hover-palette-1-dark-2 u-palette-1-base u-radius-50 u-btn-3"
                     data-animation-name="customAnimationIn" data-animation-duration="1500"
                     data-animation-delay="750">Book now</a>
@@ -243,7 +256,7 @@
                     and superior performance, it offers a seamless driving experience, whether you're navigating city
                     streets or exploring off-road trails. Comfortable, capable, and stylish, it's the perfect companion
                     for all your adventures.</p>
-                  <a href="#"
+                  <a href="../configure/index.html?carId=4"
                     class="u-active-palette-1-dark-2 u-align-left u-border-none u-btn u-btn-round u-button-style u-hover-palette-1-dark-2 u-palette-1-base u-radius-50 u-btn-4"
                     data-animation-name="customAnimationIn" data-animation-duration="1500"
                     data-animation-delay="750">Book now</a>
@@ -268,7 +281,7 @@
                     modern families. With its spacious interior and flexible seating, it effortlessly accommodates both
                     passengers and cargo. Whether it's daily commutes or weekend getaways, this vehicle ensures comfort
                     and convenience for every adventure.</p>
-                  <a href="#"
+                  <a href="../configure/index.html?carId=5"
                     class="u-active-palette-1-dark-2 u-align-left u-border-none u-btn u-btn-round u-button-style u-hover-palette-1-dark-2 u-palette-1-base u-radius-50 u-btn-5"
                     data-animation-name="customAnimationIn" data-animation-duration="1500"
                     data-animation-delay="750">Book now</a>
