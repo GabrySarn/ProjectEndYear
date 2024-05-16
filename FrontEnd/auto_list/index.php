@@ -170,7 +170,7 @@
                           src="' . $row['ImgLink'] . '" alt="" title=""></span>&nbsp;Seats: ' . $row['Posti'] . '&nbsp;&nbsp;&nbsp;
                     </p>
                     <p class="u-align-left u-text u-text-5">' . $row['Descrizione'] . '</p>
-                    <a href="../configure/index.html?carId=1"
+                    <a href="../Configure/index.html?carId=1"
                       class="u-active-palette-1-dark-2 u-align-left u-border-none u-btn u-btn-round u-button-style u-hover-palette-1-dark-2 u-palette-1-base u-radius-50 u-btn-1"
                       data-animation-name="customAnimationIn" data-animation-duration="1500"
                       data-animation-delay="750">Book now</a>
@@ -194,7 +194,7 @@
                             src="' . $row['ImgLink'] . '" alt=""></span>&nbsp;Seats: ' . $row['Posti'] . '&nbsp;&nbsp;&nbsp;
                       </p>
                       <p class="u-align-left u-text u-text-8">' . $row['Descrizione'] . '</p>
-                      <a href="../configure/index.html?carId=2"
+                      <a href="../Configure/index.html?carId=2"
                         class="u-active-palette-1-dark-2 u-align-left u-border-none u-btn u-btn-round u-button-style u-hover-palette-1-dark-2 u-palette-1-base u-radius-50 u-btn-2"
                         data-animation-name="customAnimationIn" data-animation-duration="1500"
                         data-animation-delay="750">Book now</a>
