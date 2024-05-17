@@ -216,7 +216,7 @@
 
     <section class="u-backlink u-clearfix u-grey-80">
       <p class="u-text">
-        <span>This site was created by G.Sarnelli | A.Ricci | M.Ndoja </span>
+        <span>This site has been created by G.Sarnelli | A.Ricci | M.Ndoja </span>
       </p>
     </section>
   </footer>
