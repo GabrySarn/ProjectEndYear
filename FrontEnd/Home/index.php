@@ -1,3 +1,7 @@
+<?php
+include '../../BackEnd/Login_Back/chk.php';
+?>
+
 <!DOCTYPE html>
 <html style="font-size: 16px;" lang="it">
 
@@ -20,19 +24,61 @@
 
 
   <script type="application/ld+json">{
-		"@context": "http://schema.org",
-		"@type": "Organization",
-		"name": "",
-		"url": "/"
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": "",
+    "url": "/"
 }</script>
   <meta name="theme-color" content="#1c2122">
   <meta property="og:title" content="Home">
   <meta property="og:type" content="website">
   <link rel="canonical" href="/">
   <meta data-intl-tel-input-cdn-path="intlTelInput/">
+  <style>
+    .u-sheet {
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .u-menu {
+      display: flex;
+      align-items: center;
+    }
+
+    .login-info {
+      display: flex;
+      align-items: center;
+      margin-right: 20px;
+    }
+
+    .login-info img {
+      width: 43px;
+      height: 43px;
+      margin-right: 10px;
+    }
+
+    .username {
+      color: white;
+      margin-left: 2px;
+    }
+
+    .menu-collapse {
+      display: flex;
+      align-items: center;
+    }
+
+    .menu-collapse a {
+      display: flex;
+      align-items: center;
+      padding: 4px 0;
+      font-size: calc(1em + 8px);
+      color: white;
+    }
+  </style>
 </head>
 
-<body data-home-page="https://website6255922.nicepage.io/Home.html?version=45e1ef05-263c-1c9c-26df-1956dc26547c"
+<body 
   data-home-page-title="Home" data-path-to-root="./" data-include-products="false"
   class="u-body u-overlap u-overlap-transparent u-xl-mode" data-lang="it">
 
@@ -42,11 +88,23 @@
     data-section-properties="{&quot;grid-spacing&quot;:&quot;0&quot;,&quot;align&quot;:&quot;left&quot;,&quot;stretch&quot;:true}"
     id="sec-ef8c" data-source="" data-id="0699" style="background-image: none">
     <div class="u-clearfix u-sheet u-valign-middle u-block-0699-2" style="min-height: 87px">
-
-
       <nav
         class="u-align-left u-font-size-14 u-menu u-menu-hamburger u-nav-spacing-25 u-offcanvas u-block-control u-enable-responsive u-block-0699-3"
         data-responsive-from="XL" style="margin: 22px -87px 0px auto;" data-block="2" data-block-type="Menu">
+
+        <!-- BOTTONE LOGIN -->
+        <div class="login-info">
+          <a href="index.php?login=1">
+            <img class="u-image u-image-circle u-image-contain u-preserve-proportions u-block-control u-block-0699-17"
+              src="images/user.png" alt="Immagine utente" data-image-width="500" data-image-height="500" title=""
+              style="width: 43px; height: 43px;" data-block="11" data-block-type="Image">
+          </a>
+          <?php if ($isLoggedIn): ?>
+            <span class="username"><?= htmlspecialchars($username) ?></span>
+          <?php endif; ?>
+        </div>
+
+        <!-- MENU HAMBURGER -->
         <div class="menu-collapse">
           <a class="u-button-style u-custom-active-color u-custom-color u-custom-hover-color u-custom-text-color u-nav-link u-text-white"
             href="#" style="padding: 4px 0px; font-size: calc(1em + 8px);">
@@ -55,8 +113,6 @@
               <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-7b92"></use>
             </svg>
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
-              id="svg-7b92" x="0px" y="0px" viewBox="0 0 302 302" style="enable-background:new 0 0 302 302;"
-              id="svg-7b92" x="0px" y="0px" viewBox="0 0 302 302" style="enable-background:new 0 0 302 302;"
               id="svg-7b92" x="0px" y="0px" viewBox="0 0 302 302" style="enable-background:new 0 0 302 302;"
               xml:space="preserve" class="u-svg-content">
               <g>
@@ -82,6 +138,8 @@
                     data-page-id="49570372">Informazioni su</a></li>
                 <li class="u-nav-item"><a class="u-button-style u-nav-link" href="#"
                     data-page-id="73379526">Contatti</a></li>
+                <li class="u-nav-item"><a class="u-button-style u-nav-link" href="index.php?logout=1"
+                    data-page-id="73379526">Logout</a></li>
               </ul>
             </div>
           </div>
@@ -140,18 +198,9 @@
             }
           }
         </style>
-
-        <!--BOTTONE LOGIN-->
-      </nav><a href="../../BackEnd/Login_Back/chk.php"><img
-          class="u-image u-image-circle u-image-contain u-preserve-proportions u-block-control u-block-0699-17"
-          src="images/user.png" alt="" data-image-width="500" data-image-height="500" title=""
-          style="width: 43px; height: 43px; margin: -37.5px -43px 16.5px auto;" data-block="11"
-          data-block-type="Image"></a>
+      </nav>
     </div>
-
   </section>
-
-
 
   <section class="u-align-center u-clearfix u-image u-section-1" id="carousel_bd75" data-image-width="2048"
     data-image-height="1152">
@@ -494,12 +543,10 @@
                 decorated.</h2>
             </div>
           </div>
-        </div> 
+        </div>
       </div>
     </div>
   </section>
-
-
 
   <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-77b4">
 

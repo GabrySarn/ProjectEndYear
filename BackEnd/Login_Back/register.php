@@ -31,6 +31,7 @@ if (
 
         if ($conn->query($sql) === TRUE) {
             $_SESSION['email'] = $email;
+            $_SESSION['user'] = $nome;
 
             $sql = "SELECT ID_utente FROM utente WHERE Email = ?";
             $stmt = $conn->prepare($sql);
@@ -42,7 +43,7 @@ if (
                 $row = $res->fetch_assoc();
                 $_SESSION['idUtente'] = $row['ID_utente'];
 
-                header("Location: ../../FrontEnd/Home/index.html");
+                header("Location: ../../FrontEnd/Home/index.php");
             }
         } else {
             echo '<script>alert("Errore durante l\'inserimento!");</script>';
