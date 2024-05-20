@@ -31,21 +31,15 @@ include '../../BackEnd/Login_Back/chk.php';
   <meta property="og:type" content="website">
   <meta data-intl-tel-input-cdn-path="intlTelInput/">
   <style>
-    .login-info {
-      display: flex;
-      align-items: center;
-      /* Allinea l'immagine e il testo verticalmente */
-    }
-
-    .username {
-      margin-left: 5px;
-      /* Aggiunge un margine a sinistra del nome utente */
-    }
-
     .header-content {
       display: flex;
       align-items: center;
       justify-content: space-between;
+    }
+
+    .username {
+      margin-left: 5px;
+      margin-right: 15px;
     }
 
     .header-right {
@@ -53,6 +47,17 @@ include '../../BackEnd/Login_Back/chk.php';
       align-items: center;
     }
 
+    .login-info {
+      display: flex;
+      align-items: center;
+    }
+
+    .u-menu.u-menu-hamburger {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      transform: translateY(80%);
+    }
   </style>
 </head>
 
@@ -65,120 +70,119 @@ include '../../BackEnd/Login_Back/chk.php';
     id="sec-5a30" data-source="" data-id="2321" style="background-image: none">
 
 
-    <div class="u-clearfix u-sheet u-block-2321-2" style="min-height: 89px">
-      <div class="header-content">
-        <a href="#" class="u-image u-logo u-block-control u-block-2321-8" data-brightness=""
-          style="width: 64.8px; height: 64.8px; margin: 13px auto 0px -64.8px;" data-block="1" data-block-type="Logo"
-          data-image-width="500" data-image-height="500">
-          <img src="images/blazer-logo.png" class="u-logo-image u-block-2321-10" style="width: 100%; height: 100%"
-            data-block-type="">
-        </a>
+    <div class="u-clearfix u-sheet u-block-2321-2 header-content" style="min-height: 89px">
 
-        <div class="header-right">
-          <div class="login-info">
-            <a href="index.php?login=1" class="u-block-control u-block-0699-17">
-              <img class="u-image u-image-circle u-image-contain u-preserve-proportions" src="images/user.png" alt=""
-                style="width: 43px; height: 43px;">
-            </a>
-            <?php if ($isLoggedIn): ?>
-              <span class="username"><?= htmlspecialchars($username) ?></span>
-            <?php endif; ?>
-          </div>
+      <a href="../Home/index.php" class="u-image u-logo u-block-control u-block-2321-8" data-brightness=""
+        style="width: 64.8px; height: 64.8px; margin: 13px auto 0px -64.8px;" data-block="1" data-block-type="Logo"
+        data-image-width="500" data-image-height="500">
+        <img src="images/blazer-logo.png" class="u-logo-image u-block-2321-10" style="width: 100%; height: 100%"
+          data-block-type="">
+      </a>
 
-          <nav class="u-menu u-menu-hamburger u-offcanvas u-block-control u-enable-responsive u-block-2321-11"
-            data-responsive-from="XL" style="margin: -49.1501px -81px 0px auto;" data-block="2" data-block-type="Menu">
-
-            <!--Hamb Menu-->
-            <div class="menu-collapse" style="font-size: 1rem; font-weight: 700; letter-spacing: 0px;">
-              <a class="u-button-style u-custom-border u-custom-border-color u-custom-borders u-custom-left-right-menu-spacing u-custom-text-active-color u-custom-text-color u-custom-text-hover-color u-custom-top-bottom-menu-spacing u-nav-link"
-                href="#"><svg class="u-svg-link" viewBox="0 0 24 24">
-                  <use xlink:href="#menu-hamburger"></use>
-                </svg><svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px"
-                  xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
-                  <g>
-                    <rect y="1" width="16" height="2"></rect>
-                    <rect y="7" width="16" height="2"></rect>
-                    <rect y="13" width="16" height="2"></rect>
-                  </g>
-                </svg></a>
-            </div>
-            <div class="u-custom-menu u-nav-container-collapse">
-              <div
-                class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav u-block-control u-block-2321-14"
-                data-block="6" data-block-type="Menu,SideNavMenu">
-                <div class="u-inner-container-layout u-sidenav-overflow">
-                  <div class="u-menu-close u-block-control u-block-2321-15" data-block="7"></div>
-                  <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-block-control u-block-0699-7"
-                    style="font-size: 1rem" data-block="8">
-                    <li class="u-nav-item"><a class="u-button-style u-nav-link active" href="index.php"
-                        data-page-id="243124289">Home</a>
-                    </li>
-                    <li class="u-nav-item"><a class="u-button-style u-nav-link" href="#"
-                        data-page-id="49570372">Informazioni su</a></li>
-                    <li class="u-nav-item"><a class="u-button-style u-nav-link" href="#"
-                        data-page-id="73379526">Contatti</a></li>
-                    <li class="u-nav-item"><a class="u-button-style u-nav-link" href="index.php?logout=1"
-                        data-page-id="73379526">Logout</a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="u-black u-menu-overlay u-opacity u-opacity-70" style="display: block;"></div>
-            </div>
-            <style class="offcanvas-style">
-              .u-offcanvas .u-sidenav {
-                flex-basis: 250px !important;
-              }
-
-              .u-offcanvas:not(.u-menu-open-right) .u-sidenav {
-                margin-left: -250px;
-              }
-
-              .u-offcanvas.u-menu-open-right .u-sidenav {
-                margin-right: -250px;
-              }
-
-              @keyframes menu-shift-left {
-                from {
-                  left: 0;
-                }
-
-                to {
-                  left: 250px;
-                }
-              }
-
-              @keyframes menu-unshift-left {
-                from {
-                  left: 250px;
-                }
-
-                to {
-                  left: 0;
-                }
-              }
-
-              @keyframes menu-shift-right {
-                from {
-                  right: 0;
-                }
-
-                to {
-                  right: 250px;
-                }
-              }
-
-              @keyframes menu-unshift-right {
-                from {
-                  right: 250px;
-                }
-
-                to {
-                  right: 0;
-                }
-              }
-            </style>
-          </nav>
+      <div class="header-right">
+        <div class="login-info">
+          <a href="index.php?login=1" class="u-block-control u-block-0699-17">
+            <img class="u-image u-image-circle u-image-contain u-preserve-proportions" src="images/user.png" alt=""
+              style="width: 43px; height: 43px;">
+          </a>
+          <?php if ($isLoggedIn): ?>
+            <span class="username"><?= htmlspecialchars($username) ?></span>
+          <?php endif; ?>
         </div>
+
+        <nav class="u-menu u-menu-hamburger u-offcanvas u-block-control u-enable-responsive u-block-2321-11"
+          data-responsive-from="XL" style="margin: -49.1501px -81px 0px auto;" data-block="2" data-block-type="Menu">
+
+          <!--Hamb Menu-->
+          <div class="menu-collapse" style="font-size: 1rem; font-weight: 700; letter-spacing: 0px;">
+            <a class="u-button-style u-custom-border u-custom-border-color u-custom-borders u-custom-left-right-menu-spacing u-custom-text-active-color u-custom-text-color u-custom-text-hover-color u-custom-top-bottom-menu-spacing u-nav-link"
+              href="#"><svg class="u-svg-link" viewBox="0 0 24 24">
+                <use xlink:href="#menu-hamburger"></use>
+              </svg><svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px"
+                xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+                <g>
+                  <rect y="1" width="16" height="2"></rect>
+                  <rect y="7" width="16" height="2"></rect>
+                  <rect y="13" width="16" height="2"></rect>
+                </g>
+              </svg></a>
+          </div>
+          <div class="u-custom-menu u-nav-container-collapse">
+            <div
+              class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav u-block-control u-block-2321-14"
+              data-block="6" data-block-type="Menu,SideNavMenu">
+              <div class="u-inner-container-layout u-sidenav-overflow">
+                <div class="u-menu-close u-block-control u-block-2321-15" data-block="7"></div>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-block-control u-block-0699-7"
+                  style="font-size: 1rem" data-block="8">
+                  <li class="u-nav-item"><a class="u-button-style u-nav-link active" href="index.php"
+                      data-page-id="243124289">Home</a>
+                  </li>
+                  <li class="u-nav-item"><a class="u-button-style u-nav-link" href="#"
+                      data-page-id="49570372">Informazioni su</a></li>
+                  <li class="u-nav-item"><a class="u-button-style u-nav-link" href="#"
+                      data-page-id="73379526">Contatti</a></li>
+                  <li class="u-nav-item"><a class="u-button-style u-nav-link" href="index.php?logout=1"
+                      data-page-id="73379526">Logout</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="u-black u-menu-overlay u-opacity u-opacity-70" style="display: block;"></div>
+          </div>
+          <style class="offcanvas-style">
+            .u-offcanvas .u-sidenav {
+              flex-basis: 250px !important;
+            }
+
+            .u-offcanvas:not(.u-menu-open-right) .u-sidenav {
+              margin-left: -250px;
+            }
+
+            .u-offcanvas.u-menu-open-right .u-sidenav {
+              margin-right: -250px;
+            }
+
+            @keyframes menu-shift-left {
+              from {
+                left: 0;
+              }
+
+              to {
+                left: 250px;
+              }
+            }
+
+            @keyframes menu-unshift-left {
+              from {
+                left: 250px;
+              }
+
+              to {
+                left: 0;
+              }
+            }
+
+            @keyframes menu-shift-right {
+              from {
+                right: 0;
+              }
+
+              to {
+                right: 250px;
+              }
+            }
+
+            @keyframes menu-unshift-right {
+              from {
+                right: 250px;
+              }
+
+              to {
+                right: 0;
+              }
+            }
+          </style>
+        </nav>
       </div>
   </section>
 
@@ -211,7 +215,7 @@ include '../../BackEnd/Login_Back/chk.php';
                           src="' . $row['ImgLink'] . '" alt="" title=""></span>&nbsp;Seats: ' . $row['Posti'] . '&nbsp;&nbsp;&nbsp;
                     </p>
                     <p class="u-align-left u-text u-text-5">' . $row['Descrizione'] . '</p>
-                    <a href="../Configure/index.html?carId=1"
+                    <a href="../Configure/index.php?carId=1"
                       class="u-active-palette-1-dark-2 u-align-left u-border-none u-btn u-btn-round u-button-style u-hover-palette-1-dark-2 u-palette-1-base u-radius-50 u-btn-1"
                       data-animation-name="customAnimationIn" data-animation-duration="1500"
                       data-animation-delay="750">Book now</a>
@@ -235,7 +239,7 @@ include '../../BackEnd/Login_Back/chk.php';
                             src="' . $row['ImgLink'] . '" alt=""></span>&nbsp;Seats: ' . $row['Posti'] . '&nbsp;&nbsp;&nbsp;
                       </p>
                       <p class="u-align-left u-text u-text-8">' . $row['Descrizione'] . '</p>
-                      <a href="../Configure/index.html?carId=2"
+                      <a href="../Configure/index.php?carId=2"
                         class="u-active-palette-1-dark-2 u-align-left u-border-none u-btn u-btn-round u-button-style u-hover-palette-1-dark-2 u-palette-1-base u-radius-50 u-btn-2"
                         data-animation-name="customAnimationIn" data-animation-duration="1500"
                         data-animation-delay="750">Book now</a>

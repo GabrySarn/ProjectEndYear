@@ -55,7 +55,7 @@ include '../../BackEnd/Login_Back/chk.php';
     .login-info img {
       width: 43px;
       height: 43px;
-      margin-right: 10px;
+      margin-right: 5px;
     }
 
     .username {
@@ -68,13 +68,7 @@ include '../../BackEnd/Login_Back/chk.php';
       align-items: center;
     }
 
-    .menu-collapse a {
-      display: flex;
-      align-items: center;
-      padding: 4px 0;
-      font-size: calc(1em + 8px);
-      color: white;
-    }
+    
   </style>
 </head>
 
@@ -205,8 +199,12 @@ include '../../BackEnd/Login_Back/chk.php';
   <section class="u-align-center u-clearfix u-image u-section-1" id="carousel_bd75" data-image-width="2048"
     data-image-height="1152">
     <div class="u-clearfix u-sheet u-sheet-1">
-      <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-1" src="images/blazer-logo.png"
-        alt="" data-image-width="500" data-image-height="500" title="">
+    <a href="../Home/index.php" class="u-image u-logo u-block-control u-block-2321-8" data-brightness=""
+        style="width: 64.8px; height: 64.8px; margin: 13px auto 0px -64.8px;" data-block="1" data-block-type="Logo"
+        data-image-width="500" data-image-height="500">
+        <img src="images/blazer-logo.png" class="u-logo-image u-block-2321-10" style="width: 100%; height: 100%"
+          data-block-type="">
+      </a>
       <h1 class="u-custom-font u-font-lato u-text u-text-body-alt-color u-title u-text-1">Blazer</h1>
       <h4 class="u-custom-font u-text u-text-body-alt-color u-text-font u-text-2"> Driving has never been so special.
       </h4>

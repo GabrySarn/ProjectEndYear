@@ -1,3 +1,7 @@
+<?php
+include '../../BackEnd/Login_Back/chk.php';
+?>
+
 <!DOCTYPE html>
 <html style="font-size: 16px;" lang="it">
 
@@ -19,26 +23,52 @@
   <link id="u-page-google-font" rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i">
 
-
-
-
-
-
-
-
-
   <script type="application/ld+json">{
-		"@context": "http://schema.org",
-		"@type": "Organization",
-		"name": "",
-		"url": "/",
-		"logo": "images/blazer-logo.png"
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": "",
+    "url": "/",
+    "logo": "images/blazer-logo.png"
 }</script>
   <meta name="theme-color" content="#478ac9">
   <meta property="og:title" content="Pagina 1">
   <meta property="og:type" content="website">
   <link rel="canonical" href="/">
   <meta data-intl-tel-input-cdn-path="intlTelInput/">
+
+  <style>
+    .u-header .u-sheet-1 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .u-logo {
+      margin-right: auto;
+      /* Spinge il logo a sinistra */
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+    }
+
+    .login-info {
+      display: flex;
+      align-items: center;
+      margin-right: 15px;
+      /* Spazio tra il nome utente e il menu hamburger */
+    }
+
+    .login-info img {
+      margin-right: 5px;
+      /* Spazio tra l'immagine utente e il nome utente */
+    }
+
+    .u-menu.u-menu-hamburger {
+      margin: 0;
+    }
+  </style>
 </head>
 
 <body data-home-page="https://website6258029.nicepage.io/Pagina-1.html?version=779c6a8a-bc46-c7cc-4326-e9821f041e5f"
@@ -46,50 +76,59 @@
   class="u-body u-overlap u-overlap-contrast u-overlap-transparent u-xl-mode" data-lang="it">
   <header class="u-clearfix u-header u-header" id="sec-611f">
     <div class="u-clearfix u-sheet u-sheet-1">
-      <a href="#" class="u-image u-logo u-image-1" data-image-width="500" data-image-height="500">
+      <a href="../Home/index.php" class="u-image u-logo u-image-1" data-image-width="500" data-image-height="500">
         <img src="images/blazer-logo.png" class="u-logo-image u-logo-image-1" title="">
       </a>
-      <nav class="u-align-left u-font-size-14 u-menu u-menu-hamburger u-nav-spacing-25 u-offcanvas u-menu-1"
-        data-responsive-from="XL">
-        <div class="menu-collapse">
-          <a class="u-button-style u-nav-link" href="#" style="padding: 4px 0px; font-size: calc(1em + 8px);">
-            <svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 302 302" style="">
-              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-7b92"></use>
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
-              id="svg-7b92" x="0px" y="0px" viewBox="0 0 302 302" style="enable-background:new 0 0 302 302;"
-              xml:space="preserve" class="u-svg-content">
-              <g>
-                <rect y="36" width="302" height="30"></rect>
-                <rect y="236" width="302" height="30"></rect>
-                <rect y="136" width="302" height="30"></rect>
-              </g>
-            </svg>
+      <div class="header-right">
+        <div class="login-info">
+          <a href="index.php?login=1">
+            <img class="u-image u-image-circle u-image-contain u-preserve-proportions u-block-control u-block-0699-17"
+              src="images/user.png" alt="Immagine utente" data-image-width="500" data-image-height="500" title=""
+              style="width: 43px; height: 43px;" data-block="11" data-block-type="Image">
           </a>
+          <?php if ($isLoggedIn): ?>
+            <span class="username"><?= htmlspecialchars($username) ?></span>
+          <?php endif; ?>
         </div>
-   
-        <div class="u-custom-menu u-nav-container-collapse">
-          <div
-            class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav u-block-control u-block-2321-14"
-            data-block="6" data-block-type="Menu,SideNavMenu">
-            <div class="u-inner-container-layout u-sidenav-overflow">
-              <div class="u-menu-close u-block-control u-block-2321-15" data-block="7"></div>
-              <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-block-control u-block-2321-16"
-                style="font-size: 1.25rem" data-block="8" data-block-type="Menu,SideNavMenuItems">
-                <li class="u-nav-item"><a class="u-nav-link u-button-style" href="../Home/index.php">Home</a>
-                </li>
-                <li class="u-nav-item"><a class="u-nav-link u-button-style" href="#">Informazioni su</a></li>
-                <li class="u-nav-item"><a class="u-nav-link u-button-style" href="#">Contatti</a></li>
-              </ul>
-            </div>
+        <nav class="u-align-left u-font-size-14 u-menu u-menu-hamburger u-nav-spacing-25 u-offcanvas u-menu-1"
+          data-responsive-from="XL">
+          <div class="menu-collapse">
+            <a class="u-button-style u-nav-link" href="#" style="padding: 4px 0px; font-size: calc(1em + 8px);">
+              <svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 302 302" style="">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-7b92"></use>
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                id="svg-7b92" x="0px" y="0px" viewBox="0 0 302 302" style="enable-background:new 0 0 302 302;"
+                xml:space="preserve" class="u-svg-content">
+                <g>
+                  <rect y="36" width="302" height="30"></rect>
+                  <rect y="236" width="302" height="30"></rect>
+                  <rect y="136" width="302" height="30"></rect>
+                </g>
+              </svg>
+            </a>
           </div>
-          <div class="u-black u-menu-overlay u-opacity u-opacity-70" style="display: block;"></div>
-        </div>
-      </nav>
-      <img class="u-image u-image-circle u-image-contain u-preserve-proportions u-image-2" src="images/user.png" alt=""
-        data-image-width="512" data-image-height="512" title="">
+          <div class="u-custom-menu u-nav-container-collapse">
+            <div
+              class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav u-block-control u-block-2321-14"
+              data-block="6" data-block-type="Menu,SideNavMenu">
+              <div class="u-inner-container-layout u-sidenav-overflow">
+                <div class="u-menu-close u-block-control u-block-2321-15" data-block="7"></div>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-block-control u-block-2321-16"
+                  style="font-size: 1.25rem" data-block="8" data-block-type="Menu,SideNavMenuItems">
+                  <li class="u-nav-item"><a class="u-nav-link u-button-style" href="../Home/index.php">Home</a></li>
+                  <li class="u-nav-item"><a class="u-nav-link u-button-style" href="#">Informazioni su</a></li>
+                  <li class="u-nav-item"><a class="u-nav-link u-button-style" href="#">Contatti</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="u-black u-menu-overlay u-opacity u-opacity-70" style="display: block;"></div>
+          </div>
+        </nav>
+      </div>
     </div>
   </header>
+
   <section class="u-align-center u-clearfix u-image u-shading u-section-1" id="carousel_c016" data-image-width="1024"
     data-image-height="1024">
     <div class="u-clearfix u-sheet u-sheet-1">
@@ -106,7 +145,7 @@
               <h3 class="u-align-center u-custom-font u-font-lato u-text u-text-body-alt-color u-text-default u-text-2">
                 Basic </h3>
               <h5 class="u-align-center u-text u-text-palette-2-base u-text-3">$30.000</h5>
-              <img alt="" class="custom-expanded u-image u-image-default u-image-1" data-image-width="2836"
+              <img src="images/Basic.png" class="custom-expanded u-image  u-image-1" data-image-width="2836"
                 data-image-height="1875" src="images/d7eabcf5.svg">
               <ul class="u-align-left u-text u-text-4">
                 <li>Infotainment plus package</li>
@@ -121,8 +160,8 @@
             <div class="u-container-layout u-similar-container u-container-layout-2">
               <h3 class="u-align-center u-custom-font u-font-lato u-text u-text-body-alt-color u-text-default u-text-5">
                 Business</h3>
-              <h5 class="u-align-center u-text u-text-palette-2-base u-text-6"> $40.000</h5>
-              <img alt="" class="custom-expanded u-image u-image-default u-image-2" data-image-width="2836"
+              <h5 class="u-align-center u-text u-text-palette-2-base u-text-6">$40.000</h5>
+              <img src="images/Buisness.png" alt="" class="custom-expanded u-image u-image-default u-image-2" data-image-width="2836"
                 data-image-height="1875" src="images/d7eabcf5.svg">
               <ul class="u-align-left u-text u-text-7">
                 <li>16" alloy wheels</li>
@@ -141,7 +180,7 @@
               <h3 class="u-align-center u-custom-font u-font-lato u-text u-text-body-alt-color u-text-default u-text-8">
                 Sport</h3>
               <h5 class="u-align-center u-text u-text-palette-2-base u-text-9">$55.000</h5>
-              <img alt="" class="custom-expanded u-image u-image-default u-image-3" data-image-width="2836"
+              <img src="images/Sports.png" alt="" class="custom-expanded u-image u-image-default u-image-3" data-image-width="2836"
                 data-image-height="1875" src="images/d7eabcf5.svg">
               <ul class="u-align-left u-text u-text-10">
                 <li>18" alloy wheels</li>
@@ -305,7 +344,7 @@
       </div>
     </div>
   </section>
- 
+
 
 
 
