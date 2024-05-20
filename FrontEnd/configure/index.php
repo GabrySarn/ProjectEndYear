@@ -329,11 +329,11 @@ include '../../BackEnd/Login_Back/chk.php';
               <div class="u-layout-row">
                 <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-3">
                   <div class="u-container-layout u-valign-middle u-container-layout-3">
-                    <h2 class="u-text u-text-2">Sample Headline</h2>
+                    <h2 class="u-text u-text-2">Panoramic roof car</h2>
                     <a href="" class="u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-2">add now </a>
                   </div>
                 </div>
-                <div class="u-container-style u-image u-layout-cell u-right-cell u-size-30 u-image-2" src=""
+                <div class="u-container-style u-image u-layout-cell u-right-cell u-size-30 u-image-2" src="images/panoramic_roof.png"
                   data-image-width="1080" data-image-height="1080">
                   <div class="u-container-layout u-valign-middle u-container-layout-4"></div>
                 </div>
