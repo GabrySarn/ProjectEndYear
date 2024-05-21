@@ -68,6 +68,25 @@ include '../../BackEnd/Login_Back/chk.php';
     .u-menu.u-menu-hamburger {
       margin: 0;
     }
+
+    .u-image-2 {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .full-width-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .u-container-layout-4 {
+      width: 100%;
+      height: 100%;
+    }
   </style>
 </head>
 
@@ -161,8 +180,8 @@ include '../../BackEnd/Login_Back/chk.php';
               <h3 class="u-align-center u-custom-font u-font-lato u-text u-text-body-alt-color u-text-default u-text-5">
                 Business</h3>
               <h5 class="u-align-center u-text u-text-palette-2-base u-text-6">$40.000</h5>
-              <img src="images/Buisness.png" alt="" class="custom-expanded u-image u-image-default u-image-2" data-image-width="2836"
-                data-image-height="1875" src="images/d7eabcf5.svg">
+              <img src="images/Buisness.png" alt="" class="custom-expanded u-image u-image-default u-image-2"
+                data-image-width="2836" data-image-height="1875" src="images/d7eabcf5.svg">
               <ul class="u-align-left u-text u-text-7">
                 <li>16" alloy wheels</li>
                 <li>LED front headlights</li>
@@ -180,8 +199,8 @@ include '../../BackEnd/Login_Back/chk.php';
               <h3 class="u-align-center u-custom-font u-font-lato u-text u-text-body-alt-color u-text-default u-text-8">
                 Sport</h3>
               <h5 class="u-align-center u-text u-text-palette-2-base u-text-9">$55.000</h5>
-              <img src="images/Sports.png" alt="" class="custom-expanded u-image u-image-default u-image-3" data-image-width="2836"
-                data-image-height="1875" src="images/d7eabcf5.svg">
+              <img src="images/Sports.png" alt="" class="custom-expanded u-image u-image-default u-image-3"
+                data-image-width="2836" data-image-height="1875" src="images/d7eabcf5.svg">
               <ul class="u-align-left u-text u-text-10">
                 <li>18" alloy wheels</li>
                 <li>S line aesthetics</li>
@@ -286,6 +305,7 @@ include '../../BackEnd/Login_Back/chk.php';
                 </div>
               </div>
             </div>
+
             <div class="u-size-30">
               <div class="u-layout-row">
                 <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-3">
@@ -329,13 +349,13 @@ include '../../BackEnd/Login_Back/chk.php';
               <div class="u-layout-row">
                 <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-3">
                   <div class="u-container-layout u-valign-middle u-container-layout-3">
-                    <h2 class="u-text u-text-2">Panoramic roof car</h2>
-                    <a href="" class="u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-2">add now </a>
+                    <h2 class="u-text u-text-3">Panoramic Roof</h2>
+                    <a href="#" class="u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-2">add now</a>
                   </div>
                 </div>
-                <div class="u-container-style u-image u-layout-cell u-right-cell u-size-30 u-image-2" src="images/panoramic_roof.png"
-                  data-image-width="1080" data-image-height="1080">
-                  <div class="u-container-layout u-valign-middle u-container-layout-4"></div>
+                <div class="u-container-style u-image u-layout-cell u-right-cell u-size-30 u-image-2"
+                  data-image-width="400" data-image-height="225">
+                  <img src="images/panoramic_roof.jpg" alt="Panoramic Roof" class="full-width-image">
                 </div>
               </div>
             </div>
