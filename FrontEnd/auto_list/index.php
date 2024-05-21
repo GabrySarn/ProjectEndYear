@@ -56,7 +56,7 @@ include '../../BackEnd/Login_Back/chk.php';
       margin: 0;
       display: flex;
       align-items: center;
-      transform: translateY(80%);
+      
     }
   </style>
 </head>
@@ -68,8 +68,6 @@ include '../../BackEnd/Login_Back/chk.php';
     data-post-id="post9"
     data-section-properties="{&quot;grid-spacing&quot;:&quot;0&quot;,&quot;align&quot;:&quot;left&quot;,&quot;stretch&quot;:true}"
     id="sec-5a30" data-source="" data-id="2321" style="background-image: none">
-
-
     <div class="u-clearfix u-sheet u-block-2321-2 header-content" style="min-height: 89px">
 
       <a href="../Home/index.php" class="u-image u-logo u-block-control u-block-2321-8" data-brightness=""
