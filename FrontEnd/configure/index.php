@@ -248,11 +248,11 @@ include '../../BackEnd/Login_Back/chk.php';
           <div class="u-align-center u-container-style u-products-item u-repeater-item" data-product-id="4">
             <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3"><!--product_title-->
               <h4 class="u-align-center u-custom-font u-font-lato u-product-control u-text u-text-default u-text-3">
-                <a class="u-product-title-link" href="products/rims.html">Rims</a>
+                <a class="u-product-title-link" href="products/wheel.html">Wheels</a>
               </h4><!--/product_title--><!--product_image-->
-              <a class="u-product-title-link" href="products/rims.html"><img alt=""
+              <a class="u-product-title-link" href="products/wheel.html"><img alt=""
                   class="custom-expanded u-image u-image-contain u-image-default u-product-control u-image-3"
-                  src="images/images-1.jpeg" title=""></a><!--/product_image-->
+                  src="images/wheels.jpeg" title=""></a><!--/product_image-->
             </div>
           </div><!--/product_item--><!--product_item-->
           <div class="u-align-center u-container-style u-products-item u-repeater-item" data-product-id="3">
@@ -265,9 +265,6 @@ include '../../BackEnd/Login_Back/chk.php';
                   src="images/Interni-1.jpg" title=""></a><!--/product_image-->
             </div>
           </div><!--/product_item-->
-
-
-
         </div>
         <div class="u-list-control"></div>
 
