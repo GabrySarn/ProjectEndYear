@@ -241,7 +241,7 @@ include '../../BackEnd/Login_Back/chk.php';
               </h4><!--/product_title--><!--product_image-->
               <a class="u-product-title-link" href="products/motorization.html"><img alt=""
                   class="custom-expanded u-image u-image-contain u-image-default u-product-control u-image-2"
-                  src="images/Designer1.jpeg" title=""></a><!--/product_image-->
+                  src="images/Motor.jpeg" title=""></a><!--/product_image-->
             </div>
           </div><!--/product_item--><!--product_item-->
           <div class="u-align-center u-container-style u-products-item u-repeater-item" data-product-id="4">

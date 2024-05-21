@@ -52,12 +52,7 @@ include '../../BackEnd/Login_Back/chk.php';
       align-items: center;
     }
 
-    .u-menu.u-menu-hamburger {
-      margin: 0;
-      display: flex;
-      align-items: center;
-      
-    }
+    
   </style>
 </head>
 
@@ -89,7 +84,8 @@ include '../../BackEnd/Login_Back/chk.php';
         </div>
 
         <nav class="u-menu u-menu-hamburger u-offcanvas u-block-control u-enable-responsive u-block-2321-11"
-          data-responsive-from="XL" style="margin: -49.1501px -81px 0px auto;" data-block="2" data-block-type="Menu">
+      data-responsive-from="XL" style=" margin-right: 15px; margin-left: 5px;">
+
 
           <!--Hamb Menu-->
           <div class="menu-collapse" style="font-size: 1rem; font-weight: 700; letter-spacing: 0px;">

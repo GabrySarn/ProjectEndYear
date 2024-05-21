@@ -124,17 +124,7 @@
                         opt.checked = false;
                       }
                     });
-                    // Aggiorna l'URL dell'immagine con il motore selezionato
-                    const motor = option.getAttribute('data-motor');
-                    carouselImages.forEach(img => {
-                      img.src = `motors/${motor}.png`; // Assumi che le immagini siano nel formato "motore.png" nella cartella "motors"
-                    });
-                  } else {
-                    // Se nessuna checkbox è selezionata, mostra l'immagine di default
-                    carouselImages.forEach(img => {
-                      img.src = `motors/${motor}.png`; // Immagine di default se nessun motore è selezionato
-                    });
-                  }
+                  } 
                 });
               });
             </script>
