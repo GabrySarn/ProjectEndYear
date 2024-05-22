@@ -1,15 +1,37 @@
 <?php
 include '../../BackEnd/Login_Back/chk.php';
+require_once '../../BackEnd/connect.php';
+
+// Imposta l'ID del veicolo selezionato nella sessione
+if (isset($_GET['setCarId'])) {
+  $_SESSION['carId'] = $_GET['setCarId'];
+  header('Location: ../Configure/index.php');
+  exit();
+}
+
+// Fetch veicoli dal database
+$sql = "SELECT * FROM veicolo";
+$res = $conn->query($sql);
+
+$vehicles = [];
+if ($res->num_rows > 0) {
+  while ($row = $res->fetch_assoc()) {
+    $vehicles[] = $row;
+  }
+}
+
+$isLoggedIn = isset($_SESSION['username']);
+$username = $isLoggedIn ? $_SESSION['username'] : '';
 ?>
 
 <!DOCTYPE html>
-<html style="font-size: 16px;" lang="it">
+<html style="font-size: 16px;" lang="en">
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
   <meta name="keywords"
-    content="​Best valued deals from top car rental companies in USA, ​Best car &amp;amp; van rentals from top suppliers">
+    content="Best valued deals from top car rental companies in USA, Best car & van rentals from top suppliers">
   <meta name="description" content="">
   <title>Cars list</title>
   <link rel="stylesheet" href="nicepage.css" media="screen">
@@ -19,13 +41,12 @@ include '../../BackEnd/Login_Back/chk.php';
   <meta name="generator" content="Nicepage 6.9.16, nicepage.com">
   <link id="u-theme-google-font" rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
-
   <script type="application/ld+json">{
-    "@context": "http://schema.org",
-    "@type": "Organization",
-    "name": "",
-    "logo": "images/blazer-logo.png"
-}</script>
+      "@context": "http://schema.org",
+      "@type": "Organization",
+      "name": "",
+      "logo": "images/blazer-logo.png"
+    }</script>
   <meta name="theme-color" content="#3151aa">
   <meta property="og:title" content="Home 1">
   <meta property="og:type" content="website">
@@ -34,6 +55,7 @@ include '../../BackEnd/Login_Back/chk.php';
     html {
       scrollbar-gutter: stable;
     }
+
     .header-content {
       display: flex;
       align-items: center;
@@ -53,12 +75,13 @@ include '../../BackEnd/Login_Back/chk.php';
     .login-info {
       display: flex;
       align-items: center;
+      margin-right: 10px;
     }
   </style>
 </head>
 
 <body data-home-page-title="Home 1" data-path-to-root="./" data-include-products="false" class="u-body u-xl-mode"
-  data-lang="it">
+  data-lang="en">
 
   <section class="u-clearfix u-header u-block-2321-1" custom-posts-hash="[]" data-style="header-imglogo-menu"
     data-post-id="post9"
@@ -86,9 +109,6 @@ include '../../BackEnd/Login_Back/chk.php';
 
         <nav class="u-menu u-menu-hamburger u-offcanvas u-block-control u-enable-responsive u-block-2321-11"
           data-responsive-from="XL" style=" margin-right: 15px; margin-left: 5px;">
-
-
-          <!--Hamb Menu-->
           <div class="menu-collapse" style="font-size: 1rem; font-weight: 700; letter-spacing: 0px;">
             <a class="u-button-style u-custom-border u-custom-border-color u-custom-borders u-custom-left-right-menu-spacing u-custom-text-active-color u-custom-text-color u-custom-text-hover-color u-custom-top-bottom-menu-spacing u-nav-link"
               href="#"><svg class="u-svg-link" viewBox="0 0 24 24">
@@ -113,8 +133,8 @@ include '../../BackEnd/Login_Back/chk.php';
                   <li class="u-nav-item"><a class="u-button-style u-nav-link active" href="../Home/index.php"
                       data-page-id="243124289">Home</a>
                   </li>
-                  <li class="u-nav-item"><a class="u-button-style u-nav-link" href="../Info/aboutus.html" data-page-id="49570372">About
-                      Us</a></li>
+                  <li class="u-nav-item"><a class="u-button-style u-nav-link" href="../Info/aboutus.html"
+                      data-page-id="49570372">About Us</a></li>
                   <li class="u-nav-item"><a class="u-button-style u-nav-link" href="../Info/contacts.html"
                       data-page-id="73379526">Contacts</a></li>
                   <li class="u-nav-item"><a class="u-button-style u-nav-link" href="index.php?logout=1"
@@ -179,85 +199,53 @@ include '../../BackEnd/Login_Back/chk.php';
           </style>
         </nav>
       </div>
-  </section>
-
-  <section class="u-align-center u-clearfix u-container-align-center u-section-1" id="sec-9718">
-    <div class="u-clearfix u-sheet u-sheet-1">
-      <h2 class="u-align-center u-text u-text-default u-text-1" data-animation-name="customAnimationIn"
-        data-animation-duration="1500"> Auto, SUV and Supercar</h2>
-      <p class="u-align-center u-text u-text-2" data-animation-name="customAnimationIn" data-animation-duration="1250"
-        data-animation-delay="250"> Choose the vehicle you prefer, all you have to do is configure it to your liking.
-      </p>
-
-      <?php
-      require_once '../../BackEnd/connect.php';
-      $sql = "SELECT * FROM veicolo";
-      $res = $conn->query($sql);
-      if ($res->num_rows > 0) {
-        $row = $res->fetch_assoc();
-        echo '<div class="u-list u-list-1">
-          <div class="u-repeater u-repeater-1">
-            <div class="u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-1">
-                <img alt="" class="u-image u-image-contain u-image-default u-image-1" data-image-width="986"
-                  data-image-height="403" src="' . $row['ImgLink'] . '" data-animation-name="customAnimationIn"
-                  data-animation-duration="1500" title="">
-                <div class="custom-expanded u-container-style u-group u-shape-rectangle u-group-1"
-                  data-animation-name="customAnimationIn" data-animation-duration="1250" data-animation-delay="250">
-                  <div class="u-container-layout u-container-layout-2">
-                    <h4 class="u-align-left u-text u-text-3">' . $row['Modello'] . '</h4>
-                    <p class="u-align-left u-text u-text-4"> &nbsp;<span class="u-file-icon u-icon"><img
-                          src="' . $row['ImgLink'] . '" alt="" title=""></span>&nbsp;Seats: ' . $row['Posti'] . '&nbsp;&nbsp;&nbsp;
-                    </p>
-                    <p class="u-align-left u-text u-text-5">' . $row['Descrizione'] . '</p>
-                    <a href="../Configure/index.php?carId=1"
-                      class="u-active-palette-1-dark-2 u-align-left u-border-none u-btn u-btn-round u-button-style u-hover-palette-1-dark-2 u-palette-1-base u-radius-50 u-btn-1"
-                      data-animation-name="customAnimationIn" data-animation-duration="1500"
-                      data-animation-delay="750">Book now</a>
-                  </div>
-                </div>
-              </div>
-            </div>';
-
-        while ($row = $res->fetch_assoc()) {
-
-          echo '<div class="u-list-item u-repeater-item">
-                <div class="u-container-layout u-similar-container u-container-layout-3">
-                  <img alt="" class="u-image u-image-contain u-image-default u-image-2" data-image-width="986"
-                    data-image-height="403" src="' . $row['ImgLink'] . '" data-animation-name="customAnimationIn"
-                    data-animation-duration="1500" title="">
-                  <div class="custom-expanded u-container-align-left u-container-style u-group u-shape-rectangle u-group-2"
-                    data-animation-name="customAnimationIn" data-animation-duration="1250" data-animation-delay="250">
-                    <div class="u-container-layout u-container-layout-4">
-                      <h4 class="u-align-left u-text u-text-6">' . $row['Modello'] . '</h4>
-                      <p class="u-align-left u-text u-text-7"> &nbsp;<span class="u-file-icon u-icon"><img
-                            src="' . $row['ImgLink'] . '" alt=""></span>&nbsp;Seats: ' . $row['Posti'] . '&nbsp;&nbsp;&nbsp;
-                      </p>
-                      <p class="u-align-left u-text u-text-8">' . $row['Descrizione'] . '</p>
-                      <a href="../Configure/index.php?carId=2"
-                        class="u-active-palette-1-dark-2 u-align-left u-border-none u-btn u-btn-round u-button-style u-hover-palette-1-dark-2 u-palette-1-base u-radius-50 u-btn-2"
-                        data-animation-name="customAnimationIn" data-animation-duration="1500"
-                        data-animation-delay="750">Book now</a>
-                    </div>
-                  </div>
-                </div>
-              </div>';
-
-        }
-      } else {
-        echo "<h1>Nessun modello trovato<h1>";
-      }
-      ?>
     </div>
   </section>
 
+  <section class="u-align-center u-clearfix u-section-1" id="sec-d1d3">
+    <div class="u-clearfix u-sheet u-sheet-1">
+      <h2 class="u-align-center u-text u-text-1" data-animation-name="customAnimationIn" data-animation-duration="1250"
+        data-animation-delay="250">Choose your favorite model of SUVs and Supercars</h2>
+      <p class="u-align-center u-text u-text-2" data-animation-name="customAnimationIn" data-animation-duration="1250"
+        data-animation-delay="250">Choose the vehicle you prefer, all you have to do is configure it to your liking.</p>
+
+      <?php if (count($vehicles) > 0): ?>
+        <div class="u-list u-list-1">
+          <div class="u-repeater u-repeater-1">
+            <?php foreach ($vehicles as $vehicle): ?>
+              <div class="u-list-item u-repeater-item">
+                <div class="u-container-layout u-similar-container u-container-layout-3">
+                  <img alt="" class="u-image u-image-contain u-image-default u-image-2" data-image-width="986"
+                    data-image-height="403" src="<?= htmlspecialchars($vehicle['ImgLink']);?>"
+                    data-animation-name="customAnimationIn" data-animation-duration="1500" title="">
+                  <div class="custom-expanded u-container-align-left u-container-style u-group u-shape-rectangle u-group-2"
+                    data-animation-name="customAnimationIn" data-animation-duration="1250" data-animation-delay="250">
+                    <div class="u-container-layout u-container-layout-4">
+                      <h4 class="u-align-left u-text u-text-6"><?= htmlspecialchars($vehicle['Modello']);?></h4>
+                      <p class="u-align-left u-text u-text-7"> &nbsp;<span class="u-file-icon u-icon"><img
+                            src="<?= htmlspecialchars($vehicle['ImgLink']);?>" alt=""></span>&nbsp;Seats:
+                        <?= htmlspecialchars($vehicle['Posti']);?>&nbsp;&nbsp;&nbsp;</p>
+                      <p class="u-align-left u-text u-text-8"><?= htmlspecialchars($vehicle['Descrizione']);?></p>
+                      <a href="index.php?setCarId=<?= htmlspecialchars($vehicle['ID_auto']);?>"
+                        class="u-active-palette-1-dark-2 u-align-left u-border-none u-btn u-btn-round u-button-style u-hover-palette-1-dark-2 u-palette-1-base u-radius-50 u-btn-2"
+                        data-animation-name="customAnimationIn" data-animation-duration="1500"
+                        data-animation-delay="750">Book Now</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <?php endforeach; ?>
+          </div>
+        </div>
+      <?php else: ?>
+        <h1>No models found</h1>
+      <?php endif; ?>
+    </div>
+  </section>
 
   <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-77b4">
-
     <section class="u-backlink u-clearfix u-grey-80">
-      <p class="u-text">
-        <span>This site has been created by G.Sarnelli | A.Ricci | M.Ndoja </span>
-      </p>
+      <p class="u-text"><span>This site was created by G.Sarnelli | A.Ricci | M.Ndoja</span></p>
     </section>
   </footer>
 
