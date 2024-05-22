@@ -365,7 +365,12 @@ include '../../BackEnd/Login_Back/chk.php';
     </div>
   </section>
 
-
+  <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-3">
+                  <div class="u-container-layout u-valign-middle u-container-layout-3">
+  <a href="" class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle 
+  u-button-style u-none u-text-body-color u-btn-3">Confirm</a>
+                  </div>
+                </div>
 
 
   <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-d004">
@@ -545,6 +550,9 @@ include '../../BackEnd/Login_Back/chk.php';
         right: 20px;
       }
     }
+    .footer {
+            text-align: center;
+        }
   </style>
   <section
     class="u-align-center u-black u-clearfix u-container-style u-dialog-block u-opacity u-opacity-70 u-dialog-section-10"
