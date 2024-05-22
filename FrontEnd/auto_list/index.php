@@ -31,6 +31,9 @@ include '../../BackEnd/Login_Back/chk.php';
   <meta property="og:type" content="website">
   <meta data-intl-tel-input-cdn-path="intlTelInput/">
   <style>
+    html {
+      scrollbar-gutter: stable;
+    }
     .header-content {
       display: flex;
       align-items: center;
@@ -51,8 +54,6 @@ include '../../BackEnd/Login_Back/chk.php';
       display: flex;
       align-items: center;
     }
-
-    
   </style>
 </head>
 
@@ -84,7 +85,7 @@ include '../../BackEnd/Login_Back/chk.php';
         </div>
 
         <nav class="u-menu u-menu-hamburger u-offcanvas u-block-control u-enable-responsive u-block-2321-11"
-      data-responsive-from="XL" style=" margin-right: 15px; margin-left: 5px;">
+          data-responsive-from="XL" style=" margin-right: 15px; margin-left: 5px;">
 
 
           <!--Hamb Menu-->
@@ -109,13 +110,13 @@ include '../../BackEnd/Login_Back/chk.php';
                 <div class="u-menu-close u-block-control u-block-2321-15" data-block="7"></div>
                 <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-block-control u-block-0699-7"
                   style="font-size: 1rem" data-block="8">
-                  <li class="u-nav-item"><a class="u-button-style u-nav-link active" href="index.php"
+                  <li class="u-nav-item"><a class="u-button-style u-nav-link active" href="../Home/index.php"
                       data-page-id="243124289">Home</a>
                   </li>
-                  <li class="u-nav-item"><a class="u-button-style u-nav-link" href="#"
-                      data-page-id="49570372">About Us</a></li>
-                  <li class="u-nav-item"><a class="u-button-style u-nav-link" href="#"
-                      data-page-id="73379526">Contatti</a></li>
+                  <li class="u-nav-item"><a class="u-button-style u-nav-link" href="../Info/aboutus.html" data-page-id="49570372">About
+                      Us</a></li>
+                  <li class="u-nav-item"><a class="u-button-style u-nav-link" href="../Info/contacts.html"
+                      data-page-id="73379526">Contacts</a></li>
                   <li class="u-nav-item"><a class="u-button-style u-nav-link" href="index.php?logout=1"
                       data-page-id="73379526">Logout</a></li>
                 </ul>
