@@ -25,13 +25,13 @@ $username = $isLoggedIn ? $_SESSION['username'] : '';
 ?>
 
 <!DOCTYPE html>
-<html style="font-size: 16px;" lang="it">
+<html style="font-size: 16px;" lang="en">
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
   <meta name="keywords"
-    content="​Best valued deals from top car rental companies in USA, ​Best car &amp;amp; van rentals from top suppliers">
+    content="Best valued deals from top car rental companies in USA, Best car & van rentals from top suppliers">
   <meta name="description" content="">
   <title>Cars list</title>
   <link rel="stylesheet" href="nicepage.css" media="screen">
@@ -81,7 +81,7 @@ $username = $isLoggedIn ? $_SESSION['username'] : '';
 </head>
 
 <body data-home-page-title="Home 1" data-path-to-root="./" data-include-products="false" class="u-body u-xl-mode"
-  data-lang="it">
+  data-lang="en">
 
   <section class="u-clearfix u-header u-block-2321-1" custom-posts-hash="[]" data-style="header-imglogo-menu"
     data-post-id="post9"
@@ -205,10 +205,9 @@ $username = $isLoggedIn ? $_SESSION['username'] : '';
   <section class="u-align-center u-clearfix u-section-1" id="sec-d1d3">
     <div class="u-clearfix u-sheet u-sheet-1">
       <h2 class="u-align-center u-text u-text-1" data-animation-name="customAnimationIn" data-animation-duration="1250"
-        data-animation-delay="250">Scegli il tuo modello preferito tra SUV e Supercar</h2>
+        data-animation-delay="250">Choose your favorite model of SUVs and Supercars</h2>
       <p class="u-align-center u-text u-text-2" data-animation-name="customAnimationIn" data-animation-duration="1250"
-        data-animation-delay="250">Scegli il veicolo che preferisci, tutto quello che devi fare è configurarlo a tuo
-        piacimento.</p>
+        data-animation-delay="250">Choose the vehicle you prefer, all you have to do is configure it to your liking.</p>
 
       <?php if (count($vehicles) > 0): ?>
         <div class="u-list u-list-1">
@@ -217,20 +216,20 @@ $username = $isLoggedIn ? $_SESSION['username'] : '';
               <div class="u-list-item u-repeater-item">
                 <div class="u-container-layout u-similar-container u-container-layout-3">
                   <img alt="" class="u-image u-image-contain u-image-default u-image-2" data-image-width="986"
-                    data-image-height="403" src="<?= htmlspecialchars($vehicle['ImgLink']) ?>"
+                    data-image-height="403" src="<?= htmlspecialchars($vehicle['ImgLink']);?>"
                     data-animation-name="customAnimationIn" data-animation-duration="1500" title="">
                   <div class="custom-expanded u-container-align-left u-container-style u-group u-shape-rectangle u-group-2"
                     data-animation-name="customAnimationIn" data-animation-duration="1250" data-animation-delay="250">
                     <div class="u-container-layout u-container-layout-4">
-                      <h4 class="u-align-left u-text u-text-6"><?= htmlspecialchars($vehicle['Modello']) ?></h4>
+                      <h4 class="u-align-left u-text u-text-6"><?= htmlspecialchars($vehicle['Modello']);?></h4>
                       <p class="u-align-left u-text u-text-7"> &nbsp;<span class="u-file-icon u-icon"><img
-                            src="<?= htmlspecialchars($vehicle['ImgLink']) ?>" alt=""></span>&nbsp;Posti:
-                        <?= htmlspecialchars($vehicle['Posti']) ?>&nbsp;&nbsp;&nbsp;</p>
-                      <p class="u-align-left u-text u-text-8"><?= htmlspecialchars($vehicle['Descrizione']) ?></p>
-                      <a href="index.php?setCarId=<?= htmlspecialchars($vehicle['id']) ?>"
+                            src="<?= htmlspecialchars($vehicle['ImgLink']);?>" alt=""></span>&nbsp;Seats:
+                        <?= htmlspecialchars($vehicle['Posti']);?>&nbsp;&nbsp;&nbsp;</p>
+                      <p class="u-align-left u-text u-text-8"><?= htmlspecialchars($vehicle['Descrizione']);?></p>
+                      <a href="index.php?setCarId=<?= htmlspecialchars($vehicle['ID_auto']);?>"
                         class="u-active-palette-1-dark-2 u-align-left u-border-none u-btn u-btn-round u-button-style u-hover-palette-1-dark-2 u-palette-1-base u-radius-50 u-btn-2"
                         data-animation-name="customAnimationIn" data-animation-duration="1500"
-                        data-animation-delay="750">book</a>
+                        data-animation-delay="750">Book Now</a>
                     </div>
                   </div>
                 </div>
@@ -239,14 +238,14 @@ $username = $isLoggedIn ? $_SESSION['username'] : '';
           </div>
         </div>
       <?php else: ?>
-        <h1>Nessun modello trovato</h1>
+        <h1>No models found</h1>
       <?php endif; ?>
     </div>
   </section>
 
   <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-77b4">
     <section class="u-backlink u-clearfix u-grey-80">
-      <p class="u-text"><span>Questo sito è stato creato da G.Sarnelli | A.Ricci | M.Ndoja </span></p>
+      <p class="u-text"><span>This site was created by G.Sarnelli | A.Ricci | M.Ndoja</span></p>
     </section>
   </footer>
 
