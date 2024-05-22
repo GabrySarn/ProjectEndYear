@@ -20,8 +20,6 @@ if ($res->num_rows > 0) {
   }
 }
 
-$isLoggedIn = isset($_SESSION['username']);
-$username = $isLoggedIn ? $_SESSION['username'] : '';
 ?>
 
 <!DOCTYPE html>

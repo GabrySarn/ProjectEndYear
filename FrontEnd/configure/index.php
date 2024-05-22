@@ -1,5 +1,7 @@
 <?php
 include '../../BackEnd/Login_Back/chk.php';
+include '../../BackEnd/Configure_Back/config.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -87,6 +89,35 @@ include '../../BackEnd/Login_Back/chk.php';
       width: 100%;
       height: 100%;
     }
+
+    #siteDialog {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      z-index: 9999;
+      width: 80%;
+      max-width: 800px;
+      max-height: 80%;
+      overflow: auto;
+    }
+
+    #closeDialog {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      cursor: pointer;
+    }
+
+    /* Stile per l'immagine del prodotto */
+    .product-image {
+      cursor: pointer;
+    }
   </style>
 </head>
 
@@ -156,11 +187,13 @@ include '../../BackEnd/Login_Back/chk.php';
       <h1 class="u-custom-font u-font-lato u-text u-text-body-alt-color u-text-1">CONFIGURATION</h1>
     </div>
   </section>
+
   <section class="u-align-center u-clearfix u-gradient u-section-2" id="sec-24ac">
     <div class="u-clearfix u-sheet u-sheet-1">
       <h2 class="u-custom-font u-font-lato u-text u-text-body-alt-color u-text-default u-text-1">Pack</h2>
       <div class="u-expanded-width u-list u-list-1">
         <div class="u-repeater u-repeater-1">
+          <!-- Primo pacchetto -->
           <div class="u-container-style u-list-item u-repeater-item">
             <div class="u-container-layout u-similar-container u-container-layout-1">
               <h3 class="u-align-center u-custom-font u-font-lato u-text u-text-body-alt-color u-text-default u-text-2">
@@ -172,11 +205,13 @@ include '../../BackEnd/Login_Back/chk.php';
                 <li>Infotainment plus package</li>
                 <li>Assistance package plus</li>
               </ul>
-              <a href=""
-                class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-text-body-color u-btn-1">add
+              <a href="#"
+                class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-text-body-color u-btn-1"
+                data-package="Basic">add
                 now</a>
             </div>
           </div>
+          <!-- Secondo pacchetto -->
           <div class="u-container-style u-list-item u-repeater-item">
             <div class="u-container-layout u-similar-container u-container-layout-2">
               <h3 class="u-align-center u-custom-font u-font-lato u-text u-text-body-alt-color u-text-default u-text-5">
@@ -191,11 +226,13 @@ include '../../BackEnd/Login_Back/chk.php';
                 <li>Speed ​​limiter with provision for Adaptive Cruise Control via FoD</li>
                 <li>Lane departure warning</li>
               </ul>
-              <a href=""
-                class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-text-body-color u-btn-2">add
+              <a href="#"
+                class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-text-body-color u-btn-2"
+                data-package="Business">add
                 now</a>
             </div>
           </div>
+          <!-- Terzo pacchetto -->
           <div class="u-container-style u-list-item u-repeater-item">
             <div class="u-container-layout u-similar-container u-container-layout-3">
               <h3 class="u-align-center u-custom-font u-font-lato u-text u-text-body-alt-color u-text-default u-text-8">
@@ -210,8 +247,9 @@ include '../../BackEnd/Login_Back/chk.php';
                 <li>Sporty setup</li>
                 <li>Plus Air Conditioning Package</li>
               </ul>
-              <a href=""
-                class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-text-body-color u-btn-3">add
+              <a href="#"
+                class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-text-body-color u-btn-3"
+                data-package="Sport">add
                 now</a>
             </div>
           </div>
@@ -219,62 +257,134 @@ include '../../BackEnd/Login_Back/chk.php';
       </div>
     </div>
   </section>
+
+  <script>
+    // Funzione per gestire il click sui pulsanti
+    document.addEventListener('DOMContentLoaded', function () {
+      const buttons = document.querySelectorAll('.u-btn-rectangle');
+      buttons.forEach(button => {
+        button.addEventListener('click', function (event) {
+          event.preventDefault();
+          // Rimuove la classe "selected" da tutti i pulsanti
+          buttons.forEach(btn => {
+            btn.classList.remove('selected');
+            btn.textContent = 'add now';
+          });
+          // Aggiunge la classe "selected" e cambia il testo del pulsante cliccato
+          this.classList.add('selected');
+          this.textContent = 'remove';
+          // Aggiungi il pacchetto selezionato alla sessione
+          const package = this.getAttribute('data-package');
+          sessionStorage.setItem('selectedPackage', package);
+        });
+      });
+    });
+  </script>
+
   <section class="u-align-center u-clearfix u-gradient u-section-3" id="carousel_4269">
     <div class="u-clearfix u-sheet u-sheet-1">
-      <!--products--><!--products_options_json--><!--{"type":"Recent","source":"","tags":"","count":""}--><!--/products_options_json-->
       <div class="u-expanded-width u-layout-grid u-products u-products-1" data-site-sorting-prop="created"
         data-site-sorting-order="desc" data-products-datasource="site" data-items-per-page="4" data-products-id="1">
         <div class="u-list-control"></div>
         <div class="u-repeater u-repeater-1">
-          <!--product_item-->
-          <div class="u-align-center u-container-style u-products-item u-repeater-item" data-product-id="4">
-            <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3"><!--product_title-->
-              <h4 class="u-align-center u-custom-font u-font-lato u-product-control u-text u-text-default u-text-3">
-                <a class="u-product-title-link" href="products/painting.html">Painting</a>
-              </h4><!--/product_title--><!--product_image-->
-              <a class="u-product-title-link" href="products/painting.html"><img alt=""
-                  class="custom-expanded u-image u-image-contain u-image-default u-product-control u-image-3"
-                  src="images/Designer.jpeg" title=""></a><!--/product_image-->
-            </div>
-          </div><!--/product_item--><!--product_item-->
-          <div class="u-align-center u-container-style u-products-item u-repeater-item" data-product-id="4">
-            <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3"><!--product_title-->
-              <h4 class="u-align-center u-custom-font u-font-lato u-product-control u-text u-text-default u-text-3">
-                <a class="u-product-title-link" href="products/motorization.html">Motorization</a>
-              </h4><!--/product_title--><!--product_image-->
-              <a class="u-product-title-link" href="products/motorization.html"><img alt=""
-                  class="custom-expanded u-image u-image-contain u-image-default u-product-control u-image-3"
-                  src="images/Motor.jpeg" title=""></a><!--/product_image-->
-            </div>
-          </div><!--/product_item--><!--product_item-->
-          <div class="u-align-center u-container-style u-products-item u-repeater-item" data-product-id="4">
-            <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3"><!--product_title-->
-              <h4 class="u-align-center u-custom-font u-font-lato u-product-control u-text u-text-default u-text-3">
-                <a class="u-product-title-link" href="products/wheel.html">Wheels</a>
-              </h4><!--/product_title--><!--product_image-->
-              <a class="u-product-title-link" href="products/wheel.html"><img alt=""
-                  class="custom-expanded u-image u-image-contain u-image-default u-product-control u-image-3"
-                  src="images/wheels.jpeg" title=""></a><!--/product_image-->
-            </div>
-          </div><!--/product_item--><!--product_item-->
-          <div class="u-align-center u-container-style u-products-item u-repeater-item" data-product-id="3">
-            <div class="u-container-layout u-similar-container u-valign-top u-container-layout-4"><!--product_title-->
-              <h4 class="u-align-center u-custom-font u-font-lato u-product-control u-text u-text-default u-text-4">
-                <a class="u-product-title-link" href="products/interior.html">Interiors</a>
-              </h4><!--/product_title--><!--product_image-->
-              <a class="u-product-title-link" href="products/interior.html"><img alt=""
-                  class="custom-expanded u-image u-image-contain u-image-default u-product-control u-image-4"
-                  src="images/Interior.jpg" title=""></a><!--/product_image-->
-            </div>
-          </div><!--/product_item-->
 
+          <!--Painting-->
+          <div>
+            <div class="u-align-center u-container-style u-products-item u-repeater-item" data-product-id="4">
+              <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3">
+                <!-- Titolo del prodotto -->
+                <h4 class="u-align-center u-custom-font u-font-lato u-product-control u-text u-text-default u-text-3">
+                  <a class="u-product-title-link" href="products/painting.php">Painting</a>
+                </h4>
+                <!-- Immagine del prodotto con apertura del dialog -->
+                <a class="u-product-title-link" href="javascript:void(0)"
+                  onclick="openSiteDialog('products/painting.php')">
+                  <img alt=""
+                    class="custom-expanded u-image u-image-contain u-image-default u-product-control u-image-3 product-image"
+                    src="images/Designer.jpeg" title="">
+                </a>
+              </div>
+            </div>
 
+            <!-- Dialog per mostrare il sito -->
+            <div id="siteDialog" class="u-align-center"
+              style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border: 1px solid #ccc; border-radius: 5px; z-index: 9999; width: 80%; max-width: 800px; height: 80%; overflow: auto;">
+              <div onclick="closeSiteDialog()" style="position: absolute; top: 5px; right: 5px; cursor: pointer;">X
+              </div>
+              <!-- Inserisci qui il codice HTML della pagina -->
+              <iframe id="siteDialogContent" src="" width="100%" height="100%" frameborder="0"></iframe>
+            </div>
+          </div>
+          <!--Motor-->
+          <div>
+            <div class="u-align-center u-container-style u-products-item u-repeater-item" data-product-id="4">
+              <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3">
+                <!-- Titolo del prodotto -->
+                <h4 class="u-align-center u-custom-font u-font-lato u-product-control u-text u-text-default u-text-3">
+                  <a class="u-product-title-link" href="products/motorization.php">Motorization</a>
+                </h4>
+                <!-- Immagine del prodotto con apertura del dialog -->
+                <a class="u-product-title-link" href="javascript:void(0)"
+                  onclick="openSiteDialog('products/motorization.php')">
+                  <img alt=""
+                    class="custom-expanded u-image u-image-contain u-image-default u-product-control u-image-3 product-image"
+                    src="images/motor.jpeg" title="">
+                </a>
+              </div>
+            </div>
+
+            <!-- Dialog per mostrare il sito -->
+            <div id="siteDialog" class="u-align-center"
+              style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border: 1px solid #ccc; border-radius: 5px; z-index: 9999; width: 80%; max-width: 800px; height: 80%; overflow: auto;">
+              <div onclick="closeSiteDialog()" style="position: absolute; top: 5px; right: 5px; cursor: pointer;">X
+              </div>
+              <!-- Inserisci qui il codice HTML della pagina -->
+              <iframe id="siteDialogContent" src="" width="100%" height="100%" frameborder="0"></iframe>
+            </div>
+          </div>
+          <!-- Wheels -->
+          <div>
+            <div class="u-align-center u-container-style u-products-item u-repeater-item" data-product-id="4">
+              <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3">
+                <!-- Titolo del prodotto -->
+                <h4 class="u-align-center u-custom-font u-font-lato u-product-control u-text u-text-default u-text-3">
+                  <a class="u-product-title-link" href="javascript:void(0)"
+                    onclick="openSiteDialog('products/wheel.php')">Wheels</a>
+                </h4>
+                <!-- Immagine del prodotto con apertura del dialog -->
+                <a class="u-product-title-link" href="javascript:void(0)"
+                  onclick="openSiteDialog('products/wheel.php')">
+                  <img alt=""
+                    class="custom-expanded u-image u-image-contain u-image-default u-product-control u-image-3 product-image"
+                    src="images/wheels.jpeg" title="">
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Interiors -->
+          <div>
+            <div class="u-align-center u-container-style u-products-item u-repeater-item" data-product-id="3">
+              <div class="u-container-layout u-similar-container u-valign-top u-container-layout-4">
+                <!-- Titolo del prodotto -->
+                <h4 class="u-align-center u-custom-font u-font-lato u-product-control u-text u-text-default u-text-4">
+                  <a class="u-product-title-link" href="javascript:void(0)"
+                    onclick="openSiteDialog('products/interior.php')">Interiors</a>
+                </h4>
+                <!-- Immagine del prodotto con apertura del dialog -->
+                <a class="u-product-title-link" href="javascript:void(0)"
+                  onclick="openSiteDialog('products/interior.php')">
+                  <img alt=""
+                    class="custom-expanded u-image u-image-contain u-image-default u-product-control u-image-4"
+                    src="images/Interior.jpg" title="">
+                </a>
+              </div>
+            </div>
+          </div>
 
         </div>
-        <div class="u-list-control"></div>
-
       </div>
   </section>
+
   <section class="u-align-center u-clearfix u-gradient u-section-4" id="sec-1a2b">
     <div class="u-clearfix u-sheet u-sheet-1">
       <h1 class="u-align-center u-custom-font u-font-lato u-text u-text-default u-title u-text-1"> Assistance
@@ -648,6 +758,32 @@ include '../../BackEnd/Login_Back/chk.php';
       }
     }
   </style>
+
+  <script>
+    // Funzione per aprire il dialog
+    function openSiteDialog(url) {
+      var dialog = document.getElementById("siteDialog");
+      var iframe = document.getElementById("siteDialogContent");
+      iframe.src = url;
+      dialog.style.display = "block";
+    }
+
+    // Funzione per chiudere il dialog
+    function closeSiteDialog() {
+      var dialog = document.getElementById("siteDialog");
+      var iframe = document.getElementById("siteDialogContent");
+      iframe.src = "";
+      dialog.style.display = "none";
+    }
+
+    // Aggiorna l'altezza del dialog in base all'altezza della finestra del browser
+    window.addEventListener('resize', function () {
+      var dialog = document.getElementById("siteDialog");
+      var windowHeight = window.innerHeight;
+      var newHeight = windowHeight * 0.8; // Imposta l'altezza del dialog al 80% dell'altezza della finestra
+      dialog.style.height = newHeight + 'px';
+    });
+  </script>
 </body>
 
 </html>

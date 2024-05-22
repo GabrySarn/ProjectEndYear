@@ -15,21 +15,18 @@
   <link id="u-theme-google-font" rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
 
-
-
-
   <script type="application/ld+json">{
-		"@context": "http://schema.org",
-		"@type": "Organization",
-		"name": "",
-		"logo": "images/blazer-logo.png"
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": "",
+    "logo": "images/blazer-logo.png"
 }</script>
-  <meta name="theme-motor" content="#478ac9">
+  <meta name="theme-color" content="#478ac9">
   <meta property="og:title" content="Product Details Template">
   <meta property="og:type" content="website">
   <meta data-intl-tel-input-cdn-path="intlTelInput/">
   <style>
-    .u-motor-swatch {
+    .u-color-swatch {
       width: 80px;
       /* Aumenta la larghezza */
       height: 80px;
@@ -40,12 +37,12 @@
       cursor: pointer;
     }
 
-    .motor-selector {
+    .color-selector {
       display: flex;
       gap: 10px;
     }
 
-    .motor-option {
+    .color-option {
       width: 30px;
       height: 30px;
       cursor: pointer;
@@ -55,14 +52,16 @@
       /* Aggiunto uno sfondo bianco */
     }
 
-    .motor-option.selected {
+    .color-option.selected {
       border-color: black;
     }
   </style>
 </head>
 
 <body data-path-to-root="./" data-include-products="true" class="u-body u-xl-mode" data-lang="it">
-  
+  <header class="u-clearfix u-header u-header" id="sec-611f">
+
+  </header>
   <section class="u-align-center u-clearfix u-section-1" id="sec-8617">
     <div
       class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-md u-valign-middle-xl u-valign-middle-xs u-sheet-1">
@@ -76,7 +75,7 @@
             <div class="u-carousel-inner u-gallery-inner" role="listbox">
               <div class="u-carousel-item u-gallery-item u-active">
                 <div class="u-back-slide">
-                  <img class="u-back-image u-expanded u-image-contain" src="../images/Interior.jpg">
+                  <img class="u-back-image u-expanded u-image-contain" src="../images/Designer.jpeg">
                 </div>
               </div>
             </div>
@@ -84,57 +83,57 @@
             <ol class="u-carousel-thumbnails u-spacing-15 u-vertical-spacing u-carousel-thumbnails-1">
               <li class="u-carousel-thumbnail u-carousel-thumbnail-1 u-active" data-u-target="#carousel-ceff"
                 data-u-slide-to="0">
-                <img class="u-carousel-thumbnail-image u-image" src="../images/Interior.jpg" title="">
+                <img class="u-carousel-thumbnail-image u-image" src="../images/Designer.jpeg" title="">
               </li>
             </ol>
           </div><!--/product_gallery--><!--product_title-->
-          <h2 class="u-align-left u-product-control u-text u-text-1">Interiors</h2>
-          <div class="u-align-left u-product-control u-product-desc u-text u-text-2">Choose a interior.</div>
+          <h2 class="u-align-left u-product-control u-text u-text-1">Painting</h2>
+          <div class="u-align-left u-product-control u-product-desc u-text u-text-2">Choose a color.</div>
           <!--/product_title--><!--product_price-->
           <div data-add-zero-cents="true" class="u-product-control u-product-price u-product-price-1">
-            <div class="interior-selector">
-              <label>
-                <input type="radio" name="interior" class="interior-option" data-interior="normal_interior">
-                <img src="Interiors/normal_seats.png" alt="Wheel 1" style="width: 100px; height: 130px;">Basic Seats</label>
-          
-              <label>
-                <input type="radio" name="interior" class="interior-option" data-interior="sport_interior">
-                <img src="Interiors/sport_seats.png" alt="Wheel 2" style="width: 100px; height: 130px;">Sport Seats 
-              </label>
+            <div class="color-selector">
+              <div class="color-option" style="background-color: #e6e6e6;" data-color="White"></div>
+              <div class="color-option" style="background-color: #000000;" data-color="Black"></div>
+              <div class="color-option" style="background-color: #C0C0C0;" data-color="Silver"></div>
+              <div class="color-option" style="background-color: #808080;" data-color="Grey"></div>
+              <div class="color-option" style="background-color: #000080;" data-color="Blue"></div>
+              <div class="color-option" style="background-color: #FF0000;" data-color="Red"></div>
+              <div class="color-option" style="background-color: #0099ff;" data-color="Sky"></div>
+              <div class="color-option" style="background-color: #5400b4;" data-color="Purple"></div>
+              <div class="color-option" style="background-color: #A52A2A;" data-color="Brown"></div>
+              <div class="color-option" style="background-color: #FFD700;" data-color="Yellow"></div>
             </div>
             <script>
-              const interiorOptions = document.querySelectorAll('.interior-option');
+              const colorOptions = document.querySelectorAll('.color-option');
               const carouselImages = document.querySelectorAll('.u-gallery-item img');
-          
-              interiorOptions.forEach(option => {
-                option.addEventListener('change', function () {
-                  if (option.checked) {
-                    // Aggiorna l'URL dell'immagine con il cerchione selezionato
-                    const interior = option.getAttribute('data-interior');
-                    carouselImages.forEach(img => {
-                      img.src = `interiors/${interior}.jpg`; // Assumi che le immagini siano nel formato "interior.png" nella cartella "interiors"
-                    });
-                  }
+
+              colorOptions.forEach(option => {
+                option.addEventListener('click', function () {
+                  // Rimuovi la classe "selected" da tutti i rettangoli
+                  colorOptions.forEach(opt => opt.classList.remove('selected'));
+                  // Aggiungi la classe "selected" al rettangolo cliccato
+                  option.classList.add('selected');
+                  // Aggiorna l'URL dell'immagine
+                  const color = option.getAttribute('data-color');
+                  carouselImages.forEach(img => {
+                    img.src = `colors/${color}.png`; // Assumi che le immagini siano nel formato "colore.jpeg" nella cartella "images"
+                  });
                 });
               });
+
             </script>
           </div>
-          
           <!------------------------------------------------------------------------------------------------------------------------->
-          <!--/product_content--><!--product_button--><!--options_json--><!--{"clickType":"add-to-cart","content":""}--><!--/options_json-->
           <a href="../index.php"
             class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-text-black u-text-hover-white u-btn-1">
-            <!--product_button_content-->ADD
-            NOW<!--/product_button_content--></a><!--/product_button-->
+           ADD
+            NOW</a>
         </div>
       </div>
     </div>
   </section>
+  
 
-  <footer class="u-align-center u-clearfix u-footer u-grey-80" id="sec-d004">
-    <div class="u-clearfix u-sheet u-sheet-1">
-      <p class="u-small-text u-text u-text-variant u-text-1"> This has been created by G.Sarnelli | A.Ricci | M.Ndoja</p>
-    </div>
-  </footer>
 </body>
+
 </html>

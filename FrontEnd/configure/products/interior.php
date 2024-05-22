@@ -62,9 +62,7 @@
 </head>
 
 <body data-path-to-root="./" data-include-products="true" class="u-body u-xl-mode" data-lang="it">
-  <header class="u-clearfix u-header u-header" id="sec-611f">
-
-  </header>
+  
   <section class="u-align-center u-clearfix u-section-1" id="sec-8617">
     <div
       class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-md u-valign-middle-xl u-valign-middle-xs u-sheet-1">
@@ -78,7 +76,7 @@
             <div class="u-carousel-inner u-gallery-inner" role="listbox">
               <div class="u-carousel-item u-gallery-item u-active">
                 <div class="u-back-slide">
-                  <img class="u-back-image u-expanded u-image-contain" src="../images/wheels.jpeg">
+                  <img class="u-back-image u-expanded u-image-contain" src="../images/Interior.jpg">
                 </div>
               </div>
             </div>
@@ -86,39 +84,35 @@
             <ol class="u-carousel-thumbnails u-spacing-15 u-vertical-spacing u-carousel-thumbnails-1">
               <li class="u-carousel-thumbnail u-carousel-thumbnail-1 u-active" data-u-target="#carousel-ceff"
                 data-u-slide-to="0">
-                <img class="u-carousel-thumbnail-image u-image" src="../images/wheels.jpeg" title="">
+                <img class="u-carousel-thumbnail-image u-image" src="../images/Interior.jpg" title="">
               </li>
             </ol>
           </div><!--/product_gallery--><!--product_title-->
-          <h2 class="u-align-left u-product-control u-text u-text-1">Wheels</h2>
-          <div class="u-align-left u-product-control u-product-desc u-text u-text-2">Choose a wheel.</div>
+          <h2 class="u-align-left u-product-control u-text u-text-1">Interiors</h2>
+          <div class="u-align-left u-product-control u-product-desc u-text u-text-2">Choose a interior.</div>
           <!--/product_title--><!--product_price-->
           <div data-add-zero-cents="true" class="u-product-control u-product-price u-product-price-1">
-            <div class="wheel-selector">
+            <div class="interior-selector">
               <label>
-                <input type="radio" name="wheel" class="wheel-option" data-wheel="wheel_1">
-                <img src="Wheels/wheel_1.png" alt="Wheel 1" style="width: 100px; height: 100px;">
-              </label>
+                <input type="radio" name="interior" class="interior-option" data-interior="normal_interior">
+                <img src="Interiors/normal_seats.png" alt="Wheel 1" style="width: 100px; height: 130px;">Basic Seats</label>
+          
               <label>
-                <input type="radio" name="wheel" class="wheel-option" data-wheel="wheel_2">
-                <img src="Wheels/wheel_2.png" alt="Wheel 2" style="width: 100px; height: 100px;">
-              </label>
-              <label>
-                <input type="radio" name="wheel" class="wheel-option" data-wheel="wheel_3">
-                <img src="Wheels/wheel_3.png" alt="Wheel 3" style="width: 100px; height: 100px;">
+                <input type="radio" name="interior" class="interior-option" data-interior="sport_interior">
+                <img src="Interiors/sport_seats.png" alt="Wheel 2" style="width: 100px; height: 130px;">Sport Seats 
               </label>
             </div>
             <script>
-              const wheelOptions = document.querySelectorAll('.wheel-option');
+              const interiorOptions = document.querySelectorAll('.interior-option');
               const carouselImages = document.querySelectorAll('.u-gallery-item img');
           
-              wheelOptions.forEach(option => {
+              interiorOptions.forEach(option => {
                 option.addEventListener('change', function () {
                   if (option.checked) {
                     // Aggiorna l'URL dell'immagine con il cerchione selezionato
-                    const wheel = option.getAttribute('data-wheel');
+                    const interior = option.getAttribute('data-interior');
                     carouselImages.forEach(img => {
-                      img.src = `wheels/${wheel}.png`; // Assumi che le immagini siano nel formato "wheel.png" nella cartella "wheels"
+                      img.src = `interiors/${interior}.jpg`; // Assumi che le immagini siano nel formato "interior.png" nella cartella "interiors"
                     });
                   }
                 });
@@ -133,20 +127,10 @@
             <!--product_button_content-->ADD
             NOW<!--/product_button_content--></a><!--/product_button-->
         </div>
-      </div><!--/product_item--><!--/product-->
+      </div>
     </div>
   </section>
 
-
-
-
-  <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-d004">
-    <div class="u-clearfix u-sheet u-sheet-1">
-      <p class="u-small-text u-text u-text-variant u-text-1"> This has been created by G.Sarnelli | A.Ricci | M.Ndoja
-      </p>
-    </div>
-  </footer>
-
+ 
 </body>
-
 </html>
