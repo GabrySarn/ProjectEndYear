@@ -136,8 +136,10 @@ include '../../BackEnd/Login_Back/chk.php';
                 <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-block-control u-block-2321-16"
                   style="font-size: 1.25rem" data-block="8" data-block-type="Menu,SideNavMenuItems">
                   <li class="u-nav-item"><a class="u-nav-link u-button-style" href="../Home/index.php">Home</a></li>
-                  <li class="u-nav-item"><a class="u-nav-link u-button-style" href="#">Informazioni su</a></li>
-                  <li class="u-nav-item"><a class="u-nav-link u-button-style" href="#">Contatti</a></li>
+                  <li class="u-nav-item"><a class="u-nav-link u-button-style" href="../Info/aboutus.html">About Us</a>
+                  </li>
+                  <li class="u-nav-item"><a class="u-nav-link u-button-style" href="../Info/contacts.html">Contacts</a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -320,53 +322,54 @@ include '../../BackEnd/Login_Back/chk.php';
     </div>
   </section>
   <section class="u-clearfix u-grey-80 u-section-6" id="carousel_acd1">
-  <div class="u-clearfix u-sheet u-sheet-1">
-    <div class="data-layout-selected u-clearfix u-expanded-width u-gutter-10 u-layout-wrap u-layout-wrap-1">
-      <div class="u-layout">
-        <div class="u-layout-col">
-          <div class="u-size-30">
-            <div class="u-layout-row">
-              <div class="u-container-style u-image u-layout-cell u-left-cell u-size-30 u-image-1" src=""
-                data-image-width="1024" data-image-height="1024">
-                <div class="u-container-layout u-valign-middle u-container-layout-1"></div>
-              </div>
-              <div class="u-align-left u-container-style u-layout-cell u-right-cell u-size-30 u-layout-cell-2">
-                <div class="u-container-layout u-valign-middle u-container-layout-2">
-                  <h2 class="u-text u-text-1">Sports steering wheel<br></h2>
-                  <a href="#" class="u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-1">ADD NOW </a>
+    <div class="u-clearfix u-sheet u-sheet-1">
+      <div class="data-layout-selected u-clearfix u-expanded-width u-gutter-10 u-layout-wrap u-layout-wrap-1">
+        <div class="u-layout">
+          <div class="u-layout-col">
+            <div class="u-size-30">
+              <div class="u-layout-row">
+                <div class="u-container-style u-image u-layout-cell u-left-cell u-size-30 u-image-1" src=""
+                  data-image-width="1024" data-image-height="1024">
+                  <div class="u-container-layout u-valign-middle u-container-layout-1"></div>
+                </div>
+                <div class="u-align-left u-container-style u-layout-cell u-right-cell u-size-30 u-layout-cell-2">
+                  <div class="u-container-layout u-valign-middle u-container-layout-2">
+                    <h2 class="u-text u-text-1">Sports steering wheel<br></h2>
+                    <a href="#" class="u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-1">ADD NOW </a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="u-size-30">
-            <div class="u-layout-row">
-              <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-3">
-                <div class="u-container-layout u-valign-middle u-container-layout-3">
-                  <h2 class="u-text u-text-3">Panoramic Roof</h2>
-                  <a href="#" class="u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-2">add now</a>
+            <div class="u-size-30">
+              <div class="u-layout-row">
+                <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-3">
+                  <div class="u-container-layout u-valign-middle u-container-layout-3">
+                    <h2 class="u-text u-text-3">Panoramic Roof</h2>
+                    <a href="#" class="u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-2">add now</a>
+                  </div>
                 </div>
-              </div>
-              <div class="u-container-style u-image u-layout-cell u-right-cell u-size-30 u-image-2"
-                data-image-width="400" data-image-height="225">
-                <img src="images/panoramic_roof.jpg" alt="Panoramic Roof" class="full-width-image">
+                <div class="u-container-style u-image u-layout-cell u-right-cell u-size-30 u-image-2"
+                  data-image-width="400" data-image-height="225">
+                  <img src="images/panoramic_roof.jpg" alt="Panoramic Roof" class="full-width-image">
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<div class="confirm-button-container">
-  <a href="#" class="confirm-button">Confirm</a>
-</div>
-
-<footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-d004">
-  <div class="u-clearfix u-sheet u-sheet-1">
-    <p class="u-small-text u-text u-text-variant u-text-1"> This site has been created by G.Sarnelli | A.Ricci | M.Ndoja</p>
+  <div class="confirm-button-container">
+    <a href="#" class="confirm-button">Confirm</a>
   </div>
-</footer>
+
+  <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-d004">
+    <div class="u-clearfix u-sheet u-sheet-1">
+      <p class="u-small-text u-text u-text-variant u-text-1"> This site has been created by G.Sarnelli | A.Ricci |
+        M.Ndoja</p>
+    </div>
+  </footer>
 
   <section
     class="u-black u-clearfix u-container-style u-dialog-block u-opacity u-opacity-70 u-payment-dialog u-dialog-section-9"
@@ -538,27 +541,29 @@ include '../../BackEnd/Login_Back/chk.php';
         right: 20px;
       }
     }
+
     .confirm-button-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px; /* Regola questo valore come necessario */
-  }
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+      /* Regola questo valore come necessario */
+    }
 
-  .confirm-button {
-    padding: 10px 20px;
-    background-color: #478ac9;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    text-align: center;
-  }
+    .confirm-button {
+      padding: 10px 20px;
+      background-color: #478ac9;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      text-align: center;
+    }
 
-  .confirm-button:hover {
-    background-color: #3572a3;
-  }
+    .confirm-button:hover {
+      background-color: #3572a3;
+    }
   </style>
   <section
     class="u-align-center u-black u-clearfix u-container-style u-dialog-block u-opacity u-opacity-70 u-dialog-section-10"

@@ -51,8 +51,6 @@ include '../../BackEnd/Login_Back/chk.php';
       display: flex;
       align-items: center;
     }
-
-    
   </style>
 </head>
 
@@ -84,7 +82,7 @@ include '../../BackEnd/Login_Back/chk.php';
         </div>
 
         <nav class="u-menu u-menu-hamburger u-offcanvas u-block-control u-enable-responsive u-block-2321-11"
-      data-responsive-from="XL" style=" margin-right: 15px; margin-left: 5px;">
+          data-responsive-from="XL" style=" margin-right: 15px; margin-left: 5px;">
 
 
           <!--Hamb Menu-->
@@ -112,8 +110,8 @@ include '../../BackEnd/Login_Back/chk.php';
                   <li class="u-nav-item"><a class="u-button-style u-nav-link active" href="index.php"
                       data-page-id="243124289">Home</a>
                   </li>
-                  <li class="u-nav-item"><a class="u-button-style u-nav-link" href="#"
-                      data-page-id="49570372">About Us</a></li>
+                  <li class="u-nav-item"><a class="u-button-style u-nav-link" href="#" data-page-id="49570372">About
+                      Us</a></li>
                   <li class="u-nav-item"><a class="u-button-style u-nav-link" href="#"
                       data-page-id="73379526">Contatti</a></li>
                   <li class="u-nav-item"><a class="u-button-style u-nav-link" href="index.php?logout=1"
