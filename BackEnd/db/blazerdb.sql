@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 16, 2024 alle 22:40
+-- Creato il: Mag 22, 2024 alle 22:46
 -- Versione del server: 10.4.32-MariaDB
 -- Versione PHP: 8.2.12
 
@@ -42,7 +42,6 @@ CREATE TABLE `configurazione` (
   `ID_conf` int(11) NOT NULL,
   `ID_pack` int(11) DEFAULT NULL,
   `ID_colore` int(11) DEFAULT NULL,
-  `ID_optionalConf` int(11) DEFAULT NULL,
   `ID_motore` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -67,8 +66,16 @@ CREATE TABLE `motore` (
 CREATE TABLE `optional` (
   `ID_opt` int(11) NOT NULL,
   `Nome` varchar(50) DEFAULT NULL,
-  `Descrizione` varchar(200) DEFAULT NULL
+  `Descrizione` varchar(200) DEFAULT NULL,
+  `prezzo` double(10,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dump dei dati per la tabella `optional`
+--
+
+INSERT INTO `optional` (`ID_opt`, `Nome`, `Descrizione`, `prezzo`) VALUES
+(1, 'Carbon Fiber Interiors', 'Add a stylish carbon fiber style to the car\'s interior.', 1500.00);
 
 -- --------------------------------------------------------
 
@@ -78,16 +85,8 @@ CREATE TABLE `optional` (
 
 CREATE TABLE `optional_conf` (
   `ID_opt_conf` int(11) NOT NULL,
-  `Opt1` int(11) DEFAULT NULL,
-  `Opt2` int(11) DEFAULT NULL,
-  `Opt3` int(11) DEFAULT NULL,
-  `Opt4` int(11) DEFAULT NULL,
-  `Opt5` int(11) DEFAULT NULL,
-  `Opt6` int(11) DEFAULT NULL,
-  `Opt7` int(11) DEFAULT NULL,
-  `Opt8` int(11) DEFAULT NULL,
-  `Opt9` int(11) DEFAULT NULL,
-  `Opt10` int(11) DEFAULT NULL
+  `ID_conf` int(11) NOT NULL,
+  `ID_optional` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -161,7 +160,6 @@ ALTER TABLE `configurazione`
   ADD PRIMARY KEY (`ID_conf`),
   ADD KEY `ID_pack` (`ID_pack`),
   ADD KEY `ID_colore` (`ID_colore`),
-  ADD KEY `ID_optionalConf` (`ID_optionalConf`),
   ADD KEY `ID_motore` (`ID_motore`);
 
 --
@@ -181,16 +179,8 @@ ALTER TABLE `optional`
 --
 ALTER TABLE `optional_conf`
   ADD PRIMARY KEY (`ID_opt_conf`),
-  ADD KEY `Opt1` (`Opt1`),
-  ADD KEY `Opt2` (`Opt2`),
-  ADD KEY `Opt3` (`Opt3`),
-  ADD KEY `Opt4` (`Opt4`),
-  ADD KEY `Opt5` (`Opt5`),
-  ADD KEY `Opt6` (`Opt6`),
-  ADD KEY `Opt7` (`Opt7`),
-  ADD KEY `Opt8` (`Opt8`),
-  ADD KEY `Opt9` (`Opt9`),
-  ADD KEY `Opt10` (`Opt10`);
+  ADD KEY `id_conf_fk` (`ID_conf`),
+  ADD KEY `id_optional_fk` (`ID_optional`);
 
 --
 -- Indici per le tabelle `pack`
@@ -237,7 +227,7 @@ ALTER TABLE `motore`
 -- AUTO_INCREMENT per la tabella `optional`
 --
 ALTER TABLE `optional`
-  MODIFY `ID_opt` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_opt` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT per la tabella `optional_conf`
@@ -273,23 +263,14 @@ ALTER TABLE `veicolo`
 ALTER TABLE `configurazione`
   ADD CONSTRAINT `configurazione_ibfk_1` FOREIGN KEY (`ID_pack`) REFERENCES `pack` (`ID_pack`),
   ADD CONSTRAINT `configurazione_ibfk_2` FOREIGN KEY (`ID_colore`) REFERENCES `colore` (`ID_colore`),
-  ADD CONSTRAINT `configurazione_ibfk_3` FOREIGN KEY (`ID_optionalConf`) REFERENCES `optional_conf` (`ID_opt_conf`),
   ADD CONSTRAINT `configurazione_ibfk_4` FOREIGN KEY (`ID_motore`) REFERENCES `motore` (`ID_motore`);
 
 --
 -- Limiti per la tabella `optional_conf`
 --
 ALTER TABLE `optional_conf`
-  ADD CONSTRAINT `optional_conf_ibfk_1` FOREIGN KEY (`Opt1`) REFERENCES `optional` (`ID_opt`),
-  ADD CONSTRAINT `optional_conf_ibfk_10` FOREIGN KEY (`Opt10`) REFERENCES `optional` (`ID_opt`),
-  ADD CONSTRAINT `optional_conf_ibfk_2` FOREIGN KEY (`Opt2`) REFERENCES `optional` (`ID_opt`),
-  ADD CONSTRAINT `optional_conf_ibfk_3` FOREIGN KEY (`Opt3`) REFERENCES `optional` (`ID_opt`),
-  ADD CONSTRAINT `optional_conf_ibfk_4` FOREIGN KEY (`Opt4`) REFERENCES `optional` (`ID_opt`),
-  ADD CONSTRAINT `optional_conf_ibfk_5` FOREIGN KEY (`Opt5`) REFERENCES `optional` (`ID_opt`),
-  ADD CONSTRAINT `optional_conf_ibfk_6` FOREIGN KEY (`Opt6`) REFERENCES `optional` (`ID_opt`),
-  ADD CONSTRAINT `optional_conf_ibfk_7` FOREIGN KEY (`Opt7`) REFERENCES `optional` (`ID_opt`),
-  ADD CONSTRAINT `optional_conf_ibfk_8` FOREIGN KEY (`Opt8`) REFERENCES `optional` (`ID_opt`),
-  ADD CONSTRAINT `optional_conf_ibfk_9` FOREIGN KEY (`Opt9`) REFERENCES `optional` (`ID_opt`);
+  ADD CONSTRAINT `id_conf_fk` FOREIGN KEY (`ID_conf`) REFERENCES `configurazione` (`ID_conf`),
+  ADD CONSTRAINT `id_optional_fk` FOREIGN KEY (`ID_optional`) REFERENCES `optional` (`ID_opt`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
