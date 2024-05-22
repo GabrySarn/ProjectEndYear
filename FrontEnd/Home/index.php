@@ -536,9 +536,10 @@ include '../../BackEnd/Login_Back/chk.php';
           <div class="u-container-style u-image u-image-contain u-layout-cell u-left-cell u-size-40 u-image-1">
             <div class="u-container-layout u-container-layout-1"></div>
           </div>
-          <div class="u-align-right u-container-style u-layout-cell u-right-cell u-size-20 u-layout-cell-2">
+          <div class="u-align-left u-container-style u-layout-cell u-right-cell u-size-20 u-layout-cell-2">
             <div class="u-container-layout u-valign-middle u-container-layout-2">
-              <h2 class="u-custom-font u-font-lato u-text u-text-white u-text-1">Safe. Relaxing. Good to ride in. Subtly
+              <h2 class="u-custom-font u-font-lato u-text u-text-white u-text-1">Safe.<br>Relaxing.<br>Good to ride
+                in.<br>Subtly
                 decorated.</h2>
             </div>
           </div>
