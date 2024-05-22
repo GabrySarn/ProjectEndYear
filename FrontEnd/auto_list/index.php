@@ -52,12 +52,7 @@ include '../../BackEnd/Login_Back/chk.php';
       align-items: center;
     }
 
-    .u-menu.u-menu-hamburger {
-      margin: 0;
-      display: flex;
-      align-items: center;
-      transform: translateY(80%);
-    }
+    
   </style>
 </head>
 
@@ -68,8 +63,6 @@ include '../../BackEnd/Login_Back/chk.php';
     data-post-id="post9"
     data-section-properties="{&quot;grid-spacing&quot;:&quot;0&quot;,&quot;align&quot;:&quot;left&quot;,&quot;stretch&quot;:true}"
     id="sec-5a30" data-source="" data-id="2321" style="background-image: none">
-
-
     <div class="u-clearfix u-sheet u-block-2321-2 header-content" style="min-height: 89px">
 
       <a href="../Home/index.php" class="u-image u-logo u-block-control u-block-2321-8" data-brightness=""
@@ -91,7 +84,8 @@ include '../../BackEnd/Login_Back/chk.php';
         </div>
 
         <nav class="u-menu u-menu-hamburger u-offcanvas u-block-control u-enable-responsive u-block-2321-11"
-          data-responsive-from="XL" style="margin: -49.1501px -81px 0px auto;" data-block="2" data-block-type="Menu">
+      data-responsive-from="XL" style=" margin-right: 15px; margin-left: 5px;">
+
 
           <!--Hamb Menu-->
           <div class="menu-collapse" style="font-size: 1rem; font-weight: 700; letter-spacing: 0px;">
@@ -119,7 +113,7 @@ include '../../BackEnd/Login_Back/chk.php';
                       data-page-id="243124289">Home</a>
                   </li>
                   <li class="u-nav-item"><a class="u-button-style u-nav-link" href="#"
-                      data-page-id="49570372">Informazioni su</a></li>
+                      data-page-id="49570372">About Us</a></li>
                   <li class="u-nav-item"><a class="u-button-style u-nav-link" href="#"
                       data-page-id="73379526">Contatti</a></li>
                   <li class="u-nav-item"><a class="u-button-style u-nav-link" href="index.php?logout=1"
