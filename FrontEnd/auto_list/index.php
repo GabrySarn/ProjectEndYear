@@ -113,7 +113,7 @@ include '../../BackEnd/Login_Back/chk.php';
                       data-page-id="243124289">Home</a>
                   </li>
                   <li class="u-nav-item"><a class="u-button-style u-nav-link" href="#"
-                      data-page-id="49570372">Informazioni su</a></li>
+                      data-page-id="49570372">About Us</a></li>
                   <li class="u-nav-item"><a class="u-button-style u-nav-link" href="#"
                       data-page-id="73379526">Contatti</a></li>
                   <li class="u-nav-item"><a class="u-button-style u-nav-link" href="index.php?logout=1"
