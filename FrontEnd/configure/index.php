@@ -261,7 +261,8 @@ include '../../BackEnd/Configure_Back/config.php';
   <script>
     // Funzione per gestire il click sui pulsanti
     document.addEventListener('DOMContentLoaded', function () {
-      const buttons = document.querySelectorAll('.u-btn-rectangle');
+      const listitem = document.querySelector('.u-list-item');
+      const buttons = listitem.querySelectorAll('.u-btn-rectangle');
       buttons.forEach(button => {
         button.addEventListener('click', function (event) {
           event.preventDefault();
@@ -475,11 +476,10 @@ include '../../BackEnd/Configure_Back/config.php';
       </div>
     </div>
   </section>
-  
   <div class="u-clearfix u-grey-80 u-footer u-align-center">
     <div class="confirm-button-container">
       <a href="../Riepilogo/riepilogo.html"
-        class="u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-2">Confirm</a>
+        class="confirm-button u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-2">Confirm</a>
     </div>
   </div>
 
