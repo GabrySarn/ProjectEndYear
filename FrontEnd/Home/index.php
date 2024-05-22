@@ -385,7 +385,7 @@ include '../../BackEnd/Login_Back/chk.php';
               <p
                 class="u-align-center-md u-align-center-sm u-align-center-xl u-align-center-xs u-text u-text-body-alt-color u-text-2">
                 We take care of every single vehicle down to the smallest detail.</p>
-              <a href="#"
+              <a href="../Info/aboutus.html"
                 class="u-border-2 u-border-radius-0 u-border-white u-btn u-btn-rectangle u-button-style u-btn-1">read
                 more</a>
             </div>
