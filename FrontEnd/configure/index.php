@@ -227,44 +227,44 @@ include '../../BackEnd/Login_Back/chk.php';
         <div class="u-list-control"></div>
         <div class="u-repeater u-repeater-1">
           <!--product_item-->
-          <div class="u-container-style u-products-item u-repeater-item" data-product-id="5">
-            <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1"><!--product_title-->
-              <h4 class="u-align-center u-custom-font u-font-lato u-product-control u-text u-text-default u-text-1">
+          <div class="u-align-center u-container-style u-products-item u-repeater-item" data-product-id="4">
+            <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3"><!--product_title-->
+              <h4 class="u-align-center u-custom-font u-font-lato u-product-control u-text u-text-default u-text-3">
                 <a class="u-product-title-link" href="products/painting.html">Painting</a>
               </h4><!--/product_title--><!--product_image-->
               <a class="u-product-title-link" href="products/painting.html"><img alt=""
-                  class="custom-expanded u-image u-image-contain u-image-default u-product-control u-image-1"
+                  class="custom-expanded u-image u-image-contain u-image-default u-product-control u-image-3"
                   src="images/Designer.jpeg" title=""></a><!--/product_image-->
-            </div>
-          </div><!--/product_item--><!--product_item-->
-          <div class="u-align-center u-container-style u-products-item u-repeater-item" data-product-id="6">
-            <div class="u-container-layout u-similar-container u-valign-top u-container-layout-2"><!--product_title-->
-              <h4 class="u-align-center u-custom-font u-font-lato u-product-control u-text u-text-default u-text-2">
-                <a class="u-product-title-link" href="products/motorization.html">Motorization</a>
-              </h4><!--/product_title--><!--product_image-->
-              <a class="u-product-title-link" href="products/motorization.html"><img alt=""
-                  class="custom-expanded u-image u-image-contain u-image-default u-product-control u-image-2"
-                  src="images/Designer1.jpeg" title=""></a><!--/product_image-->
             </div>
           </div><!--/product_item--><!--product_item-->
           <div class="u-align-center u-container-style u-products-item u-repeater-item" data-product-id="4">
             <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3"><!--product_title-->
               <h4 class="u-align-center u-custom-font u-font-lato u-product-control u-text u-text-default u-text-3">
-                <a class="u-product-title-link" href="products/rims.html">Rims</a>
+                <a class="u-product-title-link" href="products/motorization.html">Motorization</a>
               </h4><!--/product_title--><!--product_image-->
-              <a class="u-product-title-link" href="products/rims.html"><img alt=""
+              <a class="u-product-title-link" href="products/motorization.html"><img alt=""
                   class="custom-expanded u-image u-image-contain u-image-default u-product-control u-image-3"
-                  src="images/images-1.jpeg" title=""></a><!--/product_image-->
+                  src="images/Motor.jpeg" title=""></a><!--/product_image-->
+            </div>
+          </div><!--/product_item--><!--product_item-->
+          <div class="u-align-center u-container-style u-products-item u-repeater-item" data-product-id="4">
+            <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3"><!--product_title-->
+              <h4 class="u-align-center u-custom-font u-font-lato u-product-control u-text u-text-default u-text-3">
+                <a class="u-product-title-link" href="products/wheel.html">Wheels</a>
+              </h4><!--/product_title--><!--product_image-->
+              <a class="u-product-title-link" href="products/wheel.html"><img alt=""
+                  class="custom-expanded u-image u-image-contain u-image-default u-product-control u-image-3"
+                  src="images/wheels.jpeg" title=""></a><!--/product_image-->
             </div>
           </div><!--/product_item--><!--product_item-->
           <div class="u-align-center u-container-style u-products-item u-repeater-item" data-product-id="3">
             <div class="u-container-layout u-similar-container u-valign-top u-container-layout-4"><!--product_title-->
               <h4 class="u-align-center u-custom-font u-font-lato u-product-control u-text u-text-default u-text-4">
-                <a class="u-product-title-link" href="products/interior.html">Interior</a>
+                <a class="u-product-title-link" href="products/interior.html">Interiors</a>
               </h4><!--/product_title--><!--product_image-->
               <a class="u-product-title-link" href="products/interior.html"><img alt=""
                   class="custom-expanded u-image u-image-contain u-image-default u-product-control u-image-4"
-                  src="images/Interni-1.jpg" title=""></a><!--/product_image-->
+                  src="images/Interior.jpg" title=""></a><!--/product_image-->
             </div>
           </div><!--/product_item-->
 
@@ -365,10 +365,12 @@ include '../../BackEnd/Login_Back/chk.php';
       </div>
     </div>
   </section>
-
-<div class="confirm-button-container">
-  <a href="riepilogo.html" class="confirm-button">Confirm</a>
-</div>
+  <div class="u-clearfix u-grey-80 u-footer u-align-center">
+    <div class="confirm-button-container">
+      <a href="../Riepilogo/riepilogo.html"
+        class="confirm-button u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-2">Confirm</a>
+    </div>
+  </div>
 
   <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-d004">
     <div class="u-clearfix u-sheet u-sheet-1">
