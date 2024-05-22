@@ -36,9 +36,9 @@ include '../../BackEnd/Login_Back/chk.php';
   <meta data-intl-tel-input-cdn-path="intlTelInput/">
   <style>
 
-html {
-  scrollbar-gutter: stable;
-}
+    html {
+      scrollbar-gutter: stable;
+    }
 
     .u-sheet {
       align-items: center;
