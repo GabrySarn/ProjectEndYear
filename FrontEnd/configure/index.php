@@ -222,6 +222,7 @@ include '../../BackEnd/Login_Back/chk.php';
       <!--products--><!--products_options_json--><!--{"type":"Recent","source":"","tags":"","count":""}--><!--/products_options_json-->
       <div class="u-expanded-width u-layout-grid u-products u-products-1" data-site-sorting-prop="created"
         data-site-sorting-order="desc" data-products-datasource="site" data-items-per-page="4" data-products-id="1">
+        <div class="u-list-control"></div>
         <div class="u-repeater u-repeater-1">
           <!--product_item-->
           <div class="u-container-style u-products-item u-repeater-item" data-product-id="5">
@@ -241,31 +242,36 @@ include '../../BackEnd/Login_Back/chk.php';
               </h4><!--/product_title--><!--product_image-->
               <a class="u-product-title-link" href="products/motorization.html"><img alt=""
                   class="custom-expanded u-image u-image-contain u-image-default u-product-control u-image-2"
-                  src="images/Motor.jpeg" title=""></a><!--/product_image-->
+                  src="images/Designer1.jpeg" title=""></a><!--/product_image-->
             </div>
           </div><!--/product_item--><!--product_item-->
           <div class="u-align-center u-container-style u-products-item u-repeater-item" data-product-id="4">
             <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3"><!--product_title-->
               <h4 class="u-align-center u-custom-font u-font-lato u-product-control u-text u-text-default u-text-3">
-                <a class="u-product-title-link" href="products/wheel.html">Wheels</a>
+                <a class="u-product-title-link" href="products/rims.html">Rims</a>
               </h4><!--/product_title--><!--product_image-->
-              <a class="u-product-title-link" href="products/wheel.html"><img alt=""
+              <a class="u-product-title-link" href="products/rims.html"><img alt=""
                   class="custom-expanded u-image u-image-contain u-image-default u-product-control u-image-3"
-                  src="images/wheels.jpeg" title=""></a><!--/product_image-->
+                  src="images/images-1.jpeg" title=""></a><!--/product_image-->
             </div>
           </div><!--/product_item--><!--product_item-->
           <div class="u-align-center u-container-style u-products-item u-repeater-item" data-product-id="3">
             <div class="u-container-layout u-similar-container u-valign-top u-container-layout-4"><!--product_title-->
               <h4 class="u-align-center u-custom-font u-font-lato u-product-control u-text u-text-default u-text-4">
-                <a class="u-product-title-link" href="products/interior.html">Interiors</a>
+                <a class="u-product-title-link" href="products/interior.html">Interior</a>
               </h4><!--/product_title--><!--product_image-->
               <a class="u-product-title-link" href="products/interior.html"><img alt=""
                   class="custom-expanded u-image u-image-contain u-image-default u-product-control u-image-4"
-                  src="images/Interior.jpg" title=""></a><!--/product_image-->
+                  src="images/Interni-1.jpg" title=""></a><!--/product_image-->
             </div>
           </div><!--/product_item-->
-        </div>
 
+
+
+        </div>
+        <div class="u-list-control"></div>
+
+      </div>
   </section>
   <section class="u-align-center u-clearfix u-gradient u-section-4" id="sec-1a2b">
     <div class="u-clearfix u-sheet u-sheet-1">
@@ -359,7 +365,7 @@ include '../../BackEnd/Login_Back/chk.php';
 </section>
 
 <div class="confirm-button-container">
-  <a href="#" class="confirm-button">Confirm</a>
+  <a href="riepilogo.html" class="confirm-button">Confirm</a>
 </div>
 
 <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-d004">
