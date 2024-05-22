@@ -366,19 +366,9 @@ include '../../BackEnd/Login_Back/chk.php';
     </div>
   </section>
 
-<<<<<<< HEAD
 <div class="confirm-button-container">
   <a href="riepilogo.html" class="confirm-button">Confirm</a>
 </div>
-
-<footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-d004">
-  <div class="u-clearfix u-sheet u-sheet-1">
-    <p class="u-small-text u-text u-text-variant u-text-1"> This site has been created by G.Sarnelli | A.Ricci | M.Ndoja</p>
-=======
-  <div class="confirm-button-container">
-    <a href="#" class="confirm-button">Confirm</a>
->>>>>>> 71156a9ea59328abfa6c5aa0c019d6ef5f50dcc8
-  </div>
 
   <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-d004">
     <div class="u-clearfix u-sheet u-sheet-1">
