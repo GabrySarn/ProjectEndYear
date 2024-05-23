@@ -490,26 +490,24 @@ include '../../BackEnd/Configure_Back/config.php';
   <script>/*Script Optionals*/
     // Funzione per gestire il click sui pulsanti
     document.addEventListener('DOMContentLoaded', function () {
-      const pack = document.querySelector('.optional');
-      const buttons = pack.querySelectorAll('.u-btn-rectangle');
+      const optionalSection = document.querySelector('.optional');
+      const buttons = optionalSection.querySelectorAll('.u-btn-rectangle');
 
       buttons.forEach(button => {
         button.addEventListener('click', function (event) {
-          // Prevenire il comportamento predefinito del pulsante
           event.preventDefault();
 
-          // Rimuove la classe "selected" da tutti i pulsanti
-          buttons.forEach(btn => {
-            btn.classList.remove('selected');
-            btn.textContent = 'add now';
-          });
-
-          // Aggiunge la classe "selected" e cambia il testo del pulsante cliccato
-          this.classList.add('selected');
-          this.textContent = 'remove';
+          // Toggle della classe "selected" e cambio del testo del pulsante cliccato
+          this.classList.toggle('selected');
+          if (this.classList.contains('selected')) {
+            this.textContent = 'REMOVE';
+          } else {
+            this.textContent = 'ADD NOW';
+          }
         });
       });
     });
+
   </script>
 
 
@@ -517,26 +515,28 @@ include '../../BackEnd/Configure_Back/config.php';
 
   <div class="u-clearfix u-grey-80 u-footer u-align-center">
     <div class="confirm-button-container">
-      <a href="../Riepilogo/riepilogo.html"
+      <a href=""
         class="confirm-button submitBtn u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-2">Confirm</a>
     </div>
   </div>
 
   <script>/*Script Confirm*/
-    const confBtn = document.querySelector('.confirm-button-container');
-    const buttons = confBtn.querySelectorAll('.u-btn-rectangle');
+    document.addEventListener('DOMContentLoaded', function () {
+      const confirmButton = document.querySelector('.confirm-button');
 
-    buttons.forEach(button => {
-      button.addEventListener('click', function (event) {
+      confirmButton.addEventListener('click', function (event) {
         event.preventDefault();
-
+        
+        
         const selectedOptions = [];
         const selectedOptionElements = document.querySelectorAll('.u-btn-rectangle.selected');
         selectedOptionElements.forEach(option => {
           const dataOptional = option.parentElement.querySelector('h2').getAttribute('data-optional');
           selectedOptions.push(dataOptional);
         });
-        window.location.href = `?pack=${encodeURIComponent(selectedPack)}`;
+        let selectedPack = sessionStorage.getItem('selectedPackage');
+        const queryString = `?pack=${encodeURIComponent(selectedPack)}&options=${encodeURIComponent(JSON.stringify(selectedOptions))}`;
+        window.location.href = queryString;
       });
     });
   </script>
