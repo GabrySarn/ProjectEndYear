@@ -1,7 +1,6 @@
 <?php
 include '../../BackEnd/Login_Back/chk.php';
 include '../../BackEnd/Configure_Back/config.php';
-
 ?>
 
 <!DOCTYPE html> 
@@ -97,7 +96,7 @@ include '../../BackEnd/Configure_Back/config.php';
       left: 50%;
       transform: translate(-50%, -50%);
       background-color: white;
-      padding: 20px;
+      padding: 10px;
       border: 1px solid #ccc;
       border-radius: 5px;
       z-index: 9999;
@@ -105,6 +104,8 @@ include '../../BackEnd/Configure_Back/config.php';
       max-width: 800px;
       max-height: 80%;
       overflow: auto;
+
+
     }
 
     #closeDialog {
@@ -188,7 +189,7 @@ include '../../BackEnd/Configure_Back/config.php';
     </div>
   </section>
 
-  <section class="u-align-center u-clearfix u-gradient u-section-2" id="sec-24ac">
+  <section class="pack u-align-center u-clearfix u-gradient u-section-2" id="sec-24ac">
     <div class="u-clearfix u-sheet u-sheet-1">
       <h2 class="u-custom-font u-font-lato u-text u-text-body-alt-color u-text-default u-text-1">Pack</h2>
       <div class="u-expanded-width u-list u-list-1">
@@ -223,7 +224,7 @@ include '../../BackEnd/Configure_Back/config.php';
                 <li>16" alloy wheels</li>
                 <li>LED front headlights</li>
                 <li>10.25" virtual cockpit</li>
-                <li>Speed ​​limiter with provision for Adaptive Cruise Control via FoD</li>
+                <li>Speed limiter with provision for Adaptive Cruise Control via FoD</li>
                 <li>Lane departure warning</li>
               </ul>
               <a href="#"
@@ -236,51 +237,57 @@ include '../../BackEnd/Configure_Back/config.php';
           <div class="u-container-style u-list-item u-repeater-item">
             <div class="u-container-layout u-similar-container u-container-layout-3">
               <h3 class="u-align-center u-custom-font u-font-lato u-text u-text-body-alt-color u-text-default u-text-8">
-                Sport</h3>
-              <h5 class="u-align-center u-text u-text-palette-2-base u-text-9">$55.000</h5>
-              <img src="images/Sports.png" alt="" class="custom-expanded u-image u-image-default u-image-3"
-                data-image-width="2836" data-image-height="1875" src="images/d7eabcf5.svg">
-              <ul class="u-align-left u-text u-text-10">
-                <li>18" alloy wheels</li>
-                <li>S line aesthetics</li>
-                <li>LED headlights with LED rear lights</li>
-                <li>Sporty setup</li>
-                <li>Plus Air Conditioning Package</li>
-              </ul>
-              <a href="#"
-                class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-text-body-color u-btn-3"
-                data-package="Sport">add
-                now</a>
+                Sport</h5>
+                <h5 class="u-align-center u-text u-text-palette-2-base u-text-9">$55.000</h5>
+                <img src="images/Sports.png" alt="" class="custom-expanded u-image u-image-default u-image-3"
+                  data-image-width="2836" data-image-height="1875" src="images/d7eabcf5.svg">
+                <ul class="u-align-left u-text u-text-10">
+                  <li>18" alloy wheels</li>
+                  <li>S line aesthetics</li>
+                  <li>LED headlights with LED rear lights</li>
+                  <li>Sporty setup</li>
+                  <li>Plus Air Conditioning Package</li>
+                </ul>
+                <a href="#"
+                  class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-text-body-color u-btn-3"
+                  data-package="Sport">add
+                  now</a>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+    <script>/*Script Pack*/
+      document.addEventListener('DOMContentLoaded', function () {
+        const pack = document.querySelector('.pack');
+        const buttons = pack.querySelectorAll('.u-btn-rectangle');
 
-  <script>
-    // Funzione per gestire il click sui pulsanti
-    document.addEventListener('DOMContentLoaded', function () {
-      const listitem = document.querySelector('.u-list-item');
-      const buttons = listitem.querySelectorAll('.u-btn-rectangle');
-      buttons.forEach(button => {
-        button.addEventListener('click', function (event) {
-          event.preventDefault();
-          // Rimuove la classe "selected" da tutti i pulsanti
-          buttons.forEach(btn => {
-            btn.classList.remove('selected');
-            btn.textContent = 'add now';
+        buttons.forEach(button => {
+          button.addEventListener('click', function (event) {
+            // Prevenire il comportamento predefinito del pulsante
+            event.preventDefault();
+
+            // Rimuove la classe "selected" da tutti i pulsanti
+            buttons.forEach(btn => {
+              btn.classList.remove('selected');
+              btn.textContent = 'add now';
+            });
+
+            // Aggiunge la classe "selected" e cambia il testo del pulsante cliccato
+            this.classList.add('selected');
+            this.textContent = 'remove';
+
+            // Ottieni il valore del pacchetto selezionato
+            const selectedPack = this.getAttribute('data-package');
+            sessionStorage.setItem('selectedPackage', selectedPack);
           });
-          // Aggiunge la classe "selected" e cambia il testo del pulsante cliccato
-          this.classList.add('selected');
-          this.textContent = 'remove';
-          // Aggiungi il pacchetto selezionato alla sessione
-          const package = this.getAttribute('data-package');
-          sessionStorage.setItem('selectedPackage', package);
         });
       });
-    });
-  </script>
+
+    </script>
+  </section>
+
+
 
   <section class="u-align-center u-clearfix u-gradient u-section-3" id="carousel_4269">
     <div class="u-clearfix u-sheet u-sheet-1">
@@ -398,90 +405,142 @@ include '../../BackEnd/Configure_Back/config.php';
         More</a>
     </div>
   </section>
-  <section class="u-clearfix u-grey-80 u-section-5" id="sec-b6f4">
-    <div class="u-clearfix u-sheet u-sheet-1">
-      <h2 class="u-align-center u-custom-font u-font-lato u-text u-text-default u-text-1">Optionals</h2>
-      <div class="data-layout-selected u-clearfix u-expanded-width u-gutter-10 u-layout-wrap u-layout-wrap-1">
-        <div class="u-layout">
-          <div class="u-layout-col">
-            <div class="u-size-30">
-              <div class="u-layout-row">
-                <div class="u-container-style u-image u-layout-cell u-left-cell u-size-30 u-image-1" src=""
-                  data-image-width="400" data-image-height="225">
-                  <div class="u-container-layout u-valign-middle u-container-layout-1"></div>
-                </div>
-                <div class="u-align-left u-container-style u-layout-cell u-right-cell u-size-30 u-layout-cell-2">
-                  <div class="u-container-layout u-valign-middle u-container-layout-2">
-                    <h2 class="u-text u-text-2"> Charge phone box</h2>
-                    <a href="" class="u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-1">Add now </a>
+  <div class="optional">
+    <section class="u-clearfix u-grey-80 u-section-5" id="sec-b6f4">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h2 class="u-align-center u-custom-font u-font-lato u-text u-text-default u-text-1">Optionals</h2>
+        <div class="data-layout-selected u-clearfix u-expanded-width u-gutter-10 u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-col">
+              <div class="u-size-30">
+                <div class="u-layout-row">
+                  <div class="u-container-style u-image u-layout-cell u-left-cell u-size-30 u-image-1" src=""
+                    data-image-width="400" data-image-height="225">
+                    <div class="u-container-layout u-valign-middle u-container-layout-1"></div>
+                  </div>
+                  <div class="u-align-left u-container-style u-layout-cell u-right-cell u-size-30 u-layout-cell-2">
+                    <div class="u-container-layout u-valign-middle u-container-layout-2">
+                      <h2 class="u-text u-text-2" data-optional="charge_phone_box"> Charge phone box</h2>
+                      <a href="" class="u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-1">Add now </a>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div class="u-size-30">
-              <div class="u-layout-row">
-                <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-3">
-                  <div class="u-container-layout u-valign-middle u-container-layout-3">
-                    <h2 class="u-text u-text-3"> SONOS 3D Premium Sound System</h2>
-                    <a href="" class="u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-2">add now </a>
+              <div class="u-size-30">
+                <div class="u-layout-row">
+                  <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-3">
+                    <div class="u-container-layout u-valign-middle u-container-layout-3">
+                      <h2 class="u-text u-text-3" data-optional="premium_sound_system"> SONOS 3D Premium Sound System
+                      </h2>
+                      <a href="" class="u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-2">add now </a>
+                    </div>
                   </div>
-                </div>
-                <div class="u-container-style u-image u-layout-cell u-right-cell u-size-30 u-image-2" src=""
-                  data-image-width="400" data-image-height="225">
-                  <div class="u-container-layout u-valign-middle u-container-layout-4"></div>
+                  <div class="u-container-style u-image u-layout-cell u-right-cell u-size-30 u-image-2" src=""
+                    data-image-width="400" data-image-height="225">
+                    <div class="u-container-layout u-valign-middle u-container-layout-4"></div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  <section class="u-clearfix u-grey-80 u-section-6" id="carousel_acd1">
-    <div class="u-clearfix u-sheet u-sheet-1">
-      <div class="data-layout-selected u-clearfix u-expanded-width u-gutter-10 u-layout-wrap u-layout-wrap-1">
-        <div class="u-layout">
-          <div class="u-layout-col">
-            <div class="u-size-30">
-              <div class="u-layout-row">
-                <div class="u-container-style u-image u-layout-cell u-left-cell u-size-30 u-image-1" src=""
-                  data-image-width="1024" data-image-height="1024">
-                  <div class="u-container-layout u-valign-middle u-container-layout-1"></div>
-                </div>
-                <div class="u-align-left u-container-style u-layout-cell u-right-cell u-size-30 u-layout-cell-2">
-                  <div class="u-container-layout u-valign-middle u-container-layout-2">
-                    <h2 class="u-text u-text-1">Sports steering wheel<br></h2>
-                    <a href="#" class="u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-1">ADD NOW </a>
+    </section>
+    <section class="u-clearfix u-grey-80 u-section-6" id="carousel_acd1">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="data-layout-selected u-clearfix u-expanded-width u-gutter-10 u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-col">
+              <div class="u-size-30">
+                <div class="u-layout-row">
+                  <div class="u-container-style u-image u-layout-cell u-left-cell u-size-30 u-image-1" src=""
+                    data-image-width="1024" data-image-height="1024">
+                    <div class="u-container-layout u-valign-middle u-container-layout-1"></div>
+                  </div>
+                  <div class="u-align-left u-container-style u-layout-cell u-right-cell u-size-30 u-layout-cell-2">
+                    <div class="u-container-layout u-valign-middle u-container-layout-2">
+                      <h2 class="u-text u-text-1" data-optional="sports_steering_wheel">Sports steering wheel<br></h2>
+                      <a href="#" class="u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-1">ADD NOW </a>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="u-size-30">
-              <div class="u-layout-row">
-                <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-3">
-                  <div class="u-container-layout u-valign-middle u-container-layout-3">
-                    <h2 class="u-text u-text-3">Panoramic Roof</h2>
-                    <a href="#" class="u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-2">add now</a>
+              <div class="u-size-30">
+                <div class="u-layout-row">
+                  <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-3">
+                    <div class="u-container-layout u-valign-middle u-container-layout-3">
+                      <h2 class="u-text u-text-3" data-optional="panoramic_roof">Panoramic Roof</h2>
+                      <a href="#" class="u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-2">add now</a>
+                    </div>
                   </div>
-                </div>
-                <div class="u-container-style u-image u-layout-cell u-right-cell u-size-30 u-image-2"
-                  data-image-width="400" data-image-height="225">
-                  <img src="images/panoramic_roof.jpg" alt="Panoramic Roof" class="full-width-image">
+                  <div class="u-container-style u-image u-layout-cell u-right-cell u-size-30 u-image-2"
+                    data-image-width="400" data-image-height="225">
+                    <img src="images/panoramic_roof.jpg" alt="Panoramic Roof" class="full-width-image">
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+
+    </section>
+  </div>
+  <script>/*Script Optionals*/
+    // Funzione per gestire il click sui pulsanti
+    document.addEventListener('DOMContentLoaded', function () {
+      const pack = document.querySelector('.optional');
+      const buttons = pack.querySelectorAll('.u-btn-rectangle');
+
+      buttons.forEach(button => {
+        button.addEventListener('click', function (event) {
+          // Prevenire il comportamento predefinito del pulsante
+          event.preventDefault();
+
+          // Rimuove la classe "selected" da tutti i pulsanti
+          buttons.forEach(btn => {
+            btn.classList.remove('selected');
+            btn.textContent = 'add now';
+          });
+
+          // Aggiunge la classe "selected" e cambia il testo del pulsante cliccato
+          this.classList.add('selected');
+          this.textContent = 'remove';
+        });
+      });
+    });
+  </script>
+
+
+
+
   <div class="u-clearfix u-grey-80 u-footer u-align-center">
     <div class="confirm-button-container">
       <a href="../Riepilogo/riepilogo.html"
-        class="confirm-button u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-2">Confirm</a>
+        class="confirm-button submitBtn u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-2">Confirm</a>
     </div>
   </div>
+
+  <script>/*Script Confirm*/
+    const confBtn = document.querySelector('.confirm-button-container');
+    const buttons = confBtn.querySelectorAll('.u-btn-rectangle');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', function (event) {
+        event.preventDefault();
+
+        const selectedOptions = [];
+        const selectedOptionElements = document.querySelectorAll('.u-btn-rectangle.selected');
+        selectedOptionElements.forEach(option => {
+          const dataOptional = option.parentElement.querySelector('h2').getAttribute('data-optional');
+          selectedOptions.push(dataOptional);
+        });
+        window.location.href = `?pack=${encodeURIComponent(selectedPack)}`;
+      });
+    });
+  </script>
+
 
   <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-d004">
     <div class="u-clearfix u-sheet u-sheet-1">
@@ -490,7 +549,7 @@ include '../../BackEnd/Configure_Back/config.php';
     </div>
   </footer>
 
-  
+
   <style>
     .u-dialog-section-9 .u-dialog-1 {
       width: 570px;
@@ -620,7 +679,7 @@ include '../../BackEnd/Configure_Back/config.php';
       background-color: #3572a3;
     }
   </style>
-  
+
   <style>
     .u-dialog-section-10 .u-dialog-1 {
       width: 566px;

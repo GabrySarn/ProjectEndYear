@@ -1,3 +1,8 @@
+<?php
+include '../../../BackEnd/Login_Back/chk.php';
+include '../../../BackEnd/Configure_Back/config.php';
+?>
+
 <!DOCTYPE html>
 <html style="font-size: 16px;" lang="it">
 
@@ -19,10 +24,10 @@
 
 
   <script type="application/ld+json">{
-		"@context": "http://schema.org",
-		"@type": "Organization",
-		"name": "",
-		"logo": "images/blazer-logo.png"
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": "",
+    "logo": "images/blazer-logo.png"
 }</script>
   <meta name="theme-motor" content="#478ac9">
   <meta property="og:title" content="Product Details Template">
@@ -38,6 +43,11 @@
       margin-right: 20px;
       /* Aumenta lo spazio tra i quadrati */
       cursor: pointer;
+    }
+
+    html {
+      zoom: 65%;
+      /* Imposta lo zoom predefinito al 70% */
     }
 
     .motor-selector {
@@ -62,7 +72,7 @@
 </head>
 
 <body data-path-to-root="./" data-include-products="true" class="u-body u-xl-mode" data-lang="it">
-  
+
   <section class="u-align-center u-clearfix u-section-1" id="sec-8617">
     <div
       class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-md u-valign-middle-xl u-valign-middle-xs u-sheet-1">
@@ -95,42 +105,60 @@
             <div class="interior-selector">
               <label>
                 <input type="radio" name="interior" class="interior-option" data-interior="normal_interior">
-                <img src="Interiors/normal_seats.png" alt="Wheel 1" style="width: 100px; height: 130px;">Basic Seats</label>
-          
+                <img src="Interiors/normal_seats.png" alt="Wheel 1" style="width: 100px; height: 130px;">Basic
+                Seats</label>
+
               <label>
                 <input type="radio" name="interior" class="interior-option" data-interior="sport_interior">
-                <img src="Interiors/sport_seats.png" alt="Wheel 2" style="width: 100px; height: 130px;">Sport Seats 
+                <img src="Interiors/sport_seats.png" alt="Wheel 2" style="width: 100px; height: 130px;">Sport Seats
               </label>
             </div>
-            <script>
-              const interiorOptions = document.querySelectorAll('.interior-option');
-              const carouselImages = document.querySelectorAll('.u-gallery-item img');
-          
-              interiorOptions.forEach(option => {
-                option.addEventListener('change', function () {
-                  if (option.checked) {
-                    // Aggiorna l'URL dell'immagine con il cerchione selezionato
-                    const interior = option.getAttribute('data-interior');
-                    carouselImages.forEach(img => {
-                      img.src = `interiors/${interior}.jpg`; // Assumi che le immagini siano nel formato "interior.png" nella cartella "interiors"
-                    });
-                  }
-                });
-              });
-            </script>
+
           </div>
-          
+
           <!------------------------------------------------------------------------------------------------------------------------->
           <!--/product_content--><!--product_button--><!--options_json--><!--{"clickType":"add-to-cart","content":""}--><!--/options_json-->
           <a href="../index.php"
-            class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-text-black u-text-hover-white u-btn-1">
-            <!--product_button_content-->ADD
-            NOW<!--/product_button_content--></a><!--/product_button-->
+            class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-text-black u-text-hover-white u-btn-1">ADD
+            NOW</a>
         </div>
       </div>
     </div>
   </section>
+  <script>
+    const interiorOptions = document.querySelectorAll('.interior-option');
+    const carouselImages = document.querySelectorAll('.u-gallery-item img');
 
- 
+    interiorOptions.forEach(option => {
+      document.addEventListener('DOMContentLoaded', function () {
+        const interiorOptions = document.querySelectorAll('.interior-selector');
+        option.addEventListener('change', function () {
+          if (option.checked) {
+            selecteInterior = option.value;
+
+            // Aggiorna l'URL dell'immagine con il cerchione selezionato
+            const interior = option.getAttribute('data-interior');
+            carouselImages.forEach(img => {
+              img.src = `interiors/${interior}.jpg`; // Assumi che le immagini siano nel formato "interior.png" nella cartella "interiors"
+            });
+          }
+        });
+
+        const addButton = document.querySelector('.u-btn-1');
+        addButton.addEventListener('click', function (event) {
+          event.preventDefault(); // Prevenire il comportamento predefinito del link
+
+          if (selecteInterior) {
+            // Reindirizza alla stessa pagina con il colore selezionato come parametro GET
+            window.location.href = `?interior=${selecteInterior}`;
+          } else {
+            alert("Please select a interior before adding.");
+          }
+        });
+      });
+    });
+  </script>
+
 </body>
+
 </html>
