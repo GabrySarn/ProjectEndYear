@@ -4,7 +4,7 @@ include '../../BackEnd/Configure_Back/config.php';
 
 ?>
 
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html style="font-size: 16px;" lang="it">
 
 <head>
