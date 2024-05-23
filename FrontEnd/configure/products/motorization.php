@@ -1,3 +1,8 @@
+<?php
+include '../../../BackEnd/Login_Back/chk.php';
+include '../../../BackEnd/Configure_Back/config.php';
+?>
+
 <!DOCTYPE html>
 <html style="font-size: 16px;" lang="it">
 
@@ -19,10 +24,10 @@
 
 
   <script type="application/ld+json">{
-		"@context": "http://schema.org",
-		"@type": "Organization",
-		"name": "",
-		"logo": "images/blazer-logo.png"
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": "",
+    "logo": "images/blazer-logo.png"
 }</script>
   <meta name="theme-motor" content="#478ac9">
   <meta property="og:title" content="Product Details Template">
@@ -57,6 +62,11 @@
 
     .motor-option.selected {
       border-color: black;
+    }
+
+    html {
+      zoom: 65%;
+      /* Imposta lo zoom predefinito al 70% */
     }
   </style>
 </head>
@@ -96,52 +106,62 @@
           <div data-add-zero-cents="true" class="u-product-control u-product-price u-product-price-1">
             <div class="motor-selector">
               <label style="background-color: #e6e6e600;">
-                <input type="checkbox" class="motor-option" data-motor="Diesel"> <br>Diesel
+                <input type="radio" name="motor" class="motor-option" value="Diesel">
+                <br>Diesel
               </label>
               <label style="background-color: #e6e6e600;">
-                <input type="checkbox" class="motor-option" data-motor="Petrol"><br> Petrol
+                <input type="radio" name="motor" class="motor-option" value="Petrol">
+                <br>Petrol
               </label>
               <label style="background-color: #e6e6e600;">
-                <input type="checkbox" class="motor-option" data-motor="Mild-Hybrid"> <br>Mild-Hybrid
+                <input type="radio" name="motor" class="motor-option" value="Mild-Hybrid">
+                <br>Mild-Hybrid
               </label>
               <label style="background-color: #e6e6e600;">
-                <input type="checkbox" class="motor-option" data-motor="Full-Hybrid"> <br>Full-Hybrid
+                <input type="radio" name="motor" class="motor-option" value="Full-Hybrid">
+                <br>Full-Hybrid
               </label>
               <label style="background-color: #e6e6e600;">
-                <input type="checkbox" class="motor-option" data-motor="Electric"> <br>Electric
+                <input type="radio" name="motor" class="motor-option" value="Electric">
+                <br>Electric
               </label>
             </div>
-            <script>
-              const motorOptions = document.querySelectorAll('.motor-option');
-              const carouselImages = document.querySelectorAll('.u-gallery-item img');
-          
-              motorOptions.forEach(option => {
-                option.addEventListener('change', function () {
-                  if (option.checked) {
-                    // Deseleziona tutte le altre checkbox
-                    motorOptions.forEach(opt => {
-                      if (opt !== option) {
-                        opt.checked = false;
-                      }
-                    });
-                  } 
-                });
-              });
-            </script>
           </div>
-          
+
           <!------------------------------------------------------------------------------------------------------------------------->
-          <!--/product_content--><!--product_button--><!--options_json--><!--{"clickType":"add-to-cart","content":""}--><!--/options_json-->
-          <a href="../index.php"
-            class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-text-black u-text-hover-white u-btn-1">
-            <!--product_button_content-->ADD
-            NOW<!--/product_button_content--></a><!--/product_button-->
+          <a href="#"
+            class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-text-black u-text-hover-white u-btn-1">ADD
+            NOW</a>
         </div>
-      </div><!--/product_item--><!--/product-->
+
+      </div>
     </div>
   </section>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const motorOptions = document.querySelectorAll('.motor-option');
+      const addButton = document.querySelector('.u-btn');
 
+      addButton.addEventListener('click', function (event) {
+        event.preventDefault(); // Prevenire il comportamento predefinito del form
+
+        let selectedMotor = null;
+        motorOptions.forEach(option => {
+          if (option.checked) {
+            selectedMotor = option.value;
+          }
+        });
+
+        if (selectedMotor) {
+          // Reindirizza alla stessa pagina con la motorizzazione selezionata come parametro GET
+          window.location.href = `?motor=${selectedMotor}`;
+        } else {
+          alert("Please select a motorization before adding.");
+        }
+      });
+    });
+  </script>
 
 </body>
 

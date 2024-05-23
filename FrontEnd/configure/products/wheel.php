@@ -1,3 +1,8 @@
+<?php
+include '../../../BackEnd/Login_Back/chk.php';
+include '../../../BackEnd/Configure_Back/config.php';
+?>
+
 <!DOCTYPE html>
 <html style="font-size: 16px;" lang="it">
 
@@ -19,10 +24,10 @@
 
 
   <script type="application/ld+json">{
-		"@context": "http://schema.org",
-		"@type": "Organization",
-		"name": "",
-		"logo": "images/blazer-logo.png"
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": "",
+    "logo": "images/blazer-logo.png"
 }</script>
   <meta name="theme-motor" content="#478ac9">
   <meta property="og:title" content="Product Details Template">
@@ -38,6 +43,11 @@
       margin-right: 20px;
       /* Aumenta lo spazio tra i quadrati */
       cursor: pointer;
+    }
+
+    html {
+      zoom: 65%;
+      /* Imposta lo zoom predefinito al 70% */
     }
 
     .motor-selector {
@@ -108,36 +118,54 @@
                 <img src="Wheels/wheel_3.png" alt="Wheel 3" style="width: 100px; height: 100px;">
               </label>
             </div>
-            <script>
-              const wheelOptions = document.querySelectorAll('.wheel-option');
-              const carouselImages = document.querySelectorAll('.u-gallery-item img');
-          
-              wheelOptions.forEach(option => {
-                option.addEventListener('change', function () {
-                  if (option.checked) {
-                    // Aggiorna l'URL dell'immagine con il cerchione selezionato
-                    const wheel = option.getAttribute('data-wheel');
-                    carouselImages.forEach(img => {
-                      img.src = `wheels/${wheel}.png`; // Assumi che le immagini siano nel formato "wheel.png" nella cartella "wheels"
-                    });
-                  }
-                });
-              });
-            </script>
+
           </div>
-          
+
           <!------------------------------------------------------------------------------------------------------------------------->
-          <!--/product_content--><!--product_button--><!--options_json--><!--{"clickType":"add-to-cart","content":""}--><!--/options_json-->
           <a href="../index.php"
             class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-text-black u-text-hover-white u-btn-1">
             <!--product_button_content-->ADD
             NOW<!--/product_button_content--></a><!--/product_button-->
         </div>
-      </div><!--/product_item--><!--/product-->
+      </div>
     </div>
   </section>
 
+  <script>
+    const wheelOptions = document.querySelectorAll('.wheel-option');
+    const carouselImages = document.querySelectorAll('.u-gallery-item img');
 
+    wheelOptions.forEach(option => {
+      document.addEventListener('DOMContentLoaded', function () {
+        const wheelOptions = document.querySelectorAll('.wheel-selector');
+
+        option.addEventListener('change', function () {
+          if (option.checked) {
+            selectedWheel = option.value;
+            // Aggiorna l'URL dell'immagine con il cerchione selezionato
+            const wheel = option.getAttribute('data-wheel');
+            carouselImages.forEach(img => {
+              img.src = `wheels/${wheel}.png`; // Assumi che le immagini siano nel formato "wheel.png" nella cartella "wheels"
+            });
+          }
+        });
+
+        const addButton = document.querySelector('.u-btn-1');
+        addButton.addEventListener('click', function (event) {
+          event.preventDefault(); // Prevenire il comportamento predefinito del link
+
+          if (selectedWheel) {
+            // Reindirizza alla stessa pagina con il colore selezionato come parametro GET
+            window.location.href = `?wheel=${selectedWheel}`;
+          } else {
+            alert("Please select a wheel before adding.");
+          }
+        });
+
+      });
+    });
+
+  </script>
 </body>
 
 </html>
