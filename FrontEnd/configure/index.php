@@ -3,11 +3,11 @@ include '../../BackEnd/Login_Back/chk.php';
 include '../../BackEnd/Configure_Back/config.php';
 ?>
 
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html style="font-size: 16px;" lang="it">
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
   <meta charset="utf-8">
   <meta name="keywords"
     content="Finding the best car insurance company for you, Insurance and investing for your many sides, Finding the best car insurance company for you, The Best Insurance Companies for 2021, The Best Car Insurance Companies for 2021, Faq, Safe. Relaxing. Good to ride in. Subtly decorated., Contact Us">
