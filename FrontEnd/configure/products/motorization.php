@@ -96,7 +96,7 @@ include '../../../BackEnd/Configure_Back/config.php';
             <ol class="u-carousel-thumbnails u-spacing-15 u-vertical-spacing u-carousel-thumbnails-1">
               <li class="u-carousel-thumbnail u-carousel-thumbnail-1 u-active" data-u-target="#carousel-ceff"
                 data-u-slide-to="0">
-                <img class="u-carousel-thumbnail-image u-image" src="../images/Motor.jpeg" title="">
+                <img class="u-carousel-thumbnail-image u-image" src="../images/Motor.jpeg" title=""> 
               </li>
             </ol>
           </div><!--/product_gallery--><!--product_title-->
