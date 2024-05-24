@@ -3,11 +3,11 @@ include '../../BackEnd/Login_Back/chk.php';
 include '../../BackEnd/Configure_Back/config.php';
 ?>
 
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html style="font-size: 16px;" lang="it">
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
   <meta name="keywords"
     content="Finding the best car insurance company for you, Insurance and investing for your many sides, Finding the best car insurance company for you, The Best Insurance Companies for 2021, The Best Car Insurance Companies for 2021, Faq, Safe. Relaxing. Good to ride in. Subtly decorated., Contact Us">
@@ -200,16 +200,16 @@ include '../../BackEnd/Configure_Back/config.php';
               <h3 class="u-align-center u-custom-font u-font-lato u-text u-text-body-alt-color u-text-default u-text-2">
                 Basic </h3>
               <h5 class="u-align-center u-text u-text-palette-2-base u-text-3">$30.000</h5>
-              <img src="images/Basic.png" class="custom-expanded u-image  u-image-1" data-image-width="2836"
-                data-image-height="1875" src="images/d7eabcf5.svg">
+              <img src="images/Basic.png" class="custom-expanded u-image u-image-1" data-image-width="2836"
+                data-image-height="1875">
               <ul class="u-align-left u-text u-text-4">
                 <li>Infotainment plus package</li>
                 <li>Assistance package plus</li>
               </ul>
-              <a href="#"
-                class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-text-body-color u-btn-1"
-                data-package="Basic">add
-                now</a>
+              <a href="?package=Basic"
+                class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-text-body-color u-btn-1">
+                add now
+              </a>
             </div>
           </div>
           <!-- Secondo pacchetto -->
@@ -219,7 +219,7 @@ include '../../BackEnd/Configure_Back/config.php';
                 Business</h3>
               <h5 class="u-align-center u-text u-text-palette-2-base u-text-6">$40.000</h5>
               <img src="images/Buisness.png" alt="" class="custom-expanded u-image u-image-default u-image-2"
-                data-image-width="2836" data-image-height="1875" src="images/d7eabcf5.svg">
+                data-image-width="2836" data-image-height="1875">
               <ul class="u-align-left u-text u-text-7">
                 <li>16" alloy wheels</li>
                 <li>LED front headlights</li>
@@ -227,64 +227,63 @@ include '../../BackEnd/Configure_Back/config.php';
                 <li>Speed limiter with provision for Adaptive Cruise Control via FoD</li>
                 <li>Lane departure warning</li>
               </ul>
-              <a href="#"
-                class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-text-body-color u-btn-2"
-                data-package="Business">add
-                now</a>
+              <a href="?package=Business"
+                class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-text-body-color u-btn-2">
+                add now
+              </a>
             </div>
           </div>
           <!-- Terzo pacchetto -->
           <div class="u-container-style u-list-item u-repeater-item">
             <div class="u-container-layout u-similar-container u-container-layout-3">
               <h3 class="u-align-center u-custom-font u-font-lato u-text u-text-body-alt-color u-text-default u-text-8">
-                Sport</h5>
-                <h5 class="u-align-center u-text u-text-palette-2-base u-text-9">$55.000</h5>
-                <img src="images/Sports.png" alt="" class="custom-expanded u-image u-image-default u-image-3"
-                  data-image-width="2836" data-image-height="1875" src="images/d7eabcf5.svg">
-                <ul class="u-align-left u-text u-text-10">
-                  <li>18" alloy wheels</li>
-                  <li>S line aesthetics</li>
-                  <li>LED headlights with LED rear lights</li>
-                  <li>Sporty setup</li>
-                  <li>Plus Air Conditioning Package</li>
-                </ul>
-                <a href="#"
-                  class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-text-body-color u-btn-3"
-                  data-package="Sport">add
-                  now</a>
+                Sport</h3>
+              <h5 class="u-align-center u-text u-text-palette-2-base u-text-9">$55.000</h5>
+              <img src="images/Sports.png" alt="" class="custom-expanded u-image u-image-default u-image-3"
+                data-image-width="2836" data-image-height="1875">
+              <ul class="u-align-left u-text u-text-10">
+                <li>18" alloy wheels</li>
+                <li>S line aesthetics</li>
+                <li>LED headlights with LED rear lights</li>
+                <li>Sporty setup</li>
+                <li>Plus Air Conditioning Package</li>
+              </ul>
+              <a href="?package=Sport"
+                class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-text-body-color u-btn-3">
+                add now
+              </a>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-    <script>/*Script Pack*/
-      document.addEventListener('DOMContentLoaded', function () {
-        const pack = document.querySelector('.pack');
-        const buttons = pack.querySelectorAll('.u-btn-rectangle');
 
-        buttons.forEach(button => {
-          button.addEventListener('click', function (event) {
-            // Prevenire il comportamento predefinito del pulsante
-            event.preventDefault();
+        <script>/*Script Pack*/
+          document.addEventListener('DOMContentLoaded', function () {
+            const pack = document.querySelector('.pack');
+            const buttons = pack.querySelectorAll('.u-btn-rectangle');
 
-            // Rimuove la classe "selected" da tutti i pulsanti
-            buttons.forEach(btn => {
-              btn.classList.remove('selected');
-              btn.textContent = 'add now';
+            buttons.forEach(button => {
+              button.addEventListener('click', function (event) {
+                // Prevenire il comportamento predefinito del pulsante
+                event.preventDefault();
+
+                // Rimuove la classe "selected" da tutti i pulsanti
+                buttons.forEach(btn => {
+                  btn.classList.remove('selected');
+                  btn.textContent = 'add now';
+                });
+
+                // Aggiunge la classe "selected" e cambia il testo del pulsante cliccato
+                this.classList.add('selected');
+                this.textContent = 'remove';
+
+                // Ottieni il valore del pacchetto selezionato
+                /*const selectedPack = this.getAttribute('data-package');
+                sessionStorage.setItem('selectedPackage', selectedPack);*/
+              });
             });
-
-            // Aggiunge la classe "selected" e cambia il testo del pulsante cliccato
-            this.classList.add('selected');
-            this.textContent = 'remove';
-
-            // Ottieni il valore del pacchetto selezionato
-            const selectedPack = this.getAttribute('data-package');
-            sessionStorage.setItem('selectedPackage', selectedPack);
           });
-        });
-      });
 
-    </script>
+        </script>
   </section>
 
 
@@ -395,16 +394,16 @@ include '../../BackEnd/Configure_Back/config.php';
 
   <section class="u-align-center u-clearfix u-gradient u-section-4" id="sec-1a2b">
     <div class="u-clearfix u-sheet u-sheet-1">
-      <h1 class="u-align-center u-custom-font u-font-lato u-text u-text-default u-title u-text-1"> Assistance
-        systems<br>
-      </h1>
-      <p class="u-align-center u-large-text u-text u-text-variant u-text-2"> Add the assistance options you prefer, for
-        a safer driving experience</p>
-      <a href="#carousel_8bc9"
+      <h1 class="u-align-center u-custom-font u-font-lato u-text u-text-default u-title u-text-1">Assistance systems<br></h1>
+      <p class="u-align-center u-large-text u-text u-text-variant u-text-2">Add the assistance options you prefer, for a safer driving
+        experience</p>
+      <a href="javascript:void(0)" onclick="openSiteDialog('products/assistanceSystem.php')"
         class="u-active-black u-align-center u-border-2 u-border-active-black u-border-grey-dark-1 u-border-hover-black u-btn u-btn-round u-button-style u-dialog-link u-hover-black u-none u-radius-50 u-btn-1">Read
         More</a>
     </div>
   </section>
+
+
   <div class="optional">
     <section class="u-clearfix u-grey-80 u-section-5" id="sec-b6f4">
       <div class="u-clearfix u-sheet u-sheet-1">
@@ -488,8 +487,23 @@ include '../../BackEnd/Configure_Back/config.php';
     </section>
   </div>
   <script>/*Script Optionals*/
-    // Funzione per gestire il click sui pulsanti
     document.addEventListener('DOMContentLoaded', function () {
+      const confirmButton = document.querySelector('.confirm-button');
+
+      confirmButton.addEventListener('click', function (event) {
+        event.preventDefault();
+
+        const selectedOptions = [];
+        const optionals = document.querySelector('.optional');
+        const selectedOptionElements = optionals.querySelectorAll('.u-btn-rectangle.selected');
+        selectedOptionElements.forEach(option => {
+          const dataOptional = option.parentElement.querySelector('h2').getAttribute('data-optional');
+          selectedOptions.push(dataOptional);
+        });
+        const queryString = `?options=${encodeURIComponent(JSON.stringify(selectedOptions))}`;
+        window.location.href = queryString;
+      });
+
       const optionalSection = document.querySelector('.optional');
       const buttons = optionalSection.querySelectorAll('.u-btn-rectangle');
 
@@ -511,8 +525,6 @@ include '../../BackEnd/Configure_Back/config.php';
   </script>
 
 
-
-
   <div class="u-clearfix u-grey-80 u-footer u-align-center">
     <div class="confirm-button-container">
       <a href=""
@@ -520,26 +532,6 @@ include '../../BackEnd/Configure_Back/config.php';
     </div>
   </div>
 
-  <script>/*Script Confirm*/
-    document.addEventListener('DOMContentLoaded', function () {
-      const confirmButton = document.querySelector('.confirm-button');
-
-      confirmButton.addEventListener('click', function (event) {
-        event.preventDefault();
-        
-        
-        const selectedOptions = [];
-        const selectedOptionElements = document.querySelectorAll('.u-btn-rectangle.selected');
-        selectedOptionElements.forEach(option => {
-          const dataOptional = option.parentElement.querySelector('h2').getAttribute('data-optional');
-          selectedOptions.push(dataOptional);
-        });
-        let selectedPack = sessionStorage.getItem('selectedPackage');
-        const queryString = `?pack=${encodeURIComponent(selectedPack)}&options=${encodeURIComponent(JSON.stringify(selectedOptions))}`;
-        window.location.href = queryString;
-      });
-    });
-  </script>
 
 
   <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-d004">
