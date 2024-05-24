@@ -15,17 +15,156 @@
   <link id="u-theme-google-font" rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
 
-
-
   <script type="application/ld+json">{
-		"@context": "http://schema.org",
-		"@type": "Organization",
-		"name": ""
-}</script>
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "name": "Blazer",
+        "url": "https://www.blazer.com",
+        "logo": "https://www.blazer.com/logo.png",
+        "sameAs": [
+            "https://www.facebook.com/blazer",
+            "https://www.twitter.com/blazer",
+            "https://www.instagram.com/blazer"
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "Customer Service",
+            "email": "support@blazer.com",
+            "telephone": "+39-123-456-7890"
+        }
+  }</script>
   <meta name="theme-color" content="#1c2122">
   <meta property="og:title" content="Contatti">
   <meta property="og:type" content="website">
   <meta data-intl-tel-input-cdn-path="intlTelInput/">
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: #333;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #1c2122;
+      color: white;
+      padding: 20px 0;
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li {
+      display: inline;
+      margin-right: 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+    }
+
+    nav ul li a:hover {
+      background-color: #575757;
+      border-radius: 5px;
+    }
+
+    .u-section-1 {
+      background-color: white;
+      padding: 50px 20px;
+      margin: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .u-section-1 h1, .u-section-1 h2 {
+      color: #1c2122;
+    }
+
+    .u-section-1 p {
+      line-height: 1.6;
+      margin: 10px 0;
+    }
+
+    .u-section-1 a {
+      color: #1c2122;
+      text-decoration: underline;
+    }
+
+    .u-section-1 a:hover {
+      text-decoration: none;
+    }
+
+    .contact-info {
+      margin: 20px 0;
+    }
+
+    .contact-info h3 {
+      margin-bottom: 10px;
+    }
+
+    .contact-info p {
+      margin: 5px 0;
+    }
+
+    .contact-form {
+      margin: 20px 0;
+    }
+
+    .contact-form label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .contact-form button {
+      background-color: #1c2122;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .contact-form button:hover {
+      background-color: #575757;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    .u-backlink {
+      background-color: #333;
+      color: white;
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    .u-backlink a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .u-backlink a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 
 <body data-path-to-root="./" data-include-products="false" class="u-body u-xl-mode" data-lang="it">
@@ -46,21 +185,6 @@
                 <rect y="236" width="302" height="30"></rect>
                 <rect y="136" width="302" height="30"></rect>
               </g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
             </svg>
           </a>
         </div>
@@ -101,26 +225,33 @@
     </div>
   </header>
   <section class="u-clearfix u-section-1" id="sec-e5ab">
-    <div class="u-clearfix u-sheet u-sheet-1"></div>
+    <div class="u-clearfix u-sheet u-sheet-1">
+      <h1>Contact Us</h1>
+      <p>For any information, request or assistance, do not hesitate to contact us. We are here to help you!</p>
+
+      <div class="contact-form">
+        <h2>Contact Form</h2>
+        <form>
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+
+          <button type="submit">Send</button>
+        </form>
+      </div>
+    </div>
   </section>
-
-
 
   <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-77b4">
     <div class="u-clearfix u-sheet u-sheet-1">
-      <p class="u-small-text u-text u-text-variant u-text-1">Sample text. Click to select the text box. Click again or
-        double click to start editing the text.</p>
+      <p class="u-small-text u-text u-text-variant u-text-1">This site has been created by G. Sarnelli | A. Ricci | M. Ndoja</p>
     </div>
   </footer>
-  <section class="u-backlink u-clearfix u-grey-80">
-    <p class="u-text">
-      <span>This site was created with the </span>
-      <a class="u-link" href="https://nicepage.com/" target="_blank" rel="nofollow">
-        <span>Nicepage</span>
-      </a>
-    </p>
-  </section>
-
 </body>
 
 </html>
