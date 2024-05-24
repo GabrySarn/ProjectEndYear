@@ -16,6 +16,10 @@ include '../../BackEnd/Configure_Back/order.php';
   <link rel="stylesheet" href="style/nicepage.css" media="screen">
   <link rel="stylesheet" href="style/Pagina-1.css" media="screen">
   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<<<<<<< HEAD
+=======
+  <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
+>>>>>>> 7076174ce66a924c7ce6ac05f8690c0f126adbcb
   <script class="u-script" type="text/javascript" src="script/nicepage.js" defer=""></script>
   <meta name="generator" content="Nicepage 6.9.18, nicepage.com">
   <meta name="referrer" content="origin">
