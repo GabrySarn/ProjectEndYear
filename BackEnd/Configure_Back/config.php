@@ -1,5 +1,7 @@
 <?php
-
+if (isset($_GET['package'])) {
+  $_SESSION['pack'] = $_GET['package'];
+}
 
 if(isset($_GET['interior'])) {
   $_SESSION['interior'] = $_GET['interior'];
