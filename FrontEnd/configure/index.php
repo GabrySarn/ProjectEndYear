@@ -12,11 +12,12 @@ include '../../BackEnd/Configure_Back/config.php';
   <meta name="keywords"
     content="Finding the best car insurance company for you, Insurance and investing for your many sides, Finding the best car insurance company for you, The Best Insurance Companies for 2021, The Best Car Insurance Companies for 2021, Faq, Safe. Relaxing. Good to ride in. Subtly decorated., Contact Us">
   <meta name="description" content="">
-  <title>Pagina 1</title>
-  <link rel="stylesheet" href="nicepage.css" media="screen">
-  <link rel="stylesheet" href="Pagina-1.css" media="screen">
-  <script class="u-script" type="text/javascript" src="jquery-1.9.1.min.js" defer=""></script>
-  <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
+  <title>Configuration</title>
+  <link rel="stylesheet" href="style/nicepage.css" media="screen">
+  <link rel="stylesheet" href="style/Pagina-1.css" media="screen">
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
+  <script class="u-script" type="text/javascript" src="script/nicepage.js" defer=""></script>
   <meta name="generator" content="Nicepage 6.9.18, nicepage.com">
   <meta name="referrer" content="origin">
   <link id="u-theme-google-font" rel="stylesheet"
@@ -304,8 +305,7 @@ include '../../BackEnd/Configure_Back/config.php';
                   <a class="u-product-title-link" href="painting.php">Painting</a>
                 </h4>
                 <!-- Immagine del prodotto con apertura del dialog -->
-                <a class="u-product-title-link" href="javascript:void(0)"
-                  onclick="openSiteDialog('painting.php')">
+                <a class="u-product-title-link" href="javascript:void(0)" onclick="openSiteDialog('painting.php')">
                   <img alt=""
                     class="custom-expanded u-image u-image-contain u-image-default u-product-control u-image-3 product-image"
                     src="images/Designer.jpeg" title="">
@@ -331,8 +331,7 @@ include '../../BackEnd/Configure_Back/config.php';
                   <a class="u-product-title-link" href="motorization.php">Motorization</a>
                 </h4>
                 <!-- Immagine del prodotto con apertura del dialog -->
-                <a class="u-product-title-link" href="javascript:void(0)"
-                  onclick="openSiteDialog('motorization.php')">
+                <a class="u-product-title-link" href="javascript:void(0)" onclick="openSiteDialog('motorization.php')">
                   <img alt=""
                     class="custom-expanded u-image u-image-contain u-image-default u-product-control u-image-3 product-image"
                     src="images/motor.jpeg" title="">
@@ -359,8 +358,7 @@ include '../../BackEnd/Configure_Back/config.php';
                     onclick="openSiteDialog('wheel.php')">Wheels</a>
                 </h4>
                 <!-- Immagine del prodotto con apertura del dialog -->
-                <a class="u-product-title-link" href="javascript:void(0)"
-                  onclick="openSiteDialog('wheel.php')">
+                <a class="u-product-title-link" href="javascript:void(0)" onclick="openSiteDialog('wheel.php')">
                   <img alt=""
                     class="custom-expanded u-image u-image-contain u-image-default u-product-control u-image-3 product-image"
                     src="images/wheels.jpeg" title="">
@@ -378,8 +376,7 @@ include '../../BackEnd/Configure_Back/config.php';
                     onclick="openSiteDialog('interior.php')">Interiors</a>
                 </h4>
                 <!-- Immagine del prodotto con apertura del dialog -->
-                <a class="u-product-title-link" href="javascript:void(0)"
-                  onclick="openSiteDialog('interior.php')">
+                <a class="u-product-title-link" href="javascript:void(0)" onclick="openSiteDialog('interior.php')">
                   <img alt=""
                     class="custom-expanded u-image u-image-contain u-image-default u-product-control u-image-4"
                     src="images/Interior.jpg" title="">
@@ -394,8 +391,10 @@ include '../../BackEnd/Configure_Back/config.php';
 
   <section class="u-align-center u-clearfix u-gradient u-section-4" id="sec-1a2b">
     <div class="u-clearfix u-sheet u-sheet-1">
-      <h1 class="u-align-center u-custom-font u-font-lato u-text u-text-default u-title u-text-1">Assistance systems<br></h1>
-      <p class="u-align-center u-large-text u-text u-text-variant u-text-2">Add the assistance options you prefer, for a safer driving
+      <h1 class="u-align-center u-custom-font u-font-lato u-text u-text-default u-title u-text-1">Assistance systems<br>
+      </h1>
+      <p class="u-align-center u-large-text u-text u-text-variant u-text-2">Add the assistance options you prefer, for a
+        safer driving
         experience</p>
       <a href="javascript:void(0)" onclick="openSiteDialog('assistanceSystem.php')"
         class="u-active-black u-align-center u-border-2 u-border-active-black u-border-grey-dark-1 u-border-hover-black u-btn u-btn-round u-button-style u-dialog-link u-hover-black u-none u-radius-50 u-btn-1">Read
@@ -415,6 +414,7 @@ include '../../BackEnd/Configure_Back/config.php';
                 <div class="u-layout-row">
                   <div class="u-container-style u-image u-layout-cell u-left-cell u-size-30 u-image-1" src=""
                     data-image-width="400" data-image-height="225">
+                    <img src="images/phone_charge.jpg" alt="Panoramic Roof" class="full-width-image">
                     <div class="u-container-layout u-valign-middle u-container-layout-1"></div>
                   </div>
                   <div class="u-align-left u-container-style u-layout-cell u-right-cell u-size-30 u-layout-cell-2">
@@ -437,6 +437,7 @@ include '../../BackEnd/Configure_Back/config.php';
                   </div>
                   <div class="u-container-style u-image u-layout-cell u-right-cell u-size-30 u-image-2" src=""
                     data-image-width="400" data-image-height="225">
+                    <img src="images/Audio.jpg" alt="sound_system" class="full-width-image">
                     <div class="u-container-layout u-valign-middle u-container-layout-4"></div>
                   </div>
                 </div>
@@ -455,6 +456,7 @@ include '../../BackEnd/Configure_Back/config.php';
                 <div class="u-layout-row">
                   <div class="u-container-style u-image u-layout-cell u-left-cell u-size-30 u-image-1" src=""
                     data-image-width="1024" data-image-height="1024">
+                    <img src="images/sports_steering_wheel.jpeg" alt="sports_steering_wheel" class="full-width-image">
                     <div class="u-container-layout u-valign-middle u-container-layout-1"></div>
                   </div>
                   <div class="u-align-left u-container-style u-layout-cell u-right-cell u-size-30 u-layout-cell-2">
@@ -475,7 +477,7 @@ include '../../BackEnd/Configure_Back/config.php';
                   </div>
                   <div class="u-container-style u-image u-layout-cell u-right-cell u-size-30 u-image-2"
                     data-image-width="400" data-image-height="225">
-                    <img src="images/panoramic_roof.jpg" alt="Panoramic Roof" class="full-width-image">
+                    <img src="images/panoramic_roof.jpg" alt="panoramic_roof" class="full-width-image">
                   </div>
                 </div>
               </div>
