@@ -1,13 +1,14 @@
 <?php
+  include "../../../BackEnd/connect.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
-  include "../../BackEnd/connect.php";
   if (isset($_GET['package'])) {
     $_SESSION['pack'] = $_GET['package'];
   }
 
-} else if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  include "../../../BackEnd/connect.php";
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if (isset($_POST['assistance'])) {
     $stmt = $conn->prepare("INSERT INTO assistenza_dati (adaptiveSpeedAssist, hillStartAssist, descentAssist, parkingAssistant, parkingAssistantPlus, laneChangeWarning, laneDepartureWarning) VALUES (?, ?, ?, ?, ?, ?, ?)");

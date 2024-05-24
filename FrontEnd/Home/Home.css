@@ -1,5 +1,5 @@
  .u-section-1 {
-   background-image: url("images/1.png");
+   background-image: url("../../images/1.png");
    background-position: 50% 50%;
  }
 
@@ -497,7 +497,7 @@
 
  .u-section-4 .u-image-1 {
    min-height: 568px;
-   background-image: url("images/pexelsphoto3874342.jpeg");
+   background-image: url("../images/pexelsphoto3874342.jpeg");
    background-position: 50% 50%;
  }
 
@@ -1007,7 +1007,7 @@
  }
 
  .u-section-6 .u-image-1 {
-   background-image: url("images/dsfdfmin.jpg");
+   background-image: url("../images/dsfdfmin.jpg");
    min-height: 567px;
    background-position: 50% 50%;
  }
@@ -1135,7 +1135,7 @@
 
  .u-section-7 .u-image-1 {
    min-height: 403px;
-   background-image: url("images/footer.jpeg");
+   background-image: url("../images/footer.jpeg");
    background-position: 50% 50%;
  }
 
