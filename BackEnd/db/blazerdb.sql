@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 22, 2024 alle 22:46
+-- Creato il: Mag 24, 2024 alle 11:19
 -- Versione del server: 10.4.32-MariaDB
 -- Versione PHP: 8.2.12
 
@@ -29,8 +29,18 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `colore` (
   `ID_colore` int(11) NOT NULL,
-  `Nome` varchar(50) DEFAULT NULL
+  `Nome` varchar(50) DEFAULT NULL,
+  `prezzo` double(10,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dump dei dati per la tabella `colore`
+--
+
+INSERT INTO `colore` (`ID_colore`, `Nome`, `prezzo`) VALUES
+(1, 'Prominence Red', 499.99),
+(2, 'White Metallic', 499.99),
+(3, 'Black Metallic', 499.99);
 
 -- --------------------------------------------------------
 
@@ -66,7 +76,7 @@ CREATE TABLE `motore` (
 CREATE TABLE `optional` (
   `ID_opt` int(11) NOT NULL,
   `Nome` varchar(50) DEFAULT NULL,
-  `Descrizione` varchar(200) DEFAULT NULL,
+  `img_link` varchar(500) DEFAULT NULL,
   `prezzo` double(10,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -74,8 +84,11 @@ CREATE TABLE `optional` (
 -- Dump dei dati per la tabella `optional`
 --
 
-INSERT INTO `optional` (`ID_opt`, `Nome`, `Descrizione`, `prezzo`) VALUES
-(1, 'Carbon Fiber Interiors', 'Add a stylish carbon fiber style to the car\'s interior.', 1500.00);
+INSERT INTO `optional` (`ID_opt`, `Nome`, `img_link`, `prezzo`) VALUES
+(1, 'Phone charging dock', 'images\\phone_charge.jpg', 249.99),
+(2, 'SONOS 3D Premium Sound System', 'images/Audio.jpg', 799.99),
+(3, 'Sports steering wheel', '', 299.99),
+(4, 'Panoramic Roof', 'images\\panoramic_roof.jpg', 399.99);
 
 -- --------------------------------------------------------
 
@@ -88,6 +101,21 @@ CREATE TABLE `optional_conf` (
   `ID_conf` int(11) NOT NULL,
   `ID_optional` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `ordini`
+--
+
+CREATE TABLE `ordini` (
+  `ID` int(11) NOT NULL,
+  `ID_utente` int(11) NOT NULL,
+  `ID_veicolo` int(11) NOT NULL,
+  `ID_conf` int(11) NOT NULL,
+  `Data_acquisto` date NOT NULL DEFAULT current_timestamp(),
+  `Stato_ordine` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -183,6 +211,13 @@ ALTER TABLE `optional_conf`
   ADD KEY `id_optional_fk` (`ID_optional`);
 
 --
+-- Indici per le tabelle `ordini`
+--
+ALTER TABLE `ordini`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `id_veicolo_fk` (`ID_veicolo`);
+
+--
 -- Indici per le tabelle `pack`
 --
 ALTER TABLE `pack`
@@ -209,7 +244,7 @@ ALTER TABLE `veicolo`
 -- AUTO_INCREMENT per la tabella `colore`
 --
 ALTER TABLE `colore`
-  MODIFY `ID_colore` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_colore` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT per la tabella `configurazione`
@@ -227,13 +262,19 @@ ALTER TABLE `motore`
 -- AUTO_INCREMENT per la tabella `optional`
 --
 ALTER TABLE `optional`
-  MODIFY `ID_opt` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID_opt` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT per la tabella `optional_conf`
 --
 ALTER TABLE `optional_conf`
   MODIFY `ID_opt_conf` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT per la tabella `ordini`
+--
+ALTER TABLE `ordini`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT per la tabella `pack`
@@ -271,6 +312,12 @@ ALTER TABLE `configurazione`
 ALTER TABLE `optional_conf`
   ADD CONSTRAINT `id_conf_fk` FOREIGN KEY (`ID_conf`) REFERENCES `configurazione` (`ID_conf`),
   ADD CONSTRAINT `id_optional_fk` FOREIGN KEY (`ID_optional`) REFERENCES `optional` (`ID_opt`);
+
+--
+-- Limiti per la tabella `ordini`
+--
+ALTER TABLE `ordini`
+  ADD CONSTRAINT `id_veicolo_fk` FOREIGN KEY (`ID_veicolo`) REFERENCES `veicolo` (`ID_auto`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
