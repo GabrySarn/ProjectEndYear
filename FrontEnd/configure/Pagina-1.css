@@ -1,5 +1,5 @@
  .u-section-1 {
-  background-image: linear-gradient(0deg, rgba(0,0,0,0.15), rgba(0,0,0,0.15)), url('images/jetx.png');
+  background-image: linear-gradient(0deg, rgba(0,0,0,0.15), rgba(0,0,0,0.15)), url('../images/jetx.png');
   background-position: 50% 50%;
 }
 
@@ -632,7 +632,7 @@
 
 .u-section-5 .u-image-1 {
   min-height: 315px;
-  background-image: url("images/phone_charge.jpg");
+  background-image: url("../images/phone_charge.jpg");
   background-position: 50% 50%;
 }
 
@@ -686,7 +686,7 @@
 
 .u-section-5 .u-image-2 {
   min-height: 315px;
-  background-image: url("images/Audio.jpg");
+  background-image: url("../images/Audio.jpg");
   background-position: 50% 50%;
 }
 
@@ -780,7 +780,7 @@
 
 .u-section-6 .u-image-1 {
   min-height: 315px;
-  background-image: url("images/Volante.jpeg");
+  background-image: url("../images/Volante.jpeg");
   background-position: 50% 50%;
 }
 
@@ -834,7 +834,7 @@
 
 .u-section-6 .u-image-2 {
   min-height: 315px;
-  background-image: url("images/Designer.jpeg");
+  background-image: url("../images/Designer.jpeg");
   background-position: 50% 50%;
 }
 

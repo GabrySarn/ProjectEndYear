@@ -1,5 +1,5 @@
 <?php
-  include "../../../BackEnd/connect.php";
+  include "../../BackEnd/connect.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
   if (isset($_GET['package'])) {

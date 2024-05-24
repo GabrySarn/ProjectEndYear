@@ -12,11 +12,11 @@ include '../../BackEnd/Configure_Back/config.php';
   <meta name="keywords" content="Painting">
   <meta name="description" content="">
   <title>Product Details Template</title>
-  <link rel="stylesheet" href="nicepage.css" media="screen">
-  <link rel="stylesheet" href="Product-Details-Template.css" media="screen">
-  <script class="u-script" type="text/javascript" src="jquery-1.9.1.min.js" defer=""></script>
-  <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
-  <meta name="generator" content="Nicepage 6.9.18, nicepage.com">
+  <link rel="stylesheet" href="style/nicepage.css" media="screen">
+  <link rel="stylesheet" href="style/Product-Details-Template.css" media="screen">
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
+  <script class="u-script" type="text/javascript" src="script/nicepage.js" defer=""></script>
   <link id="u-theme-google-font" rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
 
