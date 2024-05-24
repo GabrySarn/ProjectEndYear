@@ -1,14 +1,11 @@
 <?php
-  include "../../BackEnd/connect.php";
-
-if ($_SERVER["REQUEST_METHOD"] == "GET") {
-  if (isset($_GET['package'])) {
-    $_SESSION['pack'] = $_GET['package'];
-  }
-
-}
+include "../../BackEnd/connect.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+  if (isset($_POST['package'])) {
+    $pack = $_POST['package'];
+  }
 
   if (isset($_POST['assistance'])) {
     $stmt = $conn->prepare("INSERT INTO assistenza_dati (adaptiveSpeedAssist, hillStartAssist, descentAssist, parkingAssistant, parkingAssistantPlus, laneChangeWarning, laneDepartureWarning) VALUES (?, ?, ?, ?, ?, ?, ?)");
@@ -33,23 +30,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
   }
 
-  if (isset($_GET['interior'])) {
-    $_SESSION['interior'] = $_GET['interior'];
+  if (isset($_POST['interior'])) {
+    $interior = $_POST['interior'];
     header('Location: success.html');
   }
 
-  if (isset($_GET['paint'])) {
-    $_SESSION['paint'] = $_GET['paint'];
+  if (isset($_POST['paint'])) {
+    $paint = $_POST['paint'];
     header('Location: success.html');
   }
 
-  if (isset($_GET['wheel'])) {
-    $_SESSION['wheel'] = $_GET['wheel'];
+  if (isset($_POST['wheel'])) {
+    $wheel = $_POST['wheel'];
     header('Location: success.html');
   }
 
-  if (isset($_GET['motor'])) {
-    $_SESSION['motor'] = $_GET['motor'];
+  if (isset($_POST['motor'])) {
+    $motor = $_POST['motor'];
     header('Location: success.html');
   }
 

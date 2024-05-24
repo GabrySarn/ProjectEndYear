@@ -1,6 +1,6 @@
 <?php
 include '../../BackEnd/Login_Back/chk.php';
-include '../../BackEnd/Configure_Back/config.php';
+include '../../BackEnd/Configure_Back/order.php';
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +15,6 @@ include '../../BackEnd/Configure_Back/config.php';
   <link rel="stylesheet" href="style/nicepage.css" media="screen">
   <link rel="stylesheet" href="style/Product-Details-Template.css" media="screen">
   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-  <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
   <script class="u-script" type="text/javascript" src="script/nicepage.js" defer=""></script>
   <meta name="generator" content="Nicepage 6.9.18, nicepage.com">
   <link id="u-theme-google-font" rel="stylesheet"
