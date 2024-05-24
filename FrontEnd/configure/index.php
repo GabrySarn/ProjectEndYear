@@ -301,11 +301,11 @@ include '../../BackEnd/Configure_Back/config.php';
               <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3">
                 <!-- Titolo del prodotto -->
                 <h4 class="u-align-center u-custom-font u-font-lato u-product-control u-text u-text-default u-text-3">
-                  <a class="u-product-title-link" href="products/painting.php">Painting</a>
+                  <a class="u-product-title-link" href="painting.php">Painting</a>
                 </h4>
                 <!-- Immagine del prodotto con apertura del dialog -->
                 <a class="u-product-title-link" href="javascript:void(0)"
-                  onclick="openSiteDialog('products/painting.php')">
+                  onclick="openSiteDialog('painting.php')">
                   <img alt=""
                     class="custom-expanded u-image u-image-contain u-image-default u-product-control u-image-3 product-image"
                     src="images/Designer.jpeg" title="">
@@ -328,11 +328,11 @@ include '../../BackEnd/Configure_Back/config.php';
               <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3">
                 <!-- Titolo del prodotto -->
                 <h4 class="u-align-center u-custom-font u-font-lato u-product-control u-text u-text-default u-text-3">
-                  <a class="u-product-title-link" href="products/motorization.php">Motorization</a>
+                  <a class="u-product-title-link" href="motorization.php">Motorization</a>
                 </h4>
                 <!-- Immagine del prodotto con apertura del dialog -->
                 <a class="u-product-title-link" href="javascript:void(0)"
-                  onclick="openSiteDialog('products/motorization.php')">
+                  onclick="openSiteDialog('motorization.php')">
                   <img alt=""
                     class="custom-expanded u-image u-image-contain u-image-default u-product-control u-image-3 product-image"
                     src="images/motor.jpeg" title="">
@@ -356,11 +356,11 @@ include '../../BackEnd/Configure_Back/config.php';
                 <!-- Titolo del prodotto -->
                 <h4 class="u-align-center u-custom-font u-font-lato u-product-control u-text u-text-default u-text-3">
                   <a class="u-product-title-link" href="javascript:void(0)"
-                    onclick="openSiteDialog('products/wheel.php')">Wheels</a>
+                    onclick="openSiteDialog('wheel.php')">Wheels</a>
                 </h4>
                 <!-- Immagine del prodotto con apertura del dialog -->
                 <a class="u-product-title-link" href="javascript:void(0)"
-                  onclick="openSiteDialog('products/wheel.php')">
+                  onclick="openSiteDialog('wheel.php')">
                   <img alt=""
                     class="custom-expanded u-image u-image-contain u-image-default u-product-control u-image-3 product-image"
                     src="images/wheels.jpeg" title="">
@@ -375,11 +375,11 @@ include '../../BackEnd/Configure_Back/config.php';
                 <!-- Titolo del prodotto -->
                 <h4 class="u-align-center u-custom-font u-font-lato u-product-control u-text u-text-default u-text-4">
                   <a class="u-product-title-link" href="javascript:void(0)"
-                    onclick="openSiteDialog('products/interior.php')">Interiors</a>
+                    onclick="openSiteDialog('interior.php')">Interiors</a>
                 </h4>
                 <!-- Immagine del prodotto con apertura del dialog -->
                 <a class="u-product-title-link" href="javascript:void(0)"
-                  onclick="openSiteDialog('products/interior.php')">
+                  onclick="openSiteDialog('interior.php')">
                   <img alt=""
                     class="custom-expanded u-image u-image-contain u-image-default u-product-control u-image-4"
                     src="images/Interior.jpg" title="">
@@ -397,7 +397,7 @@ include '../../BackEnd/Configure_Back/config.php';
       <h1 class="u-align-center u-custom-font u-font-lato u-text u-text-default u-title u-text-1">Assistance systems<br></h1>
       <p class="u-align-center u-large-text u-text u-text-variant u-text-2">Add the assistance options you prefer, for a safer driving
         experience</p>
-      <a href="javascript:void(0)" onclick="openSiteDialog('products/assistanceSystem.php')"
+      <a href="javascript:void(0)" onclick="openSiteDialog('assistanceSystem.php')"
         class="u-active-black u-align-center u-border-2 u-border-active-black u-border-grey-dark-1 u-border-hover-black u-btn u-btn-round u-button-style u-dialog-link u-hover-black u-none u-radius-50 u-btn-1">Read
         More</a>
     </div>
