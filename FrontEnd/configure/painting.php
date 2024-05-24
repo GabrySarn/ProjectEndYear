@@ -1,6 +1,6 @@
 <?php
-include '../../../BackEnd/Login_Back/chk.php';
-include '../../../BackEnd/Configure_Back/config.php';
+include '../../BackEnd/Login_Back/chk.php';
+include '../../BackEnd/Configure_Back/config.php';
 ?>
 
 <!DOCTYPE html>
@@ -12,10 +12,10 @@ include '../../../BackEnd/Configure_Back/config.php';
   <meta name="keywords" content="Painting">
   <meta name="description" content="">
   <title>Product Details Template</title>
-  <link rel="stylesheet" href="../nicepage.css" media="screen">
-  <link rel="stylesheet" href="../Product-Details-Template.css" media="screen">
-  <script class="u-script" type="text/javascript" src="../jquery-1.9.1.min.js" defer=""></script>
-  <script class="u-script" type="text/javascript" src="../nicepage.js" defer=""></script>
+  <link rel="stylesheet" href="nicepage.css" media="screen">
+  <link rel="stylesheet" href="Product-Details-Template.css" media="screen">
+  <script class="u-script" type="text/javascript" src="jquery-1.9.1.min.js" defer=""></script>
+  <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
   <meta name="generator" content="Nicepage 6.9.18, nicepage.com">
   <link id="u-theme-google-font" rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
@@ -79,14 +79,14 @@ include '../../../BackEnd/Configure_Back/config.php';
             <div class="u-carousel-inner u-gallery-inner" role="listbox">
               <div class="u-carousel-item u-gallery-item u-active">
                 <div class="u-back-slide">
-                  <img class="u-back-image u-expanded u-image-contain" src="../images/Designer.jpeg">
+                  <img class="u-back-image u-expanded u-image-contain" src="images/Designer.jpeg">
                 </div>
               </div>
             </div>
             <ol class="u-carousel-thumbnails u-spacing-15 u-vertical-spacing u-carousel-thumbnails-1">
               <li class="u-carousel-thumbnail u-carousel-thumbnail-1 u-active" data-u-target="#carousel-ceff"
                 data-u-slide-to="0">
-                <img class="u-carousel-thumbnail-image u-image" src="../images/Designer.jpeg" title="">
+                <img class="u-carousel-thumbnail-image u-image" src="images/Designer.jpeg" title="">
               </li>
             </ol>
           </div>
@@ -120,7 +120,7 @@ include '../../../BackEnd/Configure_Back/config.php';
                     // Aggiorna l'URL dell'immagine
                     selectedColor = option.getAttribute('data-color');
                     carouselImages.forEach(img => {
-                      img.src = `colors/${selectedColor}.png`; // Assumi che le immagini siano nel formato "colore.png" nella cartella "colors"
+                      img.src = `images/colors/${selectedColor}.png`; // Assumi che le immagini siano nel formato "colore.png" nella cartella "colors"
                     });
                   });
                 });

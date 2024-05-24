@@ -139,7 +139,7 @@ include '../../BackEnd/Configure_Back/config.php';
             // Aggiorna l'URL dell'immagine con il cerchione selezionato
             const interior = option.getAttribute('data-interior');
             carouselImages.forEach(img => {
-              img.src = `products/Interiors/${interior}.jpg`; // Assumi che le immagini siano nel formato "interior.png" nella cartella "interiors"
+              img.src = `images/Interiors/${interior}.jpg`; // Assumi che le immagini siano nel formato "interior.png" nella cartella "interiors"
             });
           }
         });
