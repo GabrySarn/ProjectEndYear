@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 24, 2024 alle 12:26
+-- Creato il: Mag 25, 2024 alle 20:40
 -- Versione del server: 10.4.32-MariaDB
 -- Versione PHP: 8.2.12
 
@@ -30,6 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `colore` (
   `ID_colore` int(11) NOT NULL,
   `Nome` varchar(50) DEFAULT NULL,
+  `Hex_color` varchar(7) DEFAULT NULL,
   `prezzo` double(10,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -37,10 +38,17 @@ CREATE TABLE `colore` (
 -- Dump dei dati per la tabella `colore`
 --
 
-INSERT INTO `colore` (`ID_colore`, `Nome`, `prezzo`) VALUES
-(1, 'Prominence Red', 499.99),
-(2, 'White Metallic', 499.99),
-(3, 'Black Metallic', 499.99);
+INSERT INTO `colore` (`ID_colore`, `Nome`, `Hex_color`, `prezzo`) VALUES
+(1, 'Red', '#ff0000', 499.99),
+(2, 'White', '#e6e6e6', 499.99),
+(3, 'Black', '#000000', 499.99),
+(4, 'Silver', '#c0c0c0', 499.99),
+(5, 'Grey', '#808080', 499.99),
+(6, 'Blue', '#000080', 499.99),
+(7, 'Sky', '#0099ff', 499.99),
+(8, 'Purple', '#5400b4', 499.99),
+(9, 'Brown', '#a52a2a', 499.99),
+(10, 'Yellow', '#ffd700', 499.99);
 
 -- --------------------------------------------------------
 
@@ -115,7 +123,7 @@ CREATE TABLE `ordini` (
   `ID_conf` int(11) NOT NULL,
   `Data_acquisto` date NOT NULL DEFAULT current_timestamp(),
   `Stato_ordine` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -244,7 +252,7 @@ ALTER TABLE `veicolo`
 -- AUTO_INCREMENT per la tabella `colore`
 --
 ALTER TABLE `colore`
-  MODIFY `ID_colore` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID_colore` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT per la tabella `configurazione`

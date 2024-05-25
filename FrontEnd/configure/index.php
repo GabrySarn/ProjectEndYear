@@ -1,6 +1,12 @@
 <?php
 include '../../BackEnd/Login_Back/chk.php';
 include '../../BackEnd/Configure_Back/order.php';
+include '../../BackEnd/connect.php';
+
+$sql = "SELECT * FROM veicolo WHERE ID_auto =" . $_SESSION['carId'];
+$res = $conn->query($sql);
+
+$carModel = $res->fetch_assoc();
 ?>
 
 <!DOCTYPE html>
@@ -186,7 +192,7 @@ include '../../BackEnd/Configure_Back/order.php';
   <section class="u-align-center u-clearfix u-image u-shading u-section-1" id="carousel_c016" data-image-width="1024"
     data-image-height="1024">
     <div class="u-clearfix u-sheet u-sheet-1">
-      <h1 class="u-custom-font u-font-lato u-text u-text-body-alt-color u-text-1">CONFIGURATION</h1>
+      <h1 class="u-custom-font u-font-lato u-text u-text-body-alt-color u-text-1"><?= htmlspecialchars($carModel['Modello']) ?> - CONFIGURATION</h1>
     </div>
   </section>
 

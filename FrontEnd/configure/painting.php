@@ -1,6 +1,10 @@
 <?php
 include '../../BackEnd/Login_Back/chk.php';
 include '../../BackEnd/Configure_Back/order.php';
+include '../../BackEnd/connect.php';
+
+$sql = "SELECT * FROM colore";
+$res = $conn->query($sql);
 ?>
 
 <!DOCTYPE html>
@@ -90,16 +94,11 @@ include '../../BackEnd/Configure_Back/order.php';
           <div class="u-align-left u-product-control u-product-desc u-text u-text-2">Choose a color.</div>
           <div data-add-zero-cents="true" class="u-product-control u-product-price u-product-price-1">
             <div class="color-selector">
-              <div class="color-option" style="background-color: #e6e6e6;" data-color="White"></div>
-              <div class="color-option" style="background-color: #000000;" data-color="Black"></div>
-              <div class="color-option" style="background-color: #C0C0C0;" data-color="Silver"></div>
-              <div class="color-option" style="background-color: #808080;" data-color="Grey"></div>
-              <div class="color-option" style="background-color: #000080;" data-color="Blue"></div>
-              <div class="color-option" style="background-color: #FF0000;" data-color="Red"></div>
-              <div class="color-option" style="background-color: #0099ff;" data-color="Sky"></div>
-              <div class="color-option" style="background-color: #5400b4;" data-color="Purple"></div>
-              <div class="color-option" style="background-color: #A52A2A;" data-color="Brown"></div>
-              <div class="color-option" style="background-color: #FFD700;" data-color="Yellow"></div>
+              <?php
+                while ($row = $res->fetch_assoc()) {
+                  echo '<div class="color-option" style="color: white; background-color: ' . $row['Hex_color'] . ';" data-color="' . $row['Nome'] . '">'. $row['prezzo']. '<br>Euro</div>';
+                }
+              ?>
             </div>
             <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
               <input type="hidden" id="selectedColorInput" name="paint" value="">
