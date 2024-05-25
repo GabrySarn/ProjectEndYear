@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 25, 2024 alle 23:45
+-- Creato il: Mag 26, 2024 alle 00:26
 -- Versione del server: 10.4.32-MariaDB
 -- Versione PHP: 8.2.12
 
@@ -20,6 +20,19 @@ SET time_zone = "+00:00";
 --
 -- Database: `blazerdb`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `cerchi`
+--
+
+CREATE TABLE `cerchi` (
+  `ID_cerchi` int(11) NOT NULL,
+  `Nome` varchar(100) DEFAULT NULL,
+  `Prezzo` double(10,2) DEFAULT NULL,
+  `Img_link` varchar(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -60,7 +73,8 @@ CREATE TABLE `configurazione` (
   `ID_conf` int(11) NOT NULL,
   `ID_pack` int(11) DEFAULT NULL,
   `ID_colore` int(11) DEFAULT NULL,
-  `ID_motore` int(11) DEFAULT NULL
+  `ID_motore` int(11) DEFAULT NULL,
+  `ID_cerchi` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -74,6 +88,17 @@ CREATE TABLE `motore` (
   `Tipo` varchar(50) DEFAULT NULL,
   `Potenza` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dump dei dati per la tabella `motore`
+--
+
+INSERT INTO `motore` (`ID_motore`, `Tipo`, `Potenza`) VALUES
+(1, 'Diesel', NULL),
+(2, 'Petrol', NULL),
+(3, 'Mild-Hybrid', NULL),
+(4, 'Full-Hybrid', NULL),
+(5, 'Electric', NULL);
 
 -- --------------------------------------------------------
 
@@ -184,6 +209,12 @@ INSERT INTO `veicolo` (`ID_auto`, `Modello`, `Descrizione`, `Posti`, `Anno`, `Pr
 --
 
 --
+-- Indici per le tabelle `cerchi`
+--
+ALTER TABLE `cerchi`
+  ADD PRIMARY KEY (`ID_cerchi`);
+
+--
 -- Indici per le tabelle `colore`
 --
 ALTER TABLE `colore`
@@ -196,7 +227,8 @@ ALTER TABLE `configurazione`
   ADD PRIMARY KEY (`ID_conf`),
   ADD KEY `ID_pack` (`ID_pack`),
   ADD KEY `ID_colore` (`ID_colore`),
-  ADD KEY `ID_motore` (`ID_motore`);
+  ADD KEY `ID_motore` (`ID_motore`),
+  ADD KEY `ID_cerchi` (`ID_cerchi`) USING BTREE;
 
 --
 -- Indici per le tabelle `motore`
@@ -249,6 +281,12 @@ ALTER TABLE `veicolo`
 --
 
 --
+-- AUTO_INCREMENT per la tabella `cerchi`
+--
+ALTER TABLE `cerchi`
+  MODIFY `ID_cerchi` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT per la tabella `colore`
 --
 ALTER TABLE `colore`
@@ -264,7 +302,7 @@ ALTER TABLE `configurazione`
 -- AUTO_INCREMENT per la tabella `motore`
 --
 ALTER TABLE `motore`
-  MODIFY `ID_motore` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_motore` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT per la tabella `optional`
@@ -312,6 +350,7 @@ ALTER TABLE `veicolo`
 ALTER TABLE `configurazione`
   ADD CONSTRAINT `configurazione_ibfk_1` FOREIGN KEY (`ID_pack`) REFERENCES `pack` (`ID_pack`),
   ADD CONSTRAINT `configurazione_ibfk_2` FOREIGN KEY (`ID_colore`) REFERENCES `colore` (`ID_colore`),
+  ADD CONSTRAINT `configurazione_ibfk_3` FOREIGN KEY (`ID_cerchi`) REFERENCES `cerchi` (`ID_cerchi`),
   ADD CONSTRAINT `configurazione_ibfk_4` FOREIGN KEY (`ID_motore`) REFERENCES `motore` (`ID_motore`);
 
 --

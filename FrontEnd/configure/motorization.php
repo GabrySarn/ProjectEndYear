@@ -2,6 +2,7 @@
 // Include i file necessari
 include '../../BackEnd/Login_Back/chk.php';
 include '../../BackEnd/Configure_Back/order.php';
+include '../../BackEnd/connect.php';
 
 // Inizializza la variabile per la motorizzazione selezionata
 $selectedMotor = "";
@@ -15,6 +16,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Puoi qui fare ulteriori operazioni, ad esempio salvare i dati nel database
     }
 }
+
+    $sql = "SELECT * FROM motore";
+    $res = $conn->query($sql);
 ?>
 
 <!DOCTYPE html>
@@ -107,26 +111,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div data-add-zero-cents="true" class="u-product-control u-product-price u-product-price-1">
                         <div class="motor-selector">
                             <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-                                <label style="background-color: #e6e6e600;">
-                                    <input type="radio" name="motor" class="motor-option" value="Diesel">
-                                    Diesel
-                                </label>
-                                <label style="background-color: #e6e6e600;">
-                                    <input type="radio" name="motor" class="motor-option" value="Petrol">
-                                    Petrol
-                                </label>
-                                <label style="background-color: #e6e6e600;">
-                                    <input type="radio" name="motor" class="motor-option" value="Mild-Hybrid">
-                                    Mild-Hybrid
-                                </label>
-                                <label style="background-color: #e6e6e600;">
-                                    <input type="radio" name="motor" class="motor-option" value="Full-Hybrid">
-                                    Full-Hybrid
-                                </label>
-                                <label style="background-color: #e6e6e600;">
-                                    <input type="radio" name="motor" class="motor-option" value="Electric">
-                                    Electric
-                                </label>
+                                <?php
+                                    while ($row = $res->fetch_assoc()) {
+                                        echo '<label style="background-color: #e6e6e600;">
+                                            <input type="radio" name="motor" class="motor-option" value="' . $row['Tipo'] . '">
+                                            ' . $row['Tipo'] . '
+                                        </label><br>';
+                                    }
+                                ?>
                                 <button type="submit"
                                     class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-text-black u-text-hover-white u-btn-1">ADD
                                     NOW</button>

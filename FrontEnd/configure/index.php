@@ -482,7 +482,6 @@ $carModel = $res->fetch_assoc();
                     </div>';
                     }
                   }
-
                 ?>
               </div>
             </div>
