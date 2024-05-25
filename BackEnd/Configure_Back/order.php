@@ -49,5 +49,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     foreach ($selectedOptionsArray as $index => $option) {
       //echo "<p>Opzione $index: $option</p>";
     }
+
+    header('Location: ../checkout/index.html');
+
   }
 }
