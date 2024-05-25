@@ -3,19 +3,54 @@ include '../../BackEnd/Login_Back/chk.php';
 include '../../BackEnd/Configure_Back/order.php';
 ?>
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistemi di Assistenza</title>
+    <title>Assistance Systems</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: #343a40;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .custom-control-label {
+            font-size: 1.2rem;
+            color: #495057;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            width: 100%;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+    </style>
 </head>
 
 <body>
     <div class="container mt-5">
-        <h1 class="mb-4">Sistemi di Assistenza</h1>
-        <form id="assistenzaForm" method="POST">
+        <h1 class="mb-4">Assistance Systems</h1>
+        <form id="assistanceForm" method="POST">
             <div class="form-group">
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="adaptiveSpeedAssist"
@@ -26,8 +61,8 @@ include '../../BackEnd/Configure_Back/order.php';
             <div class="form-group">
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="hillStartAssist" name="hillStartAssist"
-                        value="Assistente alla partenza in salita">
-                    <label class="custom-control-label" for="hillStartAssist">Assistente alla partenza in salita</label>
+                        value="Hill Start Assist">
+                    <label class="custom-control-label" for="hillStartAssist">Hill Start Assist</label>
                 </div>
             </div>
             <div class="form-group">
@@ -40,34 +75,33 @@ include '../../BackEnd/Configure_Back/order.php';
             <div class="form-group">
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="parkingAssistant" name="parkingAssistant"
-                        value="Assistente al parcheggio">
-                    <label class="custom-control-label" for="parkingAssistant">Assistente al parcheggio</label>
+                        value="Parking Assistant">
+                    <label class="custom-control-label" for="parkingAssistant">Parking Assistant</label>
                 </div>
             </div>
             <div class="form-group">
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="parkingAssistantPlus"
-                        name="parkingAssistantPlus" value="Sistema di ausilio al parcheggio plus">
-                    <label class="custom-control-label" for="parkingAssistantPlus">Sistema di ausilio al parcheggio
-                        plus</label>
+                        name="parkingAssistantPlus" value="Parking Assistance Plus">
+                    <label class="custom-control-label" for="parkingAssistantPlus">Parking Assistance Plus</label>
                 </div>
             </div>
             <div class="form-group">
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="laneChangeWarning" name="laneChangeWarning"
-                        value="Lane change warning">
-                    <label class="custom-control-label" for="laneChangeWarning">Lane change warning</label>
+                        value="Lane Change Warning">
+                    <label class="custom-control-label" for="laneChangeWarning">Lane Change Warning</label>
                 </div>
             </div>
             <div class="form-group">
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="laneDepartureWarning"
-                        name="laneDepartureWarning" value="Lane departure warning">
-                    <label class="custom-control-label" for="laneDepartureWarning">Lane departure warning</label>
+                        name="laneDepartureWarning" value="Lane Departure Warning">
+                    <label class="custom-control-label" for="laneDepartureWarning">Lane Departure Warning</label>
                 </div>
             </div>
-            <!-- Aggiungi altre checkbox per gli altri sistemi di assistenza -->
-           <button type="submit" href="" class="btn btn-primary">Conferma</button>
+            <!-- Add more checkboxes for other assistance systems -->
+            <button type="submit" class="btn btn-primary">Confirm</button>
         </form>
     </div>
 

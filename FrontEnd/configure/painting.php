@@ -32,28 +32,25 @@ include '../../BackEnd/Configure_Back/order.php';
   <style>
     .u-color-swatch {
       width: 80px;
-      /* Aumenta la larghezza */
       height: 80px;
-      /* Aumenta l'altezza */
       border: 2px solid #ccc;
       margin-right: 20px;
-      /* Aumenta lo spazio tra i quadrati */
       cursor: pointer;
     }
 
     .color-selector {
       display: flex;
       gap: 10px;
+      flex-wrap: wrap;
     }
 
     .color-option {
-      width: 30px;
-      height: 30px;
+      width: 50px;
+      height: 50px;
       cursor: pointer;
       border: 2px solid transparent;
       border-radius: 5px;
       background-color: white;
-      /* Aggiunto uno sfondo bianco */
     }
 
     .color-option.selected {
@@ -61,7 +58,7 @@ include '../../BackEnd/Configure_Back/order.php';
     }
 
     html {
-      zoom: 65%; /* Imposta lo zoom predefinito al 70% */
+      zoom: 70%;
     }
   </style>
 </head>
@@ -104,46 +101,47 @@ include '../../BackEnd/Configure_Back/order.php';
               <div class="color-option" style="background-color: #A52A2A;" data-color="Brown"></div>
               <div class="color-option" style="background-color: #FFD700;" data-color="Yellow"></div>
             </div>
-            <script>
-              document.addEventListener('DOMContentLoaded', function () {
-                const colorOptions = document.querySelectorAll('.color-option');
-                const carouselImages = document.querySelectorAll('.u-gallery-item img');
-                let selectedColor = null;
-
-                colorOptions.forEach(option => {
-                  option.addEventListener('click', function () {
-                    // Rimuovi la classe "selected" da tutti i rettangoli
-                    colorOptions.forEach(opt => opt.classList.remove('selected'));
-                    // Aggiungi la classe "selected" al rettangolo cliccato
-                    option.classList.add('selected');
-                    // Aggiorna l'URL dell'immagine
-                    selectedColor = option.getAttribute('data-color');
-                    carouselImages.forEach(img => {
-                      img.src = `images/colors/${selectedColor}.png`; // Assumi che le immagini siano nel formato "colore.png" nella cartella "colors"
-                    });
-                  });
-                });
-
-                // Gestire il click sul pulsante "ADD NOW"
-                const addButton = document.querySelector('.u-btn-1');
-                addButton.addEventListener('click', function (event) {
-                  event.preventDefault(); // Prevenire il comportamento predefinito del link
-                  
-                  if (selectedColor) {
-                    // Reindirizza alla stessa pagina con il colore selezionato come parametro GET
-                    window.location.href = `?paint=${selectedColor}`;
-                  } else {
-                    alert("Please select a color before adding.");
-                  }
-                });
-              });
-            </script>
+            <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+              <input type="hidden" id="selectedColorInput" name="paint" value="">
+              <button type="submit"
+                class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-text-black u-text-hover-white u-btn-1">ADD
+                NOW</button>
+            </form>
           </div>
-          <a href="#" class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-text-black u-text-hover-white u-btn-1">ADD NOW</a>
         </div>
       </div>
     </div>
   </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const colorOptions = document.querySelectorAll('.color-option');
+      const carouselImages = document.querySelectorAll('.u-gallery-item img');
+      const selectedColorInput = document.getElementById('selectedColorInput');
+      let selectedColor = null;
+
+      colorOptions.forEach(option => {
+        option.addEventListener('click', function () {
+          colorOptions.forEach(opt => opt.classList.remove('selected'));
+          option.classList.add('selected');
+          selectedColor = option.getAttribute('data-color');
+          selectedColorInput.value = selectedColor;
+          carouselImages.forEach(img => {
+            img.src = `images/colors/${selectedColor}.png`;
+          });
+        });
+      });
+
+      const addButton = document.querySelector('.u-btn-1');
+      addButton.addEventListener('click', function (event) {
+        if (!selectedColor) {
+          event.preventDefault();
+          alert("Please select a color before adding.");
+        }
+      });
+    });
+  </script>
+
 </body>
 
 </html>

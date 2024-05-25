@@ -47,12 +47,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <style>
         .u-motor-swatch {
             width: 80px;
-            /* Aumenta la larghezza */
             height: 80px;
-            /* Aumenta l'altezza */
             border: 2px solid #ccc;
             margin-right: 20px;
-            /* Aumenta lo spazio tra i quadrati */
             cursor: pointer;
         }
 
@@ -68,7 +65,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             border: 2px solid transparent;
             border-radius: 5px;
             background-color: white;
-            /* Aggiunto uno sfondo bianco */
         }
 
         .motor-option.selected {
@@ -76,23 +72,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         html {
-            zoom: 65%;
-            /* Imposta lo zoom predefinito al 70% */
+            zoom: 70%;
         }
     </style>
 </head>
 
 <body data-path-to-root="./" data-include-products="true" class="u-body u-xl-mode" data-lang="it">
-    <header class="u-clearfix u-header u-header" id="sec-611f">
 
-    </header>
     <section class="u-align-center u-clearfix u-section-1" id="sec-8617">
         <div
             class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-md u-valign-middle-xl u-valign-middle-xs u-sheet-1">
             <div class="u-container-style u-expanded-width u-product u-product-1" data-product-id="3">
                 <div class="u-container-layout u-valign-middle-xl u-container-layout-1">
-                    <div
-                        class="u-carousel u-gallery u-layout-thumbnails u-lightbox u-no-transition u-product-control u-show-text-none u-thumbnails-position-left u-gallery-1"
+                    <div class="u-carousel u-gallery u-layout-thumbnails u-lightbox u-no-transition u-product-control u-show-text-none u-thumbnails-position-left u-gallery-1"
                         data-interval="5000" data-u-ride="carousel" id="carousel-ceff">
                         <div class="u-carousel-inner u-gallery-inner" role="listbox">
                             <div class="u-carousel-item u-gallery-item u-active">
@@ -103,12 +95,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </div>
 
                         <ol class="u-carousel-thumbnails u-spacing-15 u-vertical-spacing u-carousel-thumbnails-1">
-                            <li class="u-carousel-thumbnail u-carousel-thumbnail-1 u-active" data-u-target="#carousel-ceff"
-                                data-u-slide-to="0">
+                            <li class="u-carousel-thumbnail u-carousel-thumbnail-1 u-active"
+                                data-u-target="#carousel-ceff" data-u-slide-to="0">
                                 <img class="u-carousel-thumbnail-image u-image" src="images/Motor.jpeg" title="">
                             </li>
                         </ol>
                     </div>
+
                     <h2 class="u-align-left u-product-control u-text u-text-1">Motorization</h2>
                     <div class="u-align-left u-product-control u-product-desc u-text u-text-2">Choose a motor.</div>
                     <div data-add-zero-cents="true" class="u-product-control u-product-price u-product-price-1">
@@ -116,23 +109,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
                                 <label style="background-color: #e6e6e600;">
                                     <input type="radio" name="motor" class="motor-option" value="Diesel">
-                                    <br>Diesel
+                                    Diesel
                                 </label>
                                 <label style="background-color: #e6e6e600;">
                                     <input type="radio" name="motor" class="motor-option" value="Petrol">
-                                    <br>Petrol
+                                    Petrol
                                 </label>
                                 <label style="background-color: #e6e6e600;">
                                     <input type="radio" name="motor" class="motor-option" value="Mild-Hybrid">
-                                    <br>Mild-Hybrid
+                                    Mild-Hybrid
                                 </label>
                                 <label style="background-color: #e6e6e600;">
                                     <input type="radio" name="motor" class="motor-option" value="Full-Hybrid">
-                                    <br>Full-Hybrid
+                                    Full-Hybrid
                                 </label>
                                 <label style="background-color: #e6e6e600;">
                                     <input type="radio" name="motor" class="motor-option" value="Electric">
-                                    <br>Electric
+                                    Electric
                                 </label>
                                 <button type="submit"
                                     class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-text-black u-text-hover-white u-btn-1">ADD
@@ -146,32 +139,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </section>
 
-    <?php
-    // Visualizza la motorizzazione selezionata dopo l'invio del modulo
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        if (!empty($selectedMotor)) {
-            echo "<p>Selected motor: $selectedMotor</p>";
-        } else {
-            echo "<p>No motor selected.</p>";
-        }
-    }
-    ?>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const motorOptions = document.querySelectorAll('.motor-option');
-            const addButton = document.querySelector('.u-btn');
-
-            addButton.addEventListener('click', function (event) {
-                event.preventDefault(); // Prevenire il comportamento predefinito del form
-
-                let selectedMotor = null;
-                motorOptions.forEach(option => {
+            const interiorOptions = document.querySelectorAll('.motor-option');
+            interiorOptions.forEach(option => {
+                option.addEventListener('change', function () {
                     if (option.checked) {
-                        selectedMotor = option.value;
+                        selectedInterior = option.value;
                     }
                 });
-
             });
         });
     </script>

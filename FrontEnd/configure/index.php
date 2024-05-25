@@ -16,10 +16,7 @@ include '../../BackEnd/Configure_Back/order.php';
   <link rel="stylesheet" href="style/nicepage.css" media="screen">
   <link rel="stylesheet" href="style/Pagina-1.css" media="screen">
   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<<<<<<< HEAD
-=======
   <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
->>>>>>> 7076174ce66a924c7ce6ac05f8690c0f126adbcb
   <script class="u-script" type="text/javascript" src="script/nicepage.js" defer=""></script>
   <meta name="generator" content="Nicepage 6.9.18, nicepage.com">
   <meta name="referrer" content="origin">
@@ -194,106 +191,106 @@ include '../../BackEnd/Configure_Back/order.php';
   </section>
 
   <section class="pack u-align-center u-clearfix u-gradient u-section-2" id="sec-24ac">
-  <div class="u-clearfix u-sheet u-sheet-1">
-    <h2 class="u-custom-font u-font-lato u-text u-text-body-alt-color u-text-default u-text-1">Pack</h2>
-    <div class="u-expanded-width u-list u-list-1">
-      <div class="u-repeater u-repeater-1">
-        <!-- Primo pacchetto -->
-        <form class="u-container-style u-list-item u-repeater-item" method="POST" action="your_php_script.php">
-          <div class="u-container-layout u-similar-container u-container-layout-1">
-            <h3 class="u-align-center u-custom-font u-font-lato u-text u-text-body-alt-color u-text-default u-text-2">
-              Basic </h3>
-            <h5 class="u-align-center u-text u-text-palette-2-base u-text-3">$30.000</h5>
-            <img src="images/Basic.png" class="custom-expanded u-image u-image-1" data-image-width="2836"
-              data-image-height="1875">
-            <ul class="u-align-left u-text u-text-4">
-              <li>Infotainment plus package</li>
-              <li>Assistance package plus</li>
-            </ul>
-            <input type="hidden" name="package" value="Basic">
-            <button type="submit"
-              class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-text-body-color u-btn-1">
-              add now
-            </button>
-          </div>
-        </form>
-        <!-- Secondo pacchetto -->
-        <form class="u-container-style u-list-item u-repeater-item" method="POST" action="your_php_script.php">
-          <div class="u-container-layout u-similar-container u-container-layout-2">
-            <h3 class="u-align-center u-custom-font u-font-lato u-text u-text-body-alt-color u-text-default u-text-5">
-              Business</h3>
-            <h5 class="u-align-center u-text u-text-palette-2-base u-text-6">$40.000</h5>
-            <img src="images/Buisness.png" alt="" class="custom-expanded u-image u-image-default u-image-2"
-              data-image-width="2836" data-image-height="1875">
-            <ul class="u-align-left u-text u-text-7">
-              <li>16" alloy wheels</li>
-              <li>LED front headlights</li>
-              <li>10.25" virtual cockpit</li>
-              <li>Speed limiter with provision for Adaptive Cruise Control via FoD</li>
-              <li>Lane departure warning</li>
-            </ul>
-            <input type="hidden" name="package" value="Business">
-            <button type="submit"
-              class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-text-body-color u-btn-2">
-              add now
-            </button>
-          </div>
-        </form>
-        <!-- Terzo pacchetto -->
-        <form class="u-container-style u-list-item u-repeater-item" method="POST" action="your_php_script.php">
-          <div class="u-container-layout u-similar-container u-container-layout-3">
-            <h3 class="u-align-center u-custom-font u-font-lato u-text u-text-body-alt-color u-text-default u-text-8">
-              Sport</h3>
-            <h5 class="u-align-center u-text u-text-palette-2-base u-text-9">$55.000</h5>
-            <img src="images/Sports.png" alt="" class="custom-expanded u-image u-image-default u-image-3"
-              data-image-width="2836" data-image-height="1875">
-            <ul class="u-align-left u-text u-text-10">
-              <li>18" alloy wheels</li>
-              <li>S line aesthetics</li>
-              <li>LED headlights with LED rear lights</li>
-              <li>Sporty setup</li>
-              <li>Plus Air Conditioning Package</li>
-            </ul>
-            <input type="hidden" name="package" value="Sport">
-            <button type="submit"
-              class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-text-body-color u-btn-3">
-              add now
-            </button>
-          </div>
-        </form>
+    <div class="u-clearfix u-sheet u-sheet-1">
+      <h2 class="u-custom-font u-font-lato u-text u-text-body-alt-color u-text-default u-text-1">Pack</h2>
+      <div class="u-expanded-width u-list u-list-1">
+        <div class="u-repeater u-repeater-1">
+          <!-- Primo pacchetto -->
+          <form class="u-container-style u-list-item u-repeater-item" method="POST" action="your_php_script.php">
+            <div class="u-container-layout u-similar-container u-container-layout-1">
+              <h3 class="u-align-center u-custom-font u-font-lato u-text u-text-body-alt-color u-text-default u-text-2">
+                Basic </h3>
+              <h5 class="u-align-center u-text u-text-palette-2-base u-text-3">$30.000</h5>
+              <img src="images/Basic.png" class="custom-expanded u-image u-image-1" data-image-width="2836"
+                data-image-height="1875">
+              <ul class="u-align-left u-text u-text-4">
+                <li>Infotainment plus package</li>
+                <li>Assistance package plus</li>
+              </ul>
+              <input type="hidden" name="package" value="Basic">
+              <button type="submit"
+                class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-text-body-color u-btn-1">
+                add now
+              </button>
+            </div>
+          </form>
+          <!-- Secondo pacchetto -->
+          <form class="u-container-style u-list-item u-repeater-item" method="POST" action="your_php_script.php">
+            <div class="u-container-layout u-similar-container u-container-layout-2">
+              <h3 class="u-align-center u-custom-font u-font-lato u-text u-text-body-alt-color u-text-default u-text-5">
+                Business</h3>
+              <h5 class="u-align-center u-text u-text-palette-2-base u-text-6">$40.000</h5>
+              <img src="images/Buisness.png" alt="" class="custom-expanded u-image u-image-default u-image-2"
+                data-image-width="2836" data-image-height="1875">
+              <ul class="u-align-left u-text u-text-7">
+                <li>16" alloy wheels</li>
+                <li>LED front headlights</li>
+                <li>10.25" virtual cockpit</li>
+                <li>Speed limiter with provision for Adaptive Cruise Control via FoD</li>
+                <li>Lane departure warning</li>
+              </ul>
+              <input type="hidden" name="package" value="Business">
+              <button type="submit"
+                class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-text-body-color u-btn-2">
+                add now
+              </button>
+            </div>
+          </form>
+          <!-- Terzo pacchetto -->
+          <form class="u-container-style u-list-item u-repeater-item" method="POST" action="your_php_script.php">
+            <div class="u-container-layout u-similar-container u-container-layout-3">
+              <h3 class="u-align-center u-custom-font u-font-lato u-text u-text-body-alt-color u-text-default u-text-8">
+                Sport</h3>
+              <h5 class="u-align-center u-text u-text-palette-2-base u-text-9">$55.000</h5>
+              <img src="images/Sports.png" alt="" class="custom-expanded u-image u-image-default u-image-3"
+                data-image-width="2836" data-image-height="1875">
+              <ul class="u-align-left u-text u-text-10">
+                <li>18" alloy wheels</li>
+                <li>S line aesthetics</li>
+                <li>LED headlights with LED rear lights</li>
+                <li>Sporty setup</li>
+                <li>Plus Air Conditioning Package</li>
+              </ul>
+              <input type="hidden" name="package" value="Sport">
+              <button type="submit"
+                class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-text-body-color u-btn-3">
+                add now
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
 
-  <script>
-    /*Script Pack*/
-    document.addEventListener('DOMContentLoaded', function () {
-      const pack = document.querySelector('.pack');
-      const buttons = pack.querySelectorAll('.u-btn-rectangle');
+    <script>
+      /*Script Pack*/
+      document.addEventListener('DOMContentLoaded', function () {
+        const pack = document.querySelector('.pack');
+        const buttons = pack.querySelectorAll('.u-btn-rectangle');
 
-      buttons.forEach(button => {
-        button.addEventListener('click', function (event) {
-          // Prevenire il comportamento predefinito del pulsante
-          event.preventDefault();
+        buttons.forEach(button => {
+          button.addEventListener('click', function (event) {
+            // Prevenire il comportamento predefinito del pulsante
+            event.preventDefault();
 
-          // Rimuove la classe "selected" da tutti i pulsanti
-          buttons.forEach(btn => {
-            btn.classList.remove('selected');
-            btn.textContent = 'add now';
+            // Rimuove la classe "selected" da tutti i pulsanti
+            buttons.forEach(btn => {
+              btn.classList.remove('selected');
+              btn.textContent = 'add now';
+            });
+
+            // Aggiunge la classe "selected" e cambia il testo del pulsante cliccato
+            this.classList.add('selected');
+            this.textContent = 'remove';
+
+            // Invio del modulo
+            const form = this.closest('form');
+            form.submit();
           });
-
-          // Aggiunge la classe "selected" e cambia il testo del pulsante cliccato
-          this.classList.add('selected');
-          this.textContent = 'remove';
-
-          // Invio del modulo
-          const form = this.closest('form');
-          form.submit();
         });
       });
-    });
-  </script>
-</section>
+    </script>
+  </section>
 
 
 
@@ -423,7 +420,6 @@ include '../../BackEnd/Configure_Back/order.php';
                 <div class="u-layout-row">
                   <div class="u-container-style u-image u-layout-cell u-left-cell u-size-30 u-image-1" src=""
                     data-image-width="400" data-image-height="225">
-                    <img src="images/phone_charge.jpg" alt="Panoramic Roof" class="full-width-image">
                     <div class="u-container-layout u-valign-middle u-container-layout-1"></div>
                   </div>
                   <div class="u-align-left u-container-style u-layout-cell u-right-cell u-size-30 u-layout-cell-2">
@@ -446,7 +442,6 @@ include '../../BackEnd/Configure_Back/order.php';
                   </div>
                   <div class="u-container-style u-image u-layout-cell u-right-cell u-size-30 u-image-2" src=""
                     data-image-width="400" data-image-height="225">
-                    <img src="images/Audio.jpg" alt="sound_system" class="full-width-image">
                     <div class="u-container-layout u-valign-middle u-container-layout-4"></div>
                   </div>
                 </div>
