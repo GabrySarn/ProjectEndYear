@@ -450,7 +450,7 @@ $carModel = $res->fetch_assoc();
                     if( $i % 2 == 0) {
                       echo '<div class="u-size-30">
                       <div class="u-layout-row">
-                        <div class="u-container-style u-image u-layout-cell u-left-cell u-size-30" src="images/sports_steering_wheel.jpeg"
+                        <div class="u-container-style u-image u-layout-cell u-left-cell u-size-30" src="' . $optional['img_link'] . '"
                           data-image-width="1024" data-image-height="1024">
                           <img src="' . $optional['img_link'] . '" alt="' . $optional['Nome'] . '" class="full-width-image">
                           <div class="u-container-layout u-valign-middle u-container-layout-1"></div>
