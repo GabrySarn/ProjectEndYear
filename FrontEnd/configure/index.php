@@ -190,110 +190,124 @@ include '../../BackEnd/Configure_Back/order.php';
     </div>
   </section>
 
-  <section class="pack u-align-center u-clearfix u-gradient u-section-2" id="sec-24ac">
-    <div class="u-clearfix u-sheet u-sheet-1">
-      <h2 class="u-custom-font u-font-lato u-text u-text-body-alt-color u-text-default u-text-1">Pack</h2>
-      <div class="u-expanded-width u-list u-list-1">
-        <div class="u-repeater u-repeater-1">
-          <!-- Primo pacchetto -->
-          <form class="u-container-style u-list-item u-repeater-item" method="POST" action="your_php_script.php">
-            <div class="u-container-layout u-similar-container u-container-layout-1">
-              <h3 class="u-align-center u-custom-font u-font-lato u-text u-text-body-alt-color u-text-default u-text-2">
-                Basic </h3>
-              <h5 class="u-align-center u-text u-text-palette-2-base u-text-3">$30.000</h5>
-              <img src="images/Basic.png" class="custom-expanded u-image u-image-1" data-image-width="2836"
-                data-image-height="1875">
-              <ul class="u-align-left u-text u-text-4">
-                <li>Infotainment plus package</li>
-                <li>Assistance package plus</li>
-              </ul>
-              <input type="hidden" name="package" value="Basic">
-              <button type="submit"
-                class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-text-body-color u-btn-1">
-                add now
-              </button>
+  <!--PACK-->
+  <div class="pack">
+    <section class="pack u-align-center u-clearfix u-gradient u-section-2" id="sec-24ac">
+      <form id="packForm" class="packForm" method="POST">
+        <div class="u-clearfix u-sheet u-sheet-1">
+          <h2 class="u-custom-font u-font-lato u-text u-text-body-alt-color u-text-default u-text-1">Pack</h2>
+          <div class="u-expanded-width u-list u-list-1">
+            <div class="u-repeater u-repeater-1">
+              <!-- Primo pacchetto -->
+              <div class="u-container-layout u-similar-container u-container-layout-1">
+                <h3
+                  class="u-align-center u-custom-font u-font-lato u-text u-text-body-alt-color u-text-default u-text-2">
+                  Basic </h3>
+                <h5 class="u-align-center u-text u-text-palette-2-base u-text-3">$30.000</h5>
+                <img src="images/Basic.png" class="custom-expanded u-image u-image-1" data-image-width="2836"
+                  data-image-height="1875">
+                <ul class="u-align-left u-text u-text-4">
+                  <li>Infotainment plus package</li>
+                  <li>Assistance package plus</li>
+                </ul>
+                <button type="submit"
+                  class="add_pack u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-text-body-color u-btn-1"
+                  data-package="Basic">
+                  add now
+                </button>
+              </div>
+              <!-- Secondo pacchetto -->
+              <div class="u-container-layout u-similar-container u-container-layout-2">
+                <h3
+                  class="u-align-center u-custom-font u-font-lato u-text u-text-body-alt-color u-text-default u-text-5">
+                  Business</h3>
+                <h5 class="u-align-center u-text u-text-palette-2-base u-text-6">$40.000</h5>
+                <img src="images/Buisness.png" alt="" class="custom-expanded u-image u-image-default u-image-2"
+                  data-image-width="2836" data-image-height="1875">
+                <ul class="u-align-left u-text u-text-7">
+                  <li>16" alloy wheels</li>
+                  <li>LED front headlights</li>
+                  <li>10.25" virtual cockpit</li>
+                  <li>Speed limiter with provision for Adaptive Cruise Control via FoD</li>
+                  <li>Lane departure warning</li>
+                </ul>
+                <button type="submit"
+                  class="add_pack u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-text-body-color u-btn-2"
+                  data-package="Business">
+                  add now
+                </button>
+              </div>
+              <!-- Terzo pacchetto -->
+              <div class="u-container-layout u-similar-container u-container-layout-3">
+                <h3
+                  class="u-align-center u-custom-font u-font-lato u-text u-text-body-alt-color u-text-default u-text-8">
+                  Sport</h3>
+                <h5 class="u-align-center u-text u-text-palette-2-base u-text-9">$55.000</h5>
+                <img src="images/Sports.png" alt="" class="custom-expanded u-image u-image-default u-image-3"
+                  data-image-width="2836" data-image-height="1875">
+                <ul class="u-align-left u-text u-text-10">
+                  <li>18" alloy wheels</li>
+                  <li>S line aesthetics</li>
+                  <li>LED headlights with LED rear lights</li>
+                  <li>Sporty setup</li>
+                  <li>Plus Air Conditioning Package</li>
+                </ul>
+                <button type="submit"
+                  class="add_pack u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-text-body-color u-btn-3"
+                  data-package="Sport">
+                  add now
+                </button>
+              </div>
+              <input type="hidden" name="selected_package" id="selected_package">
             </div>
-          </form>
-          <!-- Secondo pacchetto -->
-          <form class="u-container-style u-list-item u-repeater-item" method="POST" action="your_php_script.php">
-            <div class="u-container-layout u-similar-container u-container-layout-2">
-              <h3 class="u-align-center u-custom-font u-font-lato u-text u-text-body-alt-color u-text-default u-text-5">
-                Business</h3>
-              <h5 class="u-align-center u-text u-text-palette-2-base u-text-6">$40.000</h5>
-              <img src="images/Buisness.png" alt="" class="custom-expanded u-image u-image-default u-image-2"
-                data-image-width="2836" data-image-height="1875">
-              <ul class="u-align-left u-text u-text-7">
-                <li>16" alloy wheels</li>
-                <li>LED front headlights</li>
-                <li>10.25" virtual cockpit</li>
-                <li>Speed limiter with provision for Adaptive Cruise Control via FoD</li>
-                <li>Lane departure warning</li>
-              </ul>
-              <input type="hidden" name="package" value="Business">
-              <button type="submit"
-                class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-text-body-color u-btn-2">
-                add now
-              </button>
-            </div>
-          </form>
-          <!-- Terzo pacchetto -->
-          <form class="u-container-style u-list-item u-repeater-item" method="POST" action="your_php_script.php">
-            <div class="u-container-layout u-similar-container u-container-layout-3">
-              <h3 class="u-align-center u-custom-font u-font-lato u-text u-text-body-alt-color u-text-default u-text-8">
-                Sport</h3>
-              <h5 class="u-align-center u-text u-text-palette-2-base u-text-9">$55.000</h5>
-              <img src="images/Sports.png" alt="" class="custom-expanded u-image u-image-default u-image-3"
-                data-image-width="2836" data-image-height="1875">
-              <ul class="u-align-left u-text u-text-10">
-                <li>18" alloy wheels</li>
-                <li>S line aesthetics</li>
-                <li>LED headlights with LED rear lights</li>
-                <li>Sporty setup</li>
-                <li>Plus Air Conditioning Package</li>
-              </ul>
-              <input type="hidden" name="package" value="Sport">
-              <button type="submit"
-                class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-text-body-color u-btn-3">
-                add now
-              </button>
-            </div>
-          </form>
+          </div>
         </div>
-      </div>
-    </div>
+      </form>
 
-    <script>
-      /*Script Pack*/
-      document.addEventListener('DOMContentLoaded', function () {
-        const pack = document.querySelector('.pack');
-        const buttons = pack.querySelectorAll('.u-btn-rectangle');
 
-        buttons.forEach(button => {
-          button.addEventListener('click', function (event) {
-            // Prevenire il comportamento predefinito del pulsante
-            event.preventDefault();
+    </section>
+  
+  </div>
 
-            // Rimuove la classe "selected" da tutti i pulsanti
-            buttons.forEach(btn => {
-              btn.classList.remove('selected');
-              btn.textContent = 'add now';
-            });
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const packForm = document.getElementById('packForm');
+    const pack = document.querySelector('.pack');
+    const buttons = pack.querySelectorAll('.add_pack');
 
-            // Aggiunge la classe "selected" e cambia il testo del pulsante cliccato
-            this.classList.add('selected');
-            this.textContent = 'remove';
+    buttons.forEach(button => {
+      button.addEventListener('click', function (event) {
+        event.preventDefault();
 
-            // Invio del modulo
-            const form = this.closest('form');
-            form.submit();
-          });
+        const packageValue = this.getAttribute('data-package');
+        if (!packageValue) {
+          console.error('Nessun pacchetto selezionato!');
+          return;
+        }
+
+        buttons.forEach(btn => {
+          btn.classList.remove('selected');
+          btn.textContent = 'add now';
         });
+
+        this.classList.add('selected');
+        this.textContent = 'remove';
+
+        const selectedPackageInput = document.getElementById('selected_package');
+        selectedPackageInput.value = packageValue;
+
+        sessionStorage.setItem('selected_package', packageValue);
+
+        // Aggiungi un controllo per verificare se un pacchetto è stato selezionato
+        /*if (selectedPackageInput.value) {
+          packForm.submit(); // Invia il modulo solo se un pacchetto è stato selezionato
+        } else {
+          console.error('Nessun pacchetto selezionato!');
+        }*/
       });
-    </script>
-  </section>
-
-
-
+    });
+  });
+</script>
 
   <section class="u-align-center u-clearfix u-gradient u-section-3" id="carousel_4269">
     <div class="u-clearfix u-sheet u-sheet-1">
@@ -410,110 +424,112 @@ include '../../BackEnd/Configure_Back/order.php';
 
 
   <div class="optional">
-    <section class="u-clearfix u-grey-80 u-section-5" id="sec-b6f4">
-      <div class="u-clearfix u-sheet u-sheet-1">
-        <h2 class="u-align-center u-custom-font u-font-lato u-text u-text-default u-text-1">Optionals</h2>
-        <div class="data-layout-selected u-clearfix u-expanded-width u-gutter-10 u-layout-wrap u-layout-wrap-1">
-          <div class="u-layout">
-            <div class="u-layout-col">
-              <div class="u-size-30">
-                <div class="u-layout-row">
-                  <div class="u-container-style u-image u-layout-cell u-left-cell u-size-30 u-image-1" src=""
-                    data-image-width="400" data-image-height="225">
-                    <div class="u-container-layout u-valign-middle u-container-layout-1"></div>
-                  </div>
-                  <div class="u-align-left u-container-style u-layout-cell u-right-cell u-size-30 u-layout-cell-2">
-                    <div class="u-container-layout u-valign-middle u-container-layout-2">
-                      <h2 class="u-text u-text-2" data-optional="charge_phone_box"> Charge phone box</h2>
-                      <a href="" class="u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-1">Add now </a>
+    <form id="optionsForm" class="optionsForm" method="POST">
+      <section class="u-clearfix u-grey-80 u-section-5" id="sec-b6f4">
+        <div class="u-clearfix u-sheet u-sheet-1">
+          <h2 class="u-align-center u-custom-font u-font-lato u-text u-text-default u-text-1">Optionals</h2>
+          <div class="data-layout-selected u-clearfix u-expanded-width u-gutter-10 u-layout-wrap u-layout-wrap-1">
+            <div class="u-layout">
+              <div class="u-layout-col">
+                <div class="u-size-30">
+                  <div class="u-layout-row">
+                    <div class="u-container-style u-image u-layout-cell u-left-cell u-size-30 u-image-1" src=""
+                      data-image-width="400" data-image-height="225">
+                      <div class="u-container-layout u-valign-middle u-container-layout-1"></div>
+                    </div>
+                    <div class="u-align-left u-container-style u-layout-cell u-right-cell u-size-30 u-layout-cell-2">
+                      <div class="u-container-layout u-valign-middle u-container-layout-2">
+                        <h2 class="u-text u-text-2" data-optional="charge_phone_box"> Charge phone box</h2>
+                        <a href="" class="add_opt u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-1">Add now
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div class="u-size-30">
-                <div class="u-layout-row">
-                  <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-3">
-                    <div class="u-container-layout u-valign-middle u-container-layout-3">
-                      <h2 class="u-text u-text-3" data-optional="premium_sound_system"> SONOS 3D Premium Sound System
-                      </h2>
-                      <a href="" class="u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-2">add now </a>
+                <div class="u-size-30">
+                  <div class="u-layout-row">
+                    <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-3">
+                      <div class="u-container-layout u-valign-middle u-container-layout-3">
+                        <h2 class="u-text u-text-3" data-optional="premium_sound_system"> SONOS 3D Premium Sound System
+                        </h2>
+                        <a href="" class="add_opt u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-2">add now
+                        </a>
+                      </div>
                     </div>
-                  </div>
-                  <div class="u-container-style u-image u-layout-cell u-right-cell u-size-30 u-image-2" src=""
-                    data-image-width="400" data-image-height="225">
-                    <div class="u-container-layout u-valign-middle u-container-layout-4"></div>
+                    <div class="u-container-style u-image u-layout-cell u-right-cell u-size-30 u-image-2" src=""
+                      data-image-width="400" data-image-height="225">
+                      <div class="u-container-layout u-valign-middle u-container-layout-4"></div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-    <section class="u-clearfix u-grey-80 u-section-6" id="carousel_acd1">
-      <div class="u-clearfix u-sheet u-sheet-1">
-        <div class="data-layout-selected u-clearfix u-expanded-width u-gutter-10 u-layout-wrap u-layout-wrap-1">
-          <div class="u-layout">
-            <div class="u-layout-col">
-              <div class="u-size-30">
-                <div class="u-layout-row">
-                  <div class="u-container-style u-image u-layout-cell u-left-cell u-size-30 u-image-1" src=""
-                    data-image-width="1024" data-image-height="1024">
-                    <img src="images/sports_steering_wheel.jpeg" alt="sports_steering_wheel" class="full-width-image">
-                    <div class="u-container-layout u-valign-middle u-container-layout-1"></div>
-                  </div>
-                  <div class="u-align-left u-container-style u-layout-cell u-right-cell u-size-30 u-layout-cell-2">
-                    <div class="u-container-layout u-valign-middle u-container-layout-2">
-                      <h2 class="u-text u-text-1" data-optional="sports_steering_wheel">Sports steering wheel<br></h2>
-                      <a href="#" class="u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-1">ADD NOW </a>
+      </section>
+      <section class="u-clearfix u-grey-80 u-section-6" id="carousel_acd1">
+        <div class="u-clearfix u-sheet u-sheet-1">
+          <div class="data-layout-selected u-clearfix u-expanded-width u-gutter-10 u-layout-wrap u-layout-wrap-1">
+            <div class="u-layout">
+              <div class="u-layout-col">
+                <div class="u-size-30">
+                  <div class="u-layout-row">
+                    <div class="u-container-style u-image u-layout-cell u-left-cell u-size-30 u-image-1" src=""
+                      data-image-width="1024" data-image-height="1024">
+                      <img src="images/sports_steering_wheel.jpeg" alt="sports_steering_wheel" class="full-width-image">
+                      <div class="u-container-layout u-valign-middle u-container-layout-1"></div>
+                    </div>
+                    <div class="u-align-left u-container-style u-layout-cell u-right-cell u-size-30 u-layout-cell-2">
+                      <div class="u-container-layout u-valign-middle u-container-layout-2">
+                        <h2 class="u-text u-text-1" data-optional="sports_steering_wheel">Sports steering wheel<br></h2>
+                        <a href="#" class="add_opt u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-1">ADD
+                          NOW </a>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="u-size-30">
-                <div class="u-layout-row">
-                  <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-3">
-                    <div class="u-container-layout u-valign-middle u-container-layout-3">
-                      <h2 class="u-text u-text-3" data-optional="panoramic_roof">Panoramic Roof</h2>
-                      <a href="#" class="u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-2">add now</a>
+                <div class="u-size-30">
+                  <div class="u-layout-row">
+                    <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-3">
+                      <div class="u-container-layout u-valign-middle u-container-layout-3">
+                        <h2 class="u-text u-text-3" data-optional="panoramic_roof">Panoramic Roof</h2>
+                        <a href="#" class="add_opt u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-2">add
+                          now</a>
+                      </div>
                     </div>
-                  </div>
-                  <div class="u-container-style u-image u-layout-cell u-right-cell u-size-30 u-image-2"
-                    data-image-width="400" data-image-height="225">
-                    <img src="images/panoramic_roof.jpg" alt="panoramic_roof" class="full-width-image">
+                    <div class="u-container-style u-image u-layout-cell u-right-cell u-size-30 u-image-2"
+                      data-image-width="400" data-image-height="225">
+                      <img src="images/panoramic_roof.jpg" alt="panoramic_roof" class="full-width-image">
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-    </section>
+      </section>
+
   </div>
-  <script>/*Script Optionals*/
+
+  <div class="u-clearfix u-grey-80 u-footer u-align-center">
+    <div class="confirm-button-container">
+      <button type="submit" id="confirmButton"
+        class="confirm-button submitBtn u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-2">Confirm</button>
+    </div>
+  </div>
+  </form>
+
+  <script>
     document.addEventListener('DOMContentLoaded', function () {
-      const confirmButton = document.querySelector('.confirm-button');
 
-      confirmButton.addEventListener('click', function (event) {
-        event.preventDefault();
-
-        const selectedOptions = [];
-        const optionals = document.querySelector('.optional');
-        const selectedOptionElements = optionals.querySelectorAll('.u-btn-rectangle.selected');
-        selectedOptionElements.forEach(option => {
-          const dataOptional = option.parentElement.querySelector('h2').getAttribute('data-optional');
-          selectedOptions.push(dataOptional);
-        });
-        const queryString = `?options=${encodeURIComponent(JSON.stringify(selectedOptions))}`;
-        window.location.href = queryString;
-      });
+      
 
       const optionalSection = document.querySelector('.optional');
-      const buttons = optionalSection.querySelectorAll('.u-btn-rectangle');
+      const buttonsOpt = optionalSection.querySelectorAll('.add_opt');
 
-      buttons.forEach(button => {
+      buttonsOpt.forEach(button => {
         button.addEventListener('click', function (event) {
           event.preventDefault();
 
@@ -526,17 +542,38 @@ include '../../BackEnd/Configure_Back/order.php';
           }
         });
       });
-    });
 
+      const selectedPackage = sessionStorage.getItem('selected_package');
+
+      // Aggiunta dell'evento di invio del form
+      const optionsForm = document.getElementById('optionsForm');
+      optionsForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const selectedOptions = [];
+        const selectedOptionElements = optionalSection.querySelectorAll('.add_opt.selected');
+        selectedOptionElements.forEach(option => {
+          const dataOptional = option.parentElement.querySelector('h2').getAttribute('data-optional');
+          selectedOptions.push(dataOptional);
+        });
+
+        selectedOptions.push(selectedPackage);
+
+        // Creazione di un campo nascosto nel form per inviare i dati
+        const hiddenField = document.createElement('input');
+        hiddenField.setAttribute('type', 'hidden');
+        hiddenField.setAttribute('name', 'options');
+        hiddenField.setAttribute('value', JSON.stringify(selectedOptions));
+      
+        optionsForm.appendChild(hiddenField);
+
+        // Invio del modulo
+        optionsForm.submit();
+        
+      });
+    });
   </script>
 
-
-  <div class="u-clearfix u-grey-80 u-footer u-align-center">
-    <div class="confirm-button-container">
-      <a href=""
-        class="confirm-button submitBtn u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-2">Confirm</a>
-    </div>
-  </div>
 
 
 

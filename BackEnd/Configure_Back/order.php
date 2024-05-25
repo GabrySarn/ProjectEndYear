@@ -3,9 +3,7 @@ include "../../BackEnd/connect.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-  if (isset($_POST['package']) && !empty($_POST['package'])) {
-    $pack = $_POST['package'];
-  }
+  
 
   if (isset($_POST['assistance']) && !empty($_POST['assistance'])) {
     $adaptiveSpeedAssist = isset($_POST['adaptiveSpeedAssist']) ? 1 : 0;
@@ -40,4 +38,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header('Location: success.html');
   }
 
+  if (isset($_POST['options']) && !empty($_POST['options'])) {
+    $selectedOptions = json_decode($_POST['options'], true);
+
+    foreach ($selectedOptions as $option) {
+      $selectedOptionsArray[] = $option;
+    }
+    //L'ULTIMO AGGIUNTO E IL PACK!!!!!
+    echo "<h2>Opzioni selezionate:</h2>";
+    foreach ($selectedOptionsArray as $index => $option) {
+      //echo "<p>Opzione $index: $option</p>";
+    }
+  }
 }
