@@ -437,86 +437,59 @@ $carModel = $res->fetch_assoc();
           <div class="data-layout-selected u-clearfix u-expanded-width u-gutter-10 u-layout-wrap u-layout-wrap-1">
             <div class="u-layout">
               <div class="u-layout-col">
-                <div class="u-size-30">
-                  <div class="u-layout-row">
-                    <div class="u-container-style u-image u-layout-cell u-left-cell u-size-30 u-image-1" src=""
-                      data-image-width="400" data-image-height="225">
-                      <div class="u-container-layout u-valign-middle u-container-layout-1"></div>
-                    </div>
-                    <div class="u-align-left u-container-style u-layout-cell u-right-cell u-size-30 u-layout-cell-2">
-                      <div class="u-container-layout u-valign-middle u-container-layout-2">
-                        <h2 class="u-text u-text-2" data-optional="charge_phone_box"> Charge phone box</h2>
-                        <a href="" class="add_opt u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-1">Add now
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
 
-                <div class="u-size-30">
-                  <div class="u-layout-row">
-                    <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-3">
-                      <div class="u-container-layout u-valign-middle u-container-layout-3">
-                        <h2 class="u-text u-text-3" data-optional="premium_sound_system"> SONOS 3D Premium Sound System
-                        </h2>
-                        <a href="" class="add_opt u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-2">add now
-                        </a>
+
+
+
+                <?php
+                  $sql = "SELECT * FROM optional";
+                  $res = $conn->query($sql);
+                  
+                  for ($i = 0; $i < $res->num_rows; $i++) {
+                    $optional = $res->fetch_assoc();
+                    if( $i % 2 == 0) {
+                      echo '<div class="u-size-30">
+                      <div class="u-layout-row">
+                        <div class="u-container-style u-image u-layout-cell u-left-cell u-size-30" src="images/sports_steering_wheel.jpeg"
+                          data-image-width="1024" data-image-height="1024">
+                          <img src="' . $optional['img_link'] . '" alt="' . $optional['Nome'] . '" class="full-width-image">
+                          <div class="u-container-layout u-valign-middle u-container-layout-1"></div>
+                        </div>
+                        <div class="u-align-left u-container-style u-layout-cell u-right-cell u-size-30 u-layout-cell-2">
+                          <div class="u-container-layout u-valign-middle u-container-layout-2">
+                            <h2 class="u-text u-text-1">' . $optional['Nome'] . '<br></h2>
+                            <a href="#" class="add_opt u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-1">ADD
+                              NOW </a>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                    <div class="u-container-style u-image u-layout-cell u-right-cell u-size-30 u-image-2" src=""
-                      data-image-width="400" data-image-height="225">
-                      <div class="u-container-layout u-valign-middle u-container-layout-4"></div>
-                    </div>
-                  </div>
-                </div>
+                    </div>';
+                    } else {
+                      echo '<div class="u-size-30">
+                      <div class="u-layout-row">
+                        <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-3">
+                          <div class="u-container-layout u-valign-middle u-container-layout-3">
+                            <h2 class="u-text u-text-3">' . $optional['Nome'] . '</h2>
+                            <a href="#" class="add_opt u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-2">add
+                              now</a>
+                          </div>
+                        </div>
+                        <div class="u-container-style u-image u-layout-cell u-right-cell u-size-30"
+                          data-image-width="400" data-image-height="225">
+                          <img src="' . $optional['img_link'] . '" alt="' . $optional['Nome'] . '" class="full-width-image">
+                        </div>
+                      </div>
+                    </div>';
+                    }
+                  }
+
+                ?>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section class="u-clearfix u-grey-80 u-section-6" id="carousel_acd1">
-        <div class="u-clearfix u-sheet u-sheet-1">
-          <div class="data-layout-selected u-clearfix u-expanded-width u-gutter-10 u-layout-wrap u-layout-wrap-1">
-            <div class="u-layout">
-              <div class="u-layout-col">
-                <div class="u-size-30">
-                  <div class="u-layout-row">
-                    <div class="u-container-style u-image u-layout-cell u-left-cell u-size-30 u-image-1" src=""
-                      data-image-width="1024" data-image-height="1024">
-                      <img src="images/sports_steering_wheel.jpeg" alt="sports_steering_wheel" class="full-width-image">
-                      <div class="u-container-layout u-valign-middle u-container-layout-1"></div>
-                    </div>
-                    <div class="u-align-left u-container-style u-layout-cell u-right-cell u-size-30 u-layout-cell-2">
-                      <div class="u-container-layout u-valign-middle u-container-layout-2">
-                        <h2 class="u-text u-text-1" data-optional="sports_steering_wheel">Sports steering wheel<br></h2>
-                        <a href="#" class="add_opt u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-1">ADD
-                          NOW </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="u-size-30">
-                  <div class="u-layout-row">
-                    <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-3">
-                      <div class="u-container-layout u-valign-middle u-container-layout-3">
-                        <h2 class="u-text u-text-3" data-optional="panoramic_roof">Panoramic Roof</h2>
-                        <a href="#" class="add_opt u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-2">add
-                          now</a>
-                      </div>
-                    </div>
-                    <div class="u-container-style u-image u-layout-cell u-right-cell u-size-30 u-image-2"
-                      data-image-width="400" data-image-height="225">
-                      <img src="images/panoramic_roof.jpg" alt="panoramic_roof" class="full-width-image">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </section>
-
+    </form>
   </div>
 
   <div class="u-clearfix u-grey-80 u-footer u-align-center">

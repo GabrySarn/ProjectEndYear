@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 25, 2024 alle 20:40
+-- Creato il: Mag 25, 2024 alle 23:45
 -- Versione del server: 10.4.32-MariaDB
 -- Versione PHP: 8.2.12
 
@@ -94,8 +94,8 @@ CREATE TABLE `optional` (
 
 INSERT INTO `optional` (`ID_opt`, `Nome`, `img_link`, `prezzo`) VALUES
 (1, 'Phone charging dock', 'images\\phone_charge.jpg', 249.99),
-(2, 'SONOS 3D Premium Sound System', 'images/Audio.jpg', 799.99),
-(3, 'Sports steering wheel', '', 299.99),
+(2, 'SONOS 3D Premium Sound System', 'images\\Audio.jpg', 799.99),
+(3, 'Sports steering wheel', 'images\\sports_steering_wheel.jpeg', 299.99),
 (4, 'Panoramic Roof', 'images\\panoramic_roof.jpg', 399.99);
 
 -- --------------------------------------------------------
