@@ -1,5 +1,6 @@
 <?php
 // Include i file necessari
+include '../../BackEnd/Login_Back/chk.php';
 include '../../BackEnd/Configure_Back/order.php';
 
 // Inizializza la variabile per la motorizzazione selezionata

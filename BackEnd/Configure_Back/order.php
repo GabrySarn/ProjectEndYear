@@ -1,8 +1,9 @@
 <?php
 include "../../BackEnd/connect.php";
-include "../Login_Back/chk.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+  
 
   if (isset($_POST['assistance']) && !empty($_POST['assistance'])) {
     $adaptiveSpeedAssist = isset($_POST['adaptiveSpeedAssist']) ? 1 : 0;
