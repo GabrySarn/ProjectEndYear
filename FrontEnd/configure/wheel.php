@@ -104,13 +104,13 @@ $res = $conn->query($sql);
             <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
               <div class="wheel-selector">
                 <?php
-                  while ($row = $res->fetch_assoc()) {
-                    echo '<label>
-                      <input type="radio" name="wheel" class="wheel-option" value="' . $row['ID_cerchi'] . '" data-wheel="wheel_1">
+                while ($row = $res->fetch_assoc()) {
+                  echo '<label>
+                      <input type="radio" name="wheel" class="wheel-option" value="' . $row['ID_cerchi'] . '" data-wheel="' . $row['Img_link'] . '">
                       <img src="' . $row['Img_link'] . '" alt="' . $row['Nome'] . '" style="width: 100px; height: 100px;">
                     </label>Model: ' . $row['Nome'] . ' Prezzo: ' . $row['Prezzo'] . '€<br>';
 
-                  }
+                }
                 ?>
               </div>
               <button type="submit"
@@ -136,7 +136,7 @@ $res = $conn->query($sql);
             selectedWheel = option.value;
             const wheel = option.getAttribute('data-wheel');
             carouselImages.forEach(img => {
-              img.src = `images/wheels/${wheel}.png`; 
+              img.src = `${wheel}`;
             });
           }
         });

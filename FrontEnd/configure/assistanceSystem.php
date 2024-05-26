@@ -50,7 +50,9 @@ include '../../BackEnd/Configure_Back/order.php';
 <body>
     <div class="container mt-5">
         <h1 class="mb-4">Assistance Systems</h1>
-        <form id="assistanceForm" method="POST">
+        <form id="assistanceForm" method="POST" >
+        <input type="hidden" name="assistance" value="1">
+
             <div class="form-group">
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="adaptiveSpeedAssist"
