@@ -192,7 +192,8 @@ $carModel = $res->fetch_assoc();
   <section class="u-align-center u-clearfix u-image u-shading u-section-1" id="carousel_c016" data-image-width="1024"
     data-image-height="1024">
     <div class="u-clearfix u-sheet u-sheet-1">
-      <h1 class="u-custom-font u-font-lato u-text u-text-body-alt-color u-text-1"><?= htmlspecialchars($carModel['Modello']) ?> - CONFIGURATION</h1>
+      <h1 class="u-custom-font u-font-lato u-text u-text-body-alt-color u-text-1">
+        <?= htmlspecialchars($carModel['Modello']) ?> - CONFIGURATION</h1>
     </div>
   </section>
 
@@ -206,11 +207,11 @@ $carModel = $res->fetch_assoc();
             <div class="u-repeater u-repeater-1">
               <?php
 
-                $sql = "SELECT * FROM pack";
-                $packres = $conn->query($sql);
+              $sql = "SELECT * FROM pack";
+              $packres = $conn->query($sql);
 
-                while ($row = $packres->fetch_assoc()) {
-                  echo '<div class="u-container-layout u-similar-container u-container-layout-1">
+              while ($row = $packres->fetch_assoc()) {
+                echo '<div class="u-container-layout u-similar-container u-container-layout-1">
                     <h3
                       class="u-align-center u-custom-font u-font-lato u-text u-text-body-alt-color u-text-default u-text-2">
                       ' . $row['Nome'] . ' </h3>
@@ -226,7 +227,7 @@ $carModel = $res->fetch_assoc();
                       add now
                     </button>
                   </div>';
-                }
+              }
 
 
               ?>
@@ -238,48 +239,48 @@ $carModel = $res->fetch_assoc();
 
 
     </section>
-  
+
   </div>
 
   <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const packForm = document.getElementById('packForm');
-    const pack = document.querySelector('.pack');
-    const buttons = pack.querySelectorAll('.add_pack');
+    document.addEventListener('DOMContentLoaded', function () {
+      const packForm = document.getElementById('packForm');
+      const pack = document.querySelector('.pack');
+      const buttons = pack.querySelectorAll('.add_pack');
 
-    buttons.forEach(button => {
-      button.addEventListener('click', function (event) {
-        event.preventDefault();
+      buttons.forEach(button => {
+        button.addEventListener('click', function (event) {
+          event.preventDefault();
 
-        const packageValue = this.getAttribute('data-package');
-        if (!packageValue) {
-          console.error('Nessun pacchetto selezionato!');
-          return;
-        }
+          const packageValue = this.getAttribute('data-package');
+          if (!packageValue) {
+            console.error('Nessun pacchetto selezionato!');
+            return;
+          }
 
-        buttons.forEach(btn => {
-          btn.classList.remove('selected');
-          btn.textContent = 'add now';
+          buttons.forEach(btn => {
+            btn.classList.remove('selected');
+            btn.textContent = 'add now';
+          });
+
+          this.classList.add('selected');
+          this.textContent = 'remove';
+
+          const selectedPackageInput = document.getElementById('selected_package');
+          selectedPackageInput.value = packageValue;
+
+          sessionStorage.setItem('selected_package', packageValue);
+
+          // Aggiungi un controllo per verificare se un pacchetto è stato selezionato
+          /*if (selectedPackageInput.value) {
+            packForm.submit(); // Invia il modulo solo se un pacchetto è stato selezionato
+          } else {
+            console.error('Nessun pacchetto selezionato!');
+          }*/
         });
-
-        this.classList.add('selected');
-        this.textContent = 'remove';
-
-        const selectedPackageInput = document.getElementById('selected_package');
-        selectedPackageInput.value = packageValue;
-
-        sessionStorage.setItem('selected_package', packageValue);
-
-        // Aggiungi un controllo per verificare se un pacchetto è stato selezionato
-        /*if (selectedPackageInput.value) {
-          packForm.submit(); // Invia il modulo solo se un pacchetto è stato selezionato
-        } else {
-          console.error('Nessun pacchetto selezionato!');
-        }*/
       });
     });
-  });
-</script>
+  </script>
 
   <section class="u-align-center u-clearfix u-gradient u-section-3" id="carousel_4269">
     <div class="u-clearfix u-sheet u-sheet-1">
@@ -408,13 +409,13 @@ $carModel = $res->fetch_assoc();
 
 
                 <?php
-                  $sql = "SELECT * FROM optional";
-                  $res = $conn->query($sql);
-                  
-                  for ($i = 0; $i < $res->num_rows; $i++) {
-                    $optional = $res->fetch_assoc();
-                    if( $i % 2 == 0) {
-                      echo '<div class="u-size-30">
+                $sql = "SELECT * FROM optional";
+                $res = $conn->query($sql);
+
+                for ($i = 0; $i < $res->num_rows; $i++) {
+                  $optional = $res->fetch_assoc();
+                  if ($i % 2 == 0) {
+                    echo '<div class="u-size-30">
                       <div class="u-layout-row">
                         <div class="u-container-style u-image u-layout-cell u-left-cell u-size-30" src="' . $optional['img_link'] . '"
                           data-image-width="1024" data-image-height="1024">
@@ -430,8 +431,8 @@ $carModel = $res->fetch_assoc();
                         </div>
                       </div>
                     </div>';
-                    } else {
-                      echo '<div class="u-size-30">
+                  } else {
+                    echo '<div class="u-size-30">
                       <div class="u-layout-row">
                         <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-3">
                           <div class="u-container-layout u-valign-middle u-container-layout-3">
@@ -446,8 +447,8 @@ $carModel = $res->fetch_assoc();
                         </div>
                       </div>
                     </div>';
-                    }
                   }
+                }
                 ?>
               </div>
             </div>
@@ -468,7 +469,7 @@ $carModel = $res->fetch_assoc();
   <script>
     document.addEventListener('DOMContentLoaded', function () {
 
-      
+
 
       const optionalSection = document.querySelector('.optional');
       const buttonsOpt = optionalSection.querySelectorAll('.add_opt');
@@ -508,12 +509,12 @@ $carModel = $res->fetch_assoc();
         hiddenField.setAttribute('type', 'hidden');
         hiddenField.setAttribute('name', 'options');
         hiddenField.setAttribute('value', JSON.stringify(selectedOptions));
-      
+
         optionsForm.appendChild(hiddenField);
 
         // Invio del modulo
         optionsForm.submit();
-        
+
       });
     });
   </script>
