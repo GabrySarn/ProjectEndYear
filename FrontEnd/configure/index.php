@@ -204,66 +204,32 @@ $carModel = $res->fetch_assoc();
           <h2 class="u-custom-font u-font-lato u-text u-text-body-alt-color u-text-default u-text-1">Pack</h2>
           <div class="u-expanded-width u-list u-list-1">
             <div class="u-repeater u-repeater-1">
-              <!-- Primo pacchetto -->
-              <div class="u-container-layout u-similar-container u-container-layout-1">
-                <h3
-                  class="u-align-center u-custom-font u-font-lato u-text u-text-body-alt-color u-text-default u-text-2">
-                  Basic </h3>
-                <h5 class="u-align-center u-text u-text-palette-2-base u-text-3">$30.000</h5>
-                <img src="images/Basic.png" class="custom-expanded u-image u-image-1" data-image-width="2836"
-                  data-image-height="1875">
-                <ul class="u-align-left u-text u-text-4">
-                  <li>Infotainment plus package</li>
-                  <li>Assistance package plus</li>
-                </ul>
-                <button type="submit"
-                  class="add_pack u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-text-body-color u-btn-1"
-                  data-package="Basic">
-                  add now
-                </button>
-              </div>
-              <!-- Secondo pacchetto -->
-              <div class="u-container-layout u-similar-container u-container-layout-2">
-                <h3
-                  class="u-align-center u-custom-font u-font-lato u-text u-text-body-alt-color u-text-default u-text-5">
-                  Business</h3>
-                <h5 class="u-align-center u-text u-text-palette-2-base u-text-6">$40.000</h5>
-                <img src="images/Buisness.png" alt="" class="custom-expanded u-image u-image-default u-image-2"
-                  data-image-width="2836" data-image-height="1875">
-                <ul class="u-align-left u-text u-text-7">
-                  <li>16" alloy wheels</li>
-                  <li>LED front headlights</li>
-                  <li>10.25" virtual cockpit</li>
-                  <li>Speed limiter with provision for Adaptive Cruise Control via FoD</li>
-                  <li>Lane departure warning</li>
-                </ul>
-                <button type="submit"
-                  class="add_pack u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-text-body-color u-btn-2"
-                  data-package="Business">
-                  add now
-                </button>
-              </div>
-              <!-- Terzo pacchetto -->
-              <div class="u-container-layout u-similar-container u-container-layout-3">
-                <h3
-                  class="u-align-center u-custom-font u-font-lato u-text u-text-body-alt-color u-text-default u-text-8">
-                  Sport</h3>
-                <h5 class="u-align-center u-text u-text-palette-2-base u-text-9">$55.000</h5>
-                <img src="images/Sports.png" alt="" class="custom-expanded u-image u-image-default u-image-3"
-                  data-image-width="2836" data-image-height="1875">
-                <ul class="u-align-left u-text u-text-10">
-                  <li>18" alloy wheels</li>
-                  <li>S line aesthetics</li>
-                  <li>LED headlights with LED rear lights</li>
-                  <li>Sporty setup</li>
-                  <li>Plus Air Conditioning Package</li>
-                </ul>
-                <button type="submit"
-                  class="add_pack u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-text-body-color u-btn-3"
-                  data-package="Sport">
-                  add now
-                </button>
-              </div>
+              <?php
+
+                $sql = "SELECT * FROM pack";
+                $packres = $conn->query($sql);
+
+                while ($row = $packres->fetch_assoc()) {
+                  echo '<div class="u-container-layout u-similar-container u-container-layout-1">
+                    <h3
+                      class="u-align-center u-custom-font u-font-lato u-text u-text-body-alt-color u-text-default u-text-2">
+                      ' . $row['Nome'] . ' </h3>
+                    <h5 class="u-align-center u-text u-text-palette-2-base u-text-3">Total:<br>' . ($carModel['Prezzo'] + $row['prezzo']) . '€</h5>
+                    <img src="' . $row['img_link'] . '" class="custom-expanded u-image u-image-1" data-image-width="2836"
+                      data-image-height="1875">
+                    <ul class="u-align-left u-text u-text-4">
+                      ' . $row['Descrizione'] . '
+                    </ul>
+                    <button type="submit"
+                      class="add_pack u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-text-body-color u-btn-1"
+                      data-package="' . $row['Nome'] . '">
+                      add now
+                    </button>
+                  </div>';
+                }
+
+
+              ?>
               <input type="hidden" name="selected_package" id="selected_package">
             </div>
           </div>
