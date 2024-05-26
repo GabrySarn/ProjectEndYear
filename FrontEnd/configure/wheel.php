@@ -1,6 +1,9 @@
 <?php
 include '../../BackEnd/Login_Back/chk.php';
 include '../../BackEnd/Configure_Back/order.php';
+include '../../BackEnd/connect.php';
+$sql = "SELECT * FROM cerchi";
+$res = $conn->query($sql);
 ?>
 
 <!DOCTYPE html>
@@ -100,18 +103,15 @@ include '../../BackEnd/Configure_Back/order.php';
           <div data-add-zero-cents="true" class="u-product-control u-product-price u-product-price-1">
             <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
               <div class="wheel-selector">
-                <label>
-                  <input type="radio" name="wheel" class="wheel-option" value="wheel_1" data-wheel="wheel_1">
-                  <img src="images/Wheels/wheel_1.png" alt="Wheel 1" style="width: 100px; height: 100px;">
-                </label>
-                <label>
-                  <input type="radio" name="wheel" class="wheel-option" value="wheel_2" data-wheel="wheel_2">
-                  <img src="images/Wheels/wheel_2.png" alt="Wheel 2" style="width: 100px; height: 100px;">
-                </label>
-                <label>
-                  <input type="radio" name="wheel" class="wheel-option" value="wheel_3" data-wheel="wheel_3">
-                  <img src="images/Wheels/wheel_3.png" alt="Wheel 3" style="width: 100px; height: 100px;">
-                </label>
+                <?php
+                  while ($row = $res->fetch_assoc()) {
+                    echo '<label>
+                      <input type="radio" name="wheel" class="wheel-option" value="' . $row['ID_cerchi'] . '" data-wheel="wheel_1">
+                      <img src="' . $row['Img_link'] . '" alt="' . $row['Nome'] . '" style="width: 100px; height: 100px;">
+                    </label>Model: ' . $row['Nome'] . ' Prezzo: ' . $row['Prezzo'] . '€<br>';
+
+                  }
+                ?>
               </div>
               <button type="submit"
                 class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-text-black u-text-hover-white u-btn-1">

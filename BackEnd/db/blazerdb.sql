@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 26, 2024 alle 12:44
+-- Creato il: Mag 26, 2024 alle 14:17
 -- Versione del server: 10.4.32-MariaDB
 -- Versione PHP: 8.2.12
 
@@ -33,6 +33,15 @@ CREATE TABLE `cerchi` (
   `Prezzo` double(10,2) DEFAULT NULL,
   `Img_link` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dump dei dati per la tabella `cerchi`
+--
+
+INSERT INTO `cerchi` (`ID_cerchi`, `Nome`, `Prezzo`, `Img_link`) VALUES
+(1, 'Regular', 999.99, 'images/Wheels/wheel_1.png'),
+(2, 'Premium', 1499.99, 'images/Wheels/wheel_1.png'),
+(3, 'Sport', 1499.99, 'images/Wheels/wheel_3.png');
 
 -- --------------------------------------------------------
 
@@ -74,8 +83,29 @@ CREATE TABLE `configurazione` (
   `ID_pack` int(11) DEFAULT NULL,
   `ID_colore` int(11) DEFAULT NULL,
   `ID_motore` int(11) DEFAULT NULL,
-  `ID_cerchi` int(11) DEFAULT NULL
+  `ID_cerchi` int(11) DEFAULT NULL,
+  `ID_interni` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `interni`
+--
+
+CREATE TABLE `interni` (
+  `ID_interni` int(11) NOT NULL,
+  `Nome` varchar(100) DEFAULT NULL,
+  `Prezzo` double(10,2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dump dei dati per la tabella `interni`
+--
+
+INSERT INTO `interni` (`ID_interni`, `Nome`, `Prezzo`) VALUES
+(1, 'Normal', 0.00),
+(2, 'Sport', 1299.99);
 
 -- --------------------------------------------------------
 
@@ -239,7 +269,14 @@ ALTER TABLE `configurazione`
   ADD KEY `ID_pack` (`ID_pack`),
   ADD KEY `ID_colore` (`ID_colore`),
   ADD KEY `ID_motore` (`ID_motore`),
-  ADD KEY `ID_cerchi` (`ID_cerchi`) USING BTREE;
+  ADD KEY `ID_cerchi` (`ID_cerchi`) USING BTREE,
+  ADD KEY `ID_interni` (`ID_interni`) USING BTREE;
+
+--
+-- Indici per le tabelle `interni`
+--
+ALTER TABLE `interni`
+  ADD PRIMARY KEY (`ID_interni`);
 
 --
 -- Indici per le tabelle `motore`
@@ -295,7 +332,7 @@ ALTER TABLE `veicolo`
 -- AUTO_INCREMENT per la tabella `cerchi`
 --
 ALTER TABLE `cerchi`
-  MODIFY `ID_cerchi` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_cerchi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT per la tabella `colore`
@@ -308,6 +345,12 @@ ALTER TABLE `colore`
 --
 ALTER TABLE `configurazione`
   MODIFY `ID_conf` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT per la tabella `interni`
+--
+ALTER TABLE `interni`
+  MODIFY `ID_interni` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT per la tabella `motore`
@@ -362,7 +405,8 @@ ALTER TABLE `configurazione`
   ADD CONSTRAINT `configurazione_ibfk_1` FOREIGN KEY (`ID_pack`) REFERENCES `pack` (`ID_pack`),
   ADD CONSTRAINT `configurazione_ibfk_2` FOREIGN KEY (`ID_colore`) REFERENCES `colore` (`ID_colore`),
   ADD CONSTRAINT `configurazione_ibfk_3` FOREIGN KEY (`ID_cerchi`) REFERENCES `cerchi` (`ID_cerchi`),
-  ADD CONSTRAINT `configurazione_ibfk_4` FOREIGN KEY (`ID_motore`) REFERENCES `motore` (`ID_motore`);
+  ADD CONSTRAINT `configurazione_ibfk_4` FOREIGN KEY (`ID_motore`) REFERENCES `motore` (`ID_motore`),
+  ADD CONSTRAINT `configurazione_ibfk_5` FOREIGN KEY (`ID_interni`) REFERENCES `interni` (`ID_interni`);
 
 --
 -- Limiti per la tabella `optional_conf`

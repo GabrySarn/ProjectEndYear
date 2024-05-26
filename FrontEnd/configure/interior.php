@@ -1,6 +1,10 @@
 <?php
 include '../../BackEnd/Login_Back/chk.php';
 include '../../BackEnd/Configure_Back/order.php';
+include '../../BackEnd/connect.php';
+
+$sql = "SELECT * FROM interni";
+$res = $conn->query($sql);
 ?>
 <!DOCTYPE html>
 <html style="font-size: 16px;" lang="it">
@@ -92,14 +96,14 @@ include '../../BackEnd/Configure_Back/order.php';
           <div data-add-zero-cents="true" class="u-product-control u-product-price u-product-price-1">
             <div class="interior-selector">
               <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-                <label>
-                  <input type="radio" name="interior" class="interior-option" value="normal_interior">
-                  <img src="images/Interiors/normal_seats.png" alt="Normal Interior" style="width: 100px; height: 130px;">
-                </label>
-                <label>
-                  <input type="radio" name="interior" class="interior-option" value="sport_interior">
-                  <img src="images/Interiors/sport_seats.png" alt="Sport Interior" style="width: 100px; height: 130px;">
-                </label>
+                <?php
+                    while ($row = $res->fetch_assoc()) {
+                        echo '<label>
+                          <input type="radio" name="interior" class="interior-option" value="' . $row['ID_interni'] . '">
+                          <img src="images/Interiors/' .$row['Nome'] . '_seats.png" alt="' .$row['Nome'] . '" style="width: 100px; height: 130px;">
+                        </label>';
+                    }
+                ?>
                 <button type="submit" class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-text-black u-text-hover-white u-btn-1">ADD NOW</button>
               </form>
             </div>
