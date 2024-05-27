@@ -24,11 +24,18 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
         $_SESSION['user'] = $row['Nome']; 
 
         $stmt->close();
-        header("Location: ../../FrontEnd/Home/index.php");
+        if($_SESSION["order"] == 1) {
+            header('Location: ../../FrontEnd/Checkout/index.html');
+            $_SESSION["order"] = 0;
+        }else{
+            header("Location: ../../FrontEnd/Home/index.php");
+        }
+        
     } else {
         echo '<script>alert("Utente non trovato!");</script>';
         header("Location: ../../FrontEnd/Login/Login.html");
     }
 } else {
+    echo '<script>alert("Utente non trovato!");</script>';
     header("Location: ../../FrontEnd/Login/Login.html");
 }

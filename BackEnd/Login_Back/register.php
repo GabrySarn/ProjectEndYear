@@ -43,7 +43,13 @@ if (
                 $row = $res->fetch_assoc();
                 $_SESSION['idUtente'] = $row['ID_utente'];
 
+                
+                if($_SESSION["order"] == 1) {
+                    header('Location: ../../FrontEnd/Checkout/index.html');
+                    $_SESSION["order"] = 0;
+                }else{
                 header("Location: ../../FrontEnd/Home/index.php");
+                }
             }
         } else {
             echo '<script>alert("Errore durante l\'inserimento!");</script>';
