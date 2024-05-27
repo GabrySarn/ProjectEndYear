@@ -152,7 +152,7 @@ $carModel = $res->fetch_assoc();
           data-responsive-from="XL">
           <div class="menu-collapse">
             <a class="u-button-style u-nav-link" href="#" style="padding: 4px 0px; font-size: calc(1em + 8px);">
-              <svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 302 302" >
+              <svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 302 302">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-7b92"></use>
               </svg>
               <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
@@ -193,7 +193,8 @@ $carModel = $res->fetch_assoc();
     data-image-height="1024">
     <div class="u-clearfix u-sheet u-sheet-1">
       <h1 class="u-custom-font u-font-lato u-text u-text-body-alt-color u-text-1">
-        <?= htmlspecialchars($carModel['Modello']) ?> - CONFIGURATION</h1>
+        <?= htmlspecialchars($carModel['Modello']) ?> - CONFIGURATION
+      </h1>
     </div>
   </section>
 
@@ -341,7 +342,7 @@ $carModel = $res->fetch_assoc();
               <iframe id="siteDialogContent" src="" width="100%" height="100%" frameborder="0"></iframe>
             </div>
           </div>
-          <!-- Wheels --> 
+          <!-- Wheels -->
           <div>
             <div class="u-align-center u-container-style u-products-item u-repeater-item" data-product-id="4">
               <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3">
@@ -424,7 +425,7 @@ $carModel = $res->fetch_assoc();
                         </div>
                         <div class="u-align-left u-container-style u-layout-cell u-right-cell u-size-30 u-layout-cell-2">
                           <div class="u-container-layout u-valign-middle u-container-layout-2">
-                            <h2 class="u-text u-text-1">' . $optional['Nome'] . '<br></h2>
+                            <h2 class="u-text u-text-1" data-optional="' . $optional['Nome'] .'">' . $optional['Nome'] . '<br></h2>
                             <a href="#" class="add_opt u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-1">ADD
                               NOW </a>
                           </div>
@@ -436,7 +437,7 @@ $carModel = $res->fetch_assoc();
                       <div class="u-layout-row">
                         <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-3">
                           <div class="u-container-layout u-valign-middle u-container-layout-3">
-                            <h2 class="u-text u-text-3">' . $optional['Nome'] . '</h2>
+                            <h2 class="u-text u-text-3" data-optional="' . $optional['Nome']. '">' . $optional['Nome'] . '</h2>
                             <a href="#" class="add_opt u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-2">add
                               now</a>
                           </div>

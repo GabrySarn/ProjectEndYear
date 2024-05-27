@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       //echo "<p>Opzione $index: $option</p>";
     }
 
-    header('Location: ../checkout/index.html');
+    header('Location: ../Checkout/index.html');
 
   }
 }
