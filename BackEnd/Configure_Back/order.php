@@ -5,17 +5,13 @@ if (session_status() == PHP_SESSION_NONE) {
   session_start();
 }
 
-  if (!isset($_SESSION['idUtente'])) {
-      // Se l'utente non è loggato, reindirizzalo immediatamente alla pagina di login
-      echo "<script>alert('Utente non loggato!!')<script>"
-      header("Location: ../../FrontEnd/Login/Login.html");
-  }
-
-
-$isLoggedIn = isset($_SESSION['user']);
-$username = $isLoggedIn ? $_SESSION['user'] : '';
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+  if ($_SESSION["order"] = 1) {
+    //header('Location: ../Checkout/index.html');
+    "<script>alert('Vai a checkout')</script>";
+    //$_SESSION["order"] = 0;
+  }
 
   if (isset($_POST['assistance']) && !empty($_POST['assistance'])) {
     $adaptiveSpeedAssist = isset($_POST['adaptiveSpeedAssist']) ? 1 : 0;
@@ -26,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $laneChangeWarning = isset($_POST['laneChangeWarning']) ? 1 : 0;
     $laneDepartureWarning = isset($_POST['laneDepartureWarning']) ? 1 : 0;
 
-    
+
     header('Location: success.html');
 
   }
@@ -58,12 +54,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $selectedOptionsArray[] = $option;
     }
     //L'ULTIMO AGGIUNTO E IL PACK!!!!!
-    echo "<h2>Opzioni selezionate:</h2>";
+    //echo "<h2>Opzioni selezionate:</h2>";
     foreach ($selectedOptionsArray as $index => $option) {
-      echo "<p>Opzione $index: $option</p>";
+      //echo "<p>Opzione $index: $option</p>";
     }
 
-    //header('Location: ../Checkout/index.html');
-
+    if (!isset($_SESSION['idUtente'])) {
+      //$_SESSION["order"] = 1;
+      echo "<script>alert('Utente non loggato!!')
+      window.onload = function() {
+        alert('Utente non loggato!!');
+        
+        // Una volta che l'utente fa clic su OK, reindirizza a una pagina PHP
+        window.location.href = '../../FrontEnd/Login/Login.html';
+      }
+      <script>";
+    }else{
+      //header('Location: ../Checkout/index.html');
+    }
   }
+
 }

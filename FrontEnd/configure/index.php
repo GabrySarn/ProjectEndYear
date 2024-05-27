@@ -3,6 +3,9 @@ include '../../BackEnd/Login_Back/chk.php';
 include '../../BackEnd/Configure_Back/order.php';
 include '../../BackEnd/connect.php';
 
+
+
+
 $sql = "SELECT * FROM veicolo WHERE ID_auto =" . $_SESSION['carId'];
 $res = $conn->query($sql);
 
@@ -454,292 +457,292 @@ $carModel = $res->fetch_assoc();
           </div>
         </div>
       </section>
+  </div>
 
+  <div class="u-clearfix u-grey-80 u-footer u-align-center">
+    <div class="confirm-button-container">
+      <button type="submit" id="confirmButton"
+        class="confirm-button submitBtn u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-2">Confirm</button>
+    </div>
+  </div>
+  </form>
 
-      <div class="u-clearfix u-grey-80 u-footer u-align-center">
-        <div class="confirm-button-container">
-          <button type="submit" id="confirmButton"
-            class="confirm-button submitBtn u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-2">Confirm</button>
-        </div>
-      </div>
-    </form>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
+      const optionalSection = document.querySelector('.optional');
+      const buttonsOpt = optionalSection.querySelectorAll('.add_opt');
 
-        const optionalSection = document.querySelector('.optional');
-        const buttonsOpt = optionalSection.querySelectorAll('.add_opt');
-
-        buttonsOpt.forEach(button => {
-          button.addEventListener('click', function (event) {
-            event.preventDefault();
-
-            // Toggle della classe "selected" e cambio del testo del pulsante cliccato
-            this.classList.toggle('selected');
-            if (this.classList.contains('selected')) {
-              this.textContent = 'REMOVE';
-            } else {
-              this.textContent = 'ADD NOW';
-            }
-          });
-        });
-
-        const selectedPackage = sessionStorage.getItem('selected_package');
-
-
-        // Aggiunta dell'evento di invio del form
-        const optionsForm = document.getElementById('optionsForm');
-        optionsForm.addEventListener('submit', function (event) {
+      buttonsOpt.forEach(button => {
+        button.addEventListener('click', function (event) {
           event.preventDefault();
 
-          const selectedOptions = [];
-          const selectedOptionElements = optionalSection.querySelectorAll('.add_opt.selected');
-          selectedOptionElements.forEach(option => {
-            const dataOptional = option.parentElement.querySelector('h2').getAttribute('data-optional');
-            selectedOptions.push(dataOptional);
-          });
-
-          selectedOptions.push(selectedPackage);
-
-
-          // Creazione di un campo nascosto nel form per inviare i dati
-          const hiddenField = document.createElement('input');
-          hiddenField.setAttribute('type', 'hidden');
-          hiddenField.setAttribute('name', 'options');
-          hiddenField.setAttribute('value', JSON.stringify(selectedOptions));
-
-          optionsForm.appendChild(hiddenField);
-
-          // Invio del modulo
-          optionsForm.submit();
-
+          // Toggle della classe "selected" e cambio del testo del pulsante cliccato
+          this.classList.toggle('selected');
+          if (this.classList.contains('selected')) {
+            this.textContent = 'REMOVE';
+          } else {
+            this.textContent = 'ADD NOW';
+          }
         });
       });
-    </script>
+
+      const selectedPackage = sessionStorage.getItem('selected_package');
+
+
+      // Aggiunta dell'evento di invio del form
+      const optionsForm = document.getElementById('optionsForm');
+      optionsForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const selectedOptions = [];
+        const selectedOptionElements = optionalSection.querySelectorAll('.add_opt.selected');
+        selectedOptionElements.forEach(option => {
+          const dataOptional = option.parentElement.querySelector('h2').getAttribute('data-optional');
+          selectedOptions.push(dataOptional);
+        });
+
+        selectedOptions.push(selectedPackage);
+
+
+        // Creazione di un campo nascosto nel form per inviare i dati
+        const hiddenField = document.createElement('input');
+        hiddenField.setAttribute('type', 'hidden');
+        hiddenField.setAttribute('name', 'options');
+        hiddenField.setAttribute('value', JSON.stringify(selectedOptions));
+
+        optionsForm.appendChild(hiddenField);
+
+        // Invio del modulo
+        optionsForm.submit();
+
+      });
+    });
+  </script>
 
 
 
 
-    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-d004">
-      <div class="u-clearfix u-sheet u-sheet-1">
-        <p class="u-small-text u-text u-text-variant u-text-1"> This site has been created by G.Sarnelli | A.Ricci |
-          M.Ndoja</p>
-      </div>
-    </footer>
+  <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-d004">
+    <div class="u-clearfix u-sheet u-sheet-1">
+      <p class="u-small-text u-text u-text-variant u-text-1"> This site has been created by G.Sarnelli | A.Ricci |
+        M.Ndoja</p>
+    </div>
+  </footer>
 
 
-    <style>
-      .u-dialog-section-9 .u-dialog-1 {
-        width: 570px;
-        min-height: 578px;
-        height: auto;
-        box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2);
-        margin: 60px auto;
-      }
+  <style>
+    .u-dialog-section-9 .u-dialog-1 {
+      width: 570px;
+      min-height: 578px;
+      height: auto;
+      box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2);
+      margin: 60px auto;
+    }
 
-      .u-dialog-section-9 .u-container-layout-1 {
-        padding: 34px 35px;
-      }
+    .u-dialog-section-9 .u-container-layout-1 {
+      padding: 34px 35px;
+    }
 
+    .u-dialog-section-9 .u-text-1 {
+      font-weight: 700;
+      margin: 0 165px 0 0;
+    }
+
+    .u-dialog-section-9 .u-payment-services-1 {
+      min-height: 250px;
+      min-width: 50px;
+      margin: 236px 0 0;
+    }
+
+    .u-dialog-section-9 .u-container-layout-2 {
+      padding: 20px 0 0;
+    }
+
+    .u-dialog-section-9 .u-container-layout-3 {
+      padding: 20px 0 0;
+    }
+
+    .u-dialog-section-9 .u-btn-1 {
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .u-dialog-section-9 .u-icon-1 {
+      width: 20px;
+      height: 20px;
+      left: auto;
+      top: 36px;
+      position: absolute;
+      right: 35px;
+      padding: 0;
+    }
+
+    @media (max-width: 1199px) {
       .u-dialog-section-9 .u-text-1 {
-        font-weight: 700;
-        margin: 0 165px 0 0;
+        margin-right: 165px;
       }
 
       .u-dialog-section-9 .u-payment-services-1 {
-        min-height: 250px;
-        min-width: 50px;
-        margin: 236px 0 0;
+        margin-right: initial;
+        margin-left: initial;
+      }
+    }
+
+    @media (max-width: 991px) {
+      .u-dialog-section-9 .u-container-layout-1 {
+        padding: 30px;
       }
 
       .u-dialog-section-9 .u-container-layout-2 {
-        padding: 20px 0 0;
+        padding-bottom: 0;
+        padding-left: 0;
+        padding-right: 0;
       }
 
       .u-dialog-section-9 .u-container-layout-3 {
-        padding: 20px 0 0;
-      }
-
-      .u-dialog-section-9 .u-btn-1 {
-        width: 100%;
-        margin: 0 auto;
+        padding-bottom: 0;
+        padding-left: 0;
+        padding-right: 0;
       }
 
       .u-dialog-section-9 .u-icon-1 {
-        width: 20px;
-        height: 20px;
-        left: auto;
-        top: 36px;
-        position: absolute;
-        right: 35px;
-        padding: 0;
+        top: 32px;
+        right: 30px;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .u-dialog-section-9 .u-dialog-1 {
+        width: 540px;
+      }
+    }
+
+    @media (max-width: 575px) {
+      .u-dialog-section-9 .u-dialog-1 {
+        width: 340px;
       }
 
-      @media (max-width: 1199px) {
-        .u-dialog-section-9 .u-text-1 {
-          margin-right: 165px;
-        }
-
-        .u-dialog-section-9 .u-payment-services-1 {
-          margin-right: initial;
-          margin-left: initial;
-        }
+      .u-dialog-section-9 .u-container-layout-1 {
+        padding-left: 20px;
+        padding-right: 20px;
       }
 
-      @media (max-width: 991px) {
-        .u-dialog-section-9 .u-container-layout-1 {
-          padding: 30px;
-        }
-
-        .u-dialog-section-9 .u-container-layout-2 {
-          padding-bottom: 0;
-          padding-left: 0;
-          padding-right: 0;
-        }
-
-        .u-dialog-section-9 .u-container-layout-3 {
-          padding-bottom: 0;
-          padding-left: 0;
-          padding-right: 0;
-        }
-
-        .u-dialog-section-9 .u-icon-1 {
-          top: 32px;
-          right: 30px;
-        }
+      .u-dialog-section-9 .u-text-1 {
+        margin-right: 5px;
       }
 
-      @media (max-width: 767px) {
-        .u-dialog-section-9 .u-dialog-1 {
-          width: 540px;
-        }
+      .u-dialog-section-9 .u-icon-1 {
+        right: 20px;
       }
+    }
 
-      @media (max-width: 575px) {
-        .u-dialog-section-9 .u-dialog-1 {
-          width: 340px;
-        }
+    .confirm-button-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+      /* Regola questo valore come necessario */
+    }
 
-        .u-dialog-section-9 .u-container-layout-1 {
-          padding-left: 20px;
-          padding-right: 20px;
-        }
+    .confirm-button {
+      padding: 10px 20px;
+      background-color: #478ac9;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      text-align: center;
+    }
 
-        .u-dialog-section-9 .u-text-1 {
-          margin-right: 5px;
-        }
+    .confirm-button:hover {
+      background-color: #3572a3;
+    }
+  </style>
 
-        .u-dialog-section-9 .u-icon-1 {
-          right: 20px;
-        }
+  <style>
+    .u-dialog-section-10 .u-dialog-1 {
+      width: 566px;
+      min-height: 534px;
+      box-shadow: 5px 5px 20px 0 rgba(0, 0, 0, 0.4);
+      margin: 204px auto 60px;
+    }
+
+    .u-dialog-section-10 .u-container-layout-1 {
+      padding: 0 0 40px;
+    }
+
+    .u-dialog-section-10 .u-btn-1 {
+      border-style: none;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin: 223px auto 0;
+      padding: 17px 54px 18px;
+    }
+
+    .u-dialog-section-10 .u-icon-1 {
+      width: 41px;
+      height: 41px;
+      left: auto;
+      top: 10px;
+      position: absolute;
+      background-image: none;
+      right: 13px;
+      padding: 14px;
+    }
+
+    @media (max-width: 991px) {
+      .u-dialog-section-10 .u-container-layout-1 {
+        padding: 0 0 30px;
       }
+    }
 
-      .confirm-button-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 20px;
-        /* Regola questo valore come necessario */
-      }
-
-      .confirm-button {
-        padding: 10px 20px;
-        background-color: #478ac9;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-        text-align: center;
-      }
-
-      .confirm-button:hover {
-        background-color: #3572a3;
-      }
-    </style>
-
-    <style>
+    @media (max-width: 767px) {
       .u-dialog-section-10 .u-dialog-1 {
-        width: 566px;
-        min-height: 534px;
-        box-shadow: 5px 5px 20px 0 rgba(0, 0, 0, 0.4);
-        margin: 204px auto 60px;
+        width: 540px;
+      }
+    }
+
+    @media (max-width: 575px) {
+      .u-dialog-section-10 .u-dialog-1 {
+        width: 340px;
+        height: auto;
       }
 
       .u-dialog-section-10 .u-container-layout-1 {
-        padding: 0 0 40px;
+        padding-bottom: 25px;
       }
+    }
+  </style>
 
-      .u-dialog-section-10 .u-btn-1 {
-        border-style: none;
-        font-size: 1rem;
-        letter-spacing: 1px;
-        font-weight: 700;
-        text-transform: uppercase;
-        margin: 223px auto 0;
-        padding: 17px 54px 18px;
-      }
+  <script>
+    // Funzione per aprire il dialog
+    function openSiteDialog(url) {
+      var dialog = document.getElementById("siteDialog");
+      var iframe = document.getElementById("siteDialogContent");
+      iframe.src = url;
+      dialog.style.display = "block";
+    }
 
-      .u-dialog-section-10 .u-icon-1 {
-        width: 41px;
-        height: 41px;
-        left: auto;
-        top: 10px;
-        position: absolute;
-        background-image: none;
-        right: 13px;
-        padding: 14px;
-      }
+    // Funzione per chiudere il dialog
+    function closeSiteDialog() {
+      var dialog = document.getElementById("siteDialog");
+      var iframe = document.getElementById("siteDialogContent");
+      iframe.src = "";
+      dialog.style.display = "none";
+    }
 
-      @media (max-width: 991px) {
-        .u-dialog-section-10 .u-container-layout-1 {
-          padding: 0 0 30px;
-        }
-      }
-
-      @media (max-width: 767px) {
-        .u-dialog-section-10 .u-dialog-1 {
-          width: 540px;
-        }
-      }
-
-      @media (max-width: 575px) {
-        .u-dialog-section-10 .u-dialog-1 {
-          width: 340px;
-          height: auto;
-        }
-
-        .u-dialog-section-10 .u-container-layout-1 {
-          padding-bottom: 25px;
-        }
-      }
-    </style>
-
-    <script>
-      // Funzione per aprire il dialog
-      function openSiteDialog(url) {
-        var dialog = document.getElementById("siteDialog");
-        var iframe = document.getElementById("siteDialogContent");
-        iframe.src = url;
-        dialog.style.display = "block";
-      }
-
-      // Funzione per chiudere il dialog
-      function closeSiteDialog() {
-        var dialog = document.getElementById("siteDialog");
-        var iframe = document.getElementById("siteDialogContent");
-        iframe.src = "";
-        dialog.style.display = "none";
-      }
-
-      // Aggiorna l'altezza del dialog in base all'altezza della finestra del browser
-      window.addEventListener('resize', function () {
-        var dialog = document.getElementById("siteDialog");
-        var windowHeight = window.innerHeight;
-        var newHeight = windowHeight * 0.8; // Imposta l'altezza del dialog al 80% dell'altezza della finestra
-        dialog.style.height = newHeight + 'px';
-      });
-    </script>
+    // Aggiorna l'altezza del dialog in base all'altezza della finestra del browser
+    window.addEventListener('resize', function () {
+      var dialog = document.getElementById("siteDialog");
+      var windowHeight = window.innerHeight;
+      var newHeight = windowHeight * 0.8; // Imposta l'altezza del dialog al 80% dell'altezza della finestra
+      dialog.style.height = newHeight + 'px';
+    });
+  </script>
 </body>
 
 </html>
