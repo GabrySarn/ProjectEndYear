@@ -125,6 +125,7 @@ $res = $conn->query($sql);
           option.classList.add('selected');
           selectedColor = option.getAttribute('data-color');
           selectedColorInput.value = selectedColor;
+          
           carouselImages.forEach(img => {
             img.src = `images/colors/${selectedColor}.png`;
           });
@@ -136,6 +137,8 @@ $res = $conn->query($sql);
         if (!selectedColor) {
           event.preventDefault();
           alert("Please select a color before adding.");
+        }else{
+          
         }
       });
     });
