@@ -51,8 +51,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       //L'ULTIMO AGGIUNTO E IL PACK!!!!!
       //echo "<h2>Opzioni selezionate:</h2>";
       foreach ($selectedOptionsArray as $index => $option) {
-        //echo "<p>Opzione $index: $option</p>";
+        echo "<p>Opzione $index: $option</p>";
       }
+      echo var_dump($_POST['options']);
+      echo var_dump($_POST['pack']);
 
       if (!isset($_SESSION['idUtente'])) {
         $_SESSION["order"] = 1;

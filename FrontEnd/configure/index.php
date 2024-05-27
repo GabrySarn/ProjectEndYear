@@ -514,6 +514,13 @@ $carModel = $res->fetch_assoc();
 
           optionsForm.appendChild(hiddenField);
 
+          const pack = document.createElement('input');
+          pack.setAttribute('type', 'hidden');
+          pack.setAttribute('name', 'pack');
+          pack.setAttribute('value', selectedPackage);
+
+          optionsForm.appendChild(pack);
+
           // Invio del modulo
           optionsForm.submit();
 
