@@ -1,13 +1,7 @@
 <?php
 include '../../BackEnd/Login_Back/chk.php';
-require_once '../../BackEnd/connect.php';
-
-// Imposta l'ID del veicolo selezionato nella sessione
-if (isset($_GET['setCarId'])) {
-  $_SESSION['carId'] = $_GET['setCarId'];
-  header('Location: ../Configure/index.php');
-  exit();
-}
+include '../../BackEnd/connect.php';
+include '../../BackEnd/Configure_Back/list_back.php';
 
 // Fetch veicoli dal database
 $sql = "SELECT * FROM veicolo";
@@ -215,17 +209,18 @@ if ($res->num_rows > 0) {
               <div class="u-list-item u-repeater-item">
                 <div class="u-container-layout u-similar-container u-container-layout-3">
                   <img alt="" class="u-image u-image-contain u-image-default u-image-2" data-image-width="986"
-                    data-image-height="403" src="<?= htmlspecialchars($vehicle['ImgLink']);?>"
+                    data-image-height="403" src="<?= htmlspecialchars($vehicle['ImgLink']); ?>"
                     data-animation-name="customAnimationIn" data-animation-duration="1500" title="">
                   <div class="custom-expanded u-container-align-left u-container-style u-group u-shape-rectangle u-group-2"
                     data-animation-name="customAnimationIn" data-animation-duration="1250" data-animation-delay="250">
                     <div class="u-container-layout u-container-layout-4">
-                      <h4 class="u-align-left u-text u-text-6"><?= htmlspecialchars($vehicle['Modello']);?></h4>
+                      <h4 class="u-align-left u-text u-text-6"><?= htmlspecialchars($vehicle['Modello']); ?></h4>
                       <p class="u-align-left u-text u-text-7"> &nbsp;<span class="u-file-icon u-icon"><img
-                            src="<?= htmlspecialchars($vehicle['ImgLink']);?>" alt=""></span>&nbsp;Seats:
-                        <?= htmlspecialchars($vehicle['Posti']);?>&nbsp;&nbsp;&nbsp;</p>
-                      <p class="u-align-left u-text u-text-8"><?= htmlspecialchars($vehicle['Descrizione']);?></p>
-                      <a href="index.php?setCarId=<?= htmlspecialchars($vehicle['ID_auto']);?>"
+                            src="<?= htmlspecialchars($vehicle['ImgLink']); ?>" alt=""></span>&nbsp;Seats:
+                        <?= htmlspecialchars($vehicle['Posti']); ?>&nbsp;&nbsp;&nbsp;
+                      </p>
+                      <p class="u-align-left u-text u-text-8"><?= htmlspecialchars($vehicle['Descrizione']); ?></p>
+                      <a href="index.php?setCarId=<?= htmlspecialchars($vehicle['ID_auto']); ?>"
                         class="u-active-palette-1-dark-2 u-align-left u-border-none u-btn u-btn-round u-button-style u-hover-palette-1-dark-2 u-palette-1-base u-radius-50 u-btn-2"
                         data-animation-name="customAnimationIn" data-animation-duration="1500"
                         data-animation-delay="750">Book Now</a>

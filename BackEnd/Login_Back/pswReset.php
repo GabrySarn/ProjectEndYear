@@ -49,7 +49,7 @@ if (
 
                 $stmt->close();
                 if ($_SESSION["order"] == 1) {
-                    header('Location: ../../FrontEnd/Checkout/index.html');
+                    header('Location: ../../FrontEnd/Configure/index.php');
                     $_SESSION["order"] = 0;
                 } else {
                     header("Location: ../../FrontEnd/Home/index.php");
