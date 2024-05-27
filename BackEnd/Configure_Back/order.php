@@ -46,10 +46,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //L'ULTIMO AGGIUNTO E IL PACK!!!!!
     echo "<h2>Opzioni selezionate:</h2>";
     foreach ($selectedOptionsArray as $index => $option) {
-      //echo "<p>Opzione $index: $option</p>";
+      echo "<p>Opzione $index: $option</p>";
     }
 
-    header('Location: ../Checkout/index.html');
+    //header('Location: ../Checkout/index.html');
 
   }
 }
