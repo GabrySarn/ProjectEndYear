@@ -1,6 +1,20 @@
 <?php
 include "../../BackEnd/connect.php";
 
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+}
+
+  if (!isset($_SESSION['idUtente'])) {
+      // Se l'utente non è loggato, reindirizzalo immediatamente alla pagina di login
+      echo "<script>alert('Utente non loggato!!')<script>"
+      header("Location: ../../FrontEnd/Login/Login.html");
+  }
+
+
+$isLoggedIn = isset($_SESSION['user']);
+$username = $isLoggedIn ? $_SESSION['user'] : '';
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if (isset($_POST['assistance']) && !empty($_POST['assistance'])) {
