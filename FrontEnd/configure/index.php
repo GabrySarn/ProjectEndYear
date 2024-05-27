@@ -750,6 +750,12 @@ $carModel = $res->fetch_assoc();
         var newHeight = windowHeight * 0.8; // Imposta l'altezza del dialog al 80% dell'altezza della finestra
         dialog.style.height = newHeight + 'px';
       });
+
+      window.addEventListener("message", function(event) {
+            var formData = event.data;
+            console.log("Dati del form ricevuti:", formData);
+            // Puoi ora salvare formData in una variabile o usarlo come necessario
+        }, false);
     </script>
 </body>
 
