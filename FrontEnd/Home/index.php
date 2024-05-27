@@ -103,7 +103,7 @@ include '../../BackEnd/Login_Back/chk.php';
         <div class="menu-collapse">
           <a class="u-button-style u-custom-active-color u-custom-color u-custom-hover-color u-custom-text-color u-nav-link u-text-white"
             href="#" style="padding: 4px 0px; font-size: calc(1em + 8px);">
-            <svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 302 302" style=""
+            <svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 302 302"  
               data-block-type="">
               <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-7b92"></use>
             </svg>
@@ -121,9 +121,9 @@ include '../../BackEnd/Login_Back/chk.php';
         <div class="u-custom-menu u-nav-container-collapse">
           <div
             class="u-align-center u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav u-block-control u-block-0699-5"
-            style="" data-block="6">
+              data-block="6">
             <div class="u-sidenav-overflow u-inner-container-layout">
-              <div class="u-menu-close u-block-control u-block-0699-6" style="" data-block="7"></div>
+              <div class="u-menu-close u-block-control u-block-0699-6"   data-block="7"></div>
               <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-block-control u-block-0699-7"
                 style="font-size: 1rem" data-block="8">
                 <li class="u-nav-item"><a class="u-button-style u-nav-link active" href="index.php"
@@ -251,7 +251,7 @@ include '../../BackEnd/Login_Back/chk.php';
             <div class="u-container-style u-layout-cell u-left-cell u-size-20 u-size-20-md u-layout-cell-1">
               <div class="u-container-layout u-valign-top u-container-layout-1"><span
                   class="u-icon u-icon-circle u-icon-1"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice"
-                    viewBox="0 0 468 468" style="">
+                    viewBox="0 0 468 468"  >
                     <use xlink:href="#svg-2b8a"></use>
                   </svg><svg class="u-svg-content" viewBox="0 0 468 468" x="0px" y="0px" id="svg-2b8a"
                     style="enable-background:new 0 0 468 468;">
@@ -297,7 +297,7 @@ include '../../BackEnd/Login_Back/chk.php';
             <div class="u-container-style u-layout-cell u-size-20 u-size-20-md u-layout-cell-2">
               <div class="u-container-layout u-valign-top u-container-layout-2"><span
                   class="u-icon u-icon-circle u-icon-2"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice"
-                    viewBox="0 0 512 512" style="">
+                    viewBox="0 0 512 512"  >
                     <use xlink:href="#svg-64e9"></use>
                   </svg><svg class="u-svg-content" viewBox="0 0 512 512" x="0px" y="0px" id="svg-64e9"
                     style="enable-background:new 0 0 512 512;">
@@ -361,7 +361,7 @@ include '../../BackEnd/Login_Back/chk.php';
             <div class="u-container-style u-layout-cell u-right-cell u-size-20 u-size-20-md u-layout-cell-3">
               <div class="u-container-layout u-valign-top u-container-layout-3"><span
                   class="u-file-icon u-icon u-icon-3"><img src="images/4552609_key_open_icon11.png" alt="" title=""
-                    style=""></span>
+                     ></span>
                 <p class="u-align-center u-text u-text-5"> And you receive the car immediately turnkey</p>
               </div>
             </div>
@@ -443,8 +443,8 @@ include '../../BackEnd/Login_Back/chk.php';
                 <p class="u-text u-text-8">Interested in purchasing some Blazer vehicles? Would you like to consult a
                   supplier for more information on all services and solutions available for Blazer vehicles? Our offices
                   in Italy are at your disposal. We look forward to speaking with you.</p><span
-                  class="u-icon u-icon-circle u-icon-1"><a href="../auto_list/index.php"><svg class="u-svg-link"
-                      preserveAspectRatio="xMidYMin slice" viewBox="0 0 512 512" style="">
+                  class="u-icon u-icon-circle u-icon-1"><a href="../Auto_list/index.php"><svg class="u-svg-link"
+                      preserveAspectRatio="xMidYMin slice" viewBox="0 0 512 512" >
                       <use xlink:href="#svg-cc5a"></use>
                     </svg><svg class="u-svg-content" viewBox="0 0 512 512" id="svg-cc5a">
                       <path
@@ -466,7 +466,7 @@ include '../../BackEnd/Login_Back/chk.php';
             <div
               class="u-container-layout u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-container-layout-1">
               <span class="u-icon u-icon-circle u-icon-1"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice"
-                  viewBox="0 0 468 468" style="">
+                  viewBox="0 0 468 468"  >
                   <use xlink:href="#svg-08d9"></use>
                 </svg><svg class="u-svg-content" viewBox="0 0 468 468" x="0px" y="0px" id="svg-08d9"
                   style="enable-background:new 0 0 468 468;">

@@ -3,8 +3,6 @@ include "../../BackEnd/connect.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-  
-
   if (isset($_POST['assistance']) && !empty($_POST['assistance'])) {
     $adaptiveSpeedAssist = isset($_POST['adaptiveSpeedAssist']) ? 1 : 0;
     $hillStartAssist = isset($_POST['hillStartAssist']) ? 1 : 0;
@@ -14,6 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $laneChangeWarning = isset($_POST['laneChangeWarning']) ? 1 : 0;
     $laneDepartureWarning = isset($_POST['laneDepartureWarning']) ? 1 : 0;
 
+    
     header('Location: success.html');
 
   }
