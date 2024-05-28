@@ -93,5 +93,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
   //echo 'Pack ' . $_POST['pack'] . ' Paint ' . $_SESSION['paint'] . ' Interior ' . $_SESSION['interior'] . ' Wheels ' . $_SESSION['wheel'] . ' Motor ' . $_SESSION['motor'];
+
+  header('Location: ../checkout/index.php');
 }
 ?>
