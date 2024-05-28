@@ -96,7 +96,7 @@ $res = $conn->query($sql);
             <div class="color-selector">
               <?php
                 while ($row = $res->fetch_assoc()) {
-                  echo '<div class="color-option" style="color: white; background-color: ' . $row['Hex_color'] . ';" data-color="' . $row['Nome'] . '" color-id="' . $row['ID_colore'] . '">'. $row['prezzo']. '<br>Euro</div>';
+                  echo '<div class="color-option" style="color: white; background-color: ' . $row['Hex_color'] . ';" data-color="' . $row['Nome'] . '" color-id="' . $row['ID_colore'] . '">'. $row['Prezzo']. '<br>Euro</div>';
                 }
               ?>
             </div>

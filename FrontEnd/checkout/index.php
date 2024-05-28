@@ -17,7 +17,7 @@ if ($result) {
   }
 }
 
-// Funzione per recuperare nome e prezzo tramite ID dal database
+// Funzione per recuperare nome e Prezzo tramite ID dal database
 function getNameAndPriceById($conn, $table, $id, $nameId, $priceField)
 {
   // Prepara la dichiarazione SQL per prevenire SQL injection
@@ -31,26 +31,17 @@ function getNameAndPriceById($conn, $table, $id, $nameId, $priceField)
   // Collega il parametro alla dichiarazione
   $stmt->bind_param("i", $id);
 
-<<<<<<< HEAD
   // Esegui la dichiarazione
   if (!$stmt->execute()) {
     // Gestisci l'errore se l'esecuzione della dichiarazione fallisce
     error_log("Errore nell'esecuzione della dichiarazione: " . htmlspecialchars($stmt->error));
     return ['Nome' => 'Errore nell esecuzione della dichiarazione', $priceField => 0];
   }
-=======
-    // Execute the statement
-    if (!$stmt->execute()) {
-        // Handle error if the statement execution failed
-        error_log("Error executing statement: " . htmlspecialchars($stmt->error)); 
-        return ['Nome' => 'Error executing statement', 'Prezzo' => 0];
-    }
->>>>>>> 8aebd8d35bc1b4abba7a49cb1495cd6435300826
 
   // Ottieni il risultato
   $result = $stmt->get_result();
 
-  // Recupera nome e prezzo se disponibili
+  // Recupera nome e Prezzo se disponibili
   if ($result && $result->num_rows > 0) {
     $row = $result->fetch_assoc();
     $stmt->close();
@@ -63,6 +54,7 @@ function getNameAndPriceById($conn, $table, $id, $nameId, $priceField)
 }
 
 // Recupera i nomi e i prezzi in base agli ID
+$carData = isset($_SESSION['carId']) && $_SESSION['carId'] ? getNameAndPriceById($conn, 'veicolo', (int) $_SESSION['carId'], 'ID_auto', 'Prezzo') : ['Nome' => 'Non selezionato', 'Prezzo' => 0];
 $packData = isset($_SESSION['pack']) && $_SESSION['pack'] ? getNameAndPriceById($conn, 'pack', (int) $_SESSION['pack'], 'ID_pack', 'Prezzo') : ['Nome' => 'Non selezionato', 'Prezzo' => 0];
 $paintData = isset($_SESSION['paint']) && $_SESSION['paint'] ? getNameAndPriceById($conn, 'colore', (int) $_SESSION['paint'], 'ID_colore', 'Prezzo') : ['Nome' => 'Non selezionato', 'Prezzo' => 0];
 $wheelData = isset($_SESSION['wheel']) && $_SESSION['wheel'] ? getNameAndPriceById($conn, 'cerchi', (int) $_SESSION['wheel'], 'ID_cerchi', 'Prezzo') : ['Nome' => 'Non selezionato', 'Prezzo' => 0];
@@ -80,7 +72,9 @@ $interior = $interiorData['Nome'];
 $interiorPrice = $interiorData['Prezzo'];
 $motor = $motorData['Nome'];
 $motorPrice = $motorData['Prezzo'];
-$total = $packPrice + $paintPrice + $wheelPrice + $interiorPrice + $motorPrice;
+$car = $carData['Nome'];
+$carPrice = $carData['Prezzo'];
+$total = $packPrice + $paintPrice + $wheelPrice + $interiorPrice + $motorPrice + $carPrice;
 /*$options = [];
 foreach ($options_ids as $option_id) {
     $options[] = getNameById($conn, 'options', $option_id,  '');
@@ -120,6 +114,13 @@ foreach ($options_ids as $option_id) {
             <span class="badge bg-primary rounded-pill">6</span>
           </h4>
           <ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between lh-sm bg-body-tertiary">
+              <div>
+                <h6 class="my-0">Pack</h6>
+                <small class="text-body-secondary"><?php echo htmlspecialchars($car); ?></small>
+              </div>
+              <span class="text-body-secondary"><?php echo htmlspecialchars($carPrice); ?></span>
+            </li>
             <li class="list-group-item d-flex justify-content-between lh-sm bg-body-tertiary">
               <div>
                 <h6 class="my-0">Pack</h6>

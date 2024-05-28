@@ -214,7 +214,7 @@ if ($res->num_rows > 0) {
                   <div class="custom-expanded u-container-align-left u-container-style u-group u-shape-rectangle u-group-2"
                     data-animation-name="customAnimationIn" data-animation-duration="1250" data-animation-delay="250">
                     <div class="u-container-layout u-container-layout-4">
-                      <h4 class="u-align-left u-text u-text-6"><?= htmlspecialchars($vehicle['Modello']); ?></h4>
+                      <h4 class="u-align-left u-text u-text-6"><?= htmlspecialchars($vehicle['Nome']); ?></h4>
                       <p class="u-align-left u-text u-text-7"> &nbsp;<span class="u-file-icon u-icon"><img
                             src="<?= htmlspecialchars($vehicle['ImgLink']); ?>" alt=""></span>&nbsp;Seats:
                         <?= htmlspecialchars($vehicle['Posti']); ?>&nbsp;&nbsp;&nbsp;

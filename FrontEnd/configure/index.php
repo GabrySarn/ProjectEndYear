@@ -238,7 +238,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     data-image-height="1024">
     <div class="u-clearfix u-sheet u-sheet-1">
       <h1 class="u-custom-font u-font-lato u-text u-text-body-alt-color u-text-1">
-        <?= htmlspecialchars($carModel['Modello']) ?> - CONFIGURATION
+        <?= htmlspecialchars($carModel['Nome']) ?> - CONFIGURATION
       </h1>
     </div>
   </section>
@@ -261,7 +261,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <h3
                       class="u-align-center u-custom-font u-font-lato u-text u-text-body-alt-color u-text-default u-text-2">
                       ' . $row['Nome'] . ' </h3>
-                    <h5 class="u-align-center u-text u-text-palette-2-base u-text-3">Total:<br>' . ($carModel['Prezzo'] + $row['prezzo']) . '€</h5>
+                    <h5 class="u-align-center u-text u-text-palette-2-base u-text-3">Total:<br>' . ($carModel['Prezzo'] + $row['Prezzo']) . '€</h5>
                     <img src="' . $row['img_link'] . '" class="custom-expanded u-image u-image-1" data-image-width="2836"
                       data-image-height="1875">
                     <ul class="u-align-left u-text u-text-4">
