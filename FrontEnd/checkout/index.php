@@ -195,12 +195,6 @@ $cognome = $_SESSION['cognome'];
             </li>
           </ul>
 
-          <form class="card p-2 bg-body-tertiary">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Promo code">
-              <button type="submit" class="btn btn-secondary">Redeem</button>
-            </div>
-          </form>
         </div>
         <div class="col-md-7 col-lg-8">
           <h4 class="mb-3">Billing address</h4>
@@ -208,7 +202,7 @@ $cognome = $_SESSION['cognome'];
             <div class="row g-3">
               <div class="col-sm-6">
                 <label for="Nome" class="form-label">First name</label>
-                <input type="text" class="form-control" id="Nome" placeholder="" value="<?php echo htmlspecialchars($nome); ?>" required>
+                <input type="text" class="form-control" id="Nome" placeholder="" value="<?php echo htmlspecialchars($nome); ?>"  required>
                 <div class="invalid-feedback">
                   Valid first name is required.
                 </div>

@@ -1,8 +1,8 @@
 -- --------------------------------------------------------
--- Host:                         127.0.0.1
--- Versione server:              10.4.32-MariaDB - mariadb.org binary distribution
+-- Host:                         localhost
+-- Versione server:              10.4.28-MariaDB - mariadb.org binary distribution
 -- S.O. server:                  Win64
--- HeidiSQL Versione:            12.7.0.6850
+-- HeidiSQL Versione:            12.3.0.6589
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -16,12 +16,10 @@
 
 
 -- Dump della struttura del database blazerdb
-DROP DATABASE IF EXISTS `blazerdb`;
 CREATE DATABASE IF NOT EXISTS `blazerdb` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
 USE `blazerdb`;
 
 -- Dump della struttura di tabella blazerdb.assistenza
-DROP TABLE IF EXISTS `assistenza`;
 CREATE TABLE IF NOT EXISTS `assistenza` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(255) NOT NULL,
@@ -30,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `assistenza` (
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dump dei dati della tabella blazerdb.assistenza: ~7 rows (circa)
-REPLACE INTO `assistenza` (`id`, `nome`, `prezzo`) VALUES
+INSERT INTO `assistenza` (`id`, `nome`, `prezzo`) VALUES
 	(1, 'adaptiveSpeedAssist', NULL),
 	(2, 'hillStartAssist', NULL),
 	(3, 'descentAssist', NULL),
@@ -40,7 +38,6 @@ REPLACE INTO `assistenza` (`id`, `nome`, `prezzo`) VALUES
 	(7, 'laneDepartureWarning', NULL);
 
 -- Dump della struttura di tabella blazerdb.assistenza_opt
-DROP TABLE IF EXISTS `assistenza_opt`;
 CREATE TABLE IF NOT EXISTS `assistenza_opt` (
   `Id` int(11) NOT NULL,
   `ID_conf` int(11) DEFAULT NULL,
@@ -53,7 +50,6 @@ CREATE TABLE IF NOT EXISTS `assistenza_opt` (
 -- Dump dei dati della tabella blazerdb.assistenza_opt: ~0 rows (circa)
 
 -- Dump della struttura di tabella blazerdb.cerchi
-DROP TABLE IF EXISTS `cerchi`;
 CREATE TABLE IF NOT EXISTS `cerchi` (
   `ID_cerchi` int(11) NOT NULL AUTO_INCREMENT,
   `Nome` varchar(100) DEFAULT NULL,
@@ -63,13 +59,12 @@ CREATE TABLE IF NOT EXISTS `cerchi` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dump dei dati della tabella blazerdb.cerchi: ~3 rows (circa)
-REPLACE INTO `cerchi` (`ID_cerchi`, `Nome`, `Prezzo`, `Img_link`) VALUES
+INSERT INTO `cerchi` (`ID_cerchi`, `Nome`, `Prezzo`, `Img_link`) VALUES
 	(1, 'Regular', 999.99, 'images/Wheels/wheel_1.png'),
 	(2, 'Premium', 1499.99, 'images/Wheels/wheel_2.png'),
 	(3, 'Sport', 1499.99, 'images/Wheels/wheel_3.png');
 
 -- Dump della struttura di tabella blazerdb.colore
-DROP TABLE IF EXISTS `colore`;
 CREATE TABLE IF NOT EXISTS `colore` (
   `ID_colore` int(11) NOT NULL AUTO_INCREMENT,
   `Nome` varchar(50) DEFAULT NULL,
@@ -79,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `colore` (
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dump dei dati della tabella blazerdb.colore: ~10 rows (circa)
-REPLACE INTO `colore` (`ID_colore`, `Nome`, `Hex_color`, `prezzo`) VALUES
+INSERT INTO `colore` (`ID_colore`, `Nome`, `Hex_color`, `prezzo`) VALUES
 	(1, 'Red', '#ff0000', 499.99),
 	(2, 'White', '#e6e6e6', 499.99),
 	(3, 'Black', '#000000', 499.99),
@@ -92,7 +87,6 @@ REPLACE INTO `colore` (`ID_colore`, `Nome`, `Hex_color`, `prezzo`) VALUES
 	(10, 'Yellow', '#ffd700', 499.99);
 
 -- Dump della struttura di tabella blazerdb.configurazione
-DROP TABLE IF EXISTS `configurazione`;
 CREATE TABLE IF NOT EXISTS `configurazione` (
   `ID_conf` int(11) NOT NULL AUTO_INCREMENT,
   `ID_pack` int(11) DEFAULT NULL,
@@ -116,7 +110,6 @@ CREATE TABLE IF NOT EXISTS `configurazione` (
 -- Dump dei dati della tabella blazerdb.configurazione: ~0 rows (circa)
 
 -- Dump della struttura di tabella blazerdb.interni
-DROP TABLE IF EXISTS `interni`;
 CREATE TABLE IF NOT EXISTS `interni` (
   `ID_interni` int(11) NOT NULL AUTO_INCREMENT,
   `Nome` varchar(100) DEFAULT NULL,
@@ -125,12 +118,11 @@ CREATE TABLE IF NOT EXISTS `interni` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dump dei dati della tabella blazerdb.interni: ~2 rows (circa)
-REPLACE INTO `interni` (`ID_interni`, `Nome`, `Prezzo`) VALUES
+INSERT INTO `interni` (`ID_interni`, `Nome`, `Prezzo`) VALUES
 	(1, 'Normal', 0.00),
 	(2, 'Sport', 1299.99);
 
 -- Dump della struttura di tabella blazerdb.motore
-DROP TABLE IF EXISTS `motore`;
 CREATE TABLE IF NOT EXISTS `motore` (
   `ID_motore` int(11) NOT NULL AUTO_INCREMENT,
   `Tipo` varchar(50) DEFAULT NULL,
@@ -139,7 +131,7 @@ CREATE TABLE IF NOT EXISTS `motore` (
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dump dei dati della tabella blazerdb.motore: ~5 rows (circa)
-REPLACE INTO `motore` (`ID_motore`, `Tipo`, `Potenza`) VALUES
+INSERT INTO `motore` (`ID_motore`, `Tipo`, `Potenza`) VALUES
 	(1, 'Diesel', NULL),
 	(2, 'Petrol', NULL),
 	(3, 'Mild-Hybrid', NULL),
@@ -147,7 +139,6 @@ REPLACE INTO `motore` (`ID_motore`, `Tipo`, `Potenza`) VALUES
 	(5, 'Electric', NULL);
 
 -- Dump della struttura di tabella blazerdb.optional
-DROP TABLE IF EXISTS `optional`;
 CREATE TABLE IF NOT EXISTS `optional` (
   `ID_opt` int(11) NOT NULL AUTO_INCREMENT,
   `Nome` varchar(50) DEFAULT NULL,
@@ -157,14 +148,13 @@ CREATE TABLE IF NOT EXISTS `optional` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dump dei dati della tabella blazerdb.optional: ~4 rows (circa)
-REPLACE INTO `optional` (`ID_opt`, `Nome`, `img_link`, `prezzo`) VALUES
+INSERT INTO `optional` (`ID_opt`, `Nome`, `img_link`, `prezzo`) VALUES
 	(1, 'Charge phone box', 'images\\phone_charge.jpg', 249.99),
 	(2, 'SONOS 3D Premium Sound System', 'images\\Audio.jpg', 799.99),
 	(3, 'Sports steering wheel', 'images\\sports_steering_wheel.jpeg', 299.99),
 	(4, 'Panoramic Roof', 'images\\panoramic_roof.jpg', 399.99);
 
 -- Dump della struttura di tabella blazerdb.optional_conf
-DROP TABLE IF EXISTS `optional_conf`;
 CREATE TABLE IF NOT EXISTS `optional_conf` (
   `ID_opt_conf` int(11) NOT NULL AUTO_INCREMENT,
   `ID_conf` int(11) NOT NULL,
@@ -179,7 +169,6 @@ CREATE TABLE IF NOT EXISTS `optional_conf` (
 -- Dump dei dati della tabella blazerdb.optional_conf: ~0 rows (circa)
 
 -- Dump della struttura di tabella blazerdb.ordine
-DROP TABLE IF EXISTS `ordine`;
 CREATE TABLE IF NOT EXISTS `ordine` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `ID_utente` int(11) NOT NULL,
@@ -191,14 +180,19 @@ CREATE TABLE IF NOT EXISTS `ordine` (
   KEY `ID_veicolo` (`ID_veicolo`),
   KEY `ID_conf` (`ID_conf`),
   KEY `ID_utente` (`ID_utente`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dump dei dati della tabella blazerdb.ordine: ~0 rows (circa)
-REPLACE INTO `ordine` (`ID`, `ID_utente`, `ID_veicolo`, `ID_conf`, `Data_acquisto`, `Stato_ordine`) VALUES
-	(3, 2, 3, 0, '0000-00-00', 'bozza');
+-- Dump dei dati della tabella blazerdb.ordine: ~7 rows (circa)
+INSERT INTO `ordine` (`ID`, `ID_utente`, `ID_veicolo`, `ID_conf`, `Data_acquisto`, `Stato_ordine`) VALUES
+	(3, 2, 3, 0, '0000-00-00', 'bozza'),
+	(4, 3, 1, 0, '0000-00-00', '0'),
+	(5, 3, 1, 0, '0000-00-00', '0'),
+	(6, 3, 1, 0, '0000-00-00', '0'),
+	(7, 3, 1, 0, '0000-00-00', '0'),
+	(8, 3, 1, 0, '0000-00-00', '0'),
+	(9, 3, 1, 0, '0000-00-00', '0');
 
 -- Dump della struttura di tabella blazerdb.pack
-DROP TABLE IF EXISTS `pack`;
 CREATE TABLE IF NOT EXISTS `pack` (
   `ID_pack` int(11) NOT NULL AUTO_INCREMENT,
   `Nome` varchar(50) DEFAULT NULL,
@@ -209,13 +203,43 @@ CREATE TABLE IF NOT EXISTS `pack` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dump dei dati della tabella blazerdb.pack: ~3 rows (circa)
-REPLACE INTO `pack` (`ID_pack`, `Nome`, `Descrizione`, `prezzo`, `img_link`) VALUES
+INSERT INTO `pack` (`ID_pack`, `Nome`, `Descrizione`, `prezzo`, `img_link`) VALUES
 	(1, 'Basic', '<li>Infotainment plus package</li>\r\n<li>Assistance package plus</li>', 0.00, 'images/Basic.png'),
 	(2, 'Business', '<li>16" alloy wheels</li>\r\n<li>LED front headlights</li>\r\n<li>10.25" virtual cockpit</li>\r\n<li>Speed limiter with provision for Adaptive Cruise Control via FoD</li>\r\n<li>Lane departure warning</li>', 10000.00, 'images/Buisness.png'),
 	(3, 'Sport', '<li>18" alloy wheels</li>\r\n<li>S line aesthetics</li>\r\n<li>LED headlights with LED rear lights</li>\r\n<li>Sporty setup</li>\r\n<li>Plus Air Conditioning Package</li>', 25000.00, 'images/Sports.png');
 
+-- Dump della struttura di tabella blazerdb.paese
+CREATE TABLE IF NOT EXISTS `paese` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Nome` varchar(255) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- Dump dei dati della tabella blazerdb.paese: ~21 rows (circa)
+INSERT INTO `paese` (`ID`, `Nome`) VALUES
+	(1, 'Albania'),
+	(2, 'Argentina'),
+	(3, 'Australia'),
+	(4, 'Austria'),
+	(5, 'Belgium'),
+	(6, 'Brazil'),
+	(7, 'Canada'),
+	(8, 'China'),
+	(9, 'Colombia'),
+	(10, 'France'),
+	(11, 'Germany'),
+	(12, 'India'),
+	(13, 'Indonesia'),
+	(14, 'Italy'),
+	(15, 'Japan'),
+	(16, 'Netherlands'),
+	(17, 'Russia'),
+	(18, 'Spain'),
+	(19, 'Switzerland'),
+	(20, 'United Kingdom'),
+	(21, 'United States of America');
+
 -- Dump della struttura di tabella blazerdb.utente
-DROP TABLE IF EXISTS `utente`;
 CREATE TABLE IF NOT EXISTS `utente` (
   `ID_utente` int(11) NOT NULL AUTO_INCREMENT,
   `Nome` varchar(100) DEFAULT NULL,
@@ -225,14 +249,14 @@ CREATE TABLE IF NOT EXISTS `utente` (
   `Data_Nascita` date DEFAULT NULL,
   PRIMARY KEY (`ID_utente`),
   UNIQUE KEY `Email` (`Email`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dump dei dati della tabella blazerdb.utente: ~0 rows (circa)
-REPLACE INTO `utente` (`ID_utente`, `Nome`, `Cognome`, `Email`, `Password`, `Data_Nascita`) VALUES
-	(2, 'Gabriele', 'Sarnelli', 'gabry@gmail.com', 'dd2ef34530de7e5bef22a05e7e5dd178', '2005-02-18');
+-- Dump dei dati della tabella blazerdb.utente: ~2 rows (circa)
+INSERT INTO `utente` (`ID_utente`, `Nome`, `Cognome`, `Email`, `Password`, `Data_Nascita`) VALUES
+	(2, 'Gabriele', 'Sarnelli', 'gabry@gmail.com', 'dd2ef34530de7e5bef22a05e7e5dd178', '2005-02-18'),
+	(3, 'Alessandro', 'Ricci', 'alessandro.ricci@gmail.com', '42ac3d8548e7c9e6c344f5863d790bc4', '2005-05-26');
 
 -- Dump della struttura di tabella blazerdb.veicolo
-DROP TABLE IF EXISTS `veicolo`;
 CREATE TABLE IF NOT EXISTS `veicolo` (
   `ID_auto` int(11) NOT NULL AUTO_INCREMENT,
   `Modello` varchar(50) DEFAULT NULL,
@@ -245,7 +269,7 @@ CREATE TABLE IF NOT EXISTS `veicolo` (
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dump dei dati della tabella blazerdb.veicolo: ~5 rows (circa)
-REPLACE INTO `veicolo` (`ID_auto`, `Modello`, `Descrizione`, `Posti`, `Anno`, `Prezzo`, `ImgLink`) VALUES
+INSERT INTO `veicolo` (`ID_auto`, `Modello`, `Descrizione`, `Posti`, `Anno`, `Prezzo`, `ImgLink`) VALUES
 	(1, 'Blazer X6', 'Picture an affordable car designed for practicality and efficiency. With its compact size and fuel-efficient engine, it\'s perfect for navigating city streets and commuting with ease. Despite its affordability, it doesn\'t compromise on safety or comfort, making it an ideal choice for budget-conscious drivers.', 4, '2023', 22999.99, 'images/x6.png'),
 	(2, 'Blazer JETX', 'Imagine a sleek sports car with bold design and exceptional performance. With its sharp lines and powerful engine, it embodies the thrill of speed and the passion for driving. Every curve is an opportunity for pure adrenaline, while cutting-edge technology ensures uncompromising control.', 2, '2024', 274999.99, 'images/jetx.png'),
 	(3, 'Blazer FF18', 'Imagine an elegant cabriolet, designed to captivate wherever it roams. With sleek lines and a sense of freedom, it\'s more than just a car—it\'s an icon of style and liberation.', 4, '2024', 79999.99, 'images/FF18.png'),
