@@ -26,27 +26,62 @@ $interior_id = $_SESSION['interior_id'] = null;
 $options_ids = $_SESSION['options_ids'] = [];
 
 // Function to retrieve name by ID from the database
-function getNameById($conn, $table, $id) {
-    $query = "SELECT Nome FROM $table WHERE id = $id";
-    $result = mysqli_query($conn, $query);
-    if ($result && mysqli_num_rows($result) > 0) {
-        $row = mysqli_fetch_assoc($result);
-        return $row['Nome'];
-    }
-    return 'Not selected';
+function getNameById($conn, $table, $id, $nameId) {
+  // Prepare the SQL statement to prevent SQL injection
+  $stmt = $conn->prepare("SELECT Nome FROM $table WHERE $nameId = ?");
+  if ($stmt === false) {
+      // Handle error if the statement preparation failed
+      error_log("Error preparing statement: " . htmlspecialchars($conn->error));
+      return 'Error preparing statement';
+  }
+
+  // Bind the parameter to the statement
+  $stmt->bind_param("i", $id);
+
+  // Execute the statement
+  if (!$stmt->execute()) {
+      // Handle error if the statement execution failed
+      error_log("Error executing statement: " . htmlspecialchars($stmt->error));
+      return 'Error executing statement';
+  }
+
+  // Get the result
+  $result = $stmt->get_result();
+
+  // Fetch the name if available
+  if ($result && $result->num_rows > 0) {
+      $row = $result->fetch_assoc();
+      $stmt->close();
+      return $row['Nome'];
+  } else {
+      // Handle case where no result is found
+      $stmt->close();
+      return 'Not selected';
+  }
 }
+
+// Debugging output for session data
+error_log("Session data: " . print_r($_SESSION, true));
 
 // Retrieve names based on IDs
-$pack = $pack_id ? getNameById($conn, 'packs', $pack_id) : 'Not selected';
-$paint = $paint_id ? getNameById($conn, 'paints', $paint_id) : 'Not selected';
-$motor = $motor_id ? getNameById($conn, 'motors', $motor_id) : 'Not selected';
-$wheel = $wheel_id ? getNameById($conn, 'wheels', $wheel_id) : 'Not selected';
-$interior = $interior_id ? getNameById($conn, 'interiors', $interior_id) : 'Not selected';
+$pack = isset($_SESSION['pack']) && $_SESSION['pack'] ? getNameById($conn, 'pack', (int)$_SESSION['pack'], 'ID_pack') : 'Not selected';
+$paint = isset($paint_id) && $paint_id ? getNameById($conn, 'colore', (int)$paint_id, 'ID_colore') : 'Not selected';
+$motor = isset($_SESSION['motor']) && $_SESSION['motor'] ? getNameById($conn, 'motore', (int)$_SESSION['motor'], 'ID_motore') : 'Not selected';
+$wheel = isset($_SESSION['wheel']) && $_SESSION['wheel'] ? getNameById($conn, 'cerchi', (int)$_SESSION['wheel'], 'ID_cerchi') : 'Not selected';
+$interior = isset($_SESSION['interior']) && $_SESSION['interior'] ? getNameById($conn, 'interni', (int)$_SESSION['interior'], 'ID_interni') : 'Not selected';
 
-$options = [];
+// Debugging output for results
+error_log("Pack: $pack");
+error_log("Paint: $paint");
+error_log("Motor: $motor");
+error_log("Wheel: $wheel");
+error_log("Interior: $interior");
+
+
+/*$options = [];
 foreach ($options_ids as $option_id) {
-    $options[] = getNameById($conn, 'options', $option_id);
-}
+    $options[] = getNameById($conn, 'options', $option_id,  '');
+}*/
 ?>
 
 <!doctype html>
@@ -115,7 +150,7 @@ foreach ($options_ids as $option_id) {
               </div>
               <span class="text-body-secondary">$Interior Price</span>
             </li>
-            <?php foreach ($options as $option): ?>
+            <!--<?php foreach ($options as $option): ?>
             <li class="list-group-item d-flex justify-content-between lh-sm bg-body-tertiary">
               <div>
                 <h6 class="my-0">Option</h6>
@@ -123,7 +158,7 @@ foreach ($options_ids as $option_id) {
               </div>
               <span class="text-body-secondary">$Option Price</span>
             </li>
-            <?php endforeach; ?>
+            <?php endforeach; ?>-->
             <li class="list-group-item d-flex justify-content-between bg-body-tertiary">
               <span class="text-body-secondary">Total (USD)</span>
               <strong>$Total Price</strong>
