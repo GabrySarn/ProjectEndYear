@@ -14,7 +14,6 @@ if ($conn->query($sql) === TRUE) {
   echo $conn->error;
 }
 
-// Chiudi la connessione al database
 $conn->close();
 
 
@@ -30,28 +29,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $laneChangeWarning = isset($_POST['laneChangeWarning']) ? 1 : 0;
     $laneDepartureWarning = isset($_POST['laneDepartureWarning']) ? 1 : 0;
 
-
+    // metti in db configurazione
     header('Location: success.html');
 
   }
 
   if (isset($_POST['interior']) && !empty($_POST['interior'])) {
     $interior = $_POST['interior'];
+        // metti in db configurazione
+
     header('Location: success.html');
   }
 
   if (isset($_POST['paint']) && !empty($_POST['paint'])) {
     $paint = $_POST['paint'];
+        // metti in db configurazione
+
     header('Location: success.html');
   }
 
   if (isset($_POST['wheel']) && !empty($_POST['wheel'])) {
     $wheel = $_POST['wheel'];
+        // metti in db configurazione
+
     header('Location: success.html');
   }
 
   if (isset($_POST['motor']) && !empty($_POST['motor'])) {
     $motor = $_POST['motor'];
+        // metti in db configurazione
+
     header('Location: success.html');
   }
 
@@ -66,7 +73,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     foreach ($selectedOptionsArray as $index => $option) {
       //echo "<p>Opzione $index: $option</p>";
     }
-
+    // metti in db configurazione
+ //modfica stato ordine
 
     header('Location: ../Checkout/index.html');
 
