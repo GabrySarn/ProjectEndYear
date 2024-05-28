@@ -17,23 +17,15 @@ if ($result) {
     }
 }
 
-// Retrieve configuration IDs from session
-$pack_id = $_SESSION['pack_id'] = null;
-$paint_id = $_SESSION['paint_id'] = null;
-$motor_id = $_SESSION['motor_id'] = null;
-$wheel_id = $_SESSION['wheel_id'] = null;
-$interior_id = $_SESSION['interior_id'] = null;
-$options_ids = $_SESSION['options_ids'] = [];
-
-// Function to retrieve name by ID from the database
-function getNameById($conn, $table, $id, $nameId) {
-  // Prepare the SQL statement to prevent SQL injection
-  $stmt = $conn->prepare("SELECT Nome FROM $table WHERE $nameId = ?");
-  if ($stmt === false) {
-      // Handle error if the statement preparation failed
-      error_log("Error preparing statement: " . htmlspecialchars($conn->error));
-      return 'Error preparing statement';
-  }
+// Function to retrieve name and price by ID from the database
+function getNameAndPriceById($conn, $table, $id, $nameId) {
+    // Prepare the SQL statement to prevent SQL injection
+    $stmt = $conn->prepare("SELECT Nome, Prezzo FROM $table WHERE $nameId = ?");
+    if ($stmt === false) {
+        // Handle error if the statement preparation failed
+        error_log("Error preparing statement: " . htmlspecialchars($conn->error));
+        return ['Nome' => 'Error preparing statement', 'Prezzo' => 0];
+    }
 
     // Bind the parameter to the statement
     $stmt->bind_param("i", $id);
@@ -48,7 +40,7 @@ function getNameById($conn, $table, $id, $nameId) {
     // Get the result
     $result = $stmt->get_result();
 
-    // Fetch the name and price if available 
+    // Fetch the name and price if available
     if ($result && $result->num_rows > 0) {
         $row = $result->fetch_assoc();
         $stmt->close();
