@@ -6,7 +6,7 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 $user = $_SESSION['idUtente'];
 $veicolo = $_SESSION['carId'];
-$sql = "INSERT INTO ordine (ID_utente, ID_veicolo, ID_conf, Data_acquisto, Stato_ordine) VALUES ('$user', '$veicolo', '', '', 'bozza');";
+$sql = "INSERT INTO ordine (ID_utente, ID_veicolo, ID_conf, Stato_ordine) VALUES ('$user', '$veicolo', '', '0');";
 
 if ($conn->query($sql) === TRUE) {
   $_SESSION["id_order"] = $conn->insert_id;
@@ -64,19 +64,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if (isset($_POST['options']) && !empty($_POST['options'])) {
     $selectedOptions = json_decode($_POST['options'], true);
-
-    foreach ($selectedOptions as $option) {
-      $selectedOptionsArray[] = $option;
-    }
     //L'ULTIMO AGGIUNTO E IL PACK!!!!!
     //echo "<h2>Opzioni selezionate:</h2>";
-    foreach ($selectedOptionsArray as $index => $option) {
-      //echo "<p>Opzione $index: $option</p>";
+    foreach ($selectedOptions as $index => $option) {
+      echo "<p>Opzione $index: $option</p>";
     }
     // metti in db configurazione
  //modfica stato ordine
 
-    header('Location: ../Checkout/index.html');
+    //header('Location: ../Checkout/index.html');
 
   }
 
