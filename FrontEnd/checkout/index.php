@@ -17,7 +17,7 @@ if ($result) {
     }
 }
 
-// Retrieve configuration IDs from session 
+// Retrieve configuration IDs from session
 $pack_id = $_SESSION['pack_id'] = null;
 $paint_id = $_SESSION['paint_id'] = null;
 $motor_id = $_SESSION['motor_id'] = null;
@@ -35,47 +35,48 @@ function getNameById($conn, $table, $id, $nameId) {
       return 'Error preparing statement';
   }
 
-  // Bind the parameter to the statement
-  $stmt->bind_param("i", $id);
+    // Bind the parameter to the statement
+    $stmt->bind_param("i", $id);
 
-  // Execute the statement
-  if (!$stmt->execute()) {
-      // Handle error if the statement execution failed
-      error_log("Error executing statement: " . htmlspecialchars($stmt->error));
-      return 'Error executing statement';
-  }
+    // Execute the statement
+    if (!$stmt->execute()) {
+        // Handle error if the statement execution failed
+        error_log("Error executing statement: " . htmlspecialchars($stmt->error));
+        return ['Nome' => 'Error executing statement', 'Prezzo' => 0];
+    }
 
-  // Get the result
-  $result = $stmt->get_result();
+    // Get the result
+    $result = $stmt->get_result();
 
-  // Fetch the name if available
-  if ($result && $result->num_rows > 0) {
-      $row = $result->fetch_assoc();
-      $stmt->close();
-      return $row['Nome'];
-  } else {
-      // Handle case where no result is found
-      $stmt->close();
-      return 'Not selected';
-  }
+    // Fetch the name and price if available
+    if ($result && $result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $stmt->close();
+        return ['Nome' => $row['Nome'], 'Prezzo' => $row['Prezzo']];
+    } else {
+        // Handle case where no result is found
+        $stmt->close();
+        return ['Nome' => 'Not selected', 'Prezzo' => 0];
+    }
 }
 
-// Debugging output for session data
-error_log("Session data: " . print_r($_SESSION, true));
+// Retrieve names and prices based on IDs
+$packData = isset($_SESSION['pack']) && $_SESSION['pack'] ? getNameAndPriceById($conn, 'pack', (int)$_SESSION['pack'], 'ID_pack') : ['Nome' => 'Not selected', 'Prezzo' => 0];
+$paintData = isset($_SESSION['paint']) && $_SESSION['paint'] ? getNameAndPriceById($conn, 'colore', (int)$_SESSION['paint'], 'ID_colore') : ['Nome' => 'Not selected', 'Prezzo' => 0];
+$wheelData = isset($_SESSION['wheel']) && $_SESSION['wheel'] ? getNameAndPriceById($conn, 'cerchi', (int)$_SESSION['wheel'], 'ID_cerchi') : ['Nome' => 'Not selected', 'Prezzo' => 0];
+$interiorData = isset($_SESSION['interior']) && $_SESSION['interior'] ? getNameAndPriceById($conn, 'interni', (int)$_SESSION['interior'], 'ID_interni') : ['Nome' => 'Not selected', 'Prezzo' => 0];
 
-// Retrieve names based on IDs
-$pack = isset($_SESSION['pack']) && $_SESSION['pack'] ? getNameById($conn, 'pack', (int)$_SESSION['pack'], 'ID_pack') : 'Not selected';
-$paint = isset($paint_id) && $paint_id ? getNameById($conn, 'colore', (int)$paint_id, 'ID_colore') : 'Not selected';
-$motor = isset($_SESSION['motor']) && $_SESSION['motor'] ? getNameById($conn, 'motore', (int)$_SESSION['motor'], 'ID_motore') : 'Not selected';
-$wheel = isset($_SESSION['wheel']) && $_SESSION['wheel'] ? getNameById($conn, 'cerchi', (int)$_SESSION['wheel'], 'ID_cerchi') : 'Not selected';
-$interior = isset($_SESSION['interior']) && $_SESSION['interior'] ? getNameById($conn, 'interni', (int)$_SESSION['interior'], 'ID_interni') : 'Not selected';
-
-// Debugging output for results
-error_log("Pack: $pack");
-error_log("Paint: $paint");
-error_log("Motor: $motor");
-error_log("Wheel: $wheel");
-error_log("Interior: $interior");
+// Extract names and prices
+$pack = $packData['Nome'];
+$PackPrice = $packData['Prezzo'];
+$paint = $paintData['Nome'];
+$PaintPrice = $paintData['Prezzo'];
+$wheel = $wheelData['Nome'];
+$WheelPrice = $wheelData['Prezzo'];
+$interior = $interiorData['Nome'];
+$InteriorPrice = $interiorData['Prezzo'];
+$motor = "";
+$MotorPrice = "";
 
 
 /*$options = [];
@@ -120,35 +121,35 @@ foreach ($options_ids as $option_id) {
                 <h6 class="my-0">Pack</h6>
                 <small class="text-body-secondary"><?php echo htmlspecialchars($pack); ?></small>
               </div>
-              <span class="text-body-secondary">$Pack Price</span>
+              <span class="text-body-secondary"><?php echo htmlspecialchars($PackPrice); ?></span>
             </li>
             <li class="list-group-item d-flex justify-content-between lh-sm bg-body-tertiary">
               <div>
                 <h6 class="my-0">Painting</h6>
                 <small class="text-body-secondary"><?php echo htmlspecialchars($paint); ?></small>
               </div>
-              <span class="text-body-secondary">$Paint Price</span>
+              <span class="text-body-secondary"><?php echo htmlspecialchars($PaintPrice); ?></span>
             </li>
             <li class="list-group-item d-flex justify-content-between lh-sm bg-body-tertiary">
               <div>
                 <h6 class="my-0">Motorization</h6>
                 <small class="text-body-secondary"><?php echo htmlspecialchars($motor); ?></small>
               </div>
-              <span class="text-body-secondary">$Motor Price</span>
+              <span class="text-body-secondary"><?php echo htmlspecialchars($MotorPrice); ?></span>
             </li>
             <li class="list-group-item d-flex justify-content-between lh-sm bg-body-tertiary">
               <div>
                 <h6 class="my-0">Wheels</h6>
                 <small class="text-body-secondary"><?php echo htmlspecialchars($wheel); ?></small>
               </div>
-              <span class="text-body-secondary">$Wheel Price</span>
+              <span class="text-body-secondary"><?php echo htmlspecialchars($WheelPrice); ?></span>
             </li>
             <li class="list-group-item d-flex justify-content-between lh-sm bg-body-tertiary">
               <div>
                 <h6 class="my-0">Interiors</h6>
                 <small class="text-body-secondary"><?php echo htmlspecialchars($interior); ?></small>
               </div>
-              <span class="text-body-secondary">$Interior Price</span>
+              <span class="text-body-secondary"><?php echo htmlspecialchars($InteriorPrice); ?></span>
             </li>
             <!--<?php foreach ($options as $option): ?>
             <li class="list-group-item d-flex justify-content-between lh-sm bg-body-tertiary">
