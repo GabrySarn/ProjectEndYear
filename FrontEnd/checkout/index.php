@@ -1,5 +1,4 @@
 <?php 
-
 include '../../BackEnd/Login_Back/chk.php';
 include '../../BackEnd/connect.php';
 
@@ -18,6 +17,36 @@ if ($result) {
     }
 }
 
+// Retrieve configuration IDs from session
+$pack_id = $_SESSION['pack_id'] = null;
+$paint_id = $_SESSION['paint_id'] = null;
+$motor_id = $_SESSION['motor_id'] = null;
+$wheel_id = $_SESSION['wheel_id'] = null;
+$interior_id = $_SESSION['interior_id'] = null;
+$options_ids = $_SESSION['options_ids'] = [];
+
+// Function to retrieve name by ID from the database
+function getNameById($conn, $table, $id) {
+    $query = "SELECT Nome FROM $table WHERE id = $id";
+    $result = mysqli_query($conn, $query);
+    if ($result && mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+        return $row['Nome'];
+    }
+    return 'Not selected';
+}
+
+// Retrieve names based on IDs
+$pack = $pack_id ? getNameById($conn, 'packs', $pack_id) : 'Not selected';
+$paint = $paint_id ? getNameById($conn, 'paints', $paint_id) : 'Not selected';
+$motor = $motor_id ? getNameById($conn, 'motors', $motor_id) : 'Not selected';
+$wheel = $wheel_id ? getNameById($conn, 'wheels', $wheel_id) : 'Not selected';
+$interior = $interior_id ? getNameById($conn, 'interiors', $interior_id) : 'Not selected';
+
+$options = [];
+foreach ($options_ids as $option_id) {
+    $options[] = getNameById($conn, 'options', $option_id);
+}
 ?>
 
 <!doctype html>
@@ -34,10 +63,6 @@ if ($result) {
   <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/checkout/">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
   <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
-
-
-
-  <!-- Custom styles for this template -->
   <link href="style/checkout.css" rel="stylesheet">
 </head>
 <body class="bg-body-tertiary">
@@ -52,50 +77,58 @@ if ($result) {
         <div class="col-md-5 col-lg-4 order-md-last">
           <h4 class="d-flex justify-content-between align-items-center mb-3">
             <span class="text-primary">Your cart</span>
-            <span class="badge bg-primary rounded-pill">3</span>
+            <span class="badge bg-primary rounded-pill">6</span>
           </h4>
           <ul class="list-group mb-3">
             <li class="list-group-item d-flex justify-content-between lh-sm bg-body-tertiary">
               <div>
                 <h6 class="my-0">Pack</h6>
-                <small class="text-body-secondary">Nome del pack</small>
+                <small class="text-body-secondary"><?php echo htmlspecialchars($pack); ?></small>
               </div>
-              <span class="text-body-secondary">$Costo del pack</span>
+              <span class="text-body-secondary">$Pack Price</span>
             </li>
             <li class="list-group-item d-flex justify-content-between lh-sm bg-body-tertiary">
               <div>
                 <h6 class="my-0">Painting</h6>
-                <small class="text-body-secondary">Nome del painting</small>
+                <small class="text-body-secondary"><?php echo htmlspecialchars($paint); ?></small>
               </div>
-              <span class="text-body-secondary">$499.99</span>
+              <span class="text-body-secondary">$Paint Price</span>
             </li>
             <li class="list-group-item d-flex justify-content-between lh-sm bg-body-tertiary">
               <div>
                 <h6 class="my-0">Motorization</h6>
-                <small class="text-body-secondary">Nome del motorization</small>
+                <small class="text-body-secondary"><?php echo htmlspecialchars($motor); ?></small>
               </div>
-              <span class="text-body-secondary">$Prezzo del motorization</span>
+              <span class="text-body-secondary">$Motor Price</span>
             </li>
             <li class="list-group-item d-flex justify-content-between lh-sm bg-body-tertiary">
               <div>
                 <h6 class="my-0">Wheels</h6>
-                <small class="text-body-secondary">Nome del wheels</small>
+                <small class="text-body-secondary"><?php echo htmlspecialchars($wheel); ?></small>
               </div>
-              <span class="text-body-secondary">$Costo del wheels</span>
+              <span class="text-body-secondary">$Wheel Price</span>
             </li>
             <li class="list-group-item d-flex justify-content-between lh-sm bg-body-tertiary">
               <div>
                 <h6 class="my-0">Interiors</h6>
-                <small class="text-body-secondary">Nome del interior</small>
+                <small class="text-body-secondary"><?php echo htmlspecialchars($interior); ?></small>
               </div>
-              <span class="text-body-secondary">$Costo del interior</span>
+              <span class="text-body-secondary">$Interior Price</span>
             </li>
+            <?php foreach ($options as $option): ?>
+            <li class="list-group-item d-flex justify-content-between lh-sm bg-body-tertiary">
+              <div>
+                <h6 class="my-0">Option</h6>
+                <small class="text-body-secondary"><?php echo htmlspecialchars($option); ?></small>
+              </div>
+              <span class="text-body-secondary">$Option Price</span>
+            </li>
+            <?php endforeach; ?>
             <li class="list-group-item d-flex justify-content-between bg-body-tertiary">
-            <span class="text-body-secondary">Total (USD)</span>
-            <strong>$Totale</strong>
+              <span class="text-body-secondary">Total (USD)</span>
+              <strong>$Total Price</strong>
             </li>
           </ul>
-
         </div>
         <div class="col-md-7 col-lg-8">
           <h4 class="mb-3">Billing address</h4>
@@ -103,7 +136,7 @@ if ($result) {
             <div class="row g-3">
               <div class="col-sm-6">
                 <label for="Nome" class="form-label">First name</label>
-                <input type="text" class="form-control" id="Nome" placeholder="" value="<?php echo htmlspecialchars($nome); ?>"  required>
+                <input type="text" class="form-control" id="Nome" placeholder="" value="<?php echo htmlspecialchars($nome); ?>" required>
                 <div class="invalid-feedback">
                   Valid first name is required.
                 </div>
@@ -149,6 +182,7 @@ if ($result) {
                          Please select a valid country.
                     </div>
                 </div>
+              </div>
 
               <hr class="my-4">
 

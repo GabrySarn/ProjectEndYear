@@ -11,6 +11,47 @@ $sql = "SELECT * FROM veicolo WHERE ID_auto =" . $_SESSION['carId'];
 $res = $conn->query($sql);
 
 $carModel = $res->fetch_assoc();
+
+include "../../BackEnd/connect.php";
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Store selected pack ID
+    if (isset($_POST['pack'])) {
+        $_SESSION['pack_id'] = $_POST['pack'];
+    }
+
+    // Store selected painting ID
+    if (isset($_POST['paint'])) {
+        $_SESSION['paint_id'] = $_POST['paint'];
+    }
+
+    // Store selected motorization ID
+    if (isset($_POST['motor'])) {
+        $_SESSION['motor_id'] = $_POST['motor'];
+    }
+
+    // Store selected wheels ID
+    if (isset($_POST['wheel'])) {
+        $_SESSION['wheel_id'] = $_POST['wheel'];
+    }
+
+    // Store selected interiors ID
+    if (isset($_POST['interior'])) {
+        $_SESSION['interior_id'] = $_POST['interior'];
+    }
+
+    // Store additional options IDs
+    if (isset($_POST['options'])) {
+        $_SESSION['options_ids'] = json_decode($_POST['options'], true);
+    }
+
+    header('Location: ../../FrontEnd/Checkout/index.php');
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
