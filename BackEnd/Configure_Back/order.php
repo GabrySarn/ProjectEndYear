@@ -42,7 +42,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if (isset($_POST['paint']) && !empty($_POST['paint'])) {
     $paint = $_POST['paint'];
-    header('Location: success.html');
+    $_SESSION['paint'] = $paint;
+    echo $_SESSION['paint'];
+    //header('Location: success.html');
   }
 
   if (isset($_POST['wheel']) && !empty($_POST['wheel'])) {
@@ -52,23 +54,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if (isset($_POST['motor']) && !empty($_POST['motor'])) {
     $motor = $_POST['motor'];
+    //var_dump($motor);
     header('Location: success.html');
   }
 
   if (isset($_POST['options']) && !empty($_POST['options'])) {
     $selectedOptions = json_decode($_POST['options'], true);
-
-    foreach ($selectedOptions as $option) {
-      $selectedOptionsArray[] = $option;
-    }
     //L'ULTIMO AGGIUNTO E IL PACK!!!!!
     //echo "<h2>Opzioni selezionate:</h2>";
-    foreach ($selectedOptionsArray as $index => $option) {
-      //echo "<p>Opzione $index: $option</p>";
+    foreach ($selectedOptions as $index => $option) {
+      echo "<p>Opzione $index: $option</p>";
     }
+    echo 'Pack ' . $_POST['pack'] . ' Paint' . $_SESSION['paint'];
 
 
-    header('Location: ../Checkout/index.html');
+    //header('Location: ../Checkout/index.html');
 
   }
 

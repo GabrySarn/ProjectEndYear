@@ -503,8 +503,6 @@ $carModel = $res->fetch_assoc();
             selectedOptions.push(dataOptional);
           });
 
-          selectedOptions.push(selectedPackage);
-
 
           // Creazione di un campo nascosto nel form per inviare i dati
           const hiddenField = document.createElement('input');

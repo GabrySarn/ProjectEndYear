@@ -96,7 +96,7 @@ $res = $conn->query($sql);
             <div class="color-selector">
               <?php
                 while ($row = $res->fetch_assoc()) {
-                  echo '<div class="color-option" style="color: white; background-color: ' . $row['Hex_color'] . ';" data-color="' . $row['Nome'] . '">'. $row['prezzo']. '<br>Euro</div>';
+                  echo '<div class="color-option" style="color: white; background-color: ' . $row['Hex_color'] . ';" data-color="' . $row['Nome'] . '" color-id="' . $row['ID_colore'] . '">'. $row['prezzo']. '<br>Euro</div>';
                 }
               ?>
             </div>
@@ -124,7 +124,9 @@ $res = $conn->query($sql);
           colorOptions.forEach(opt => opt.classList.remove('selected'));
           option.classList.add('selected');
           selectedColor = option.getAttribute('data-color');
-          selectedColorInput.value = selectedColor;
+          
+          selColorID = option.getAttribute('color-id');
+          selectedColorInput.value = selColorID;
           
           carouselImages.forEach(img => {
             img.src = `images/colors/${selectedColor}.png`;
