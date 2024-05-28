@@ -17,7 +17,7 @@ if ($result) {
     }
 }
 
-// Retrieve configuration IDs from session
+// Retrieve configuration IDs from session 
 $pack_id = $_SESSION['pack_id'] = null;
 $paint_id = $_SESSION['paint_id'] = null;
 $motor_id = $_SESSION['motor_id'] = null;
