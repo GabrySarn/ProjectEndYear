@@ -48,7 +48,7 @@ function getNameById($conn, $table, $id, $nameId) {
     // Get the result
     $result = $stmt->get_result();
 
-    // Fetch the name and price if available
+    // Fetch the name and price if available 
     if ($result && $result->num_rows > 0) {
         $row = $result->fetch_assoc();
         $stmt->close();
