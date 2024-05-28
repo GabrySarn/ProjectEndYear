@@ -31,7 +31,8 @@ if (
 
         if ($conn->query($sql) === TRUE) {
             $_SESSION['email'] = $email;
-            $_SESSION['user'] = $nome;
+            $_SESSION['nome'] = $nome; 
+            $_SESSION['cognome'] = $cognome; 
 
             $sql = "SELECT ID_utente FROM utente WHERE Email = ?";
             $stmt = $conn->prepare($sql);
@@ -42,6 +43,7 @@ if (
             if ($res->num_rows > 0) {
                 $row = $res->fetch_assoc();
                 $_SESSION['idUtente'] = $row['ID_utente'];
+                
 
                 
                 if($_SESSION["order"] == 1) {

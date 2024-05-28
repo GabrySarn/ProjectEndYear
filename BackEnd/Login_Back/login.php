@@ -10,7 +10,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     $password = md5($_POST['password']);
 
 
-    $sql = "SELECT ID_utente, Email , Nome FROM utente WHERE Email = ? AND Password = ?";
+    $sql = "SELECT ID_utente, Email , Nome , Cognome FROM utente WHERE Email = ? AND Password = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ss", $email, $password);
     $stmt->execute();
@@ -21,7 +21,9 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 
         $_SESSION['email'] = $email;
         $_SESSION['idUtente'] = $row['ID_utente'];
-        $_SESSION['user'] = $row['Nome']; 
+        $_SESSION['nome'] = $row['Nome']; 
+        $_SESSION['cognome'] = $row['Cognome']; 
+
 
         $stmt->close();
         if($_SESSION["order"] == 1) {

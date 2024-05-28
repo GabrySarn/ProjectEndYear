@@ -10,7 +10,11 @@ $sql = "INSERT INTO ordine (ID_utente, ID_veicolo, ID_conf, Stato_ordine) VALUES
 
 if ($conn->query($sql) === TRUE) {
   $_SESSION["id_order"] = $conn->insert_id;
-} 
+} else{
+  echo $conn->error;
+}
+
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -60,31 +64,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->close();
 
         if ($assistenza_id) {
-          $assistenze_selezionate[] = $assistenza_id;
+          $_SESSION['assistenze_selezionate'][] = $assistenza_id;
         }
       }
     }
   }
   if (isset($_POST['interior']) && !empty($_POST['interior'])) {
-    $interior = isset($_POST['interior']) ? intval($_POST['interior']) : null;
+    $_SESSION['interior'] = isset($_POST['interior']) ? intval($_POST['interior']) : null;
 
     header('Location: success.html');
   }
 
   if (isset($_POST['paint']) && !empty($_POST['paint'])) {
-    $paint = isset($_POST['paint']) ? intval($_POST['paint']) : null;
+    $_SESSION['paint'] = isset($_POST['paint']) ? intval($_POST['paint']) : null;
 
     header('Location: success.html');
   }
 
   if (isset($_POST['wheel']) && !empty($_POST['wheel'])) {
-    $wheel = isset($_POST['wheel']) ? intval($_POST['wheel']) : null;
+    $_SESSION['wheel'] = isset($_POST['wheel']) ? intval($_POST['wheel']) : null;
 
     header('Location: success.html');
   }
 
   if (isset($_POST['motor']) && !empty($_POST['motor'])) {
-    $motor = isset($_POST['motor']) ? intval($_POST['motor']) : null;
+    $_SESSION['motor'] = isset($_POST['motor']) ? intval($_POST['motor']) : null;
 
     header('Location: success.html');
   }
@@ -96,15 +100,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $pack = isset($_POST['pack']) ? intval($_POST['pack']) : null;
 
 
-    if ($color && $motor && $wheel && $interior && $pack) {
-      $config_id = insertConfiguration($conn, $pack, $color, $motor, $wheel, $interior);
+    if (isset($_SESSION['color']) && isset($_SESSION['motor']) && isset($_SESSION['wheel']) && isset($_SESSION['interior']) && $pack) {
+      $config_id = insertConfiguration($conn, $pack, isset($_SESSION['color']),isset($_SESSION['motor']), isset($_SESSION['wheel']),isset($_SESSION['interior']));
 
       $selectedOptions = json_decode($_POST['options'], true);
       foreach ($selectedOptions as $option_id) {
         insertOptionalConf($conn, $config_id, $option_id);
       }
 
-      if (isset($assistenze_selezionate)) {
+      if (isset($_SESSION['assistenze_selezionate'])) {
+        $assistenze_selezionat[]=$_SESSION['assistenze_selezionate'];
         foreach ($assistenze_selezionate as $assistenza_id) {
           insertAssistenzaConf($conn, $config_id, $assistenza_id);
         }
@@ -114,12 +119,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
       if ($conn->query($sqlUpdate) === TRUE) {
         echo "Ordine aggiornato con successo";
+        $conn->close();
       } else {
         echo "Errore durante l'aggiornamento dell'ordine: " . $conn->error;
       }
 
     }
-    $conn->close();
+    
   }
 
 }
