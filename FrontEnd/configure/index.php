@@ -422,7 +422,7 @@ $carModel = $res->fetch_assoc();
                         </div>
                         <div class="u-align-left u-container-style u-layout-cell u-right-cell u-size-30 u-layout-cell-2">
                           <div class="u-container-layout u-valign-middle u-container-layout-2">
-                            <h2 class="u-text u-text-1" data-optional="' . str_replace(' ', '_', $optional['Nome']) . '">' . $optional['Nome'] . '</h2>
+                            <h2 class="u-text u-text-1" data-optional="' . str_replace(' ', '_', $optional['Nome']) . '" id-optional="' . $optional['ID_opt'] . '">' . $optional['Nome'] . '</h2>
                             <a href="" class="add_opt u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-1">ADD
                               NOW </a>
                           </div>
@@ -496,7 +496,7 @@ $carModel = $res->fetch_assoc();
           const selectedOptions = [];
           const selectedOptionElements = optionalSection.querySelectorAll('.add_opt.selected');
           selectedOptionElements.forEach(option => {
-            const dataOptional = option.parentElement.querySelector('h2').getAttribute('data-optional');
+            const dataOptional = option.parentElement.querySelector('h2').getAttribute('id-optional');
             selectedOptions.push(dataOptional);
           });
 
