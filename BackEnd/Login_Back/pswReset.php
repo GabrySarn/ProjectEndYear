@@ -28,7 +28,7 @@ if (
         $updateRes = $conn->query($sql);
 
         if ($conn->query($updateSql) === TRUE) {
-            $sql = "SELECT ID_utente, Email, Nome FROM utente WHERE Email = ?";
+            $sql = "SELECT ID_utente, Email, Nome , Cognome FROM utente WHERE Email = ?";
             $stmt = $conn->prepare($sql);
             $stmt->bind_param("s", $email);
             $stmt->execute();
@@ -42,7 +42,8 @@ if (
                 if (!(isset($_SESSION['email']) && (!isset($_SESSION['idUtente'])))) {
                     $_SESSION['email'] = $email;
                     $_SESSION['idUtente'] = $row['ID_utente'];
-                    $_SESSION['user'] = $row['Nome'];
+                    $_SESSION['nome'] = $row['Nome']; 
+                    $_SESSION['cognome'] = $row['Cognome']; 
                 } else {
                     echo 'errore';
                 }
