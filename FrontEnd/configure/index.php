@@ -228,7 +228,7 @@ $carModel = $res->fetch_assoc();
                     </ul>
                     <button type="submit"
                       class="add_pack u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-text-body-color u-btn-1"
-                      data-package="' . $row['Nome'] . '">
+                      data-package="' . $row['ID_auto'] . '">
                       add now
                     </button>
                   </div>';

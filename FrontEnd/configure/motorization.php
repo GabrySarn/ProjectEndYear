@@ -114,7 +114,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <?php
                                     while ($row = $res->fetch_assoc()) {
                                         echo '<label style="background-color: #e6e6e600;">
-                                            <input type="radio" name="motor" class="motor-option" value="' . $row['Tipo'] . '">
+                                            <input type="radio" name="motor" class="motor-option" value="' . $row['ID_motore'] . '">
                                             ' . $row['Tipo'] . '
                                         </label><br>';
                                     }
