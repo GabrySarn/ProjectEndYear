@@ -31,12 +31,21 @@ function getNameAndPriceById($conn, $table, $id, $nameId, $priceField)
   // Collega il parametro alla dichiarazione
   $stmt->bind_param("i", $id);
 
+<<<<<<< HEAD
   // Esegui la dichiarazione
   if (!$stmt->execute()) {
     // Gestisci l'errore se l'esecuzione della dichiarazione fallisce
     error_log("Errore nell'esecuzione della dichiarazione: " . htmlspecialchars($stmt->error));
     return ['Nome' => 'Errore nell esecuzione della dichiarazione', $priceField => 0];
   }
+=======
+    // Execute the statement
+    if (!$stmt->execute()) {
+        // Handle error if the statement execution failed
+        error_log("Error executing statement: " . htmlspecialchars($stmt->error)); 
+        return ['Nome' => 'Error executing statement', 'Prezzo' => 0];
+    }
+>>>>>>> 8aebd8d35bc1b4abba7a49cb1495cd6435300826
 
   // Ottieni il risultato
   $result = $stmt->get_result();
