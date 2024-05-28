@@ -1,8 +1,8 @@
 -- --------------------------------------------------------
--- Host:                         localhost
--- Versione server:              10.4.28-MariaDB - mariadb.org binary distribution
+-- Host:                         127.0.0.1
+-- Versione server:              10.4.32-MariaDB - mariadb.org binary distribution
 -- S.O. server:                  Win64
--- HeidiSQL Versione:            12.3.0.6589
+-- HeidiSQL Versione:            12.7.0.6850
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -37,17 +37,20 @@ REPLACE INTO `assistenza` (`id`, `nome`, `prezzo`) VALUES
 	(6, 'laneChangeWarning', 149.99),
 	(7, 'laneDepartureWarning', 149.99);
 
--- Dump della struttura di tabella blazerdb.assistenza_opt
-CREATE TABLE IF NOT EXISTS `assistenza_opt` (
-  `Id` int(11) NOT NULL,
+-- Dump della struttura di tabella blazerdb.assistenza_conf
+CREATE TABLE IF NOT EXISTS `assistenza_conf` (
   `ID_conf` int(11) DEFAULT NULL,
   `ID_assistenza` int(11) DEFAULT NULL,
-  PRIMARY KEY (`Id`),
   KEY `ID_conf` (`ID_conf`),
   KEY `ID_opt` (`ID_assistenza`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dump dei dati della tabella blazerdb.assistenza_opt: ~0 rows (circa)
+-- Dump dei dati della tabella blazerdb.assistenza_conf: ~2 rows (circa)
+REPLACE INTO `assistenza_conf` (`ID_conf`, `ID_assistenza`) VALUES
+	(17, 1),
+	(17, 7),
+	(18, 1),
+	(18, 7);
 
 -- Dump della struttura di tabella blazerdb.cerchi
 CREATE TABLE IF NOT EXISTS `cerchi` (
@@ -99,15 +102,13 @@ CREATE TABLE IF NOT EXISTS `configurazione` (
   KEY `ID_colore` (`ID_colore`),
   KEY `ID_motore` (`ID_motore`),
   KEY `ID_cerchi` (`ID_cerchi`) USING BTREE,
-  KEY `ID_interni` (`ID_interni`) USING BTREE,
-  CONSTRAINT `configurazione_ibfk_1` FOREIGN KEY (`ID_pack`) REFERENCES `pack` (`ID_pack`),
-  CONSTRAINT `configurazione_ibfk_2` FOREIGN KEY (`ID_colore`) REFERENCES `colore` (`ID_colore`),
-  CONSTRAINT `configurazione_ibfk_3` FOREIGN KEY (`ID_cerchi`) REFERENCES `cerchi` (`ID_cerchi`),
-  CONSTRAINT `configurazione_ibfk_4` FOREIGN KEY (`ID_motore`) REFERENCES `motore` (`ID_motore`),
-  CONSTRAINT `configurazione_ibfk_5` FOREIGN KEY (`ID_interni`) REFERENCES `interni` (`ID_interni`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  KEY `ID_interni` (`ID_interni`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dump dei dati della tabella blazerdb.configurazione: ~0 rows (circa)
+-- Dump dei dati della tabella blazerdb.configurazione: ~1 rows (circa)
+REPLACE INTO `configurazione` (`ID_conf`, `ID_pack`, `ID_colore`, `ID_motore`, `ID_cerchi`, `ID_interni`) VALUES
+	(17, 1, 1, 4, 3, 1),
+	(18, 1, 1, 4, 3, 1);
 
 -- Dump della struttura di tabella blazerdb.interni
 CREATE TABLE IF NOT EXISTS `interni` (
@@ -156,17 +157,18 @@ REPLACE INTO `optional` (`ID_opt`, `Nome`, `img_link`, `prezzo`) VALUES
 
 -- Dump della struttura di tabella blazerdb.optional_conf
 CREATE TABLE IF NOT EXISTS `optional_conf` (
-  `ID_opt_conf` int(11) NOT NULL AUTO_INCREMENT,
   `ID_conf` int(11) NOT NULL,
   `ID_optional` int(11) NOT NULL,
-  PRIMARY KEY (`ID_opt_conf`),
   KEY `id_conf_fk` (`ID_conf`),
-  KEY `id_optional_fk` (`ID_optional`),
-  CONSTRAINT `id_conf_fk` FOREIGN KEY (`ID_conf`) REFERENCES `configurazione` (`ID_conf`),
-  CONSTRAINT `id_optional_fk` FOREIGN KEY (`ID_optional`) REFERENCES `optional` (`ID_opt`)
+  KEY `id_optional_fk` (`ID_optional`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dump dei dati della tabella blazerdb.optional_conf: ~0 rows (circa)
+-- Dump dei dati della tabella blazerdb.optional_conf: ~2 rows (circa)
+REPLACE INTO `optional_conf` (`ID_conf`, `ID_optional`) VALUES
+	(17, 1),
+	(17, 2),
+	(18, 1),
+	(18, 2);
 
 -- Dump della struttura di tabella blazerdb.ordine
 CREATE TABLE IF NOT EXISTS `ordine` (
@@ -180,17 +182,12 @@ CREATE TABLE IF NOT EXISTS `ordine` (
   KEY `ID_veicolo` (`ID_veicolo`),
   KEY `ID_conf` (`ID_conf`),
   KEY `ID_utente` (`ID_utente`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dump dei dati della tabella blazerdb.ordine: ~7 rows (circa)
+-- Dump dei dati della tabella blazerdb.ordine: ~1 rows (circa)
 REPLACE INTO `ordine` (`ID`, `ID_utente`, `ID_veicolo`, `ID_conf`, `Data_acquisto`, `Stato_ordine`) VALUES
-	(3, 2, 3, 0, '0000-00-00', 'bozza'),
-	(4, 3, 1, 0, '0000-00-00', '0'),
-	(5, 3, 1, 0, '0000-00-00', '0'),
-	(6, 3, 1, 0, '0000-00-00', '0'),
-	(7, 3, 1, 0, '0000-00-00', '0'),
-	(8, 3, 1, 0, '0000-00-00', '0'),
-	(9, 3, 1, 0, '0000-00-00', '0');
+	(3, 2, 2, 17, '0000-00-00', 'Bozza'),
+	(4, 2, 2, 18, '0000-00-00', 'Bozza');
 
 -- Dump della struttura di tabella blazerdb.pack
 CREATE TABLE IF NOT EXISTS `pack` (
@@ -213,7 +210,7 @@ CREATE TABLE IF NOT EXISTS `paese` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Nome` varchar(255) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- Dump dei dati della tabella blazerdb.paese: ~21 rows (circa)
 REPLACE INTO `paese` (`ID`, `Nome`) VALUES

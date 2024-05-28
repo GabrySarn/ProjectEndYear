@@ -24,6 +24,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       'laneDepartureWarning' => isset($_POST['laneDepartureWarning']) ? 1 : 0,
     ];
 
+    // Initialize an array to store selected assistance IDs
+    $_SESSION['assistenze_selezionate'] = [];
+
+    // Loop through the assistance options and get their IDs if selected
     foreach ($assistenze as $nome => $selected) {
       if ($selected) {
         $stmt = $conn->prepare("SELECT id FROM assistenza WHERE nome = ?");
@@ -38,6 +42,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
       }
     }
+
+    header('Location: success.html');
+
   }
   if (isset($_POST['interior']) && !empty($_POST['interior'])) {
     $_SESSION['interior'] = isset($_POST['interior']) ? intval($_POST['interior']) : null;
@@ -64,34 +71,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if (isset($_POST['options']) && !empty($_POST['options'])) {
     $selectedOptions = json_decode($_POST['options'], true);
-    //L'ULTIMO AGGIUNTO E IL PACK!!!!!
-    //echo "<h2>Opzioni selezionate:</h2>";
-    foreach ($selectedOptions as $index => $option) {
-      echo "<p>Opzione $index: $option</p>";
+
+    $sql = "INSERT INTO configurazione (ID_pack, ID_colore, ID_motore, ID_cerchi, ID_interni) VALUES ('{$_POST['pack']}', '{$_SESSION['paint']}', '{$_SESSION['motor']}', '{$_SESSION['wheel']}', '{$_SESSION['interior']}')";
+    if ($conn->query($sql) === TRUE) {
+      $conf_id = $conn->insert_id;
+      foreach ($selectedOptions as $index => $option) {
+        $sql = "INSERT INTO optional_conf (ID_conf, ID_optional) VALUES ('$conf_id', '$option')";
+        $conn->query($sql);
+      }
+      foreach ($_SESSION['assistenze_selezionate'] as $assistenza_id) {
+        $stmt = $conn->prepare("INSERT INTO assistenza_conf (ID_conf, ID_assistenza) VALUES (?, ?)");
+        $stmt->bind_param("ii", $conf_id, $assistenza_id);
+        $stmt->execute();
+        $stmt->close();
     }
-  }
 
-  // var_dump($_SESSION);
-
-  $sql = "INSERT INTO configurazione (ID_pack, ID_colore, ID_motore, ID_cerchi, ID_interni) VALUES ('{$_POST['pack']}', '{$_SESSION['paint']}', '{$_SESSION['motor']}', '{$_SESSION['wheel']}', '{$_SESSION['interior']}')";
-  echo $sql;
-  if ($conn->query($sql) === TRUE) {
-    $conf_id = $conn->insert_id;
-    // echo "New record created successfully. Last inserted ID is: " . $conf_id;
-    foreach ($selectedOptions as $index => $option) {
-      $sql = "INSERT INTO optional_conf (ID_conf, ID_optional) VALUES ('$conf_id', '$option')";
+      $sql = "INSERT INTO ordine (ID_utente, ID_veicolo, ID_conf, Stato_ordine) VALUES ('{$_SESSION['idUtente']}', '{$_SESSION['carId']}', '$conf_id', 'Bozza')";
       $conn->query($sql);
-    }
-    $sql = "INSERT INTO ordine (ID_utente, ID_veicolo, ID_conf, Stato_ordine) VALUES ('{$_SESSION['idUtente']}', '{$_SESSION['carId']}', '$conf_id', 'Bozza')";
-    $conn->query($sql);
 
-  } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+      header('Location: ../../FrontEnd/Checkout/index.php');
+
+
+    } else {
+      echo "Error: " . $sql . "<br>" . $conn->error;
+    }
   }
-  
   $conn->close();
 
 
-  //echo 'Pack ' . $_POST['pack'] . ' Paint ' . $_SESSION['paint'] . ' Interior ' . $_SESSION['interior'] . ' Wheels ' . $_SESSION['wheel'] . ' Motor ' . $_SESSION['motor'];
 }
 ?>
