@@ -15,8 +15,8 @@ if (isset($_GET['login']) && $_GET['login'] == 1) {
     }
 }
 
-$isLoggedIn = isset($_SESSION['user']);
-$username = $isLoggedIn ? $_SESSION['user'] : '';
+$isLoggedIn = isset($_SESSION['nome']);
+$username = $isLoggedIn ? $_SESSION['nome'] : '';
 
 if (isset($_GET['logout']) && $_GET['logout'] == 1) {
     session_start();

@@ -3,22 +3,11 @@
 include '../../BackEnd/Login_Back/chk.php';
 include '../../BackEnd/connect.php';
 
-$session_id = $_SESSION['idUtente'];
-$sql = "SELECT Nome, Cognome, Email FROM utente WHERE ID_utente = $session_id";
+$email = $_SESSION['email'];
+$idUtente = $_SESSION['idUtente'];
+$nome = $_SESSION['nome']; 
+$cognome = $_SESSION['cognome'];
 
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-  // Output dei dati
-  while($row = $result->fetch_assoc()) {
-    $Nome = $row["Nome"];
-    $Cognome = $row["Cognome"];
-    $Email = $row["Email"];
-  }
-} else {
-  echo "Nessun risultato trovato";
-}
-$conn->close();
 ?>
 
 <!doctype html>
@@ -219,7 +208,7 @@ $conn->close();
             <div class="row g-3">
               <div class="col-sm-6">
                 <label for="Nome" class="form-label">First name</label>
-                <input type="text" class="form-control" id="Nome" placeholder="" value="<?php echo htmlspecialchars($Nome); ?>" required>
+                <input type="text" class="form-control" id="Nome" placeholder="" value="<?php echo htmlspecialchars($nome); ?>" required>
                 <div class="invalid-feedback">
                   Valid first name is required.
                 </div>
@@ -227,7 +216,7 @@ $conn->close();
 
               <div class="col-sm-6">
                 <label for="Cognome" class="form-label">Last name</label>
-                <input type="text" class="form-control" id="Cognome" placeholder="" value="<?php echo htmlspecialchars($Cognome); ?>" required>
+                <input type="text" class="form-control" id="Cognome" placeholder="" value="<?php echo htmlspecialchars($cognome); ?>" required>
                 <div class="invalid-feedback">
                   Valid last name is required.
                 </div>
@@ -235,7 +224,7 @@ $conn->close();
 
               <div class="col-12">
                   <label for="email" class="form-label">Email</label>
-                  <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                  <input type="email" class="form-control" id="email" placeholder="" value="<?php echo htmlspecialchars($email); ?>" required>
                   <div class="invalid-feedback">
                     Please enter a valid email address for shipping updates.
                   </div>
