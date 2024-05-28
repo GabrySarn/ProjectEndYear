@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `assistenza_conf` (
   KEY `ID_opt` (`ID_assistenza`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dump dei dati della tabella blazerdb.assistenza_conf: ~8 rows (circa)
+-- Dump dei dati della tabella blazerdb.assistenza_conf: ~10 rows (circa)
 REPLACE INTO `assistenza_conf` (`ID_conf`, `ID_assistenza`) VALUES
 	(17, 1),
 	(17, 7),
@@ -55,7 +55,9 @@ REPLACE INTO `assistenza_conf` (`ID_conf`, `ID_assistenza`) VALUES
 	(19, 7),
 	(20, 3),
 	(21, 3),
-	(22, 3);
+	(22, 3),
+	(23, 3),
+	(24, 4);
 
 -- Dump della struttura di tabella blazerdb.cerchi
 CREATE TABLE IF NOT EXISTS `cerchi` (
@@ -77,12 +79,12 @@ CREATE TABLE IF NOT EXISTS `colore` (
   `ID_colore` int(11) NOT NULL AUTO_INCREMENT,
   `Nome` varchar(50) DEFAULT NULL,
   `Hex_color` varchar(7) DEFAULT NULL,
-  `prezzo` double(10,2) DEFAULT NULL,
+  `Prezzo` double(10,2) DEFAULT NULL,
   PRIMARY KEY (`ID_colore`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dump dei dati della tabella blazerdb.colore: ~10 rows (circa)
-REPLACE INTO `colore` (`ID_colore`, `Nome`, `Hex_color`, `prezzo`) VALUES
+REPLACE INTO `colore` (`ID_colore`, `Nome`, `Hex_color`, `Prezzo`) VALUES
 	(1, 'Red', '#ff0000', 499.99),
 	(2, 'White', '#e6e6e6', 499.99),
 	(3, 'Black', '#000000', 499.99),
@@ -108,16 +110,18 @@ CREATE TABLE IF NOT EXISTS `configurazione` (
   KEY `ID_motore` (`ID_motore`),
   KEY `ID_cerchi` (`ID_cerchi`) USING BTREE,
   KEY `ID_interni` (`ID_interni`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dump dei dati della tabella blazerdb.configurazione: ~5 rows (circa)
+-- Dump dei dati della tabella blazerdb.configurazione: ~8 rows (circa)
 REPLACE INTO `configurazione` (`ID_conf`, `ID_pack`, `ID_colore`, `ID_motore`, `ID_cerchi`, `ID_interni`) VALUES
 	(17, 1, 1, 4, 3, 1),
 	(18, 1, 1, 4, 3, 1),
 	(19, 3, 9, 4, 3, 1),
 	(20, 2, 1, 2, 1, 1),
 	(21, 0, 10, 4, 2, 1),
-	(22, 2, 10, 4, 2, 1);
+	(22, 2, 10, 4, 2, 1),
+	(23, 2, 10, 4, 2, 1),
+	(24, 2, 3, 4, 2, 1);
 
 -- Dump della struttura di tabella blazerdb.interni
 CREATE TABLE IF NOT EXISTS `interni` (
@@ -153,12 +157,12 @@ CREATE TABLE IF NOT EXISTS `optional` (
   `ID_opt` int(11) NOT NULL AUTO_INCREMENT,
   `Nome` varchar(50) DEFAULT NULL,
   `img_link` varchar(500) DEFAULT NULL,
-  `prezzo` double(10,2) DEFAULT NULL,
+  `Prezzo` double(10,2) DEFAULT NULL,
   PRIMARY KEY (`ID_opt`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dump dei dati della tabella blazerdb.optional: ~4 rows (circa)
-REPLACE INTO `optional` (`ID_opt`, `Nome`, `img_link`, `prezzo`) VALUES
+REPLACE INTO `optional` (`ID_opt`, `Nome`, `img_link`, `Prezzo`) VALUES
 	(1, 'Charge phone box', 'images\\phone_charge.jpg', 249.99),
 	(2, 'SONOS 3D Premium Sound System', 'images\\Audio.jpg', 799.99),
 	(3, 'Sports steering wheel', 'images\\sports_steering_wheel.jpeg', 299.99),
@@ -194,29 +198,31 @@ CREATE TABLE IF NOT EXISTS `ordine` (
   KEY `ID_veicolo` (`ID_veicolo`),
   KEY `ID_conf` (`ID_conf`),
   KEY `ID_utente` (`ID_utente`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dump dei dati della tabella blazerdb.ordine: ~5 rows (circa)
+-- Dump dei dati della tabella blazerdb.ordine: ~8 rows (circa)
 REPLACE INTO `ordine` (`ID`, `ID_utente`, `ID_veicolo`, `ID_conf`, `Data_acquisto`, `Stato_ordine`) VALUES
 	(3, 2, 2, 17, '0000-00-00', 'Bozza'),
 	(4, 2, 2, 18, '0000-00-00', 'Bozza'),
 	(5, 2, 2, 19, '0000-00-00', 'Bozza'),
 	(6, 2, 1, 20, '0000-00-00', 'Bozza'),
 	(7, 2, 1, 21, '0000-00-00', 'Bozza'),
-	(8, 2, 1, 22, '0000-00-00', 'Bozza');
+	(8, 2, 1, 22, '0000-00-00', 'Bozza'),
+	(9, 2, 1, 23, '0000-00-00', 'Bozza'),
+	(10, 2, 1, 24, '0000-00-00', 'Bozza');
 
 -- Dump della struttura di tabella blazerdb.pack
 CREATE TABLE IF NOT EXISTS `pack` (
   `ID_pack` int(11) NOT NULL AUTO_INCREMENT,
   `Nome` varchar(50) DEFAULT NULL,
   `Descrizione` varchar(200) DEFAULT NULL,
-  `prezzo` double(10,2) DEFAULT NULL,
+  `Prezzo` double(10,2) DEFAULT NULL,
   `img_link` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`ID_pack`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dump dei dati della tabella blazerdb.pack: ~3 rows (circa)
-REPLACE INTO `pack` (`ID_pack`, `Nome`, `Descrizione`, `prezzo`, `img_link`) VALUES
+REPLACE INTO `pack` (`ID_pack`, `Nome`, `Descrizione`, `Prezzo`, `img_link`) VALUES
 	(1, 'Basic', '<li>Infotainment plus package</li>\r\n<li>Assistance package plus</li>', 0.00, 'images/Basic.png'),
 	(2, 'Business', '<li>16" alloy wheels</li>\r\n<li>LED front headlights</li>\r\n<li>10.25" virtual cockpit</li>\r\n<li>Speed limiter with provision for Adaptive Cruise Control via FoD</li>\r\n<li>Lane departure warning</li>', 10000.00, 'images/Buisness.png'),
 	(3, 'Sport', '<li>18" alloy wheels</li>\r\n<li>S line aesthetics</li>\r\n<li>LED headlights with LED rear lights</li>\r\n<li>Sporty setup</li>\r\n<li>Plus Air Conditioning Package</li>', 25000.00, 'images/Sports.png');
@@ -272,7 +278,7 @@ REPLACE INTO `utente` (`ID_utente`, `Nome`, `Cognome`, `Email`, `Password`, `Dat
 -- Dump della struttura di tabella blazerdb.veicolo
 CREATE TABLE IF NOT EXISTS `veicolo` (
   `ID_auto` int(11) NOT NULL AUTO_INCREMENT,
-  `Modello` varchar(50) DEFAULT NULL,
+  `Nome` varchar(50) DEFAULT NULL,
   `Descrizione` varchar(1000) DEFAULT NULL,
   `Posti` int(11) DEFAULT NULL,
   `Anno` year(4) DEFAULT NULL,
@@ -282,7 +288,7 @@ CREATE TABLE IF NOT EXISTS `veicolo` (
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dump dei dati della tabella blazerdb.veicolo: ~5 rows (circa)
-REPLACE INTO `veicolo` (`ID_auto`, `Modello`, `Descrizione`, `Posti`, `Anno`, `Prezzo`, `ImgLink`) VALUES
+REPLACE INTO `veicolo` (`ID_auto`, `Nome`, `Descrizione`, `Posti`, `Anno`, `Prezzo`, `ImgLink`) VALUES
 	(1, 'Blazer X6', 'Picture an affordable car designed for practicality and efficiency. With its compact size and fuel-efficient engine, it\'s perfect for navigating city streets and commuting with ease. Despite its affordability, it doesn\'t compromise on safety or comfort, making it an ideal choice for budget-conscious drivers.', 4, '2023', 22999.99, 'images/x6.png'),
 	(2, 'Blazer JETX', 'Imagine a sleek sports car with bold design and exceptional performance. With its sharp lines and powerful engine, it embodies the thrill of speed and the passion for driving. Every curve is an opportunity for pure adrenaline, while cutting-edge technology ensures uncompromising control.', 2, '2024', 274999.99, 'images/jetx.png'),
 	(3, 'Blazer FF18', 'Imagine an elegant cabriolet, designed to captivate wherever it roams. With sleek lines and a sense of freedom, it\'s more than just a car—it\'s an icon of style and liberation.', 4, '2024', 79999.99, 'images/FF18.png'),
