@@ -12,30 +12,6 @@ $veicolo = $_SESSION['carId'];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-  function insertConfiguration($conn, $pack, $color, $motor, $wheel, $interior)
-  {
-    $stmt = $conn->prepare("INSERT INTO configurazione (ID_pack, ID_colore, ID_motore, ID_cerchi, ID_interni) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("iiiii", $pack, $color, $motor, $wheel, $interior);
-    $stmt->execute();
-    return $stmt->insert_id;
-  }
-
-  // Funzione per inserire gli optional nella configurazione
-  function insertOptionalConf($conn, $config_id, $optional_id)
-  {
-    $stmt = $conn->prepare("INSERT INTO optional_conf (ID_conf, ID_optional) VALUES (?, ?)");
-    $stmt->bind_param("ii", $config_id, $optional_id);
-    $stmt->execute();
-  }
-
-  // Funzione per inserire le assistenze nella configurazione
-  function insertAssistenzaConf($conn, $config_id, $assistenza_id)
-  {
-    $stmt = $conn->prepare("INSERT INTO assistenza_conf (ID_conf, ID_assistenza) VALUES (?, ?)");
-    $stmt->bind_param("ii", $config_id, $assistenza_id);
-    $stmt->execute();
-  }
-
   // Controlla e inserisci le assistenze selezionate
   if (isset($_POST['assistance']) && !empty($_POST['assistance'])) {
     $assistenze = [
