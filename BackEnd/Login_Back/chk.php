@@ -11,7 +11,14 @@ if (isset($_GET['login']) && $_GET['login'] == 1) {
         header("Location: index.php");
     } else {
         // Se l'utente non è loggato, reindirizzalo immediatamente alla pagina di login
-        header("Location: ../../FrontEnd/Login/Login.html");
+        echo "<script>
+    window.onload = function() {
+        alert('Utente non loggato!!');
+        
+        // Una volta che l'utente fa clic su OK, reindirizza a una pagina PHP
+        window.location.href = '../../FrontEnd/Login/Login.html';
+    }
+    </script>";
     }
 }
 
@@ -22,7 +29,7 @@ if (isset($_GET['logout']) && $_GET['logout'] == 1) {
     session_start();
     $_SESSION = array();
     session_destroy();
-    header("Location: index.php"); 
+    header("Location: index.php");
     exit;
 }
 ?>

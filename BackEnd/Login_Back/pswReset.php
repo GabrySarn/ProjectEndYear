@@ -56,16 +56,34 @@ if (
                     header("Location: ../../FrontEnd/Home/index.php");
                 }
             } else {
-                echo '<script>alert("Utente non trovato, Registrati");</script>';
-                header("Location: ../../FrontEnd/Login/Login.html");
+                echo "<script>
+                window.onload = function() {
+                    alert('Utente non trovato!!');
+                    
+                    // Una volta che l'utente fa clic su OK, reindirizza a una pagina PHP
+                    window.location.href = '../../FrontEnd/Login/Login.html';
+                }
+                </script>";
             }
         } else {
-            echo '<script>alert("Errore durante l\'inserimento!");</script>';
-            header("Location: ../../FrontEnd/Login/Login.html");
+            echo "<script>
+            window.onload = function() {
+                alert('Utente non trovato!!');
+                
+                // Una volta che l'utente fa clic su OK, reindirizza a una pagina PHP
+                window.location.href = '../../FrontEnd/Login/Login.html';
+            }
+            </script>";
         }
     } else {
-        echo '<script>alert("Utente non esiste, Registrati!");</script>';
-        header("Location: ../../FrontEnd/Login/Login.html");
+        echo "<script>
+        window.onload = function() {
+            alert('Utente non trovato!!');
+            
+            // Una volta che l'utente fa clic su OK, reindirizza a una pagina PHP
+            window.location.href = '../../FrontEnd/Login/Login.html';
+        }
+        </script>";
 
     }
 }

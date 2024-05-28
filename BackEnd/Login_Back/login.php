@@ -21,23 +21,35 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 
         $_SESSION['email'] = $email;
         $_SESSION['idUtente'] = $row['ID_utente'];
-        $_SESSION['nome'] = $row['Nome']; 
-        $_SESSION['cognome'] = $row['Cognome']; 
+        $_SESSION['nome'] = $row['Nome'];
+        $_SESSION['cognome'] = $row['Cognome'];
 
 
         $stmt->close();
-        if($_SESSION["order"] == 1) {
+        if ($_SESSION["order"] == 1) {
             header('Location: ../../FrontEnd/Configure/index.php');
             $_SESSION["order"] = 0;
-        }else{
+        } else {
             header("Location: ../../FrontEnd/Home/index.php");
         }
-        
+
     } else {
-        echo '<script>alert("Utente non trovato!");</script>';
-        header("Location: ../../FrontEnd/Login/Login.html");
+        echo "<script>
+            window.onload = function() {
+                alert('Utente non loggato!!');
+                
+                // Una volta che l'utente fa clic su OK, reindirizza a una pagina PHP
+                window.location.href = '../../FrontEnd/Login/Login.html';
+            }
+            </script>";
     }
 } else {
-    echo '<script>alert("Utente non trovato!");</script>';
-    header("Location: ../../FrontEnd/Login/Login.html");
+    echo "<script>
+    window.onload = function() {
+        alert('Utente non loggato!!');
+        
+        // Una volta che l'utente fa clic su OK, reindirizza a una pagina PHP
+        window.location.href = '../../FrontEnd/Login/Login.html';
+    }
+    </script>";
 }

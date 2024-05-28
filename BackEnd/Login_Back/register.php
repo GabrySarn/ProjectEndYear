@@ -54,11 +54,24 @@ if (
                 }
             }
         } else {
-            echo '<script>alert("Errore durante l\'inserimento!");</script>';
-            header("Location: ../../FrontEnd/Login/Login.html");
+            echo "<script>
+            window.onload = function() {
+                alert('Errore!!');
+                
+                // Una volta che l'utente fa clic su OK, reindirizza a una pagina PHP
+                window.location.href = '../../FrontEnd/Login/Login.html';
+            }
+            </script>";
         }
     }
 } else {
-    header("Location: ../../FrontEnd/Login/Login.html");
+    echo "<script>
+            window.onload = function() {
+                alert('Errore!!');
+                
+                // Una volta che l'utente fa clic su OK, reindirizza a una pagina PHP
+                window.location.href = '../../FrontEnd/Login/Login.html';
+            }
+            </script>";
 
 }
