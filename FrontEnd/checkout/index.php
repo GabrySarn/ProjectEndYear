@@ -252,7 +252,7 @@ $optional_assistenza = getOptionalByConfiguration($conf_id, "assistenza");
               </li>
             <?php } ?>
             <li class="list-group-item d-flex justify-content-between bg-body-tertiary">
-              <span class="text-body-secondary">Total (USD)</span>
+              <span class="text-body-secondary">Total (EURO)</span>
               <strong><?php echo htmlspecialchars($total); ?></strong>
             </li>
           </ul>
