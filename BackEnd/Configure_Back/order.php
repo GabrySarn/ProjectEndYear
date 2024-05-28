@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     foreach ($selectedOptions as $index => $option) {
       echo "<p>Opzione $index: $option</p>";
     }
-    echo 'Pack ' . $_POST['pack'] . ' Paint' . $_SESSION['paint'];
+    echo 'Pack ' . $_POST['pack'] . ' Paint ' . $_SESSION['paint'] . ' Interior ' . $_SESSION['interior'] . ' Wheels ' . $_SESSION['wheel'] . ' Motor ' . $_SESSION['motor'];
 
     //header('Location: ../Checkout/index.html');
 
