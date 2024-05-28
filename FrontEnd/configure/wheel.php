@@ -14,7 +14,7 @@ $res = $conn->query($sql);
   <meta charset="utf-8">
   <meta name="keywords" content="Painting">
   <meta name="description" content="">
-  <title>Product Details Template</title>
+  <title>Wheels</title>
   <link rel="stylesheet" href="style/nicepage.css" media="screen">
   <link rel="stylesheet" href="style/Product-Details-Template.css" media="screen">
   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
