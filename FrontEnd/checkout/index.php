@@ -116,7 +116,7 @@ foreach ($options_ids as $option_id) {
           <ul class="list-group mb-3">
           <li class="list-group-item d-flex justify-content-between lh-sm bg-body-tertiary">
               <div>
-                <h6 class="my-0">Pack</h6>
+                <h6 class="my-0">Car</h6>
                 <small class="text-body-secondary"><?php echo htmlspecialchars($car); ?></small>
               </div>
               <span class="text-body-secondary"><?php echo htmlspecialchars($carPrice); ?></span>
@@ -166,7 +166,7 @@ foreach ($options_ids as $option_id) {
             </li>
             <?php endforeach; ?>-->
             <li class="list-group-item d-flex justify-content-between bg-body-tertiary">
-              <span class="text-body-secondary">Total (USD)</span>
+              <span class="text-body-secondary">Total (EURO)</span>
               <strong><?php echo htmlspecialchars($total); ?></strong>
             </li>
           </ul>
