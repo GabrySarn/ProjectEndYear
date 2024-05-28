@@ -8,21 +8,16 @@ $user = $_SESSION['idUtente'];
 $veicolo = $_SESSION['carId'];
 $sql = "INSERT INTO ordine (ID_utente, ID_veicolo, ID_conf, Stato_ordine) VALUES ('$user', '$veicolo', '', '0');";
 
-// if ($conn->query($sql) === TRUE) {
-//   $_SESSION["id_order"] = $conn->insert_id;
-// } else {
-//   echo $conn->error;
-// }
-
-$conn->close();
-
+if ($conn->query($sql) === TRUE) {
+  $_SESSION["id_order"] = $conn->insert_id;
+} 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-  function insertConfiguration($conn,$pack, $color, $motor, $wheel, $interior)
+  function insertConfiguration($conn, $pack, $color, $motor, $wheel, $interior)
   {
     $stmt = $conn->prepare("INSERT INTO configurazione (ID_pack, ID_colore, ID_motore, ID_cerchi, ID_interni) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("iiiii", $pack , $color, $motor, $wheel, $interior);
+    $stmt->bind_param("iiiii", $pack, $color, $motor, $wheel, $interior);
     $stmt->execute();
     return $stmt->insert_id;
   }
@@ -38,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // Funzione per inserire le assistenze nella configurazione
   function insertAssistenzaConf($conn, $config_id, $assistenza_id)
   {
-    $stmt = $conn->prepare("INSERT INTO assistenza_opt (ID_conf, ID_assistenza) VALUES (?, ?)");
+    $stmt = $conn->prepare("INSERT INTO assistenza_conf (ID_conf, ID_assistenza) VALUES (?, ?)");
     $stmt->bind_param("ii", $config_id, $assistenza_id);
     $stmt->execute();
   }
@@ -94,33 +89,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header('Location: success.html');
   }
 
-  if (isset($_POST['pack']) && !empty($_POST['pack'])){
-    $pack = isset($_POST['pack']) ? intval($_POST['pack']) : null;
-  }
+
 
   // Inserisci gli optional nella tabella optional_conf
-  if (isset($_POST['options']) && !empty($_POST['options']) ) {
-    $selectedOptions = json_decode($_POST['options'], true);
-    foreach ($selectedOptions as $option_id) {
-      insertOptionalConf($conn, $config_id, $option_id);
-    }
+  if (isset($_POST['options']) && !empty($_POST['options']) && isset($_POST['pack']) && !empty($_POST['pack'])) {
+    $pack = isset($_POST['pack']) ? intval($_POST['pack']) : null;
+
 
     if ($color && $motor && $wheel && $interior && $pack) {
-      $config_id = insertConfiguration($conn, $pack , $color, $motor, $wheel, $interior);
+      $config_id = insertConfiguration($conn, $pack, $color, $motor, $wheel, $interior);
 
-      // Inserisci le assistenze nella tabella assistenza_opt
+      $selectedOptions = json_decode($_POST['options'], true);
+      foreach ($selectedOptions as $option_id) {
+        insertOptionalConf($conn, $config_id, $option_id);
+      }
+
       if (isset($assistenze_selezionate)) {
         foreach ($assistenze_selezionate as $assistenza_id) {
           insertAssistenzaConf($conn, $config_id, $assistenza_id);
         }
       }
+      $idOrder = $_SESSION["id_order"];
+      $sqlUpdate = "UPDATE ordine SET ID_conf = '$config_id' WHERE ID = '$id_order'";
+
+      if ($conn->query($sqlUpdate) === TRUE) {
+        echo "Ordine aggiornato con successo";
+      } else {
+        echo "Errore durante l'aggiornamento dell'ordine: " . $conn->error;
+      }
 
     }
-
-  } else {
-    echo "Errore: Mancano alcuni dati necessari per la configurazione.";
+    $conn->close();
   }
 
-  $conn->close();
 }
 ?>
