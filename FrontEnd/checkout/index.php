@@ -237,33 +237,20 @@ $email = isset($_SESSION['Email']) ? $_SESSION['Email'] : '';
                 <div class="col-md-5">
                   <label for="country" class="form-label">Country</label>
                   <select class="form-select" id="country" required>
-                    <option value="">Choose...</option>
                     <option>United States</option>
+                    <option>Great Britain</option>
+                    <option>France</option>
+                    <option>Germany</option>
+                    <option>Italy</option>
+                    <option>Spain</option>
+                    <option>China</option>
+                    <option>Japan</option>
+                    <option>Russia</option>
                   </select>
                   <div class="invalid-feedback">
                     Please select a valid country.
                   </div>
                 </div>
-
-                <div class="col-md-4">
-                  <label for="state" class="form-label">State</label>
-                  <select class="form-select" id="state" required>
-                    <option value="">Choose...</option>
-                    <option>California</option>
-                  </select>
-                  <div class="invalid-feedback">
-                    Please provide a valid state.
-                  </div>
-                </div>
-
-                <div class="col-md-3">
-                  <label for="zip" class="form-label">Zip</label>
-                  <input type="text" class="form-control" id="zip" placeholder="" required>
-                  <div class="invalid-feedback">
-                    Zip code required.
-                  </div>
-                </div>
-              </div>
 
               <hr class="my-4">
 
@@ -340,12 +327,7 @@ $email = isset($_SESSION['Email']) ? $_SESSION['Email'] : '';
       </main>
 
       <footer class="my-5 pt-5 text-body-secondary text-center text-small">
-        <p class="mb-1">&copy; 2017–2024 Company Name</p>
-        <ul class="list-inline">
-          <li class="list-inline-item"><a href="#">Privacy</a></li>
-          <li class="list-inline-item"><a href="#">Terms</a></li>
-          <li class="list-inline-item"><a href="#">Support</a></li>
-        </ul>
+        <p class="mb-1">&copy; 2005–2024 Blazer</p>
       </footer>
     </div>
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
