@@ -16,10 +16,44 @@
 
 
 -- Dump della struttura del database blazerdb
+DROP DATABASE IF EXISTS `blazerdb`;
 CREATE DATABASE IF NOT EXISTS `blazerdb` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
 USE `blazerdb`;
 
+-- Dump della struttura di tabella blazerdb.assistenza
+DROP TABLE IF EXISTS `assistenza`;
+CREATE TABLE IF NOT EXISTS `assistenza` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(255) NOT NULL,
+  `prezzo` float DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Dump dei dati della tabella blazerdb.assistenza: ~7 rows (circa)
+REPLACE INTO `assistenza` (`id`, `nome`, `prezzo`) VALUES
+	(1, 'adaptiveSpeedAssist', NULL),
+	(2, 'hillStartAssist', NULL),
+	(3, 'descentAssist', NULL),
+	(4, 'parkingAssistant', NULL),
+	(5, 'parkingAssistantPlus', NULL),
+	(6, 'laneChangeWarning', NULL),
+	(7, 'laneDepartureWarning', NULL);
+
+-- Dump della struttura di tabella blazerdb.assistenza_opt
+DROP TABLE IF EXISTS `assistenza_opt`;
+CREATE TABLE IF NOT EXISTS `assistenza_opt` (
+  `Id` int(11) NOT NULL,
+  `ID_conf` int(11) DEFAULT NULL,
+  `ID_assistenza` int(11) DEFAULT NULL,
+  PRIMARY KEY (`Id`),
+  KEY `ID_conf` (`ID_conf`),
+  KEY `ID_opt` (`ID_assistenza`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Dump dei dati della tabella blazerdb.assistenza_opt: ~0 rows (circa)
+
 -- Dump della struttura di tabella blazerdb.cerchi
+DROP TABLE IF EXISTS `cerchi`;
 CREATE TABLE IF NOT EXISTS `cerchi` (
   `ID_cerchi` int(11) NOT NULL AUTO_INCREMENT,
   `Nome` varchar(100) DEFAULT NULL,
@@ -35,6 +69,7 @@ REPLACE INTO `cerchi` (`ID_cerchi`, `Nome`, `Prezzo`, `Img_link`) VALUES
 	(3, 'Sport', 1499.99, 'images/Wheels/wheel_3.png');
 
 -- Dump della struttura di tabella blazerdb.colore
+DROP TABLE IF EXISTS `colore`;
 CREATE TABLE IF NOT EXISTS `colore` (
   `ID_colore` int(11) NOT NULL AUTO_INCREMENT,
   `Nome` varchar(50) DEFAULT NULL,
@@ -57,6 +92,7 @@ REPLACE INTO `colore` (`ID_colore`, `Nome`, `Hex_color`, `prezzo`) VALUES
 	(10, 'Yellow', '#ffd700', 499.99);
 
 -- Dump della struttura di tabella blazerdb.configurazione
+DROP TABLE IF EXISTS `configurazione`;
 CREATE TABLE IF NOT EXISTS `configurazione` (
   `ID_conf` int(11) NOT NULL AUTO_INCREMENT,
   `ID_pack` int(11) DEFAULT NULL,
@@ -80,6 +116,7 @@ CREATE TABLE IF NOT EXISTS `configurazione` (
 -- Dump dei dati della tabella blazerdb.configurazione: ~0 rows (circa)
 
 -- Dump della struttura di tabella blazerdb.interni
+DROP TABLE IF EXISTS `interni`;
 CREATE TABLE IF NOT EXISTS `interni` (
   `ID_interni` int(11) NOT NULL AUTO_INCREMENT,
   `Nome` varchar(100) DEFAULT NULL,
@@ -93,6 +130,7 @@ REPLACE INTO `interni` (`ID_interni`, `Nome`, `Prezzo`) VALUES
 	(2, 'Sport', 1299.99);
 
 -- Dump della struttura di tabella blazerdb.motore
+DROP TABLE IF EXISTS `motore`;
 CREATE TABLE IF NOT EXISTS `motore` (
   `ID_motore` int(11) NOT NULL AUTO_INCREMENT,
   `Tipo` varchar(50) DEFAULT NULL,
@@ -109,6 +147,7 @@ REPLACE INTO `motore` (`ID_motore`, `Tipo`, `Potenza`) VALUES
 	(5, 'Electric', NULL);
 
 -- Dump della struttura di tabella blazerdb.optional
+DROP TABLE IF EXISTS `optional`;
 CREATE TABLE IF NOT EXISTS `optional` (
   `ID_opt` int(11) NOT NULL AUTO_INCREMENT,
   `Nome` varchar(50) DEFAULT NULL,
@@ -125,6 +164,7 @@ REPLACE INTO `optional` (`ID_opt`, `Nome`, `img_link`, `prezzo`) VALUES
 	(4, 'Panoramic Roof', 'images\\panoramic_roof.jpg', 399.99);
 
 -- Dump della struttura di tabella blazerdb.optional_conf
+DROP TABLE IF EXISTS `optional_conf`;
 CREATE TABLE IF NOT EXISTS `optional_conf` (
   `ID_opt_conf` int(11) NOT NULL AUTO_INCREMENT,
   `ID_conf` int(11) NOT NULL,
@@ -138,8 +178,9 @@ CREATE TABLE IF NOT EXISTS `optional_conf` (
 
 -- Dump dei dati della tabella blazerdb.optional_conf: ~0 rows (circa)
 
--- Dump della struttura di tabella blazerdb.ordini
-CREATE TABLE IF NOT EXISTS `ordini` (
+-- Dump della struttura di tabella blazerdb.ordine
+DROP TABLE IF EXISTS `ordine`;
+CREATE TABLE IF NOT EXISTS `ordine` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `ID_utente` int(11) NOT NULL,
   `ID_veicolo` int(11) NOT NULL,
@@ -150,11 +191,14 @@ CREATE TABLE IF NOT EXISTS `ordini` (
   KEY `ID_veicolo` (`ID_veicolo`),
   KEY `ID_conf` (`ID_conf`),
   KEY `ID_utente` (`ID_utente`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dump dei dati della tabella blazerdb.ordini: ~0 rows (circa)
+-- Dump dei dati della tabella blazerdb.ordine: ~0 rows (circa)
+REPLACE INTO `ordine` (`ID`, `ID_utente`, `ID_veicolo`, `ID_conf`, `Data_acquisto`, `Stato_ordine`) VALUES
+	(3, 2, 3, 0, '0000-00-00', 'bozza');
 
 -- Dump della struttura di tabella blazerdb.pack
+DROP TABLE IF EXISTS `pack`;
 CREATE TABLE IF NOT EXISTS `pack` (
   `ID_pack` int(11) NOT NULL AUTO_INCREMENT,
   `Nome` varchar(50) DEFAULT NULL,
@@ -171,6 +215,7 @@ REPLACE INTO `pack` (`ID_pack`, `Nome`, `Descrizione`, `prezzo`, `img_link`) VAL
 	(3, 'Sport', '<li>18" alloy wheels</li>\r\n<li>S line aesthetics</li>\r\n<li>LED headlights with LED rear lights</li>\r\n<li>Sporty setup</li>\r\n<li>Plus Air Conditioning Package</li>', 25000.00, 'images/Sports.png');
 
 -- Dump della struttura di tabella blazerdb.utente
+DROP TABLE IF EXISTS `utente`;
 CREATE TABLE IF NOT EXISTS `utente` (
   `ID_utente` int(11) NOT NULL AUTO_INCREMENT,
   `Nome` varchar(100) DEFAULT NULL,
@@ -182,11 +227,12 @@ CREATE TABLE IF NOT EXISTS `utente` (
   UNIQUE KEY `Email` (`Email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dump dei dati della tabella blazerdb.utente: ~1 rows (circa)
+-- Dump dei dati della tabella blazerdb.utente: ~0 rows (circa)
 REPLACE INTO `utente` (`ID_utente`, `Nome`, `Cognome`, `Email`, `Password`, `Data_Nascita`) VALUES
 	(2, 'Gabriele', 'Sarnelli', 'gabry@gmail.com', 'dd2ef34530de7e5bef22a05e7e5dd178', '2005-02-18');
 
 -- Dump della struttura di tabella blazerdb.veicolo
+DROP TABLE IF EXISTS `veicolo`;
 CREATE TABLE IF NOT EXISTS `veicolo` (
   `ID_auto` int(11) NOT NULL AUTO_INCREMENT,
   `Modello` varchar(50) DEFAULT NULL,
