@@ -137,8 +137,6 @@ $res = $conn->query($sql);
         if (!selectedColor) {
           event.preventDefault();
           alert("Please select a color before adding.");
-        }else{
-          
         }
       });
     });
