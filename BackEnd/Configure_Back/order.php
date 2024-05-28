@@ -8,11 +8,11 @@ $user = $_SESSION['idUtente'];
 $veicolo = $_SESSION['carId'];
 $sql = "INSERT INTO ordine (ID_utente, ID_veicolo, ID_conf, Stato_ordine) VALUES ('$user', '$veicolo', '', '0');";
 
-if ($conn->query($sql) === TRUE) {
-  $_SESSION["id_order"] = $conn->insert_id;
-} else {
-  echo $conn->error;
-}
+// if ($conn->query($sql) === TRUE) {
+//   $_SESSION["id_order"] = $conn->insert_id;
+// } else {
+//   echo $conn->error;
+// }
 
 $conn->close();
 
@@ -36,29 +36,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if (isset($_POST['interior']) && !empty($_POST['interior'])) {
     $interior = $_POST['interior'];
-        // metti in db configurazione
-
+    $_SESSION['interior'] = $interior;
     header('Location: success.html');
   }
 
   if (isset($_POST['paint']) && !empty($_POST['paint'])) {
     $paint = $_POST['paint'];
-        // metti in db configurazione
-
+    $_SESSION['paint'] = $paint;
     header('Location: success.html');
   }
 
   if (isset($_POST['wheel']) && !empty($_POST['wheel'])) {
     $wheel = $_POST['wheel'];
-        // metti in db configurazione
-
+    $_SESSION['wheel'] = $wheel;
     header('Location: success.html');
   }
 
   if (isset($_POST['motor']) && !empty($_POST['motor'])) {
     $motor = $_POST['motor'];
-        // metti in db configurazione
-
+    $_SESSION['motor'] = $motor;
     header('Location: success.html');
   }
 
@@ -69,8 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     foreach ($selectedOptions as $index => $option) {
       echo "<p>Opzione $index: $option</p>";
     }
-    // metti in db configurazione
- //modfica stato ordine
+    echo 'Pack ' . $_POST['pack'] . ' Paint' . $_SESSION['paint'];
 
     //header('Location: ../Checkout/index.html');
 
