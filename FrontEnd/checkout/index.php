@@ -17,7 +17,7 @@ $email = isset($_SESSION['Email']) ? $_SESSION['Email'] : '';
   <meta name="description" content="">
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Hugo 0.122.0">
-  <title>Checkout example · Bootstrap v5.3</title>
+  <title>Blazer - Checkout</title>
 
   <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/checkout/">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
