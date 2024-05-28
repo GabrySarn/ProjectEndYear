@@ -144,6 +144,10 @@ if ($result) {
       .form-check-label {
         color: #ffffff;
       }
+
+      .my-0 {
+        color: #ffffff;
+      }
   </style>
 
   <!-- Custom styles for this template -->
@@ -200,8 +204,8 @@ if ($result) {
               <span class="text-body-secondary">$Costo del interior</span>
             </li>
             <li class="list-group-item d-flex justify-content-between bg-body-tertiary">
-              <span>Total (USD)</span>
-              <strong>$Totale</strong>
+            <span class="text-body-secondary">Total (USD)</span>
+            <strong>$Totale</strong>
             </li>
           </ul>
 
