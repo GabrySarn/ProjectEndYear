@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `assistenza_conf` (
   KEY `ID_opt` (`ID_assistenza`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dump dei dati della tabella blazerdb.assistenza_conf: ~7 rows (circa)
+-- Dump dei dati della tabella blazerdb.assistenza_conf: ~8 rows (circa)
 REPLACE INTO `assistenza_conf` (`ID_conf`, `ID_assistenza`) VALUES
 	(17, 1),
 	(17, 7),
@@ -53,7 +53,9 @@ REPLACE INTO `assistenza_conf` (`ID_conf`, `ID_assistenza`) VALUES
 	(18, 7),
 	(19, 1),
 	(19, 7),
-	(20, 3);
+	(20, 3),
+	(21, 3),
+	(22, 3);
 
 -- Dump della struttura di tabella blazerdb.cerchi
 CREATE TABLE IF NOT EXISTS `cerchi` (
@@ -106,14 +108,16 @@ CREATE TABLE IF NOT EXISTS `configurazione` (
   KEY `ID_motore` (`ID_motore`),
   KEY `ID_cerchi` (`ID_cerchi`) USING BTREE,
   KEY `ID_interni` (`ID_interni`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dump dei dati della tabella blazerdb.configurazione: ~4 rows (circa)
+-- Dump dei dati della tabella blazerdb.configurazione: ~5 rows (circa)
 REPLACE INTO `configurazione` (`ID_conf`, `ID_pack`, `ID_colore`, `ID_motore`, `ID_cerchi`, `ID_interni`) VALUES
 	(17, 1, 1, 4, 3, 1),
 	(18, 1, 1, 4, 3, 1),
 	(19, 3, 9, 4, 3, 1),
-	(20, 2, 1, 2, 1, 1);
+	(20, 2, 1, 2, 1, 1),
+	(21, 0, 10, 4, 2, 1),
+	(22, 2, 10, 4, 2, 1);
 
 -- Dump della struttura di tabella blazerdb.interni
 CREATE TABLE IF NOT EXISTS `interni` (
@@ -131,13 +135,13 @@ REPLACE INTO `interni` (`ID_interni`, `Nome`, `Prezzo`) VALUES
 -- Dump della struttura di tabella blazerdb.motore
 CREATE TABLE IF NOT EXISTS `motore` (
   `ID_motore` int(11) NOT NULL AUTO_INCREMENT,
-  `Tipo` varchar(50) DEFAULT NULL,
+  `Nome` varchar(50) DEFAULT NULL,
   `Potenza` int(11) DEFAULT NULL,
   PRIMARY KEY (`ID_motore`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dump dei dati della tabella blazerdb.motore: ~5 rows (circa)
-REPLACE INTO `motore` (`ID_motore`, `Tipo`, `Potenza`) VALUES
+REPLACE INTO `motore` (`ID_motore`, `Nome`, `Potenza`) VALUES
 	(1, 'Diesel', NULL),
 	(2, 'Petrol', NULL),
 	(3, 'Mild-Hybrid', NULL),
@@ -168,14 +172,15 @@ CREATE TABLE IF NOT EXISTS `optional_conf` (
   KEY `id_optional_fk` (`ID_optional`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dump dei dati della tabella blazerdb.optional_conf: ~4 rows (circa)
+-- Dump dei dati della tabella blazerdb.optional_conf: ~7 rows (circa)
 REPLACE INTO `optional_conf` (`ID_conf`, `ID_optional`) VALUES
 	(17, 1),
 	(17, 2),
 	(18, 1),
 	(18, 2),
 	(20, 1),
-	(20, 2);
+	(20, 2),
+	(21, 1);
 
 -- Dump della struttura di tabella blazerdb.ordine
 CREATE TABLE IF NOT EXISTS `ordine` (
@@ -189,14 +194,16 @@ CREATE TABLE IF NOT EXISTS `ordine` (
   KEY `ID_veicolo` (`ID_veicolo`),
   KEY `ID_conf` (`ID_conf`),
   KEY `ID_utente` (`ID_utente`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dump dei dati della tabella blazerdb.ordine: ~2 rows (circa)
+-- Dump dei dati della tabella blazerdb.ordine: ~5 rows (circa)
 REPLACE INTO `ordine` (`ID`, `ID_utente`, `ID_veicolo`, `ID_conf`, `Data_acquisto`, `Stato_ordine`) VALUES
 	(3, 2, 2, 17, '0000-00-00', 'Bozza'),
 	(4, 2, 2, 18, '0000-00-00', 'Bozza'),
 	(5, 2, 2, 19, '0000-00-00', 'Bozza'),
-	(6, 2, 1, 20, '0000-00-00', 'Bozza');
+	(6, 2, 1, 20, '0000-00-00', 'Bozza'),
+	(7, 2, 1, 21, '0000-00-00', 'Bozza'),
+	(8, 2, 1, 22, '0000-00-00', 'Bozza');
 
 -- Dump della struttura di tabella blazerdb.pack
 CREATE TABLE IF NOT EXISTS `pack` (
