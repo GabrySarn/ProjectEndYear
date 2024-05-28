@@ -8,6 +8,16 @@ $idUtente = $_SESSION['idUtente'];
 $nome = $_SESSION['nome']; 
 $cognome = $_SESSION['cognome'];
 
+$query = "SELECT * FROM paese";
+$result = mysqli_query($conn, $query);
+
+$countries = [];
+if ($result) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        $countries[] = $row['Nome'];
+    }
+}
+
 ?>
 
 <!doctype html>
@@ -238,34 +248,16 @@ $cognome = $_SESSION['cognome'];
                 </div>
 
                 <div class="col-md-5">
-                  <label for="country" class="form-label">Country</label>
-                  <select class="form-select" id="country" required>
-                    <option>United States</option>
-                    <option>Great Britain</option>
-                    <option>France</option>
-                    <option>Germany</option>
-                    <option>Italy</option>
-                    <option>Spain</option>
-                    <option>China</option>
-                    <option>Japan</option>
-                    <option>Russia</option>
-                  </select>
-                  <div class="invalid-feedback">
-                    Please select a valid country.
-                  </div>
+                    <label for="country" class="form-label">Country</label>
+                    <select class="form-select" id="country" required>
+                    <?php foreach ($countries as $country) { ?>
+                        <option><?php echo htmlspecialchars($country); ?></option>
+                    <?php } ?>
+                    </select>
+                    <div class="invalid-feedback">
+                         Please select a valid country.
+                    </div>
                 </div>
-
-              <hr class="my-4">
-
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="same-address">
-                <label class="form-check-label" for="same-address">Shipping address is the same as my billing address</label>
-              </div>
-
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="save-info">
-                <label class="form-check-label" for="save-info">Save this information for next time</label>
-              </div>
 
               <hr class="my-4">
 
