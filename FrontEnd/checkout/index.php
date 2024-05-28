@@ -75,10 +75,86 @@ $motorPrice = $motorData['Prezzo'];
 $car = $carData['Nome'];
 $carPrice = $carData['Prezzo'];
 $total = $packPrice + $paintPrice + $wheelPrice + $interiorPrice + $motorPrice + $carPrice;
-/*$options = [];
-foreach ($options_ids as $option_id) {
-    $options[] = getNameById($conn, 'options', $option_id,  '');
-}*/
+
+if (isset($_SESSION['conf_id']) && $_SESSION['conf_id'] !== '') {
+  $conf_id = $_SESSION['conf_id'];
+} else {
+  // Gestisci il caso in cui $_SESSION['conf_id'] non è impostato o è vuoto
+  echo "Errore: ID configurazione non valido.";
+  return;
+}
+
+function getOptionalByConfiguration($id_configurazione, $tipo_optional)
+{
+    include '../../BackEnd/connect.php';
+
+    // Preparazione della query in base al tipo di optional
+    if ($tipo_optional == "standard") {
+        $optional_table = "optional";
+        $optional_conf_table = "optional_conf";
+        $optional_id_field = "ID_opt";
+        $optional_id_conf = "ID_optional";
+    } elseif ($tipo_optional == "assistenza") {
+        $optional_table = "assistenza";
+        $optional_conf_table = "assistenza_conf";
+        $optional_id_field = "id";
+        $optional_id_conf = "ID_assistenza";
+    } else {
+        echo "Tipo di optional non valido";
+        return;
+    }
+
+    // Prepara la query utilizzando uno statement preparato
+    $sql = "SELECT $optional_table.Nome, $optional_table.Prezzo
+            FROM $optional_table
+            INNER JOIN $optional_conf_table ON $optional_table.$optional_id_field = $optional_conf_table.$optional_id_conf
+            WHERE $optional_conf_table.ID_conf = ?";
+
+    // Prepara lo statement
+    $stmt = $conn->prepare($sql);
+
+    // Verifica se lo statement è stato preparato correttamente
+    if ($stmt === false) {
+        echo "Errore nella preparazione dello statement: " . $conn->error;
+        return;
+    }
+
+    // Associa il valore di $conf_id allo statement
+    $stmt->bind_param("i", $id_configurazione);
+
+    // Esegue lo statement
+    if (!$stmt->execute()) {
+        echo "Errore nell'esecuzione dello statement: " . $stmt->error;
+        return;
+    }
+
+    // Ottiene il risultato dello statement
+    $result = $stmt->get_result();
+
+    // Verifica se ci sono risultati
+    if ($result->num_rows > 0) {
+        // Output dei dati
+        $optional_list = array();
+        while ($row = $result->fetch_assoc()) {
+            $optional_list[] = array(
+                "Nome" => $row["Nome"],
+                "Prezzo" => $row["Prezzo"],
+            );
+        }
+        return $optional_list;
+    } else {
+        return array();
+    }
+
+    // Chiudi lo statement
+    $stmt->close();
+    // Chiudi la connessione
+    $conn->close();
+}
+
+$optional_standard = getOptionalByConfiguration($conf_id, "standard");
+$optional_assistenza = getOptionalByConfiguration($conf_id, "assistenza");
+
 ?>
 
 <!doctype html>
@@ -114,9 +190,9 @@ foreach ($options_ids as $option_id) {
             <span class="badge bg-primary rounded-pill">6</span>
           </h4>
           <ul class="list-group mb-3">
-          <li class="list-group-item d-flex justify-content-between lh-sm bg-body-tertiary">
+            <li class="list-group-item d-flex justify-content-between lh-sm bg-body-tertiary">
               <div>
-                <h6 class="my-0">Pack</h6>
+                <h6 class="my-0">Car</h6>
                 <small class="text-body-secondary"><?php echo htmlspecialchars($car); ?></small>
               </div>
               <span class="text-body-secondary"><?php echo htmlspecialchars($carPrice); ?></span>
@@ -156,15 +232,25 @@ foreach ($options_ids as $option_id) {
               </div>
               <span class="text-body-secondary"><?php echo htmlspecialchars($interiorPrice); ?></span>
             </li>
-            <!--<?php foreach ($options as $option): ?>
-            <li class="list-group-item d-flex justify-content-between lh-sm bg-body-tertiary">
-              <div>
-                <h6 class="my-0">Option</h6>
-                <small class="text-body-secondary"><?php echo htmlspecialchars($option); ?></small>
-              </div>
-              <span class="text-body-secondary">$Option Price</span>
-            </li>
-            <?php endforeach; ?>-->
+            <?php foreach ($optional_standard as $optional) { ?>
+              <li class="list-group-item d-flex justify-content-between lh-sm bg-body-tertiary">
+                <div>
+                  <h6 class="my-0">Optional Standard:</h6>
+                  <small class="text-body-secondary"><?php echo htmlspecialchars($optional['Nome']); ?></small>
+                </div>
+                <span class="text-body-secondary"><?php echo htmlspecialchars($optional['Prezzo']); ?></span>
+              </li>
+            <?php } ?>
+            <!-- Esempio di integrazione degli optional di assistenza -->
+            <?php foreach ($optional_assistenza as $optional) { ?>
+              <li class="list-group-item d-flex justify-content-between lh-sm bg-body-tertiary">
+                <div>
+                  <h6 class="my-0">Optional Assistenza:</h6>
+                  <small class="text-body-secondary"><?php echo htmlspecialchars($optional['Nome']);?></small>
+                </div>
+                <span class="text-body-secondary"><?php echo htmlspecialchars($optional['Prezzo']); ?></span>
+              </li>
+            <?php } ?>
             <li class="list-group-item d-flex justify-content-between bg-body-tertiary">
               <span class="text-body-secondary">Total (USD)</span>
               <strong><?php echo htmlspecialchars($total); ?></strong>

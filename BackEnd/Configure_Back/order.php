@@ -76,6 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $sql = "INSERT INTO configurazione (ID_pack, ID_colore, ID_motore, ID_cerchi, ID_interni) VALUES ('{$_POST['pack']}', '{$_SESSION['paint']}', '{$_SESSION['motor']}', '{$_SESSION['wheel']}', '{$_SESSION['interior']}')";
             if ($conn->query($sql) === TRUE) {
                 $conf_id = $conn->insert_id;
+                $_SESSION['conf_id'] = $conf_id;
                 foreach ($selectedOptions as $index => $option) {
                     $sql = "INSERT INTO optional_conf (ID_conf, ID_optional) VALUES ('$conf_id', '$option')";
                     $conn->query($sql);
