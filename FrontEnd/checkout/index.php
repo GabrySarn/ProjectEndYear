@@ -1,11 +1,24 @@
-<?php
-session_start();
+<?php 
 
-// Assumi che i dati dell'utente siano già presenti nella sessione
-$Nome = isset($_SESSION['Nome']) ? $_SESSION['Nome'] : '';
-$Cognome = isset($_SESSION['Cognome']) ? $_SESSION['Cognome'] : '';
-$email = isset($_SESSION['Email']) ? $_SESSION['Email'] : '';
+include '../../BackEnd/Login_Back/chk.php';
+include '../../BackEnd/connect.php';
 
+$session_id = $_SESSION['idUtente'];
+$sql = "SELECT Nome, Cognome, Email FROM utente WHERE ID_utente = $session_id";
+
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+  // Output dei dati
+  while($row = $result->fetch_assoc()) {
+    $Nome = $row["Nome"];
+    $Cognome = $row["Cognome"];
+    $Email = $row["Email"];
+  }
+} else {
+  echo "Nessun risultato trovato";
+}
+$conn->close();
 ?>
 
 <!doctype html>
@@ -154,35 +167,42 @@ $email = isset($_SESSION['Email']) ? $_SESSION['Email'] : '';
           <ul class="list-group mb-3">
             <li class="list-group-item d-flex justify-content-between lh-sm bg-body-tertiary">
               <div>
-                <h6 class="my-0">Product name</h6>
-                <small class="text-body-secondary">Brief description</small>
+                <h6 class="my-0">Pack</h6>
+                <small class="text-body-secondary">Nome del pack</small>
               </div>
-              <span class="text-body-secondary">$12</span>
+              <span class="text-body-secondary">$Costo del pack</span>
             </li>
             <li class="list-group-item d-flex justify-content-between lh-sm bg-body-tertiary">
               <div>
-                <h6 class="my-0">Second product</h6>
-                <small class="text-body-secondary">Brief description</small>
+                <h6 class="my-0">Painting</h6>
+                <small class="text-body-secondary">Nome del painting</small>
               </div>
-              <span class="text-body-secondary">$8</span>
+              <span class="text-body-secondary">$499.99</span>
             </li>
             <li class="list-group-item d-flex justify-content-between lh-sm bg-body-tertiary">
               <div>
-                <h6 class="my-0">Third item</h6>
-                <small class="text-body-secondary">Brief description</small>
+                <h6 class="my-0">Motorization</h6>
+                <small class="text-body-secondary">Nome del motorization</small>
               </div>
-              <span class="text-body-secondary">$5</span>
+              <span class="text-body-secondary">$Prezzo del motorization</span>
             </li>
-            <li class="list-group-item d-flex justify-content-between bg-body-tertiary">
-              <div class="text-success">
-                <h6 class="my-0">Promo code</h6>
-                <small>EXAMPLECODE</small>
+            <li class="list-group-item d-flex justify-content-between lh-sm bg-body-tertiary">
+              <div>
+                <h6 class="my-0">Wheels</h6>
+                <small class="text-body-secondary">Nome del wheels</small>
               </div>
-              <span class="text-success">−$5</span>
+              <span class="text-body-secondary">$Costo del wheels</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-sm bg-body-tertiary">
+              <div>
+                <h6 class="my-0">Interiors</h6>
+                <small class="text-body-secondary">Nome del interior</small>
+              </div>
+              <span class="text-body-secondary">$Costo del interior</span>
             </li>
             <li class="list-group-item d-flex justify-content-between bg-body-tertiary">
               <span>Total (USD)</span>
-              <strong>$20</strong>
+              <strong>$Totale</strong>
             </li>
           </ul>
 
