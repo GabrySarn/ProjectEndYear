@@ -8,11 +8,11 @@ $user = $_SESSION['idUtente'];
 $veicolo = $_SESSION['carId'];
 $sql = "INSERT INTO ordine (ID_utente, ID_veicolo, ID_conf, Stato_ordine) VALUES ('$user', '$veicolo', '', '0');";
 
-if ($conn->query($sql) === TRUE) {
-  $_SESSION["id_order"] = $conn->insert_id;
-} else {
-  echo $conn->error;
-}
+// if ($conn->query($sql) === TRUE) {
+//   $_SESSION["id_order"] = $conn->insert_id;
+// } else {
+//   echo $conn->error;
+// }
 
 $conn->close();
 
