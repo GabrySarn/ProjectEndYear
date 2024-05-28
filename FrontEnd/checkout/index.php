@@ -23,7 +23,7 @@ $paint_id = $_SESSION['paint_id'] = null;
 $motor_id = $_SESSION['motor_id'] = null;
 $wheel_id = $_SESSION['wheel_id'] = null;
 $interior_id = $_SESSION['interior_id'] = null;
-$options_ids = $_SESSION['options_ids'] = [];
+$options_ids = $_SESSION['options_ids'] = []; 
 
 // Function to retrieve name by ID from the database
 function getNameById($conn, $table, $id, $nameId) {
