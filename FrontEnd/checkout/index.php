@@ -33,7 +33,7 @@ function getNameAndPriceById($conn, $table, $id, $nameId) {
     // Execute the statement
     if (!$stmt->execute()) {
         // Handle error if the statement execution failed
-        error_log("Error executing statement: " . htmlspecialchars($stmt->error));
+        error_log("Error executing statement: " . htmlspecialchars($stmt->error)); 
         return ['Nome' => 'Error executing statement', 'Prezzo' => 0];
     }
 
