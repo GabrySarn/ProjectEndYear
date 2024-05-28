@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `assistenza_conf` (
   KEY `ID_opt` (`ID_assistenza`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dump dei dati della tabella blazerdb.assistenza_conf: ~10 rows (circa)
+-- Dump dei dati della tabella blazerdb.assistenza_conf: ~12 rows (circa)
 REPLACE INTO `assistenza_conf` (`ID_conf`, `ID_assistenza`) VALUES
 	(17, 1),
 	(17, 7),
@@ -57,7 +57,9 @@ REPLACE INTO `assistenza_conf` (`ID_conf`, `ID_assistenza`) VALUES
 	(21, 3),
 	(22, 3),
 	(23, 3),
-	(24, 4);
+	(24, 4),
+	(25, 5),
+	(26, 5);
 
 -- Dump della struttura di tabella blazerdb.cerchi
 CREATE TABLE IF NOT EXISTS `cerchi` (
@@ -121,7 +123,9 @@ REPLACE INTO `configurazione` (`ID_conf`, `ID_pack`, `ID_colore`, `ID_motore`, `
 	(21, 0, 10, 4, 2, 1),
 	(22, 2, 10, 4, 2, 1),
 	(23, 2, 10, 4, 2, 1),
-	(24, 2, 3, 4, 2, 1);
+	(24, 2, 3, 4, 2, 1),
+	(25, 1, 2, 4, 2, 2),
+	(26, 2, 2, 4, 2, 2);
 
 -- Dump della struttura di tabella blazerdb.interni
 CREATE TABLE IF NOT EXISTS `interni` (
@@ -184,7 +188,10 @@ REPLACE INTO `optional_conf` (`ID_conf`, `ID_optional`) VALUES
 	(18, 2),
 	(20, 1),
 	(20, 2),
-	(21, 1);
+	(21, 1),
+	(25, 2),
+	(26, 2),
+	(26, 3);
 
 -- Dump della struttura di tabella blazerdb.ordine
 CREATE TABLE IF NOT EXISTS `ordine` (
@@ -209,7 +216,9 @@ REPLACE INTO `ordine` (`ID`, `ID_utente`, `ID_veicolo`, `ID_conf`, `Data_acquist
 	(7, 2, 1, 21, '0000-00-00', 'Bozza'),
 	(8, 2, 1, 22, '0000-00-00', 'Bozza'),
 	(9, 2, 1, 23, '0000-00-00', 'Bozza'),
-	(10, 2, 1, 24, '0000-00-00', 'Bozza');
+	(10, 2, 1, 24, '0000-00-00', 'Bozza'),
+	(11, 2, 2, 25, '0000-00-00', 'Bozza'),
+	(12, 2, 2, 26, '0000-00-00', 'Bozza');
 
 -- Dump della struttura di tabella blazerdb.pack
 CREATE TABLE IF NOT EXISTS `pack` (
