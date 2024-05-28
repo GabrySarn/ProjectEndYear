@@ -37,24 +37,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if (isset($_POST['interior']) && !empty($_POST['interior'])) {
     $interior = $_POST['interior'];
+    $_SESSION['interior'] = $interior;
     header('Location: success.html');
   }
 
   if (isset($_POST['paint']) && !empty($_POST['paint'])) {
     $paint = $_POST['paint'];
     $_SESSION['paint'] = $paint;
-    echo $_SESSION['paint'];
-    //header('Location: success.html');
+    header('Location: success.html');
   }
 
   if (isset($_POST['wheel']) && !empty($_POST['wheel'])) {
     $wheel = $_POST['wheel'];
+    $_SESSION['wheel'] = $wheel;
     header('Location: success.html');
   }
 
   if (isset($_POST['motor']) && !empty($_POST['motor'])) {
     $motor = $_POST['motor'];
-    //var_dump($motor);
+    $_SESSION['motor'] = $motor;
     header('Location: success.html');
   }
 

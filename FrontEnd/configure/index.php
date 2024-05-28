@@ -1,4 +1,5 @@
 <?php
+
 include '../../BackEnd/Login_Back/chk.php';
 include '../../BackEnd/Configure_Back/order.php';
 include '../../BackEnd/connect.php';
@@ -438,7 +439,7 @@ $carModel = $res->fetch_assoc();
                       <div class="u-layout-row">
                         <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-3">
                           <div class="u-container-layout u-valign-middle u-container-layout-3">
-                            <h2 class="u-text u-text-3" data-optional="' . str_replace(' ', '_', $optional['Nome']) . '">' . $optional['Nome'] . '</h2>
+                            <h2 class="u-text u-text-3" data-optional="' . str_replace(' ', '_', $optional['Nome']) . '" id-optional="' . $optional['ID_opt'] . '">' . $optional['Nome'] . '</h2>
                             <a href="" class="add_opt u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-2">add
                               now</a>
                           </div>
