@@ -7,6 +7,35 @@ if (session_status() == PHP_SESSION_NONE) {
 $user = $_SESSION['idUtente'];
 $veicolo = $_SESSION['carId'];
 
+function checkAndRedirectIfFieldsMissing()
+{
+    $missingFields = [];
+    
+    if (!isset($_SESSION['interior']) || empty($_SESSION['interior'])) {
+        $missingFields[] = "interior";
+    }
+    if (!isset($_SESSION['paint']) || empty($_SESSION['paint'])) {
+        $missingFields[] = "paint";
+    }
+    if (!isset($_SESSION['wheel']) || empty($_SESSION['wheel'])) {
+        $missingFields[] = "wheel";
+    }
+    if (!isset($_SESSION['motor']) || empty($_SESSION['motor'])) {
+        $missingFields[] = "motor";
+    }
+    if (!isset($_SESSION['pack']) || empty($_SESSION['pack'])) {
+        $missingFields[] = "pack";
+    }
+    
+    if (!empty($missingFields)) {
+        $missingFieldsString = implode(", ", $missingFields);
+        echo "<script>alert('Per favore seleziona tutte le opzioni richieste: $missingFieldsString.'); window.history.back();</script>";
+        exit();
+    } else {
+        return true;
+    }
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Controlla e inserisci le assistenze selezionate
@@ -68,11 +97,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if (isset($_POST['options']) && !empty($_POST['options'])) {
-        // Check if all required fields are set
-        if (isset($_SESSION['paint']) && isset($_SESSION['motor']) && isset($_SESSION['wheel']) && isset($_SESSION['interior']) && isset($_POST['pack'])) {
+        $_SESSION['pack'] = $_POST['pack'];
+        if (checkAndRedirectIfFieldsMissing()) {
             $selectedOptions = json_decode($_POST['options'], true);
-            
-            $_SESSION['pack'] = $_POST['pack'];
+
+
             $sql = "INSERT INTO configurazione (ID_pack, ID_colore, ID_motore, ID_cerchi, ID_interni) VALUES ('{$_POST['pack']}', '{$_SESSION['paint']}', '{$_SESSION['motor']}', '{$_SESSION['wheel']}', '{$_SESSION['interior']}')";
             if ($conn->query($sql) === TRUE) {
                 $conf_id = $conn->insert_id;
