@@ -129,6 +129,9 @@ include '../../BackEnd/Login_Back/chk.php';
                 <li class="u-nav-item"><a class="u-button-style u-nav-link active" href="index.php"
                     data-page-id="243124289">Home</a>
                 </li>
+                <li class="u-nav-item"><a class="u-button-style u-nav-link active" href="../auto_list/index.php"
+                    data-page-id="243124289">Shop</a>
+                </li>
                 <li class="u-nav-item"><a class="u-button-style u-nav-link" href="../Info/aboutus.html"
                     data-page-id="49570372">About Us</a></li>
                 <li class="u-nav-item"><a class="u-button-style u-nav-link" href="../Info/contacts.html"
