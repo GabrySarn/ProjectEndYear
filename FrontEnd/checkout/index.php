@@ -74,86 +74,70 @@ $motor = $motorData['Nome'];
 $motorPrice = $motorData['Prezzo'];
 $car = $carData['Nome'];
 $carPrice = $carData['Prezzo'];
+
+$fixedItemCount = 6;
+
+global $total;
 $total = $packPrice + $paintPrice + $wheelPrice + $interiorPrice + $motorPrice + $carPrice;
 
 if (isset($_SESSION['conf_id']) && $_SESSION['conf_id'] !== '') {
   $conf_id = $_SESSION['conf_id'];
 } else {
-  // Gestisci il caso in cui $_SESSION['conf_id'] non è impostato o è vuoto
   echo "Errore: ID configurazione non valido.";
   return;
 }
 
-function getOptionalByConfiguration($id_configurazione, $tipo_optional)
+function getOptionalByConfiguration($conn, $id_configurazione, $tipo_optional)
 {
-    include '../../BackEnd/connect.php';
+  if ($tipo_optional == "standard") {
+    $optional_table = "optional";
+    $optional_conf_table = "optional_conf";
+    $optional_id_field = "ID_opt";
+    $optional_id_conf = "ID_optional";
+  } elseif ($tipo_optional == "assistenza") {
+    $optional_table = "assistenza";
+    $optional_conf_table = "assistenza_conf";
+    $optional_id_field = "id";
+    $optional_id_conf = "ID_assistenza";
+  } else {
+    echo "Tipo di optional non valido";
+    return [[], 0];
+  }
 
-    // Preparazione della query in base al tipo di optional
-    if ($tipo_optional == "standard") {
-        $optional_table = "optional";
-        $optional_conf_table = "optional_conf";
-        $optional_id_field = "ID_opt";
-        $optional_id_conf = "ID_optional";
-    } elseif ($tipo_optional == "assistenza") {
-        $optional_table = "assistenza";
-        $optional_conf_table = "assistenza_conf";
-        $optional_id_field = "id";
-        $optional_id_conf = "ID_assistenza";
-    } else {
-        echo "Tipo di optional non valido";
-        return;
-    }
+  $sql = "SELECT $optional_table.Nome, $optional_table.Prezzo
+          FROM $optional_table
+          INNER JOIN $optional_conf_table ON $optional_table.$optional_id_field = $optional_conf_table.$optional_id_conf
+          WHERE $optional_conf_table.ID_conf = ?";
 
-    // Prepara la query utilizzando uno statement preparato
-    $sql = "SELECT $optional_table.Nome, $optional_table.Prezzo
-            FROM $optional_table
-            INNER JOIN $optional_conf_table ON $optional_table.$optional_id_field = $optional_conf_table.$optional_id_conf
-            WHERE $optional_conf_table.ID_conf = ?";
+  $stmt = $conn->prepare($sql);
+  if ($stmt === false) {
+    echo "Errore nella preparazione dello statement: " . $conn->error;
+    return [[], 0];
+  }
 
-    // Prepara lo statement
-    $stmt = $conn->prepare($sql);
+  $stmt->bind_param("i", $id_configurazione);
+  if (!$stmt->execute()) {
+    echo "Errore nell'esecuzione dello statement: " . $stmt->error;
+    return [[], 0];
+  }
 
-    // Verifica se lo statement è stato preparato correttamente
-    if ($stmt === false) {
-        echo "Errore nella preparazione dello statement: " . $conn->error;
-        return;
-    }
+  $result = $stmt->get_result();
+  $optional_list = [];
+  while ($row = $result->fetch_assoc()) {
+    $optional_list[] = ['Nome' => $row['Nome'], 'Prezzo' => $row['Prezzo']];
+    global $total;
+    $total += $row['Prezzo'];
+  }
 
-    // Associa il valore di $conf_id allo statement
-    $stmt->bind_param("i", $id_configurazione);
-
-    // Esegue lo statement
-    if (!$stmt->execute()) {
-        echo "Errore nell'esecuzione dello statement: " . $stmt->error;
-        return;
-    }
-
-    // Ottiene il risultato dello statement
-    $result = $stmt->get_result();
-
-    // Verifica se ci sono risultati
-    if ($result->num_rows > 0) {
-        // Output dei dati
-        $optional_list = array();
-        while ($row = $result->fetch_assoc()) {
-            $optional_list[] = array(
-                "Nome" => $row["Nome"],
-                "Prezzo" => $row["Prezzo"],
-            );
-        }
-        return $optional_list;
-    } else {
-        return array();
-    }
-
-    // Chiudi lo statement
-    $stmt->close();
-    // Chiudi la connessione
-    $conn->close();
+  $stmt->close();
+  return [$optional_list, count($optional_list)];
 }
 
-$optional_standard = getOptionalByConfiguration($conf_id, "standard");
-$optional_assistenza = getOptionalByConfiguration($conf_id, "assistenza");
+list($optional_standard, $optionalStandardCount) = getOptionalByConfiguration($conn, $conf_id, "standard");
+list($optional_assistenza, $optionalAssistanceCount) = getOptionalByConfiguration($conn, $conf_id, "assistenza");
+
+// Total count of items in the cart
+$totalItemCount = $fixedItemCount + $optionalStandardCount + $optionalAssistanceCount;
 
 ?>
 
@@ -187,7 +171,7 @@ $optional_assistenza = getOptionalByConfiguration($conf_id, "assistenza");
         <div class="col-md-5 col-lg-4 order-md-last">
           <h4 class="d-flex justify-content-between align-items-center mb-3">
             <span class="text-primary">Your cart</span>
-            <span class="badge bg-primary rounded-pill">6</span>
+            <span class="badge bg-primary rounded-pill"><?php echo $totalItemCount; ?></span>
           </h4>
           <ul class="list-group mb-3">
             <li class="list-group-item d-flex justify-content-between lh-sm bg-body-tertiary">
@@ -232,7 +216,7 @@ $optional_assistenza = getOptionalByConfiguration($conf_id, "assistenza");
               </div>
               <span class="text-body-secondary"><?php echo htmlspecialchars($interiorPrice); ?></span>
             </li>
-            <?php foreach ($optional_standard as $optional) { ?>
+            <?php if(isset($optional_standard)) foreach ($optional_standard as $optional) { ?>
               <li class="list-group-item d-flex justify-content-between lh-sm bg-body-tertiary">
                 <div>
                   <h6 class="my-0">Optional Standard:</h6>
@@ -242,7 +226,7 @@ $optional_assistenza = getOptionalByConfiguration($conf_id, "assistenza");
               </li>
             <?php } ?>
             <!-- Esempio di integrazione degli optional di assistenza -->
-            <?php foreach ($optional_assistenza as $optional) { ?>
+            <?php if(isset($optional_assistenza)) foreach ($optional_assistenza as $optional) { ?>
               <li class="list-group-item d-flex justify-content-between lh-sm bg-body-tertiary">
                 <div>
                   <h6 class="my-0">Optional Assistenza:</h6>
@@ -294,12 +278,6 @@ $optional_assistenza = getOptionalByConfiguration($conf_id, "assistenza");
                 <div class="invalid-feedback">
                   Please enter your shipping address.
                 </div>
-              </div>
-
-              <div class="col-12">
-                <label for="address2" class="form-label">Address 2 <span
-                    class="text-body-secondary">(Optional)</span></label>
-                <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
               </div>
 
               <div class="col-md-5">

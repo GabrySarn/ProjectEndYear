@@ -71,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Check if all required fields are set
         if (isset($_SESSION['paint']) && isset($_SESSION['motor']) && isset($_SESSION['wheel']) && isset($_SESSION['interior']) && isset($_POST['pack'])) {
             $selectedOptions = json_decode($_POST['options'], true);
-
+            
             $_SESSION['pack'] = $_POST['pack'];
             $sql = "INSERT INTO configurazione (ID_pack, ID_colore, ID_motore, ID_cerchi, ID_interni) VALUES ('{$_POST['pack']}', '{$_SESSION['paint']}', '{$_SESSION['motor']}', '{$_SESSION['wheel']}', '{$_SESSION['interior']}')";
             if ($conn->query($sql) === TRUE) {
