@@ -14,7 +14,7 @@ $countries = [];
 if ($result) {
   while ($row = mysqli_fetch_assoc($result)) {
     $countries[] = $row['Nome'];
-  }
+  } 
 }
 
 // Funzione per recuperare nome e Prezzo tramite ID dal database
