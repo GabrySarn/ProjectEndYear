@@ -243,7 +243,7 @@ $totalItemCount = $fixedItemCount + $optionalStandardCount + $optionalAssistance
         </div>
         <div class="col-md-7 col-lg-8">
           <h4 class="mb-3">Billing address</h4>
-          <form class="needs-validation" novalidate>
+          <form class="needs-validation" id="checkout-form" novalidate>
             <div class="row g-3">
               <div class="col-sm-6">
                 <label for="Nome" class="form-label">First name</label>
@@ -344,23 +344,42 @@ $totalItemCount = $fixedItemCount + $optionalStandardCount + $optionalAssistance
                 <div class="invalid-feedback">
                   Security code required
                 </div>
-              </div> 
+              </div>
             </div>
 
             <hr class="my-4">
 
-            <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
+            <button class="w-100 btn btn-primary btn-lg" type="button" onclick="submitForm()">Buy</button>
           </form>
         </div>
       </div>
     </main>
-
-    <footer class="my-5 pt-5 text-body-secondary text-center text-small">
-      <p class="mb-1">&copy; 2005–2024 Blazer</p>
-    </footer>
   </div>
-  <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="script/checkout.js"></script>
+
+  <footer class="my-5 pt-5 text-body-secondary text-center text-small">
+    <p class="mb-1">&copy; 2023 Company Name</p>
+    <ul class="list-inline">
+      <li class="list-inline-item"><a href="#">Privacy</a></li>
+      <li class="list-inline-item"><a href="#">Terms</a></li>
+      <li class="list-inline-item"><a href="#">Support</a></li>
+    </ul>
+  </footer>
+
+  <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="form-validation.js"></script>
+  <script>
+    function submitForm() {
+      const form = document.getElementById('checkout-form');
+      if (form.checkValidity()) {
+        // Simulate form submission
+        alert('Form is valid! Submitting...');
+        window.location.href = '../Home/index.php';
+      } else {
+        // Show validation errors
+        form.classList.add('was-validated');
+      }
+    }
+  </script>
 </body>
 
 </html>
