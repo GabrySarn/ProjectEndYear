@@ -57,49 +57,49 @@ include '../../BackEnd/Configure_Back/order.php';
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="adaptiveSpeedAssist"
                         name="adaptiveSpeedAssist" value="Adaptive Speed Assist (ACC)">
-                    <label class="custom-control-label" for="adaptiveSpeedAssist">Adaptive Speed Assist (ACC)</label>
+                    <label class="custom-control-label" for="adaptiveSpeedAssist">Adaptive Speed Assist (ACC) +149.99€</label>
                 </div>
             </div>
             <div class="form-group">
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="hillStartAssist" name="hillStartAssist"
                         value="Hill Start Assist">
-                    <label class="custom-control-label" for="hillStartAssist">Hill Start Assist</label>
+                    <label class="custom-control-label" for="hillStartAssist">Hill Start Assist+149.99€</label>
                 </div>
             </div>
             <div class="form-group">
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="descentAssist" name="descentAssist"
                         value="Descent Assist">
-                    <label class="custom-control-label" for="descentAssist">Descent Assist</label>
+                    <label class="custom-control-label" for="descentAssist">Descent Assist +149.99€</label>
                 </div>
             </div>
             <div class="form-group">
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="parkingAssistant" name="parkingAssistant"
                         value="Parking Assistant">
-                    <label class="custom-control-label" for="parkingAssistant">Parking Assistant</label>
+                    <label class="custom-control-label" for="parkingAssistant">Parking Assistant +149.99€</label>
                 </div>
             </div>
             <div class="form-group">
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="parkingAssistantPlus"
                         name="parkingAssistantPlus" value="Parking Assistance Plus">
-                    <label class="custom-control-label" for="parkingAssistantPlus">Parking Assistance Plus</label>
+                    <label class="custom-control-label" for="parkingAssistantPlus">Parking Assistance Plus +149.99€</label>
                 </div>
             </div>
             <div class="form-group">
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="laneChangeWarning" name="laneChangeWarning"
                         value="Lane Change Warning">
-                    <label class="custom-control-label" for="laneChangeWarning">Lane Change Warning</label>
+                    <label class="custom-control-label" for="laneChangeWarning">Lane Change Warning +149.99€</label>
                 </div>
             </div>
             <div class="form-group">
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="laneDepartureWarning"
                         name="laneDepartureWarning" value="Lane Departure Warning">
-                    <label class="custom-control-label" for="laneDepartureWarning">Lane Departure Warning</label>
+                    <label class="custom-control-label" for="laneDepartureWarning">Lane Departure Warning +149.99€</label>
                 </div>
             </div>
             <!-- Add more checkboxes for other assistance systems -->
