@@ -179,21 +179,21 @@ $totalItemCount = $fixedItemCount + $optionalStandardCount + $optionalAssistance
                 <h6 class="my-0">Car</h6>
                 <small class="text-body-secondary"><?php echo htmlspecialchars($car); ?></small>
               </div>
-              <span class="text-body-secondary"><?php echo htmlspecialchars($carPrice); ?></span>
+              <span class="text-body-secondary"><?php echo htmlspecialchars($carPrice); ?>€</span>
             </li>
             <li class="list-group-item d-flex justify-content-between lh-sm bg-body-tertiary">
               <div>
                 <h6 class="my-0">Pack</h6>
                 <small class="text-body-secondary"><?php echo htmlspecialchars($pack); ?></small>
               </div>
-              <span class="text-body-secondary"><?php echo htmlspecialchars($packPrice); ?></span>
+              <span class="text-body-secondary"><?php echo htmlspecialchars($packPrice); ?>€</span>
             </li>
             <li class="list-group-item d-flex justify-content-between lh-sm bg-body-tertiary">
               <div>
                 <h6 class="my-0">Painting</h6>
                 <small class="text-body-secondary"><?php echo htmlspecialchars($paint); ?></small>
               </div>
-              <span class="text-body-secondary"><?php echo htmlspecialchars($paintPrice); ?></span>
+              <span class="text-body-secondary"><?php echo htmlspecialchars($paintPrice); ?>€</span>
             </li>
             <li class="list-group-item d-flex justify-content-between lh-sm bg-body-tertiary">
               <div>
@@ -207,14 +207,14 @@ $totalItemCount = $fixedItemCount + $optionalStandardCount + $optionalAssistance
                 <h6 class="my-0">Wheels</h6>
                 <small class="text-body-secondary"><?php echo htmlspecialchars($wheel); ?></small>
               </div>
-              <span class="text-body-secondary"><?php echo htmlspecialchars($wheelPrice); ?></span>
+              <span class="text-body-secondary"><?php echo htmlspecialchars($wheelPrice); ?>€</span>
             </li>
             <li class="list-group-item d-flex justify-content-between lh-sm bg-body-tertiary">
               <div>
                 <h6 class="my-0">Interiors</h6>
                 <small class="text-body-secondary"><?php echo htmlspecialchars($interior); ?></small>
               </div>
-              <span class="text-body-secondary"><?php echo htmlspecialchars($interiorPrice); ?></span>
+              <span class="text-body-secondary"><?php echo htmlspecialchars($interiorPrice); ?>€</span>
             </li>
             <?php if(isset($optional_standard)) foreach ($optional_standard as $optional) { ?>
               <li class="list-group-item d-flex justify-content-between lh-sm bg-body-tertiary">
@@ -222,7 +222,7 @@ $totalItemCount = $fixedItemCount + $optionalStandardCount + $optionalAssistance
                   <h6 class="my-0">Optional Standard:</h6>
                   <small class="text-body-secondary"><?php echo htmlspecialchars($optional['Nome']); ?></small>
                 </div>
-                <span class="text-body-secondary"><?php echo htmlspecialchars($optional['Prezzo']); ?></span>
+                <span class="text-body-secondary"><?php echo htmlspecialchars($optional['Prezzo']); ?>€</span>
               </li>
             <?php } ?>
             <!-- Esempio di integrazione degli optional di assistenza -->
@@ -232,12 +232,12 @@ $totalItemCount = $fixedItemCount + $optionalStandardCount + $optionalAssistance
                   <h6 class="my-0">Optional Assistenza:</h6>
                   <small class="text-body-secondary"><?php echo htmlspecialchars($optional['Nome']);?></small>
                 </div>
-                <span class="text-body-secondary"><?php echo htmlspecialchars($optional['Prezzo']); ?></span>
+                <span class="text-body-secondary"><?php echo htmlspecialchars($optional['Prezzo']); ?>€</span>
               </li>
             <?php } ?>
             <li class="list-group-item d-flex justify-content-between bg-body-tertiary">
-              <span class="text-body-secondary">Total (EURO)</span>
-              <strong><?php echo htmlspecialchars($total); ?></strong>
+              <span class="text-body-secondary">Total</span>
+              <strong><?php echo htmlspecialchars($total); ?> €</strong>
             </li>
           </ul>
         </div>
