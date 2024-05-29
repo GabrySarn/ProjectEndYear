@@ -100,8 +100,8 @@ $res = $conn->query($sql);
                     while ($row = $res->fetch_assoc()) {
                         echo '<label>
                           <input type="radio" name="interior" class="interior-option" value="' . $row['ID_interni'] . '">
-                          <img src="images/Interiors/' .$row['Nome'] . '_seats.png" alt="' .$row['Nome'] . '" style="width: 100px; height: 130px;">
-                        </label>';
+                          <img src="images/Interiors/' .$row['Nome'] . '_seats.png" alt="' .$row['Nome'] . '" style="width: 100px; height: 130px;">+ '. $row['Prezzo'] . '€
+                        </label><br>';
                     }
                 ?>
                 <button type="submit" class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-text-black u-text-hover-white u-btn-1">ADD NOW</button>
