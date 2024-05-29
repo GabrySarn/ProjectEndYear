@@ -349,7 +349,7 @@ $totalItemCount = $fixedItemCount + $optionalStandardCount + $optionalAssistance
 
             <hr class="my-4">
 
-            <button class="w-100 btn btn-primary btn-lg" type="button" onclick="submitForm()">Buy</button>
+            <button class="w-100 btn btn-primary btn-lg" type="button" onclick="submitForm()">Buy</button> 
           </form>
         </div>
       </div>
