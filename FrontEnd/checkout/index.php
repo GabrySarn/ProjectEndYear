@@ -357,12 +357,7 @@ $totalItemCount = $fixedItemCount + $optionalStandardCount + $optionalAssistance
   </div>
 
   <footer class="my-5 pt-5 text-body-secondary text-center text-small">
-    <p class="mb-1">&copy; 2023 Company Name</p>
-    <ul class="list-inline">
-      <li class="list-inline-item"><a href="#">Privacy</a></li>
-      <li class="list-inline-item"><a href="#">Terms</a></li>
-      <li class="list-inline-item"><a href="#">Support</a></li>
-    </ul>
+    <p class="mb-1">&copy; 2024 Blazer</p>
   </footer>
 
   <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
