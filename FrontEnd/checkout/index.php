@@ -59,7 +59,7 @@ $packData = isset($_SESSION['pack']) && $_SESSION['pack'] ? getNameAndPriceById(
 $paintData = isset($_SESSION['paint']) && $_SESSION['paint'] ? getNameAndPriceById($conn, 'colore', (int) $_SESSION['paint'], 'ID_colore', 'Prezzo') : ['Nome' => 'Non selezionato', 'Prezzo' => 0];
 $wheelData = isset($_SESSION['wheel']) && $_SESSION['wheel'] ? getNameAndPriceById($conn, 'cerchi', (int) $_SESSION['wheel'], 'ID_cerchi', 'Prezzo') : ['Nome' => 'Non selezionato', 'Prezzo' => 0];
 $interiorData = isset($_SESSION['interior']) && $_SESSION['interior'] ? getNameAndPriceById($conn, 'interni', (int) $_SESSION['interior'], 'ID_interni', 'Prezzo') : ['Nome' => 'Non selezionato', 'Prezzo' => 0];
-$motorData = isset($_SESSION['motor']) && $_SESSION['motor'] ? getNameAndPriceById($conn, 'motore', (int) $_SESSION['motor'], 'ID_motore', 'Potenza') : ['Nome' => 'Non selezionato', 'Prezzo' => 0];
+$motorData = isset($_SESSION['motor']) && $_SESSION['motor'] ? getNameAndPriceById($conn, 'motore', (int) $_SESSION['motor'], 'ID_motore', 'prezzo') : ['Nome' => 'Non selezionato', 'Prezzo' => 0];
 
 // Estrai i nomi e i prezzi
 $pack = $packData['Nome'];
@@ -186,35 +186,35 @@ $totalItemCount = $fixedItemCount + $optionalStandardCount + $optionalAssistance
                 <h6 class="my-0">Pack</h6>
                 <small class="text-body-secondary"><?php echo htmlspecialchars($pack); ?></small>
               </div>
-              <span class="text-body-secondary"><?php echo htmlspecialchars($packPrice); ?>€</span>
+              <span class="text-body-secondary">+<?php echo htmlspecialchars($packPrice); ?>€</span>
             </li>
             <li class="list-group-item d-flex justify-content-between lh-sm bg-body-tertiary">
               <div>
                 <h6 class="my-0">Painting</h6>
                 <small class="text-body-secondary"><?php echo htmlspecialchars($paint); ?></small>
               </div>
-              <span class="text-body-secondary"><?php echo htmlspecialchars($paintPrice); ?>€</span>
+              <span class="text-body-secondary">+<?php echo htmlspecialchars($paintPrice); ?>€</span>
             </li>
             <li class="list-group-item d-flex justify-content-between lh-sm bg-body-tertiary">
               <div>
                 <h6 class="my-0">Motorization</h6>
                 <small class="text-body-secondary"><?php echo htmlspecialchars($motor); ?></small>
               </div>
-              <span class="text-body-secondary"><?php echo htmlspecialchars($motorPrice); ?></span>
+              <span class="text-body-secondary">+<?php echo htmlspecialchars($motorPrice); ?>€</span>
             </li>
             <li class="list-group-item d-flex justify-content-between lh-sm bg-body-tertiary">
               <div>
                 <h6 class="my-0">Wheels</h6>
                 <small class="text-body-secondary"><?php echo htmlspecialchars($wheel); ?></small>
               </div>
-              <span class="text-body-secondary"><?php echo htmlspecialchars($wheelPrice); ?>€</span>
+              <span class="text-body-secondary">+<?php echo htmlspecialchars($wheelPrice); ?>€</span>
             </li>
             <li class="list-group-item d-flex justify-content-between lh-sm bg-body-tertiary">
               <div>
                 <h6 class="my-0">Interiors</h6>
                 <small class="text-body-secondary"><?php echo htmlspecialchars($interior); ?></small>
               </div>
-              <span class="text-body-secondary"><?php echo htmlspecialchars($interiorPrice); ?>€</span>
+              <span class="text-body-secondary">+<?php echo htmlspecialchars($interiorPrice); ?>€</span>
             </li>
             <?php if(isset($optional_standard)) foreach ($optional_standard as $optional) { ?>
               <li class="list-group-item d-flex justify-content-between lh-sm bg-body-tertiary">
@@ -222,7 +222,7 @@ $totalItemCount = $fixedItemCount + $optionalStandardCount + $optionalAssistance
                   <h6 class="my-0">Optional Standard:</h6>
                   <small class="text-body-secondary"><?php echo htmlspecialchars($optional['Nome']); ?></small>
                 </div>
-                <span class="text-body-secondary"><?php echo htmlspecialchars($optional['Prezzo']); ?>€</span>
+                <span class="text-body-secondary">+<?php echo htmlspecialchars($optional['Prezzo']); ?>€</span>
               </li>
             <?php } ?>
             <!-- Esempio di integrazione degli optional di assistenza -->
@@ -232,7 +232,7 @@ $totalItemCount = $fixedItemCount + $optionalStandardCount + $optionalAssistance
                   <h6 class="my-0">Optional Assistenza:</h6>
                   <small class="text-body-secondary"><?php echo htmlspecialchars($optional['Nome']);?></small>
                 </div>
-                <span class="text-body-secondary"><?php echo htmlspecialchars($optional['Prezzo']); ?>€</span>
+                <span class="text-body-secondary">+<?php echo htmlspecialchars($optional['Prezzo']); ?>€</span>
               </li>
             <?php } ?>
             <li class="list-group-item d-flex justify-content-between bg-body-tertiary">
