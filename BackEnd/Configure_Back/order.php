@@ -9,29 +9,17 @@ $veicolo = $_SESSION['carId'];
 
 function checkAndRedirectIfFieldsMissing()
 {
-    $missingFields = [];
-    
-    if (!isset($_SESSION['interior']) || empty($_SESSION['interior'])) {
-        $missingFields[] = "interior";
-    }
-    if (!isset($_SESSION['paint']) || empty($_SESSION['paint'])) {
-        $missingFields[] = "paint";
-    }
-    if (!isset($_SESSION['wheel']) || empty($_SESSION['wheel'])) {
-        $missingFields[] = "wheel";
-    }
-    if (!isset($_SESSION['motor']) || empty($_SESSION['motor'])) {
-        $missingFields[] = "motor";
-    }
-    if (!isset($_SESSION['pack']) || empty($_SESSION['pack'])) {
-        $missingFields[] = "pack";
-    }
-    
-    if (!empty($missingFields)) {
-        $missingFieldsString = implode(", ", $missingFields);
-        echo "<script>alert('Per favore seleziona tutte le opzioni richieste: $missingFieldsString.'); window.history.back();</script>";
+    if (
+        !isset($_SESSION['interior']) || empty($_SESSION['interior']) ||
+        !isset($_SESSION['paint']) || empty($_SESSION['paint']) ||
+        !isset($_SESSION['wheel']) || empty($_SESSION['wheel']) ||
+        !isset($_SESSION['motor']) || empty($_SESSION['motor']) ||
+        !isset($_SESSION['pack']) || empty($_SESSION['pack'])
+
+    ) {
+        echo "<script>alert('Per favore seleziona tutte le opzioni richieste: paint, motor, wheel, pack, e interior.'); window.history.back();</script>";
         exit();
-    } else {
+    }else{
         return true;
     }
 }
