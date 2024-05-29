@@ -366,7 +366,7 @@ $optional_assistenza = getOptionalByConfiguration($conf_id, "assistenza");
                 <div class="invalid-feedback">
                   Security code required
                 </div>
-              </div>
+              </div> 
             </div>
 
             <hr class="my-4">
