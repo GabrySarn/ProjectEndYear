@@ -1,145 +1,6 @@
 <?php
-include '../../BackEnd/Login_Back/chk.php';
-include '../../BackEnd/connect.php';
-
-$email = $_SESSION['email'];
-$idUtente = $_SESSION['idUtente'];
-$nome = $_SESSION['nome'];
-$cognome = $_SESSION['cognome'];
-
-$query = "SELECT * FROM paese";
-$result = mysqli_query($conn, $query);
-
-$countries = [];
-if ($result) {
-  while ($row = mysqli_fetch_assoc($result)) {
-    $countries[] = $row['Nome'];
-  } 
-}
-
-// Funzione per recuperare nome e Prezzo tramite ID dal database
-function getNameAndPriceById($conn, $table, $id, $nameId, $priceField)
-{
-  // Prepara la dichiarazione SQL per prevenire SQL injection
-  $stmt = $conn->prepare("SELECT Nome, $priceField FROM $table WHERE $nameId = ?");
-  if ($stmt === false) {
-    // Gestisci l'errore se la preparazione della dichiarazione fallisce
-    error_log("Errore nella preparazione della dichiarazione: " . htmlspecialchars($conn->error));
-    return ['Nome' => 'Errore nella preparazione della dichiarazione', $priceField => 0];
-  }
-
-  // Collega il parametro alla dichiarazione
-  $stmt->bind_param("i", $id);
-
-  // Esegui la dichiarazione
-  if (!$stmt->execute()) {
-    // Gestisci l'errore se l'esecuzione della dichiarazione fallisce
-    error_log("Errore nell'esecuzione della dichiarazione: " . htmlspecialchars($stmt->error));
-    return ['Nome' => 'Errore nell esecuzione della dichiarazione', $priceField => 0];
-  }
-
-  // Ottieni il risultato
-  $result = $stmt->get_result();
-
-  // Recupera nome e Prezzo se disponibili
-  if ($result && $result->num_rows > 0) {
-    $row = $result->fetch_assoc();
-    $stmt->close();
-    return ['Nome' => $row['Nome'], 'Prezzo' => $row[$priceField]];
-  } else {
-    // Gestisci il caso in cui non viene trovato alcun risultato
-    $stmt->close();
-    return ['Nome' => 'Non selezionato', 'Prezzo' => 0];
-  }
-}
-
-// Recupera i nomi e i prezzi in base agli ID
-$carData = isset($_SESSION['carId']) && $_SESSION['carId'] ? getNameAndPriceById($conn, 'veicolo', (int) $_SESSION['carId'], 'ID_auto', 'Prezzo') : ['Nome' => 'Non selezionato', 'Prezzo' => 0];
-$packData = isset($_SESSION['pack']) && $_SESSION['pack'] ? getNameAndPriceById($conn, 'pack', (int) $_SESSION['pack'], 'ID_pack', 'Prezzo') : ['Nome' => 'Non selezionato', 'Prezzo' => 0];
-$paintData = isset($_SESSION['paint']) && $_SESSION['paint'] ? getNameAndPriceById($conn, 'colore', (int) $_SESSION['paint'], 'ID_colore', 'Prezzo') : ['Nome' => 'Non selezionato', 'Prezzo' => 0];
-$wheelData = isset($_SESSION['wheel']) && $_SESSION['wheel'] ? getNameAndPriceById($conn, 'cerchi', (int) $_SESSION['wheel'], 'ID_cerchi', 'Prezzo') : ['Nome' => 'Non selezionato', 'Prezzo' => 0];
-$interiorData = isset($_SESSION['interior']) && $_SESSION['interior'] ? getNameAndPriceById($conn, 'interni', (int) $_SESSION['interior'], 'ID_interni', 'Prezzo') : ['Nome' => 'Non selezionato', 'Prezzo' => 0];
-$motorData = isset($_SESSION['motor']) && $_SESSION['motor'] ? getNameAndPriceById($conn, 'motore', (int) $_SESSION['motor'], 'ID_motore', 'prezzo') : ['Nome' => 'Non selezionato', 'Prezzo' => 0];
-
-// Estrai i nomi e i prezzi
-$pack = $packData['Nome'];
-$packPrice = $packData['Prezzo'];
-$paint = $paintData['Nome'];
-$paintPrice = $paintData['Prezzo'];
-$wheel = $wheelData['Nome'];
-$wheelPrice = $wheelData['Prezzo'];
-$interior = $interiorData['Nome'];
-$interiorPrice = $interiorData['Prezzo'];
-$motor = $motorData['Nome'];
-$motorPrice = $motorData['Prezzo'];
-$car = $carData['Nome'];
-$carPrice = $carData['Prezzo'];
-
-$fixedItemCount = 6;
-
-global $total;
-$total = $packPrice + $paintPrice + $wheelPrice + $interiorPrice + $motorPrice + $carPrice;
-
-if (isset($_SESSION['conf_id']) && $_SESSION['conf_id'] !== '') {
-  $conf_id = $_SESSION['conf_id'];
-} else {
-  echo "Errore: ID configurazione non valido.";
-  return;
-}
-
-function getOptionalByConfiguration($conn, $id_configurazione, $tipo_optional)
-{
-  if ($tipo_optional == "standard") {
-    $optional_table = "optional";
-    $optional_conf_table = "optional_conf";
-    $optional_id_field = "ID_opt";
-    $optional_id_conf = "ID_optional";
-  } elseif ($tipo_optional == "assistenza") {
-    $optional_table = "assistenza";
-    $optional_conf_table = "assistenza_conf";
-    $optional_id_field = "id";
-    $optional_id_conf = "ID_assistenza";
-  } else {
-    echo "Tipo di optional non valido";
-    return [[], 0];
-  }
-
-  $sql = "SELECT $optional_table.Nome, $optional_table.Prezzo
-          FROM $optional_table
-          INNER JOIN $optional_conf_table ON $optional_table.$optional_id_field = $optional_conf_table.$optional_id_conf
-          WHERE $optional_conf_table.ID_conf = ?";
-
-  $stmt = $conn->prepare($sql);
-  if ($stmt === false) {
-    echo "Errore nella preparazione dello statement: " . $conn->error;
-    return [[], 0];
-  }
-
-  $stmt->bind_param("i", $id_configurazione);
-  if (!$stmt->execute()) {
-    echo "Errore nell'esecuzione dello statement: " . $stmt->error;
-    return [[], 0];
-  }
-
-  $result = $stmt->get_result();
-  $optional_list = [];
-  while ($row = $result->fetch_assoc()) {
-    $optional_list[] = ['Nome' => $row['Nome'], 'Prezzo' => $row['Prezzo']];
-    global $total;
-    $total += $row['Prezzo'];
-  }
-
-  $stmt->close();
-  return [$optional_list, count($optional_list)];
-}
-
-list($optional_standard, $optionalStandardCount) = getOptionalByConfiguration($conn, $conf_id, "standard");
-list($optional_assistenza, $optionalAssistanceCount) = getOptionalByConfiguration($conn, $conf_id, "assistenza");
-
-// Total count of items in the cart
-$totalItemCount = $fixedItemCount + $optionalStandardCount + $optionalAssistanceCount;
-
-?>
+include '../../BackEnd/Configure_Back/checkout_back.php'
+  ?>
 
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
@@ -216,25 +77,27 @@ $totalItemCount = $fixedItemCount + $optionalStandardCount + $optionalAssistance
               </div>
               <span class="text-body-secondary">+<?php echo htmlspecialchars($interiorPrice); ?>€</span>
             </li>
-            <?php if(isset($optional_standard)) foreach ($optional_standard as $optional) { ?>
-              <li class="list-group-item d-flex justify-content-between lh-sm bg-body-tertiary">
-                <div>
-                  <h6 class="my-0">Optional Standard:</h6>
-                  <small class="text-body-secondary"><?php echo htmlspecialchars($optional['Nome']); ?></small>
-                </div>
-                <span class="text-body-secondary">+<?php echo htmlspecialchars($optional['Prezzo']); ?>€</span>
-              </li>
-            <?php } ?>
+            <?php if (isset($optional_standard))
+              foreach ($optional_standard as $optional) { ?>
+                <li class="list-group-item d-flex justify-content-between lh-sm bg-body-tertiary">
+                  <div>
+                    <h6 class="my-0">Optional Standard:</h6>
+                    <small class="text-body-secondary"><?php echo htmlspecialchars($optional['Nome']); ?></small>
+                  </div>
+                  <span class="text-body-secondary">+<?php echo htmlspecialchars($optional['Prezzo']); ?>€</span>
+                </li>
+              <?php } ?>
             <!-- Esempio di integrazione degli optional di assistenza -->
-            <?php if(isset($optional_assistenza)) foreach ($optional_assistenza as $optional) { ?>
-              <li class="list-group-item d-flex justify-content-between lh-sm bg-body-tertiary">
-                <div>
-                  <h6 class="my-0">Optional Assistenza:</h6>
-                  <small class="text-body-secondary"><?php echo htmlspecialchars($optional['Nome']);?></small>
-                </div>
-                <span class="text-body-secondary">+<?php echo htmlspecialchars($optional['Prezzo']); ?>€</span>
-              </li>
-            <?php } ?>
+            <?php if (isset($optional_assistenza))
+              foreach ($optional_assistenza as $optional) { ?>
+                <li class="list-group-item d-flex justify-content-between lh-sm bg-body-tertiary">
+                  <div>
+                    <h6 class="my-0">Optional Assistenza:</h6>
+                    <small class="text-body-secondary"><?php echo htmlspecialchars($optional['Nome']); ?></small>
+                  </div>
+                  <span class="text-body-secondary">+<?php echo htmlspecialchars($optional['Prezzo']); ?>€</span>
+                </li>
+              <?php } ?>
             <li class="list-group-item d-flex justify-content-between bg-body-tertiary">
               <span class="text-body-secondary">Total</span>
               <strong><?php echo htmlspecialchars($total); ?> €</strong>
@@ -243,7 +106,6 @@ $totalItemCount = $fixedItemCount + $optionalStandardCount + $optionalAssistance
         </div>
         <div class="col-md-7 col-lg-8">
           <h4 class="mb-3">Billing address</h4>
-          <form class="needs-validation" id="checkout-form" novalidate>
             <div class="row g-3">
               <div class="col-sm-6">
                 <label for="Nome" class="form-label">First name</label>
@@ -294,63 +156,65 @@ $totalItemCount = $fixedItemCount + $optionalStandardCount + $optionalAssistance
             </div>
 
             <hr class="my-4">
+            <form class="needs-validation" id="checkout-form" method="POST" novalidate>
+            <input type="hidden" name="state" value="Terminated">
 
-            <h4 class="mb-3">Payment</h4>
+              <h4 class="mb-3">Payment</h4>
 
-            <div class="my-3">
-              <div class="form-check">
-                <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
-                <label class="form-check-label" for="credit">Credit card</label>
-              </div>
-              <div class="form-check">
-                <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
-                <label class="form-check-label" for="debit">Debit card</label>
-              </div>
-              <div class="form-check">
-                <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
-                <label class="form-check-label" for="paypal">PayPal</label>
-              </div>
-            </div>
-
-            <div class="row gy-3">
-              <div class="col-md-6">
-                <label for="cc-name" class="form-label">Name on card</label>
-                <input type="text" class="form-control" id="cc-name" placeholder="" required>
-                <small class="text-body-secondary">Full name as displayed on card</small>
-                <div class="invalid-feedback">
-                  Name on card is required
+              <div class="my-3">
+                <div class="form-check">
+                  <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
+                  <label class="form-check-label" for="credit">Credit card</label>
+                </div>
+                <div class="form-check">
+                  <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
+                  <label class="form-check-label" for="debit">Debit card</label>
+                </div>
+                <div class="form-check">
+                  <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
+                  <label class="form-check-label" for="paypal">PayPal</label>
                 </div>
               </div>
 
-              <div class="col-md-6">
-                <label for="cc-number" class="form-label">Credit card number</label>
-                <input type="text" class="form-control" id="cc-number" placeholder="" required>
-                <div class="invalid-feedback">
-                  Credit card number is required
+              <div class="row gy-3">
+                <div class="col-md-6">
+                  <label for="cc-name" class="form-label">Name on card</label>
+                  <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                  <small class="text-body-secondary">Full name as displayed on card</small>
+                  <div class="invalid-feedback">
+                    Name on card is required
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="cc-number" class="form-label">Credit card number</label>
+                  <input type="text" class="form-control" id="cc-number" placeholder="" required>
+                  <div class="invalid-feedback">
+                    Credit card number is required
+                  </div>
+                </div>
+
+                <div class="col-md-3">
+                  <label for="cc-expiration" class="form-label">Expiration</label>
+                  <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+                  <div class="invalid-feedback">
+                    Expiration date required
+                  </div>
+                </div>
+
+                <div class="col-md-3">
+                  <label for="cc-cvv" class="form-label">CVV</label>
+                  <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+                  <div class="invalid-feedback">
+                    Security code required
+                  </div>
                 </div>
               </div>
 
-              <div class="col-md-3">
-                <label for="cc-expiration" class="form-label">Expiration</label>
-                <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
-                <div class="invalid-feedback">
-                  Expiration date required
-                </div>
-              </div>
+              <hr class="my-4">
 
-              <div class="col-md-3">
-                <label for="cc-cvv" class="form-label">CVV</label>
-                <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
-                <div class="invalid-feedback">
-                  Security code required
-                </div>
-              </div>
-            </div>
-
-            <hr class="my-4">
-
-            <button class="w-100 btn btn-primary btn-lg" type="button" onclick="submitForm()">Buy</button> 
-          </form>
+              <button class="w-100 btn btn-primary btn-lg" type="submit" onclick="submitForm()">Buy</button>
+            </form>
         </div>
       </div>
     </main>
@@ -361,20 +225,8 @@ $totalItemCount = $fixedItemCount + $optionalStandardCount + $optionalAssistance
   </footer>
 
   <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="form-validation.js"></script>
-  <script>
-    function submitForm() {
-      const form = document.getElementById('checkout-form');
-      if (form.checkValidity()) {
-        // Simulate form submission
-        alert('Form is valid! Submitting...');
-        window.location.href = '../Home/index.php';
-      } else {
-        // Show validation errors
-        form.classList.add('was-validated');
-      }
-    }
-  </script>
+  <script src="checkout.js"></script>
+
 </body>
 
 </html>
