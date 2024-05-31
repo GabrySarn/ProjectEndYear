@@ -376,7 +376,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <a class="u-product-title-link" href="javascript:void(0)" onclick="openSiteDialog('motorization.php')">
                   <img alt=""
                     class="custom-expanded u-image u-image-contain u-image-default u-product-control u-image-3 product-image"
-                    src="images/motor.jpeg" title="">
+                    src="images/Motor.jpeg" title="">
                 </a>
               </div>
             </div>
