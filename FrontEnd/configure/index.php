@@ -380,7 +380,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </a>
               </div>
             </div>
-
+      
             <!-- Dialog per mostrare il sito -->
             <div id="siteDialog" class="u-align-center"
               style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border: 1px solid #ccc; border-radius: 5px; z-index: 9999; width: 80%; max-width: 800px; height: 80%; overflow: auto;">
