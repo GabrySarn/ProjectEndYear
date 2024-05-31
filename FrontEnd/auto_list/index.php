@@ -242,7 +242,7 @@ if ($res->num_rows > 0) {
 
   <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-77b4">
     <section class="u-backlink u-clearfix u-grey-80">
-      <p class="u-text"><span>This site was created by G.Sarnelli | A.Ricci | M.Ndoja</span></p>
+      <p class="u-text"><span>This site has been created by G.Sarnelli | A.Ricci | M.Ndoja</span></p>
     </section>
   </footer>
 
