@@ -76,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         html {
-            zoom: 70%;
+            zoom: 55%;
         }
     </style>
 </head>

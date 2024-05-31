@@ -46,7 +46,7 @@ $res = $conn->query($sql);
     }
 
     html {
-      zoom: 65%;
+      zoom: 50%;
       /* Imposta lo zoom predefinito al 70% */
     }
 
@@ -100,7 +100,7 @@ $res = $conn->query($sql);
                     while ($row = $res->fetch_assoc()) {
                         echo '<label>
                           <input type="radio" name="interior" class="interior-option" value="' . $row['ID_interni'] . '">
-                          <img src="images/Interiors/' .$row['Nome'] . '_seats.png" alt="' .$row['Nome'] . '" style="width: 100px; height: 130px;">+ '. $row['Prezzo'] . '€
+                          <img src="images/Interiors/' .$row['Nome'] . '_seats.png" alt="' .$row['Nome'] . '" style="width: 100px; height: 130px;"> '. $row['Nome'] . ' +' . $row['Prezzo'] . '€
                         </label><br>';
                     }
                 ?>
