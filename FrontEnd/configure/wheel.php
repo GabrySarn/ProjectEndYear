@@ -46,7 +46,7 @@ $res = $conn->query($sql);
     }
 
     html {
-      zoom: 65%;
+      zoom: 48%;
       /* Imposta lo zoom predefinito al 70% */
     }
 
@@ -108,7 +108,7 @@ $res = $conn->query($sql);
                   echo '<label>
                       <input type="radio" name="wheel" class="wheel-option" value="' . $row['ID_cerchi'] . '" data-wheel="' . $row['Img_link'] . '">
                       <img src="' . $row['Img_link'] . '" alt="' . $row['Nome'] . '" style="width: 100px; height: 100px;">
-                    </label>Model: ' . $row['Nome'] . ' Prezzo: ' . $row['Prezzo'] . '€<br>';
+                    </label>Model: ' . $row['Nome'] . ' Prezzo: +' . $row['Prezzo'] . '€<br>';
 
                 }
                 ?>
