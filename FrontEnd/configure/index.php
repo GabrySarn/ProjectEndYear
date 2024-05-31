@@ -10,7 +10,7 @@ include '../../BackEnd/connect.php';
 $sql = "SELECT * FROM veicolo WHERE ID_auto =" . $_SESSION['carId'];
 $res = $conn->query($sql);
 
-$carModel = $res->fetch_assoc();
+$carModel = $res->fetch_assoc(); 
 
 include "../../BackEnd/connect.php";
 
